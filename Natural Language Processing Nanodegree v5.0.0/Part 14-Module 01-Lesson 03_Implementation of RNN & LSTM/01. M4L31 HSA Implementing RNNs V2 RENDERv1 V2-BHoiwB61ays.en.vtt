@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.819
+Hi again! So, in the last couple lessons,
+
+00:00:02.819 --> 00:00:07.154
+Ortel and Louise introduce you to recurrent neural networks and LSTMs.
+
+00:00:07.155 --> 00:00:11.515
+In this lesson, Matt and I will be going over some implementations of these networks.
+
+00:00:11.515 --> 00:00:14.339
+Because RNNs have a kind of built-in memory,
+
+00:00:14.339 --> 00:00:18.035
+they're really useful for tasks that are time or sequence dependent.
+
+00:00:18.035 --> 00:00:22.259
+For example, RNNs are used in tasks like time series prediction,
+
+00:00:22.260 --> 00:00:24.630
+as in predicting the weather over time,
+
+00:00:24.629 --> 00:00:27.149
+or in text generation for which the order of
+
+00:00:27.149 --> 00:00:30.284
+words and characters in a sentence is really important.
+
+00:00:30.285 --> 00:00:35.590
+The challenges in designing and implementing any kind of RNN are really two-fold.
+
+00:00:35.590 --> 00:00:38.505
+First, how can we pre-process sequential data,
+
+00:00:38.505 --> 00:00:40.200
+such as a series of sentences,
+
+00:00:40.200 --> 00:00:44.285
+and convert it into numerical data that can be understood by a neural network?
+
+00:00:44.284 --> 00:00:47.519
+Second, how can we represent memory in code?
+
+00:00:47.520 --> 00:00:50.635
+I'll address these challenges in a couple of code example.
+
+00:00:50.634 --> 00:00:52.100
+By the end of the lesson,
+
+00:00:52.100 --> 00:00:55.245
+you'll have learned to build and train a character level RNN,
+
+00:00:55.244 --> 00:01:00.074
+specifically an LSTM that's trained on the text of Tolstoy's Anna Karenina.
+
+00:01:00.075 --> 00:01:05.545
+The LSTM will take one characters input and produce a predicted next character as output.
+
+00:01:05.545 --> 00:01:08.734
+You can train such an LSTM on any body of text,
+
+00:01:08.734 --> 00:01:12.019
+such as a publicly available book or television script,
+
+00:01:12.019 --> 00:01:14.109
+and generate some really interesting results.
+
+00:01:14.109 --> 00:01:18.920
+So next, let's talk more about how we can build RNNs that learn from sequential data.
+

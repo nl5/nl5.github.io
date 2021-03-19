@@ -1,0 +1,523 @@
+{
+  "data": {
+    "lesson": {
+      "id": 814550,
+      "key": "9f3f4566-da72-4bda-b4cd-ed60cc295af3",
+      "title": "Python Regular Expression",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/9f3f4566-da72-4bda-b4cd-ed60cc295af3/814550/1556335894021/Python+Regular+Expression+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/9f3f4566-da72-4bda-b4cd-ed60cc295af3/814550/1556335889473/Python+Regular+Expression+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 783757,
+          "key": "2649193e-b376-4193-84fb-3407c7350d6c",
+          "title": "Raw Strings",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2649193e-b376-4193-84fb-3407c7350d6c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801744,
+              "key": "c73281b6-0bad-40af-9f03-6e3ee95e682c",
+              "title": "M5 SC 1 Raw Strings V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "WhL1VbulThY",
+                "china_cdn_id": "WhL1VbulThY.mp4"
+              }
+            },
+            {
+              "id": 783758,
+              "key": "71ecaef8-06b0-4050-a642-679cdca33ac8",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783757xJUPYTERms2oyw9u",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-x77r7",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/raw_strings.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783760,
+          "key": "080c0b3b-dd01-4d97-b11e-490b20d39bc7",
+          "title": "Finding Words ",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "080c0b3b-dd01-4d97-b11e-490b20d39bc7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801745,
+              "key": "595dec38-e60c-4745-a5c8-c153e758b9b1",
+              "title": "M5 SC 2 Finding Words V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "wTOh9B6aHGk",
+                "china_cdn_id": "wTOh9B6aHGk.mp4"
+              }
+            },
+            {
+              "id": 783761,
+              "key": "6f88baf3-bab3-4132-9350-b06a68d2d839",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783760xJUPYTERppu04zdr",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-oj0mk",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/finding_words.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783764,
+          "key": "bc8f44bc-6bfa-47fe-8a3b-c8d7e351b137",
+          "title": "Finding MetaCharacters",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bc8f44bc-6bfa-47fe-8a3b-c8d7e351b137",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801746,
+              "key": "22375c7d-6ccb-47f7-b8b6-cdb45ff360f8",
+              "title": "M5 SC 3 Finding Metacharacters V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "RiSVD9E823Q",
+                "china_cdn_id": "RiSVD9E823Q.mp4"
+              }
+            },
+            {
+              "id": 783765,
+              "key": "00214af8-9f12-4895-836a-b14a58997367",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783764xJUPYTERs8s8p28p",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-xnezh",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/finding_metacharacters.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783769,
+          "key": "a96a5586-0bb5-415f-8f1b-6343bb0245cc",
+          "title": "Searching For Simple Patterns",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a96a5586-0bb5-415f-8f1b-6343bb0245cc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801747,
+              "key": "8f45c395-9975-4dc8-9187-3782015951a4",
+              "title": "M5 SC 4 Searching For Simple Patte V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "7RAHoJ34gXI",
+                "china_cdn_id": "7RAHoJ34gXI.mp4"
+              }
+            },
+            {
+              "id": 783770,
+              "key": "64d078a0-7281-4dea-8932-71636d0a52cf",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783769xJUPYTERwo6tayac",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-y2dcm",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/simple_patterns.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783772,
+          "key": "c7d355ad-675b-4942-943e-99e0d0f8ac59",
+          "title": "Word Boundaries",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c7d355ad-675b-4942-943e-99e0d0f8ac59",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801748,
+              "key": "bdfd9cc3-f4fb-467e-bda6-f8df161a4cc7",
+              "title": "M5 SC 5 Word Boundaries V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "3dWIHULqKog",
+                "china_cdn_id": "3dWIHULqKog.mp4"
+              }
+            },
+            {
+              "id": 783773,
+              "key": "8e97e6f7-7082-4069-a71d-d099b390d146",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783772xJUPYTERwj2dewhn",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-bpox0",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/word_boundaries.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783777,
+          "key": "d96ae3d5-9ff7-4f09-a7a7-b119ca5a13a5",
+          "title": "Simple MetaCharacters",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d96ae3d5-9ff7-4f09-a7a7-b119ca5a13a5",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801749,
+              "key": "5c4364ec-8bc6-401a-8cff-02776fb23df5",
+              "title": "M5 SC 6 Metacharacters Part 1 V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Jay3euM62NQ",
+                "china_cdn_id": "Jay3euM62NQ.mp4"
+              }
+            },
+            {
+              "id": 783778,
+              "key": "0ea483ae-b1dc-47dc-a028-e99f89fe5bbf",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783777xJUPYTERvo7kpum0",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-v642c",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/simple_metacharacters.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783779,
+          "key": "2ecb896e-8b95-4d01-abc0-75361f2717a2",
+          "title": "Character Sets",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2ecb896e-8b95-4d01-abc0-75361f2717a2",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801750,
+              "key": "f68fd137-5c6c-43a5-abfd-06e058d23e54",
+              "title": "M5 SC 7 Metacharacters Part 2 V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "KK1xo8GDfvE",
+                "china_cdn_id": "KK1xo8GDfvE.mp4"
+              }
+            },
+            {
+              "id": 783780,
+              "key": "12f3cead-d60f-46da-b04a-3cf1a22e86f0",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783779xJUPYTERo3rxhj1g",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-ms2af",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/character_sets.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783781,
+          "key": "0692eec8-70ee-41e5-a194-f73219905f35",
+          "title": "Groups",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0692eec8-70ee-41e5-a194-f73219905f35",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801751,
+              "key": "156ee7af-f0b7-4315-bea4-46aea481ff5d",
+              "title": "M5 SC 8 Metacharacters Part 3 V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nDlxRlDUNHk",
+                "china_cdn_id": "nDlxRlDUNHk.mp4"
+              }
+            },
+            {
+              "id": 783782,
+              "key": "bba8daa1-9249-4324-aea7-973688b51562",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783781xJUPYTER9kg73jxm",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-or07p",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/finding_complicated_patterns.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 783783,
+          "key": "882d593c-da8a-4d38-ab37-f2779c7dbaff",
+          "title": "Substitutions and Flags",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "882d593c-da8a-4d38-ab37-f2779c7dbaff",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 801752,
+              "key": "de4531a8-6a16-4dc4-b921-9958793eb4a2",
+              "title": "M5 SC 9 Substitutions And Flags V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9pxTGOlkLEY",
+                "china_cdn_id": "9pxTGOlkLEY.mp4"
+              }
+            },
+            {
+              "id": 783784,
+              "key": "18117da3-687d-4644-b27c-6bc5b33ac486",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r403173c783783xJUPYTERnh7ndtto",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-j16us",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/substitutions_and_flags.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

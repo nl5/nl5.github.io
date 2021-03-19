@@ -1,0 +1,273 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Parsers
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      BeautifulSoup Library
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction to BeautifulSoup.html">
+       01. Introduction to BeautifulSoup
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Parsers.html">
+       02. Parsers
+      </a>
+     </li>
+     <li class="">
+      <a href="03. HTML Structure.html">
+       03. HTML Structure
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Parsing an HTML File.html">
+       04. Parsing an HTML File
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Navigating The Parse Tree.html">
+       05. Navigating The Parse Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Searching The Parse Tree.html">
+       06. Searching The Parse Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Searching by Class and Regexes.html">
+       07. Searching by Class and Regexes
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Children Tags.html">
+       08. Children Tags
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Exercise Get Headers and Paragraphs.html">
+       09. Exercise: Get Headers and Paragraphs
+      </a>
+     </li>
+     <li class="">
+      <a href="10. The Requests Library.html">
+       10. The Requests Library
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Parsers
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="parsers">
+          Parsers
+         </h1>
+         <p>
+          In the following lessons you will learn how to use the
+          <strong>
+           BeautifulSoup
+          </strong>
+          library to pull data out of HTML and XML files. BeautifulSoup uses a parser to transform files into a tree of Python objects that can be easily searched. So, before we start learning how to use BeautifulSoup, let's take a quick look at parsers.
+         </p>
+         <p>
+          In BeautifulSoup, the
+          <strong>
+           parser
+          </strong>
+          is a piece of software whose primary job is to build a data structure in the form of a hierarchical tree that gives a structural representation of the HTML or XML file. In other words, the parser divides these complex files into simpler parts while keeping track of how these parts are related to each other. BeautifulSoup supports a number of parsers, but throughout these lessons we will only be using the
+          <strong>
+           lxml
+          </strong>
+          parser. The
+          <code>
+           lxml
+          </code>
+          parser can be used to parse both HTML and XML files and has the advantage of being very fast. In order to use the
+          <code>
+           lxml
+          </code>
+          parser, you must have
+          <code>
+           lxml
+          </code>
+          installed. You can install the
+          <code>
+           lxml
+          </code>
+          parser by using the following command in your terminal:
+         </p>
+         <p>
+          <code>
+           $ pip install lxml
+          </code>
+         </p>
+         <p>
+          If you're working with perfectly formatted HTML or XML files (
+          <em>
+           i.e.
+          </em>
+          files that don't contain any missing information or mistakes) then, in the majority of cases, your choice of parser shouldn't really matter. However, if the files you are working with have missing information or mistakes, then your choice of parser will matter because each parser has different rules for dealing with missing information or mistakes. Consequently, in these cases, different parsers will create different parse trees for the same document. You can take a look at the
+          <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#differences-between-parsers" rel="noopener noreferrer" target="_blank">
+           differences between parsers
+          </a>
+          , in the BeautifulSoup documentation, for details.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. HTML Structure.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Parsers')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

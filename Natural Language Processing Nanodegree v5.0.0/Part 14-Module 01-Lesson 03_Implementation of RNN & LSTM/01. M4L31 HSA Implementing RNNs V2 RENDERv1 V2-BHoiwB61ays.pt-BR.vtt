@@ -1,0 +1,116 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.348 --> 00:00:05.770
+Olá. Nas últimas aulas, apresentamos
+as redes neurais recorrentes
+
+00:00:05.803 --> 00:00:07.124
+e as LSTMs.
+
+00:00:07.157 --> 00:00:11.564
+Nesta aula, implementaremos
+essas redes.
+
+00:00:11.597 --> 00:00:14.235
+Como as RNNs tem
+um tipo de memória integrada,
+
+00:00:14.268 --> 00:00:15.876
+elas são úteis para tarefas
+
+00:00:15.909 --> 00:00:18.004
+que dependem do tempo
+ou da sequência.
+
+00:00:18.037 --> 00:00:20.732
+Por exemplo, as RNNs
+são usadas para prever
+
+00:00:20.765 --> 00:00:22.211
+tempo e sequência,
+
+00:00:22.244 --> 00:00:24.390
+como a previsão do tempo
+para um período,
+
+00:00:24.423 --> 00:00:27.308
+ou a geração de texto
+na qual a ordem das palavras
+
+00:00:27.341 --> 00:00:30.284
+ou dos caracteres em uma frase
+é muito importante.
+
+00:00:30.317 --> 00:00:33.892
+Os desafios do design
+e da implementação das RNNs
+
+00:00:33.925 --> 00:00:35.466
+são duplos.
+
+00:00:35.499 --> 00:00:38.420
+Primeiro, como podemos
+pré-processar dados sequenciais -
+
+00:00:38.453 --> 00:00:40.000
+como uma série de frases -
+
+00:00:40.033 --> 00:00:43.039
+convertendo-os em dados numéricos
+que podem ser entendidos
+
+00:00:43.072 --> 00:00:44.364
+pela rede neural?
+
+00:00:44.397 --> 00:00:47.459
+Segundo, como representamos
+a memória no código?
+
+00:00:47.492 --> 00:00:50.511
+Eu falarei sobre os desafios
+em alguns exemplos de código
+
+00:00:50.544 --> 00:00:51.769
+e, ao fim da aula,
+
+00:00:51.802 --> 00:00:55.283
+você saberá como construir e treinar
+uma RNN para caracteres,
+
+00:00:55.316 --> 00:00:56.919
+especificamente uma LSTM
+
+00:00:56.952 --> 00:01:00.169
+treinada na obra "Anna Karenina"
+de Tolstói.
+
+00:01:00.202 --> 00:01:02.543
+A LSTM pegará
+um caractere como input
+
+00:01:02.576 --> 00:01:05.520
+e produzirá a previsão
+do próximo caractere como output.
+
+00:01:05.553 --> 00:01:08.615
+Podemos treinar tal LSTM
+em qualquer tipo de texto,
+
+00:01:08.648 --> 00:01:11.872
+desde um livro
+até um roteiro de programa,
+
+00:01:11.905 --> 00:01:14.016
+e gerar
+resultados bem interessantes.
+
+00:01:14.049 --> 00:01:16.944
+A seguir, veremos
+como construir RNNs
+
+00:01:16.977 --> 00:01:18.847
+que aprendem
+com dados sequenciais.
+
