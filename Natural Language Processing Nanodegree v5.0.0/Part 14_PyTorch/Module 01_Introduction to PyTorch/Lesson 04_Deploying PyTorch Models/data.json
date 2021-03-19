@@ -1,0 +1,274 @@
+{
+  "data": {
+    "lesson": {
+      "id": 766565,
+      "key": "2f20d93e-65cb-4c17-9560-266d6db2303c",
+      "title": "Deploying PyTorch Models",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "In this lesson, we'll walk through a tutorial showing how to deploy PyTorch models with Torch Script.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/2f20d93e-65cb-4c17-9560-266d6db2303c/766565/1544568476137/Deploying+PyTorch+Models+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/2f20d93e-65cb-4c17-9560-266d6db2303c/766565/1544568472366/Deploying+PyTorch+Models+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 778182,
+          "key": "87f3d234-1d84-45fb-b507-eec5bfedf860",
+          "title": "Welcome!",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "87f3d234-1d84-45fb-b507-eec5bfedf860",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 778183,
+              "key": "81b6e054-c5aa-4279-a7cd-5acda5d666ba",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2016/December/58472d92_mat-headshot/mat-headshot.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/81b6e054-c5aa-4279-a7cd-5acda5d666ba",
+              "caption": "Hi, it's Mat again!",
+              "alt": "Picture of Mat Leonard",
+              "width": 250,
+              "height": 250,
+              "instructor_notes": null
+            },
+            {
+              "id": 778188,
+              "key": "23202aa6-2781-48f8-8102-30a0891818d2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# PyTorch in Production\n\nWelcome to this lesson on using PyTorch in production. PyTorch has been most popular in research settings due to its flexibility, expressiveness, and ease of development in general. However, adoption has been slow in industry because it wasn't as useful in production environments which typically require models to run in C++. To address this, PyTorch 1.0 has introduced new features for exporting your models from Python into C++.\n\nI'll be showing you how to use these new features to compile Python models for use in C++ environments. Follow along while I walk through [this tutorial](https://pytorch.org/tutorials/advanced/cpp_export.html). I'll show you how to convert your models into a new representation called [Torch Script](https://pytorch.org/docs/master/jit.html). Using two methods, tracing and annotations, you can convert your models into ScriptModules which can be exported as serialized files then loaded into a C++ application. Using this combination of Torch Script and the PyTorch C++ API, you can do all the development and training of your network in Python, then utilize the trained model in a C++ application.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 778270,
+          "key": "c0a5d1cf-d6df-4f03-81cc-3c1c6964e192",
+          "title": "Installing PyTorch 1.0",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c0a5d1cf-d6df-4f03-81cc-3c1c6964e192",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 791855,
+              "key": "c50b067b-cb72-487d-b346-141c23ff22e5",
+              "title": "PyTorch 10 Install V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "kIwKPxgReFY",
+                "china_cdn_id": "kIwKPxgReFY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 778275,
+          "key": "81b1d058-e1a5-491c-b5bd-6da55ca749e6",
+          "title": "PyTorch for Production",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "81b1d058-e1a5-491c-b5bd-6da55ca749e6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 791856,
+              "key": "212ef29c-fcfa-4d4c-92c9-a61146ef6021",
+              "title": "PyTorch For Production V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "DBSoZWd4lQo",
+                "china_cdn_id": "DBSoZWd4lQo.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 778271,
+          "key": "d9843b98-f54c-44a2-92b9-ac07a455fa16",
+          "title": "Torch Script & Tracing",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d9843b98-f54c-44a2-92b9-ac07a455fa16",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 791857,
+              "key": "e6a1ad9b-7d87-4b06-bf54-1bb20b3d5202",
+              "title": "PyTorch Script Tracing V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "lYmQDUprQa0",
+                "china_cdn_id": "lYmQDUprQa0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 778272,
+          "key": "f6356d74-6c3a-42db-8bec-c7a3f4bc66b7",
+          "title": "Annotations",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f6356d74-6c3a-42db-8bec-c7a3f4bc66b7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 791858,
+              "key": "52cbd675-81e5-46bc-8cf3-86ba2df6a7c9",
+              "title": "PyTorch Script Annotation V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pO1RM7mKaFg",
+                "china_cdn_id": "pO1RM7mKaFg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 778277,
+          "key": "02a226e9-e7cf-4619-a619-7a20e41f295f",
+          "title": "PyTorch C++ API",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "02a226e9-e7cf-4619-a619-7a20e41f295f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 791859,
+              "key": "1785e5c1-308b-4269-ba28-0115deb1e13e",
+              "title": "PyTorch C   API V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "P1S1dN1gHmw",
+                "china_cdn_id": "P1S1dN1gHmw.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 778278,
+          "key": "af1c7443-7bf0-4c0e-a8f4-149b4c7950be",
+          "title": "Want to learn more?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "af1c7443-7bf0-4c0e-a8f4-149b4c7950be",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 778279,
+              "key": "4ce783ab-de32-4e51-9a27-dd7ebfad0da8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Want to learn more?\n\nWe hope you enjoyed this course on deep learning with PyTorch. What we've built here is just a small part of deep learning. There are tons of models and techniques for you to learn that will deepen your skills in this exciting field. If you want to keep learning and building your deep learning skills, please check out our [Deep Learning Nanodegree Program](https://www.udacity.com/course/deep-learning-nanodegree--nd101).\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 781784,
+              "key": "3236fbb6-5445-4335-b58a-42294f857f41",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/November/5be4da59_sebastian-dlnd-card/sebastian-dlnd-card.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/3236fbb6-5445-4335-b58a-42294f857f41",
+              "caption": "",
+              "alt": "",
+              "width": 1800,
+              "height": 786,
+              "instructor_notes": null
+            },
+            {
+              "id": 781764,
+              "key": "02c52027-e0f4-45ee-9002-4b6d050ff6cd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Some of the lessons in this course were taken from the Deep Learning Nanodegree program, however, you've experienced only a fraction of the content we've created for you. In the Deep Learning Nanodegree program, you will:\n\n- learn more uses for convolutional and recurrent networks, train generative adversarial networks, and deploy deep learning models to production. \n- get hands on experience implementing papers such as [Word2Vec](https://arxiv.org/abs/1301.3781) and [DCGANs](https://arxiv.org/abs/1511.06434)\n- learn from deep learning experts [Andrew Trask](https://twitter.com/iamtrask), [Ian Goodfellow](https://www.iangoodfellow.com/), [Jun-Yan Zhu](http://people.csail.mit.edu/junyanz/), and [Sebastian Thrun](https://en.wikipedia.org/wiki/Sebastian_Thrun).\n- receive detailed project feedback and in-class support from our mentors\n- get access to GPUs in our in-class workspaces as well as credits for GPU instances on AWS\n\nThis program is the perfect opportunity for you to join this exciting field, advance your career, or even start your own AI startup. You might also be interested in one of our specialized programs such as the [Deep Reinforcement Learning](https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893), [Natural Language Processing](https://www.udacity.com/course/natural-language-processing-nanodegree--nd892), or [Computer Vision](https://www.udacity.com/course/computer-vision-nanodegree--nd891) Nanodegree programs.",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}
