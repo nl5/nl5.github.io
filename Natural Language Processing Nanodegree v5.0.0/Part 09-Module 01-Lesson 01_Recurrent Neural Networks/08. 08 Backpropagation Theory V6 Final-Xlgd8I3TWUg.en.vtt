@@ -1,0 +1,319 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.569
+Now that we completed a feedforward pass,
+
+00:00:03.569 --> 00:00:07.419
+received an output, and calculated the error,
+
+00:00:07.419 --> 00:00:10.469
+we are ready to go backwards in order to change
+
+00:00:10.470 --> 00:00:15.519
+our weights with a goal of decreasing the network error.
+
+00:00:15.519 --> 00:00:20.839
+Going backwards from the output to the input while changing the weights,
+
+00:00:20.839 --> 00:00:23.884
+is a process we call back propagation,
+
+00:00:23.885 --> 00:00:29.600
+which is essentially stochastic gradient descent computed using the chain rule.
+
+00:00:29.600 --> 00:00:33.484
+If you're not familiar or comfortable with back propagation yet,
+
+00:00:33.484 --> 00:00:35.950
+this section will help you out.
+
+00:00:35.950 --> 00:00:39.955
+We will now be a little more mathematical.
+
+00:00:39.954 --> 00:00:44.083
+I find it fascinating to see how math comes to life,
+
+00:00:44.084 --> 00:00:48.340
+how mathematical calculations eventually lead us to implementing,
+
+00:00:48.340 --> 00:00:50.650
+in this case, a neural network,
+
+00:00:50.649 --> 00:00:53.875
+which is the main building block of AI.
+
+00:00:53.875 --> 00:00:57.320
+To be able to implement a basic neural network,
+
+00:00:57.320 --> 00:00:58.369
+one doesn't really need
+
+00:00:58.369 --> 00:01:03.019
+a deep mathematical understanding as now we have open source tools.
+
+00:01:03.020 --> 00:01:07.975
+But to really understand how it works and to optimize our application,
+
+00:01:07.974 --> 00:01:11.129
+it's always important to know the math.
+
+00:01:11.129 --> 00:01:13.689
+This is where I want to ask you again to add
+
+00:01:13.689 --> 00:01:17.920
+these old school techniques and write notes as I derive the math.
+
+00:01:17.920 --> 00:01:20.245
+I really believe that as you write your own notes,
+
+00:01:20.245 --> 00:01:24.870
+you will feel more confident with the math since it will be with your own handwriting.
+
+00:01:24.870 --> 00:01:28.155
+For me, doing this has always been helpful.
+
+00:01:28.155 --> 00:01:34.484
+Our goal is to find a set of weights that minimizes the network error.
+
+00:01:34.484 --> 00:01:36.060
+So how do we do that?
+
+00:01:36.060 --> 00:01:39.420
+Well, we use an iterative process presenting
+
+00:01:39.420 --> 00:01:43.109
+the network with one input at a time from our training set.
+
+00:01:43.109 --> 00:01:44.984
+As I mentioned before,
+
+00:01:44.984 --> 00:01:47.594
+during the feedforward pass for each input,
+
+00:01:47.594 --> 00:01:49.694
+we calculate the networks error.
+
+00:01:49.694 --> 00:01:54.569
+We can then use this error to slightly change the weights in the correct direction,
+
+00:01:54.569 --> 00:01:57.689
+each time reducing the error by just a bit.
+
+00:01:57.689 --> 00:02:02.129
+We continue to do so until we determine that the error is small enough.
+
+00:02:02.129 --> 00:02:05.039
+So how small is small enough?
+
+00:02:05.040 --> 00:02:09.905
+How do we know if we have a good enough mapping from the inputs to the outputs?
+
+00:02:09.905 --> 00:02:12.759
+Well, there's no simple answer to that.
+
+00:02:12.759 --> 00:02:14.909
+You will find practical solutions to some of
+
+00:02:14.909 --> 00:02:18.664
+these questions in our next section on over-fitting.
+
+00:02:18.664 --> 00:02:21.949
+Imagine a network with only one weight,
+
+00:02:21.949 --> 00:02:25.829
+W. Assume that during a certain point in the training process,
+
+00:02:25.830 --> 00:02:32.230
+the weight has a value of WA and the error at Point A is E_of_A.
+
+00:02:32.229 --> 00:02:33.879
+To reduce the error,
+
+00:02:33.879 --> 00:02:38.229
+we need to increase the value of the weight, WA.
+
+00:02:38.229 --> 00:02:40.560
+Since the gradient or, in other words,
+
+00:02:40.560 --> 00:02:45.900
+the derivative which is the slope of the curve at Point A is negative,
+
+00:02:45.900 --> 00:02:47.930
+since it's pointing down,
+
+00:02:47.930 --> 00:02:49.379
+we need to change the weight in
+
+00:02:49.379 --> 00:02:55.060
+its negative direction so that we actually increase the value of WA.
+
+00:02:55.060 --> 00:02:57.465
+If, on the other hand,
+
+00:02:57.465 --> 00:03:03.060
+the weight has a value of WB with a network error being E of B,
+
+00:03:03.060 --> 00:03:04.485
+to reduce the error,
+
+00:03:04.485 --> 00:03:06.915
+we need to decrease the weight WB.
+
+00:03:06.914 --> 00:03:09.194
+If you look at the gradient and point B,
+
+00:03:09.194 --> 00:03:11.189
+you'll see that it's positive.
+
+00:03:11.189 --> 00:03:15.509
+In this case, changing the weight by taking a step in the negative direction of
+
+00:03:15.509 --> 00:03:20.935
+the gradient would mean that we are correctly decreasing the value of the weight.
+
+00:03:20.935 --> 00:03:24.060
+The case we looked at was of a single weight which was
+
+00:03:24.060 --> 00:03:28.740
+oversimplifying the more practical case where the neural network has many weights.
+
+00:03:28.740 --> 00:03:31.379
+We can summarize the weight update process using
+
+00:03:31.379 --> 00:03:36.995
+this equation where alpha is the learning rate or the stepsize.
+
+00:03:36.995 --> 00:03:38.250
+We can also see that the weight,
+
+00:03:38.250 --> 00:03:40.710
+W, for the reasons I just mentioned,
+
+00:03:40.710 --> 00:03:44.219
+changes in the opposite direction of the partial derivative of
+
+00:03:44.219 --> 00:03:48.465
+the error with respect to W. You may ask yourselves,
+
+00:03:48.465 --> 00:03:50.939
+"Why are we looking at partial derivatives?"
+
+00:03:50.939 --> 00:03:55.259
+And the answer is simply because the error is a function of many variables and
+
+00:03:55.259 --> 00:03:57.569
+the partial derivative let's us measure how
+
+00:03:57.569 --> 00:04:00.789
+the error is impacted by each weight separately.
+
+00:04:00.789 --> 00:04:05.669
+You can find a good resource on how to tune the learning rate at the end of this video.
+
+00:04:05.669 --> 00:04:10.659
+You will also find a full hyper parameter section following this online lesson.
+
+00:04:10.659 --> 00:04:14.419
+Since many weights determined the network's output,
+
+00:04:14.419 --> 00:04:18.094
+we can use a vector of the partial derivatives of the network error,
+
+00:04:18.095 --> 00:04:20.505
+each with respect to a different weight.
+
+00:04:20.504 --> 00:04:23.045
+That strange inverted triangular Symbol,
+
+00:04:23.045 --> 00:04:25.985
+if you haven't seen it before, is the gradient.
+
+00:04:25.985 --> 00:04:28.985
+This gradient is the vector of partial derivatives
+
+00:04:28.985 --> 00:04:32.485
+of the error with respect to each of the weights.
+
+00:04:32.485 --> 00:04:35.639
+For the purpose of proper notation,
+
+00:04:35.639 --> 00:04:37.919
+we will have quite a few indices here.
+
+00:04:37.920 --> 00:04:41.259
+In this illustration which should be familiar by now,
+
+00:04:41.259 --> 00:04:46.504
+we are focusing on the connections between layer k and layer k_plus_1.
+
+00:04:46.504 --> 00:04:55.314
+The weight Wij connects neuron i in layer k to neuron J in layer k_plus_1,
+
+00:04:55.314 --> 00:04:57.199
+just as we've seen before.
+
+00:04:57.199 --> 00:05:04.625
+Let's call the amount by which we change or update weight, Wij, delta_of_Wij.
+
+00:05:04.625 --> 00:05:09.024
+The superscript k, indicates that the weight connects layer k,
+
+00:05:09.024 --> 00:05:10.989
+to layer k_plus_1 or,
+
+00:05:10.990 --> 00:05:14.620
+in other words, it originated from layer k.
+
+00:05:14.620 --> 00:05:19.340
+Calculating this delta weight of Wij is straightforward.
+
+00:05:19.339 --> 00:05:20.949
+It equals to the learning rate,
+
+00:05:20.949 --> 00:05:24.985
+multiplied by the partial derivative of the error with respect to weight,
+
+00:05:24.985 --> 00:05:28.030
+Wij, in each layer.
+
+00:05:28.029 --> 00:05:33.144
+We will take the negative of that term for the reasons I just mentioned before.
+
+00:05:33.144 --> 00:05:35.979
+Basically, back propagation boils down
+
+00:05:35.980 --> 00:05:39.465
+to calculating the partial derivative of the error, E,
+
+00:05:39.464 --> 00:05:41.619
+with respect to each of the weights,
+
+00:05:41.620 --> 00:05:48.280
+and then adjusting the weights according to the calculated value of delta of Wij.
+
+00:05:48.279 --> 00:05:52.052
+These calculations are done for each layer.
+
+00:05:52.052 --> 00:05:55.209
+Let's look at our system one more time.
+
+00:05:55.209 --> 00:05:59.259
+For the error, we will use the loss function which is simply
+
+00:05:59.259 --> 00:06:03.985
+the desired output minus the network output, all that squared.
+
+00:06:03.985 --> 00:06:06.775
+Here, we're also dividing this error term by two
+
+00:06:06.774 --> 00:06:09.879
+for calculation simplicity that you will see later.
+
+00:06:09.879 --> 00:06:13.519
+Okay, now that we have all of our equations defined,
+
+00:06:13.519 --> 00:06:16.000
+we can dive into the math with an example.
+

@@ -1,0 +1,538 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Backpropagation- Theory
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Recurrent Neural Networks
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Ortal .html">
+       01. Introducing Ortal
+      </a>
+     </li>
+     <li class="">
+      <a href="02. RNN Introduction.html">
+       02. RNN Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="03. RNN History.html">
+       03. RNN History
+      </a>
+     </li>
+     <li class="">
+      <a href="04. RNN Applications.html">
+       04. RNN Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Feedforward Neural Network-Reminder.html">
+       05. Feedforward Neural Network-Reminder
+      </a>
+     </li>
+     <li class="">
+      <a href="06. The Feedforward Process.html">
+       06. The Feedforward Process
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Feedforward Quiz.html">
+       07. Feedforward Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Backpropagation- Theory.html">
+       08. Backpropagation- Theory
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Backpropagation - Example (part a).html">
+       09. Backpropagation - Example (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Backpropagation- Example (part b).html">
+       10. Backpropagation- Example (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Backpropagation Quiz.html">
+       11. Backpropagation Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="12.  RNN (part a).html">
+       12.  RNN (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="13. RNN (part b).html">
+       13. RNN (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="14. RNN-  Unfolded Model.html">
+       14. RNN-  Unfolded Model
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Unfolded Model Quiz.html">
+       15. Unfolded Model Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="16. RNN- Example.html">
+       16. RNN- Example
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Backpropagation Through Time (part a).html">
+       17. Backpropagation Through Time (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Backpropagation Through Time (part b).html">
+       18. Backpropagation Through Time (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Backpropagation Through Time (part c).html">
+       19. Backpropagation Through Time (part c)
+      </a>
+     </li>
+     <li class="">
+      <a href="20. BPTT Quiz 1.html">
+       20. BPTT Quiz 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. BPTT Quiz 2.html">
+       21. BPTT Quiz 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. BPTT Quiz 3.html">
+       22. BPTT Quiz 3
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Some more math.html">
+       23. Some more math
+      </a>
+     </li>
+     <li class="">
+      <a href="24. RNN Summary.html">
+       24. RNN Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. From RNN to LSTM.html">
+       25. From RNN to LSTM
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Wrap Up.html">
+       26. Wrap Up
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          08. Backpropagation- Theory
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="backpropagation-theory">
+          Backpropagation Theory
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Since partial derivatives are the key mathematical concept used in backpropagation, it's important that you feel confident in your ability to calculate them. Once you know how to calculate basic derivatives, calculating partial derivatives is easy to understand.
+          <br/>
+          For more information on partial derivatives use the following
+          <a href="http://www.columbia.edu/itc/sipa/math/calc_rules_multivar.html" rel="noopener noreferrer" target="_blank">
+           link
+          </a>
+         </p>
+         <p>
+          For calculation purposes in future quizzes of the lesson, you can use the following link as a reference for
+          <a href="http://tutorial.math.lamar.edu/pdf/Common_Derivatives_Integrals.pdf" rel="noopener noreferrer" target="_blank">
+           common derivatives
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the
+          <strong>
+           backpropagation
+          </strong>
+          process we minimize the network error slightly with each iteration, by adjusting the weights. The following video will help you understand the mathematical process we use for computing these adjustments.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          08 Backpropagation Theory V6 Final
+         </p>
+        </h3>
+        <video controls="">
+         <source src="08. 08 Backpropagation Theory V6 Final-Xlgd8I3TWUg.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="08. 08 Backpropagation Theory V6 Final-Xlgd8I3TWUg.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="08. 08 Backpropagation Theory V6 Final-Xlgd8I3TWUg.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="08. 08 Backpropagation Theory V6 Final-Xlgd8I3TWUg.pt-BR.vtt" srclang="pt-BR"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If we look at an arbitrary layer k, we can define the amount by which we change the weights from neuron i to neuron j stemming from layer k as:
+          <span class="mathquill ud-math">
+           \Delta W^k
+          </span>
+          <span class="mathquill ud-math">
+           _{ij}
+          </span>
+          .
+         </p>
+         <p>
+          The superscript (
+          <em>
+           k
+          </em>
+          ) indicates that the weight connects layer
+          <em>
+           k
+          </em>
+          to layer
+          <em>
+           k+1
+          </em>
+          .
+         </p>
+         <p>
+          Therefore, the weight update rule for that neuron can be expressed as:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           W_{new}  = W_{previous} +\Delta W^k
+          </span>
+          <span class="mathquill ud-math">
+           _{ij}
+          </span>
+         </p>
+         <p>
+          <em>
+           Equation 4
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The updated value
+          <span class="mathquill ud-math">
+           \Delta W_{ij}^k
+          </span>
+          is calculated through the use of the gradient calculation, in the following way:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           \Delta W_{ij}^k=\alpha (-\frac{\partial E}{\partial W})
+          </span>
+          , where
+          <span class="mathquill ud-math">
+           \alpha
+          </span>
+          is a small positive number called the** Learning Rate**.
+         </p>
+         <p>
+          <em>
+           Equation 5
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          From these derivation we can easily see that the weight updates are calculated the by the following equation:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           W_{new}= W_{previous} +\alpha (-\frac{\partial E}{\partial W} )
+          </span>
+         </p>
+         <p>
+          <em>
+           Equation 6
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Since many weights determine the network’s output, we can use a vector of the partial derivatives (defined by the Greek letter Nabla
+          <span class="mathquill ud-math">
+           \nabla
+          </span>
+          ) of the network error - each with respect to a different weight.
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           W_{new}= W_{previous}+\alpha \nabla_W(-E)
+          </span>
+         </p>
+         <p>
+          <em>
+           Equation 7
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Here you can find other good resources for understanding and tuning the Learning Rate:
+         </p>
+         <ul>
+          <li>
+           <a href="http://blog.datumbox.com/tuning-the-learning-rate-in-gradient-descent/" rel="noopener noreferrer" target="_blank">
+            resource 1
+           </a>
+          </li>
+          <li>
+           <a href="http://cs231n.github.io/neural-networks-3/#loss" rel="noopener noreferrer" target="_blank">
+            resource 2
+           </a>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The following video is given as a refresher to
+          <strong>
+           overfitting
+          </strong>
+          . You have already seen this concept in the
+          <em>
+           Training Neural Networks
+          </em>
+          lesson. Feel free to skip it and jump right into the next video.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          13 Overfitting Intro V4 Final
+         </p>
+        </h3>
+        <video controls="">
+         <source src="08. 13 Overfitting Intro V4 Final-rmBLnVbFfFY.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="08. 13 Overfitting Intro V4 Final-rmBLnVbFfFY.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="08. 13 Overfitting Intro V4 Final-rmBLnVbFfFY.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="08. 13 Overfitting Intro V4 Final-rmBLnVbFfFY.pt-BR.vtt" srclang="pt-BR"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="09. Backpropagation - Example (part a).html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('08. Backpropagation- Theory')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

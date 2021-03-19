@@ -1,0 +1,327 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.202 --> 00:00:02.401
+Nas redes neurais
+feedforward,
+
+00:00:02.438 --> 00:00:04.241
+o resultado
+a qualquer momento
+
+00:00:04.278 --> 00:00:09.121
+será a função da entrada
+atual e dos pesos.
+
+00:00:09.158 --> 00:00:12.585
+Entendemos que as entradas são
+independentes umas das outras,
+
+00:00:12.622 --> 00:00:15.921
+assim, isso não é significativo
+para a sequência.
+
+00:00:15.958 --> 00:00:19.513
+Nós treinamos o sistema
+desenhando de forma aleatória
+
+00:00:19.550 --> 00:00:21.737
+pares de entrada e de alvo.
+
+00:00:21.774 --> 00:00:25.321
+Nas RNNs,
+nossa saída no tempo T
+
+00:00:25.358 --> 00:00:29.223
+depende das entradas
+e pesos atuais
+
+00:00:29.260 --> 00:00:32.008
+e das entradas anteriores,
+
+00:00:32.045 --> 00:00:35.472
+como na entrada do tempo
+T - 1,
+
+00:00:35.509 --> 00:00:37.904
+T - 2, e assim por diante.
+
+00:00:37.941 --> 00:00:40.408
+Como visualizamos isso?
+
+00:00:40.445 --> 00:00:42.713
+Vejamos a rede neural
+novamente.
+
+00:00:43.545 --> 00:00:46.016
+Temos uma entrada X,
+
+00:00:46.053 --> 00:00:49.736
+uma saída Y
+e uma camada oculta S.
+
+00:00:49.773 --> 00:00:52.343
+Lembra-se do S?
+Significa estado,
+
+00:00:52.380 --> 00:00:55.471
+que é um termo para quando
+o sistema possui memória.
+
+00:00:55.508 --> 00:00:58.632
+Wx representa
+a matriz de peso,
+
+00:00:58.669 --> 00:01:01.791
+ligando as entradas
+à camada de estado.
+
+00:01:01.828 --> 00:01:04.649
+Wy representa
+a matriz de peso
+
+00:01:04.686 --> 00:01:07.264
+ligando o estado à saída,
+
+00:01:07.301 --> 00:01:10.257
+e Ws representa
+a matriz de peso
+
+00:01:10.294 --> 00:01:13.072
+ligando o estado
+do passo de tempo anterior
+
+00:01:13.109 --> 00:01:15.977
+ao estado no próximo
+passo de tempo.
+
+00:01:16.014 --> 00:01:19.977
+Perceba que o S
+é retornado para o sistema.
+
+00:01:20.014 --> 00:01:23.553
+Em cada passo de tempo,
+o sistema parecerá igual.
+
+00:01:23.590 --> 00:01:27.074
+Isso é o que chamamos
+de modelo dobrado.
+
+00:01:28.315 --> 00:01:30.898
+Como a entrada
+se espalha no tempo
+
+00:01:30.935 --> 00:01:35.353
+e realizamos a mesma tarefa
+em cada elemento da sequência,
+
+00:01:35.390 --> 00:01:37.961
+podemos desdobrar
+o modelo no tempo
+
+00:01:37.998 --> 00:01:40.586
+e representá-lo desta forma.
+
+00:01:41.963 --> 00:01:47.193
+Como exemplo, a saída
+no tempo T + 2
+
+00:01:47.230 --> 00:01:50.905
+depende da entrada
+no tempo T + 2
+
+00:01:50.942 --> 00:01:56.456
+nas matrizes de peso e também
+nas entradas anteriores.
+
+00:01:57.766 --> 00:02:00.478
+Vamos utilizar
+as seguintes definições:
+
+00:02:00.515 --> 00:02:05.280
+X de T é o vetor de entrada
+no tempo T,
+
+00:02:05.317 --> 00:02:09.651
+Y de T é o vetor de saída
+no tempo T,
+
+00:02:09.688 --> 00:02:14.893
+e S de T é o vetor de estado
+oculto do tempo T.
+
+00:02:15.774 --> 00:02:17.914
+Nas redes neurais
+feedforward,
+
+00:02:17.951 --> 00:02:19.758
+utilizamos
+uma função de ativação
+
+00:02:19.795 --> 00:02:21.900
+para obter
+a camada oculta H.
+
+00:02:21.937 --> 00:02:24.059
+Só precisamos das entradas
+
+00:02:24.096 --> 00:02:28.020
+e a matriz de peso ligando
+as entradas à camada oculta.
+
+00:02:29.219 --> 00:02:33.161
+Nas RNNs, utilizamos uma função
+de ativação para obter S,
+
+00:02:33.198 --> 00:02:35.411
+mas com uma diferença,
+
+00:02:35.448 --> 00:02:38.264
+a entrada
+da função de ativação
+
+00:02:38.301 --> 00:02:40.824
+é agora a soma
+
+00:02:40.861 --> 00:02:43.329
+do produto das entradas
+
+00:02:43.366 --> 00:02:47.225
+e da matriz de peso
+correspondente Wx
+
+00:02:47.262 --> 00:02:51.384
+e do produto dos valores
+de ativação anterior
+
+00:02:51.421 --> 00:02:55.087
+e a matriz de peso
+correspondente Ws.
+
+00:02:55.124 --> 00:02:57.607
+O vetor de saída é calculado
+
+00:02:57.644 --> 00:03:01.422
+exatamente da mesma forma
+que nas redes neurais feedforward.
+
+00:03:01.459 --> 00:03:03.982
+Ele pode ser uma combinação linear
+das entradas
+
+00:03:04.019 --> 00:03:05.503
+para cada nó de saída
+
+00:03:05.540 --> 00:03:08.351
+com a matriz de peso
+correspondente Wy
+
+00:03:08.388 --> 00:03:11.190
+ou, por exemplo,
+uma função softmax
+
+00:03:11.227 --> 00:03:13.385
+da mesma combinação linear.
+
+00:03:14.297 --> 00:03:17.614
+A RNN compartilha
+os mesmo parâmetros
+
+00:03:17.651 --> 00:03:19.822
+durante cada passo de tempo.
+
+00:03:19.859 --> 00:03:23.887
+Embora seja intuitivo, parece
+que as RNNs são mais complicadas
+
+00:03:23.924 --> 00:03:25.768
+do que as redes neurais
+feedforward,
+
+00:03:25.805 --> 00:03:27.632
+pois possuem memória.
+
+00:03:27.669 --> 00:03:30.840
+Na prática, a quantidade
+de parâmetros a serem aprendidos
+
+00:03:30.877 --> 00:03:32.520
+continua pequena.
+
+00:03:32.557 --> 00:03:35.680
+O esquema de desdobramento
+mencionado é genérico
+
+00:03:35.717 --> 00:03:38.952
+e pode ser ajustado de acordo
+com a arquitetura neural
+
+00:03:38.989 --> 00:03:41.018
+que desejamos construir.
+
+00:03:41.055 --> 00:03:44.971
+Podemos decidir de quantas entradas
+e saídas precisaremos.
+
+00:03:45.008 --> 00:03:47.955
+Por exemplo,
+na análise de sentimento,
+
+00:03:47.992 --> 00:03:51.083
+pode haver várias entradas
+e uma única saída
+
+00:03:51.120 --> 00:03:54.955
+que abrange o espectro
+de feliz a triste.
+
+00:03:54.992 --> 00:03:58.320
+Outro exemplo pode ser
+a previsão de séries temporais,
+
+00:03:58.357 --> 00:04:01.265
+na qual pode haver
+muitas entradas e saídas
+
+00:04:01.302 --> 00:04:03.650
+que não necessariamente
+estejam alinhadas.
+
+00:04:04.338 --> 00:04:06.625
+RNNs podem ser empilhadas
+como Legos,
+
+00:04:06.662 --> 00:04:09.417
+assim como as redes
+neurais feedforward.
+
+00:04:09.454 --> 00:04:10.864
+Por exemplo,
+
+00:04:10.901 --> 00:04:13.448
+podemos ter a saída
+de um único nível RNN,
+
+00:04:13.485 --> 00:04:15.673
+um vetor Y,
+
+00:04:15.710 --> 00:04:18.131
+que se torna a entrada
+de uma segunda camada
+
+00:04:18.168 --> 00:04:20.723
+cuja saída é o vetor O.
+
+00:04:20.760 --> 00:04:24.524
+Cada camada opera do forma
+independente das outras,
+
+00:04:24.561 --> 00:04:28.071
+pois arquitetonicamente não
+importa de onde vêm as entradas
+
+00:04:28.108 --> 00:04:30.761
+ou para onde as saídas
+estão indo.
+

@@ -1,0 +1,971 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Backpropagation- Example (part b)
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Recurrent Neural Networks
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Ortal .html">
+       01. Introducing Ortal
+      </a>
+     </li>
+     <li class="">
+      <a href="02. RNN Introduction.html">
+       02. RNN Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="03. RNN History.html">
+       03. RNN History
+      </a>
+     </li>
+     <li class="">
+      <a href="04. RNN Applications.html">
+       04. RNN Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Feedforward Neural Network-Reminder.html">
+       05. Feedforward Neural Network-Reminder
+      </a>
+     </li>
+     <li class="">
+      <a href="06. The Feedforward Process.html">
+       06. The Feedforward Process
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Feedforward Quiz.html">
+       07. Feedforward Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Backpropagation- Theory.html">
+       08. Backpropagation- Theory
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Backpropagation - Example (part a).html">
+       09. Backpropagation - Example (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Backpropagation- Example (part b).html">
+       10. Backpropagation- Example (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Backpropagation Quiz.html">
+       11. Backpropagation Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="12.  RNN (part a).html">
+       12.  RNN (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="13. RNN (part b).html">
+       13. RNN (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="14. RNN-  Unfolded Model.html">
+       14. RNN-  Unfolded Model
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Unfolded Model Quiz.html">
+       15. Unfolded Model Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="16. RNN- Example.html">
+       16. RNN- Example
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Backpropagation Through Time (part a).html">
+       17. Backpropagation Through Time (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Backpropagation Through Time (part b).html">
+       18. Backpropagation Through Time (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Backpropagation Through Time (part c).html">
+       19. Backpropagation Through Time (part c)
+      </a>
+     </li>
+     <li class="">
+      <a href="20. BPTT Quiz 1.html">
+       20. BPTT Quiz 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. BPTT Quiz 2.html">
+       21. BPTT Quiz 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. BPTT Quiz 3.html">
+       22. BPTT Quiz 3
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Some more math.html">
+       23. Some more math
+      </a>
+     </li>
+     <li class="">
+      <a href="24. RNN Summary.html">
+       24. RNN Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. From RNN to LSTM.html">
+       25. From RNN to LSTM
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Wrap Up.html">
+       26. Wrap Up
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          10. Backpropagation- Example (part b)
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="backpropagation--example-part-b">
+          Backpropagation- Example (part b)
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Now that we understand the chain rule, we can continue with our
+          <strong>
+           backpropagation
+          </strong>
+          example, where we will calculate the gradient
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          12 Backpropagation Example B V6 Final
+         </p>
+        </h3>
+        <video controls="">
+         <source src="10. 12 Backpropagation Example B V6 Final-yiSwuMP2UIA.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="10. 12 Backpropagation Example B V6 Final-yiSwuMP2UIA.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="10. 12 Backpropagation Example B V6 Final-yiSwuMP2UIA.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="true" kind="subtitles" label="en" src="10. 12 Backpropagation Example B V6 Final-yiSwuMP2UIA.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In our example we only have one hidden layer, so our backpropagation process will consist of two steps:
+         </p>
+         <p>
+          Step 1: Calculating the gradient with respect to the weight vector
+          <span class="mathquill ud-math">
+           W^2
+          </span>
+          (from the output to the hidden layer).
+          <span class="mathquill ud-math">
+          </span>
+          <br/>
+          Step 2: Calculating the gradient with respect to the weight matrix
+          <span class="mathquill ud-math">
+           W^1
+          </span>
+          (from the hidden layer to the input).
+         </p>
+         <p>
+          <strong>
+           Step 1
+          </strong>
+          <br/>
+          (Note that the weight vector referenced here will be
+          <span class="mathquill ud-math">
+           W^2
+          </span>
+          . All indices referring to
+          <span class="mathquill ud-math">
+           W^2
+          </span>
+          have been omitted from the calculations to keep the notation simple).
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 13_" class="img img-fluid" src="img/screen-shot-2017-11-01-at-1.48.59-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 13
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As you may recall:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           \large\Delta W_{ij}=\alpha(d-y) \frac{\partial y}{\partial W_{ij}}
+          </span>
+         </p>
+         <p>
+          In this specific step, since the output is of only a single value, we can rewrite the equation the following way (in which we have a weights
+          <em>
+           vector
+          </em>
+          ):
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           \large\Delta W_i=\alpha(d-y) \frac{\partial y}{\partial W_i}
+          </span>
+         </p>
+         <p>
+          Since we already calculated the gradient, we now know that the incremental value we need for step one is:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           \Delta W_i=\alpha(d-y) h_i
+          </span>
+         </p>
+         <p>
+          <em>
+           Equation 14
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Having calculated the incremental value, we can update vector
+          <span class="mathquill ud-math">
+           W^2
+          </span>
+          the following way:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 15_" class="img img-fluid" src="img/screen-shot-2018-01-16-at-2.40.57-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 15
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           Step 2
+          </strong>
+          <br/>
+          (In this step, we will need to use both weight matrices. Therefore we will not be omitting the weight  indices.)
+         </p>
+         <p>
+          In our second step we will update the weights of matrix
+          <span class="mathquill ud-math">
+           W^1
+          </span>
+          by calculating the partial derivative of
+          <span class="mathquill ud-math">
+           y
+          </span>
+          with respect to the weight matrix
+          <span class="mathquill ud-math">
+           W^1
+          </span>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The chain rule will be used the following way:
+         </p>
+         <p>
+          obtain the partial derivative of
+          <span class="mathquill ud-math">
+           y
+          </span>
+          with respect to
+          <span class="mathquill ud-math">
+           \bar{h}
+          </span>
+          , and multiply it by the partial derivative of
+          <span class="mathquill ud-math">
+           \bar{h}
+          </span>
+          with respect to the corresponding elements in
+          <span class="mathquill ud-math">
+           W^1
+          </span>
+          . Instead of referring to vector
+          <span class="mathquill ud-math">
+           \bar{h}
+          </span>
+          , we can observe each element and present the equation the following way:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 16_" class="img img-fluid" src="img/screen-shot-2018-02-21-at-3.02.16-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 16
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this example we have only 3 neurons the the single hidden layer, therefore this will be a linear combination of three elements:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 17_" class="img img-fluid" src="img/screen-shot-2018-02-21-at-3.05.00-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 17
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          We will calculate each derivative separately.
+          <span class="mathquill ud-math">
+           \frac{\partial y}{\partial h_j}
+          </span>
+          will be calculated first, followed by
+          <span class="mathquill ud-math">
+           \frac{\partial h_j}{\partial W^1_{ij}}
+          </span>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 18_" class="img img-fluid" src="img/screen-shot-2017-11-01-at-3.38.43-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 18
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Notice that most of the derivatives were zero, leaving us with the simple solution of
+          <span class="mathquill ud-math">
+           \frac{\partial y}{\partial h_{j}}=W^2_j
+          </span>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          To calculate
+          <span class="mathquill ud-math">
+           \frac{\partial h_j}{\partial W^1_{{ij}}}
+          </span>
+          we need to remember first that
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 19_" class="img img-fluid" src="img/screen-shot-2017-12-02-at-10.58.26-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 19
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Therefore:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 20_" class="img img-fluid" src="img/screen-shot-2017-12-02-at-11.06.19-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 20
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Since the function
+          <span class="mathquill ud-math">
+           \ h_j
+          </span>
+          is an activation function (
+          <span class="mathquill ud-math">
+           \Phi
+          </span>
+          ) of a linear combination, its partial derivative will be calculated the following way:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 21_" class="img img-fluid" src="img/screen-shot-2017-12-02-at-11.03.45-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 21
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Given that there are various activation functions, we will leave the partial derivative of
+          <span class="mathquill ud-math">
+           \Phi
+          </span>
+          using a general notation. Each neuron j will have its own value for
+          <span class="mathquill ud-math">
+           \Phi
+          </span>
+          and
+          <span class="mathquill ud-math">
+           \Phi'
+          </span>
+          , according to the activation function we choose to use.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 22_" class="img img-fluid" src="img/screen-shot-2017-12-02-at-10.29.14-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 22
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The second calculation of equation 21 can be calculated the following way:
+         </p>
+         <p>
+          (Notice how simple the result is, as most of the components of this partial derivative are zero).
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 23_" class="img img-fluid" src="img/screen-shot-2017-11-01-at-4.47.47-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 23
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          After understanding how to treat each multiplication of equation 21 separately, we can now summarize it the following way:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 24_" class="img img-fluid" src="img/screen-shot-2017-11-01-at-5.14.13-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 24
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          We are ready to finalize
+          <strong>
+           step 2
+          </strong>
+          , in which we update the weights of matrix
+          <span class="mathquill ud-math">
+           W^1
+          </span>
+          by calculating the gradient shown in equation 17.  From the above calculations, we can conclude that:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 25_" class="img img-fluid" src="img/screen-shot-2018-02-21-at-3.10.10-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 25
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Since
+          <span class="mathquill ud-math">
+           \Delta W^1_{ij}=\alpha(d-y) \large\frac{\partial y}{\partial W^1_{ij}}
+          </span>
+          , when finalizing step 2, we have:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 26_" class="img img-fluid" src="img/screen-shot-2017-12-02-at-10.46.12-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 26
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Having calculated the incremental value, we can update vector
+          <span class="mathquill ud-math">
+           W^1
+          </span>
+          the following way:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <span class="mathquill ud-math">
+           W^1_{new}=W^1_{previous}+\Delta W^1_{ij}
+          </span>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <span class="mathquill ud-math">
+           W^1_{new}=W^1_{previous}+\alpha(d-y)W^2_j\Phi'_jx_i
+          </span>
+         </p>
+         <p>
+          <em>
+           Equation 27
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          After updating the weight matrices we begin once again with the Feedforward pass, starting the process of updating the weights all over again.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          This video touches on the subject of Mini Batch Training. We will further explain things in our
+          <strong>
+           Hyperparameters
+          </strong>
+          lesson coming up.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="11. Backpropagation Quiz.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('10. Backpropagation- Example (part b)')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,260 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.402 --> 00:00:03.859
+Vamos desdobrar o modelo
+no tempo,
+
+00:00:03.896 --> 00:00:06.741
+limpar o desenho um pouco
+
+00:00:06.778 --> 00:00:09.827
+o nos concentrar
+no terceiro passo de tempo.
+
+00:00:09.864 --> 00:00:12.620
+Neste modelo, existem
+três matrizes de peso
+
+00:00:12.657 --> 00:00:14.565
+que desejamos modificar.
+
+00:00:14.602 --> 00:00:16.839
+A matriz de peso Wx,
+
+00:00:16.876 --> 00:00:21.109
+que liga a rede ao estado
+ou à camada oculta,
+
+00:00:21.146 --> 00:00:23.148
+a matriz de peso Wx,
+
+00:00:23.185 --> 00:00:25.795
+que liga um estado
+ao próximo,
+
+00:00:25.832 --> 00:00:28.365
+e a matriz de peso Wy,
+
+00:00:28.402 --> 00:00:31.132
+que liga o estado à saída.
+
+00:00:31.169 --> 00:00:34.197
+Vamos começar ajustando Wy,
+
+00:00:34.234 --> 00:00:37.308
+que é o mais simples
+de obter.
+
+00:00:37.345 --> 00:00:39.611
+No tempo T=3,
+
+00:00:39.648 --> 00:00:43.550
+o derivativo do erro quadrático
+relativo a Wy
+
+00:00:43.587 --> 00:00:46.868
+é achado a partir
+de uma regra de cadeia simples
+
+00:00:46.905 --> 00:00:49.935
+e é igual ao derivativo
+do erro quadrático
+
+00:00:49.972 --> 00:00:52.116
+em relação à saída,
+
+00:00:52.153 --> 00:00:54.589
+multiplicado
+pelo derivativo da saída
+
+00:00:54.626 --> 00:00:57.947
+em relação
+à matriz de peso Wy.
+
+00:00:57.984 --> 00:01:01.119
+Como sempre, os derivativos
+serão calculados
+
+00:01:01.156 --> 00:01:04.181
+de acordo com cada elemento
+da matriz de peso.
+
+00:01:05.438 --> 00:01:07.959
+Para ajustar
+as outras duas matrizes,
+
+00:01:07.996 --> 00:01:11.100
+usaremos a retropropagação
+através do tempo.
+
+00:01:11.137 --> 00:01:14.765
+Não importa qual
+escolhemos para começar.
+
+00:01:15.613 --> 00:01:19.580
+Vamos escolher
+a matriz de peso Ws,
+
+00:01:19.617 --> 00:01:22.999
+a matriz de peso que liga
+um estado ao próximo,
+
+00:01:23.036 --> 00:01:26.430
+para remover o que não
+precisamos no desenho.
+
+00:01:26.467 --> 00:01:30.372
+À primeira vista, pode parecer
+que, ao achar o derivativo
+
+00:01:30.409 --> 00:01:32.435
+em relação à Ws,
+
+00:01:32.472 --> 00:01:36.471
+precisamos considerar
+o estado S3,
+
+00:01:36.508 --> 00:01:39.858
+assim o derivativo no passo
+de tempo T=3
+
+00:01:39.895 --> 00:01:42.691
+será igual ao derivativo
+do erro quadrático
+
+00:01:42.728 --> 00:01:45.092
+em relação à saída,
+
+00:01:45.129 --> 00:01:50.109
+multiplicado pelo derivativo
+da saída em relação a S3
+
+00:01:50.146 --> 00:01:53.272
+e multiplicado
+pelo derivativo de S3
+
+00:01:53.309 --> 00:01:56.299
+em relação à matriz Ws.
+
+00:01:56.336 --> 00:01:59.194
+Mas S3 também depende
+
+00:01:59.231 --> 00:02:02.466
+de S2 e S1,
+
+00:02:02.503 --> 00:02:04.329
+os estados anteriores.
+
+00:02:04.366 --> 00:02:06.429
+Não podemos parar aí.
+
+00:02:06.466 --> 00:02:10.713
+Precisamos levar em consideração
+o que aconteceu antes
+
+00:02:10.750 --> 00:02:15.586
+e adicionar essa contribuição
+ao cálculo.
+
+00:02:15.623 --> 00:02:18.641
+Continuamos calculando
+o gradiente
+
+00:02:18.678 --> 00:02:22.976
+sabendo que precisamos
+acumular as contribuições
+
+00:02:23.013 --> 00:02:26.081
+originadas de cada um
+dos estados anteriores.
+
+00:02:27.227 --> 00:02:29.649
+Se considerarmos S2,
+
+00:02:29.686 --> 00:02:34.227
+o caminho seguinte contribuirá
+para a retropropagação.
+
+00:02:34.264 --> 00:02:39.413
+Vemos que S3 depende de S2
+
+00:02:39.450 --> 00:02:42.100
+e fornece
+os cálculos derivativos
+
+00:02:42.137 --> 00:02:43.755
+a partir da regra de cadeia,
+
+00:02:43.792 --> 00:02:46.909
+até chegarmos
+ao derivativo S2
+
+00:02:46.946 --> 00:02:50.365
+em relação à matriz Ws.
+
+00:02:50.402 --> 00:02:51.950
+Mas ainda não terminamos.
+
+00:02:51.987 --> 00:02:54.068
+Precisamos dar
+mais um passo para trás
+
+00:02:54.105 --> 00:02:57.229
+até o primeiro estado S1,
+
+00:02:57.266 --> 00:02:59.205
+que fornece
+os cálculos novamente
+
+00:02:59.242 --> 00:03:01.164
+a partir da regra de cadeia,
+
+00:03:01.201 --> 00:03:04.342
+até chegarmos
+ao derivativo S1
+
+00:03:04.379 --> 00:03:07.861
+em relação à matriz WS.
+
+00:03:09.134 --> 00:03:13.299
+Vamos observar novamente
+o gradiente acumulativo obtido
+
+00:03:13.336 --> 00:03:16.488
+a partir da retropropagação
+através do tempo,
+
+00:03:16.525 --> 00:03:21.359
+que calculamos considerando
+todos os vetores de estado,
+
+00:03:21.396 --> 00:03:24.825
+estado de vetor S3,
+estado de vetor S2
+
+00:03:24.862 --> 00:03:27.473
+e estado de vetor S1.
+
+00:03:28.762 --> 00:03:32.985
+De forma geral, consideramos
+vários passos de tempo
+
+00:03:33.022 --> 00:03:34.753
+e precisamos de um framework
+
+00:03:34.790 --> 00:03:37.392
+para definir a retropropagação
+através do tempo
+
+00:03:37.429 --> 00:03:40.674
+a fim de mudar Ws.
+
+00:03:42.037 --> 00:03:43.564
+O que vem a seguir?
+
+00:03:43.601 --> 00:03:48.761
+No próximo vídeo, ajustaremos
+a matriz de peso Wx.
+

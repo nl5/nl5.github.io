@@ -1,0 +1,84 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.263 --> 00:00:03.139
+Olá! Para a próxima seção
+sobre redes neurais recorrentes,
+
+00:00:03.172 --> 00:00:05.895
+estou muito animado
+para apresentar minha colega Ortal.
+
+00:00:05.928 --> 00:00:07.478
+-Oi, Luis.
+-Oi, Ortal.
+
+00:00:07.511 --> 00:00:09.553
+A Ortal veio até nós
+do mundo acadêmico.
+
+00:00:09.586 --> 00:00:11.515
+É doutora
+em engenharia de computação
+
+00:00:11.548 --> 00:00:14.409
+e durante anos foi professora
+universitária e pesquisadora
+
+00:00:14.442 --> 00:00:17.928
+no campo da criptografia aplicada
+e plataformas embarcadas.
+
+00:00:17.961 --> 00:00:21.417
+Ela também trabalhou na criação
+e análise de algoritmos inteligentes
+
+00:00:21.450 --> 00:00:24.319
+para arquiteturas digitais
+personalizadas de alta velocidade.
+
+00:00:24.352 --> 00:00:25.913
+Obrigada, Luis.
+
+00:00:25.946 --> 00:00:28.587
+Oi, pessoal! Estou muito feliz
+por estar aqui.
+
+00:00:28.620 --> 00:00:32.331
+Conheci aprendizado de máquina
+ao pesquisar sistemas embutidos.
+
+00:00:32.364 --> 00:00:35.328
+Desde então, eu me apaixonei
+por deep learning
+
+00:00:35.361 --> 00:00:37.799
+e, em especial,
+por redes neurais recorrentes,
+
+00:00:37.832 --> 00:00:39.793
+ou RNNs.
+
+00:00:39.826 --> 00:00:42.600
+As RNNs são amplamente utilizadas
+em muitos programas,
+
+00:00:42.633 --> 00:00:45.375
+como reconhecimento de fala,
+tradução automática
+
+00:00:45.408 --> 00:00:46.939
+e análise de vídeo.
+
+00:00:46.972 --> 00:00:50.940
+Nesta aula, Luis e eu falaremos
+de cada um desses conceitos,
+
+00:00:50.973 --> 00:00:53.532
+ensinando como esses sistemas
+funcionam.
+
+00:00:53.565 --> 00:00:54.883
+Estão prontos?
+

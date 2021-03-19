@@ -1,0 +1,499 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.334 --> 00:00:02.901
+Precisamos calcular
+o gradiente.
+
+00:00:02.938 --> 00:00:05.731
+Faremos isso
+um passo por vez.
+
+00:00:05.768 --> 00:00:08.894
+No exemplo, só possuímos
+uma camada oculta,
+
+00:00:08.931 --> 00:00:12.446
+então o processo de retropropagação
+terá dois passos.
+
+00:00:12.483 --> 00:00:14.452
+Vamos ser mais precisos
+
+00:00:14.489 --> 00:00:17.228
+e decidir
+que o gradiente calculado
+
+00:00:17.265 --> 00:00:20.715
+para cada elemento IJ
+na matriz
+
+00:00:20.752 --> 00:00:23.932
+será chamado de delta do IJ.
+
+00:00:23.969 --> 00:00:25.567
+No primeiro passo,
+
+00:00:25.604 --> 00:00:30.860
+calculamos o gradiente
+em respeito ao vetor de peso W2
+
+00:00:30.897 --> 00:00:33.166
+da saída à camada oculta.
+
+00:00:33.798 --> 00:00:36.925
+No segundo passo,
+calculamos o gradiente
+
+00:00:36.962 --> 00:00:39.868
+em respeito
+à matriz do peso W1
+
+00:00:39.905 --> 00:00:42.645
+da camada oculta à entrada.
+
+00:00:44.005 --> 00:00:46.941
+Vamos começar
+com o primeiro passo.
+
+00:00:46.978 --> 00:00:49.323
+Já calculamos Y.
+
+00:00:49.360 --> 00:00:51.604
+Encontraremos o derivativo
+parcial dele
+
+00:00:51.641 --> 00:00:55.074
+em respeito
+ao vetor de peso W2.
+
+00:00:55.111 --> 00:00:58.850
+Dado que Y é uma soma
+linear sobre os termos,
+
+00:00:58.887 --> 00:01:01.978
+o gradiente
+é simplesmente o valor
+
+00:01:02.015 --> 00:01:05.131
+da ativação H
+correspondente,
+
+00:01:05.168 --> 00:01:07.900
+enquanto todos os outros
+termos forem zero.
+
+00:01:09.091 --> 00:01:11.260
+Isso serve para
+o primeiro gradiente,
+
+00:01:11.947 --> 00:01:15.282
+segundo gradiente
+e terceiro gradiente.
+
+00:01:15.319 --> 00:01:19.720
+Você deve ter notado que temos
+apenas um índice para delta,
+
+00:01:19.757 --> 00:01:22.687
+isso é porque temos
+apenas uma saída.
+
+00:01:22.724 --> 00:01:27.671
+Já vimos que o valor
+incremental delta de Wij
+
+00:01:27.708 --> 00:01:30.087
+é igual à taxa
+de aprendizagem alfa
+
+00:01:30.124 --> 00:01:32.417
+multiplicada por D menos Y
+
+00:01:32.454 --> 00:01:34.776
+e multiplicado
+pelo gradiente.
+
+00:01:34.813 --> 00:01:37.202
+Na segunda camada,
+
+00:01:37.239 --> 00:01:41.627
+o valor incremental
+delta de Wi
+
+00:01:41.664 --> 00:01:45.628
+é igual a alfa
+multiplicado por D menos Y
+
+00:01:45.665 --> 00:01:47.603
+e por Hi.
+
+00:01:50.164 --> 00:01:51.642
+No segundo passo,
+
+00:01:51.679 --> 00:01:54.403
+queremos atualizar os pesos
+da primeira camada
+
+00:01:54.440 --> 00:01:57.387
+calculando o derivativo
+parcial de Y
+
+00:01:57.424 --> 00:02:00.803
+em respeito
+à matriz de peso W1.
+
+00:02:00.840 --> 00:02:04.258
+É aqui que as coisas ficam
+um pouco mais interessantes.
+
+00:02:04.295 --> 00:02:08.588
+Ao calcular o gradiente
+em respeito à matriz de peso W1,
+
+00:02:09.204 --> 00:02:11.546
+precisamos utilizar
+a regra de cadeia.
+
+00:02:11.583 --> 00:02:15.456
+A abordagem obtém
+o derivativo parcial de Y
+
+00:02:15.493 --> 00:02:17.552
+em respeito ao H
+
+00:02:17.589 --> 00:02:21.050
+e o multiplica
+pelo derivativo parcial de H
+
+00:02:21.087 --> 00:02:25.288
+em respeito aos elementos
+correspondentes do W1.
+
+00:02:25.325 --> 00:02:26.752
+Neste exemplo,
+
+00:02:26.789 --> 00:02:30.521
+só temos três neurônios
+na camada oculta única.
+
+00:02:30.558 --> 00:02:33.272
+Portanto, esta será
+uma combinação linear
+
+00:02:33.309 --> 00:02:34.937
+de três elementos.
+
+00:02:36.009 --> 00:02:39.247
+Vamos calcular cada
+derivativo separadamente.
+
+00:02:39.284 --> 00:02:42.424
+Como Y é uma combinação
+linear de H
+
+00:02:42.461 --> 00:02:44.455
+com seus pesos
+correspondentes,
+
+00:02:44.492 --> 00:02:47.538
+o derivativo parcial
+em respeito a H
+
+00:02:47.575 --> 00:02:51.555
+será os elementos de peso,
+um vetor W2.
+
+00:02:52.947 --> 00:02:56.921
+Qual é o derivativo parcial
+de cada elemento do vetor H
+
+00:02:56.958 --> 00:03:00.680
+em respeito aos seus pesos
+correspondentes na matriz W1?
+
+00:03:00.717 --> 00:03:01.843
+Vejamos.
+
+00:03:01.880 --> 00:03:05.657
+Já consideramos cada elemento
+do vetor H separadamente.
+
+00:03:05.694 --> 00:03:07.667
+Aqui está H1.
+
+00:03:07.704 --> 00:03:12.370
+Também temos H2 e H3.
+
+00:03:12.407 --> 00:03:14.129
+Se generalizarmos isso,
+
+00:03:14.166 --> 00:03:17.401
+cada elemento J
+será uma função de ativação
+
+00:03:17.438 --> 00:03:19.996
+de uma combinação linear
+correspondente.
+
+00:03:21.258 --> 00:03:24.017
+Encontrar
+o derivativo parcial
+
+00:03:24.054 --> 00:03:27.977
+significa encontrar o derivativo
+parcial da função de ativação
+
+00:03:28.014 --> 00:03:32.809
+e multiplicá-lo pelo derivativo
+parcial da combinação linear.
+
+00:03:32.846 --> 00:03:38.058
+Tudo em relação aos elementos
+certos do peso W1.
+
+00:03:38.095 --> 00:03:42.474
+Pause sempre que
+precisar anotar algo.
+
+00:03:44.602 --> 00:03:45.969
+Como dito antes,
+
+00:03:46.006 --> 00:03:48.977
+existem várias
+funções de ativação.
+
+00:03:49.014 --> 00:03:51.283
+Vamos chamar
+o derivativo parcial
+
+00:03:51.320 --> 00:03:54.472
+da função de ativação fi'.
+
+00:03:54.509 --> 00:03:56.017
+Cada neurônio J
+
+00:03:56.054 --> 00:03:59.985
+terá seu próprio valor fi
+e fi',
+
+00:04:00.022 --> 00:04:02.913
+de acordo com a função
+de ativação utilizada.
+
+00:04:02.950 --> 00:04:05.697
+O derivativo parcial
+da combinação linear
+
+00:04:05.734 --> 00:04:07.857
+em respeito a Wij
+
+00:04:07.894 --> 00:04:12.760
+é simplesmente Xi,
+pois os outros componentes são zero.
+
+00:04:12.797 --> 00:04:15.305
+O derivativo parcial de H
+
+00:04:15.342 --> 00:04:18.241
+em respeito
+à matriz de peso W1
+
+00:04:18.278 --> 00:04:22.521
+é simplesmente o fi'
+no neurônio J
+
+00:04:22.558 --> 00:04:25.465
+multiplicado por Xi.
+
+00:04:26.978 --> 00:04:30.945
+Temos as peças necessárias
+para o segundo passo,
+
+00:04:30.982 --> 00:04:34.681
+que nos dará
+o gradiente delta de IJ.
+
+00:04:34.718 --> 00:04:37.506
+Sabemos que
+o gradiente da saída Y
+
+00:04:37.543 --> 00:04:40.777
+em respeito a cada elemento
+na matriz W1
+
+00:04:40.814 --> 00:04:45.396
+é a multiplicação destes
+dois derivativos parciais
+
+00:04:45.433 --> 00:04:47.322
+que acabamos de calcular.
+
+00:04:50.378 --> 00:04:53.097
+Como no exemplo
+temos duas entradas
+
+00:04:53.134 --> 00:04:55.313
+e três neurônios ocultos,
+
+00:04:55.350 --> 00:04:58.176
+teremos que calcular
+seis gradientes:
+
+00:04:58.213 --> 00:05:00.232
+delta 1,1;
+
+00:05:00.269 --> 00:05:03.848
+delta 1,2; delta 1,3;
+
+00:05:03.885 --> 00:05:08.120
+delta 2,1; delta 2,2
+
+00:05:08.157 --> 00:05:11.299
+e delta 2,3.
+
+00:05:12.290 --> 00:05:15.146
+Após encontrar o gradiente
+no segundo passo,
+
+00:05:15.183 --> 00:05:19.792
+encontrar o valor incremental
+de Wij é imediato.
+
+00:05:19.829 --> 00:05:23.137
+No caso da função de perda
+que estamos utilizando,
+
+00:05:23.174 --> 00:05:25.760
+basta multiplicar
+o gradiente
+
+00:05:25.797 --> 00:05:29.169
+por alfa e por D menos Y.
+
+00:05:31.251 --> 00:05:33.656
+Ao fim do passe
+da retropropagação,
+
+00:05:33.693 --> 00:05:36.993
+cada elemento da matriz de peso
+pode ser atualizado
+
+00:05:37.030 --> 00:05:39.482
+pelos valores incrementais
+que calculamos
+
+00:05:39.519 --> 00:05:41.488
+a partir desses dois passos.
+
+00:05:41.525 --> 00:05:44.241
+Se houver mais camadas,
+o que geralmente acontece,
+
+00:05:44.278 --> 00:05:46.015
+haverá mais passos.
+
+00:05:46.052 --> 00:05:49.385
+O processo se tornará
+mais complicado.
+
+00:05:49.422 --> 00:05:52.623
+Felizmente, existem ferramentas
+de programação para isso.
+
+00:05:53.600 --> 00:05:56.849
+Em todos os cálculos
+não enfatizamos
+
+00:05:56.886 --> 00:05:58.458
+a entrada do viés,
+
+00:05:58.495 --> 00:06:02.143
+pois ela não altera
+os conceitos tratados.
+
+00:06:02.180 --> 00:06:04.055
+Como dito antes,
+
+00:06:04.092 --> 00:06:07.255
+considere o viés
+como uma entrada constante
+
+00:06:07.292 --> 00:06:09.823
+que também está ligada
+à cada neurônio
+
+00:06:09.860 --> 00:06:12.133
+da camada oculta pelo peso.
+
+00:06:12.170 --> 00:06:15.727
+A única diferença entre o viés
+e as outras entradas,
+
+00:06:15.764 --> 00:06:20.632
+é que ele permanece o mesmo,
+e as outras entradas mudam.
+
+00:06:21.336 --> 00:06:23.888
+Neste exemplo,
+para cada nova entrada,
+
+00:06:23.925 --> 00:06:27.841
+atualizamos os pesos para cada
+cálculo da saída.
+
+00:06:27.878 --> 00:06:32.631
+É sempre bom atualizar os pesos
+a cada final de passo.
+
+00:06:32.668 --> 00:06:35.439
+Isso é chamado de treinamento
+de minilote
+
+00:06:35.476 --> 00:06:38.710
+e envolve fazer a média
+das alterações dos pesos
+
+00:06:38.747 --> 00:06:42.918
+nos vários passos antes
+de atualizar os pesos.
+
+00:06:42.955 --> 00:06:46.932
+Existem duas razões para usar
+treinamento de minilote.
+
+00:06:46.969 --> 00:06:48.782
+A primeira é para reduzir
+
+00:06:48.819 --> 00:06:51.174
+a complexidade
+do processo de treinamento,
+
+00:06:51.211 --> 00:06:54.679
+pois será necessário
+menos computação.
+
+00:06:54.716 --> 00:06:57.071
+A segunda,
+e mais importante,
+
+00:06:57.108 --> 00:06:59.310
+é que quando fazemos
+a média de vários,
+
+00:06:59.347 --> 00:07:01.926
+possivelmente com alterações
+ruidosas dos pesos,
+
+00:07:01.963 --> 00:07:04.798
+teremos uma correção
+menos ruidosa.
+
+00:07:04.835 --> 00:07:09.137
+Assim o processo de aprendizagem
+poderá convergir mais rápido
+
+00:07:09.174 --> 00:07:10.936
+e de forma mais precisa.
+

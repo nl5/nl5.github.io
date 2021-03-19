@@ -1,0 +1,208 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.782
+To summarize what we've discussed,
+
+00:00:02.782 --> 00:00:04.515
+we now understand that in RNNs,
+
+00:00:04.514 --> 00:00:10.259
+the current state depends on the inputs as well as on the previous states,
+
+00:00:10.259 --> 00:00:13.094
+with the use of an activation function,
+
+00:00:13.095 --> 00:00:15.060
+like the Hyperbolic Tangent,
+
+00:00:15.060 --> 00:00:18.750
+the Sigmoid or the ReLU function for example.
+
+00:00:18.750 --> 00:00:22.829
+The current output is a simple linear combination
+
+00:00:22.829 --> 00:00:27.359
+of the current state elements with the corresponding weight matrix.
+
+00:00:27.359 --> 00:00:33.084
+We can also use a softmax function to calculate the outputs.
+
+00:00:33.084 --> 00:00:37.892
+This is the Folded form of the RNN scheme.
+
+00:00:37.892 --> 00:00:40.340
+When we have only one hidden layer,
+
+00:00:40.340 --> 00:00:43.100
+we need to update three weight matrices.
+
+00:00:43.100 --> 00:00:47.870
+Wy connecting the state to the output,
+
+00:00:47.869 --> 00:00:55.820
+Ws connecting the state to itself and Wx connecting the input to the state.
+
+00:00:55.820 --> 00:01:01.844
+This is the Unfolded Model and it is the one we have been mostly using.
+
+00:01:01.844 --> 00:01:05.658
+Let's look at the gradient calculations again.
+
+00:01:05.658 --> 00:01:10.090
+Calculating the gradient of the squared error or what we call the loss function,
+
+00:01:10.090 --> 00:01:15.143
+with respect to the weight matrix Wy, was straightforward.
+
+00:01:15.143 --> 00:01:19.500
+And by the way, you can choose to use other error functions of course.
+
+00:01:19.500 --> 00:01:25.489
+When calculating the gradient with respect to Ws and Wx,
+
+00:01:25.489 --> 00:01:28.949
+we need to be more careful and consider what happened in
+
+00:01:28.950 --> 00:01:33.645
+previous time steps accumulating all of these contributions.
+
+00:01:33.644 --> 00:01:39.734
+For these calculations, we used a process called Backpropagation Through Time.
+
+00:01:39.734 --> 00:01:42.171
+As we discussed earlier,
+
+00:01:42.171 --> 00:01:47.129
+when using backpropagation, we can choose to use mini batches.
+
+00:01:47.129 --> 00:01:50.069
+We can do the same in RNNs.
+
+00:01:50.069 --> 00:01:53.354
+Updating the weights in Backpropagation Through Time,
+
+00:01:53.355 --> 00:01:56.404
+can be performed periodically in batches as well,
+
+00:01:56.403 --> 00:01:59.564
+as opposed to once every input sample.
+
+00:01:59.564 --> 00:02:03.299
+As a reminder, we calculate the gradient
+
+00:02:03.299 --> 00:02:07.185
+for each step but do not update the weights right away.
+
+00:02:07.185 --> 00:02:11.384
+We can choose to update them once every fixed number of steps.
+
+00:02:11.384 --> 00:02:13.475
+For example, 20.
+
+00:02:13.475 --> 00:02:15.840
+This helps reduce the complexity of
+
+00:02:15.840 --> 00:02:20.800
+the training process and can also remove noise from the weight updates,
+
+00:02:20.800 --> 00:02:26.155
+since averaging a set of noisy samples tends to yield a less noisy value.
+
+00:02:26.155 --> 00:02:28.330
+You may ask yourselves,
+
+00:02:28.330 --> 00:02:31.758
+what happens when we have many time steps?
+
+00:02:31.758 --> 00:02:35.275
+Add not just a few as we had in our previous example.
+
+00:02:35.275 --> 00:02:38.200
+Remember the Backpropagation Through Time example?
+
+00:02:38.199 --> 00:02:40.269
+We had only three time steps.
+
+00:02:40.270 --> 00:02:43.075
+We may also have more than one hidden layer.
+
+00:02:43.074 --> 00:02:44.964
+So what happens then?
+
+00:02:44.965 --> 00:02:50.080
+Can we simply accumulate the gradient contributions from each of these time steps?
+
+00:02:50.080 --> 00:02:54.074
+The simple answer to that is no, we can't.
+
+00:02:54.074 --> 00:02:58.885
+Studies have shown that for up to a small number of time steps say,
+
+00:02:58.884 --> 00:03:03.069
+eight or ten, we can effectively use this method.
+
+00:03:03.069 --> 00:03:05.784
+If we backpropagate further,
+
+00:03:05.784 --> 00:03:11.155
+the gradient will become too small which is known as the Vanishing Gradient Problem,
+
+00:03:11.155 --> 00:03:13.810
+where the contributions of the information decays
+
+00:03:13.810 --> 00:03:17.349
+geometrically over time or in other words,
+
+00:03:17.349 --> 00:03:21.775
+temporal dependencies that span many time steps, for example,
+
+00:03:21.775 --> 00:03:25.176
+more than eight or nine or ten time steps,
+
+00:03:25.175 --> 00:03:28.169
+will effectively be disguarded by the network.
+
+00:03:28.169 --> 00:03:32.189
+So, how do we address the Vanishing Gradient Problem?
+
+00:03:32.189 --> 00:03:36.509
+Long Short-Term Memory Cell or LSTM's in short,
+
+00:03:36.509 --> 00:03:38.729
+were invented specifically to address
+
+00:03:38.729 --> 00:03:43.169
+this issue and they will be the topic of our next set of videos.
+
+00:03:43.169 --> 00:03:48.030
+The other scenario to be aware of is that of the Exploding Gradients,
+
+00:03:48.030 --> 00:03:51.599
+in which the value of the gradient grows uncontrollably.
+
+00:03:51.599 --> 00:03:58.314
+Luckily, a simple scheme called Gradient Clipping practically resolves this issue.
+
+00:03:58.314 --> 00:04:00.215
+Basically what we do,
+
+00:04:00.215 --> 00:04:05.795
+is we check in each time step whether the gradient exceeds a certain threshold.
+
+00:04:05.794 --> 00:04:09.724
+If it does, we normalize the successive gradient.
+
+00:04:09.724 --> 00:04:13.984
+Normalizing means that we penalize super large gradients,
+
+00:04:13.985 --> 00:04:18.453
+more than those that are slightly larger than our threshold.
+
+00:04:18.452 --> 00:04:23.869
+Clipping large gradients this way helps avoid the Exploding Gradient Problem.
+
+00:04:23.870 --> 00:04:29.290
+You can find more information about Gradient Clipping in the text following this video.
+

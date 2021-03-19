@@ -1,0 +1,369 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.232 --> 00:00:02.574
+Células de memória longa
+de curta duração,
+
+00:00:02.611 --> 00:00:05.007
+ou células LSTM,
+
+00:00:05.044 --> 00:00:07.390
+foram propostas em 1997
+
+00:00:07.427 --> 00:00:10.906
+por Sepp Hochreiter
+e Jürgen Schmidhuber.
+
+00:00:10.943 --> 00:00:12.314
+O objetivo da célula
+
+00:00:12.351 --> 00:00:16.143
+é resolver o problema
+da dissipação do gradiente.
+
+00:00:16.180 --> 00:00:20.590
+Ela permite que algumas entradas
+sejam travadas ou armazenadas
+
+00:00:20.627 --> 00:00:24.006
+por longos períodos de tempo
+sem esquecê-las,
+
+00:00:24.043 --> 00:00:27.039
+como é o caso das RNNs.
+
+00:00:27.076 --> 00:00:28.631
+Ao calcular o gradiente
+
+00:00:28.668 --> 00:00:30.838
+com a retropropagação
+através do tempo,
+
+00:00:30.875 --> 00:00:33.460
+o gradiente, ao retornar
+vários passos de tempo,
+
+00:00:33.497 --> 00:00:35.641
+pode se tornar
+insignificante.
+
+00:00:35.678 --> 00:00:37.093
+Pelo mesmo motivo,
+
+00:00:37.130 --> 00:00:39.222
+o derivativo parcial do erro
+
+00:00:39.259 --> 00:00:41.860
+também pode se tornar
+insignificante.
+
+00:00:41.897 --> 00:00:45.723
+Esse é o problema fundamental
+nas RNNs.
+
+00:00:45.760 --> 00:00:48.204
+Veremos que, nas LSTMs,
+
+00:00:48.241 --> 00:00:50.593
+queremos evitar
+a perda de informações
+
+00:00:50.630 --> 00:00:52.828
+ou o problema
+da dissipação do gradiente,
+
+00:00:52.865 --> 00:00:56.102
+prendendo intencionalmente
+algumas informações
+
+00:00:56.139 --> 00:00:58.811
+em muitos passos de tempo.
+
+00:00:58.848 --> 00:01:01.979
+Lembrar as informações
+em longos períodos de tempo
+
+00:01:02.016 --> 00:01:05.626
+é facilmente alcançado
+com esse método.
+
+00:01:05.663 --> 00:01:07.552
+Muitos programas,
+
+00:01:07.589 --> 00:01:10.059
+como as ferramentas de tradução
+do Google
+
+00:01:10.096 --> 00:01:11.998
+e o Alexa da Amazon,
+
+00:01:12.035 --> 00:01:14.099
+funcionam com LSTMs.
+
+00:01:14.136 --> 00:01:17.891
+Na verdade, a maioria
+dos programas com RNN
+
+00:01:17.928 --> 00:01:20.120
+são implementados
+
+00:01:20.157 --> 00:01:22.171
+utilizando LSTMs.
+
+00:01:22.821 --> 00:01:26.843
+Para entender a diferença
+entre LSTMs e RNNs,
+
+00:01:26.880 --> 00:01:29.258
+vejamos o sistema RNN
+
+00:01:29.295 --> 00:01:32.739
+nos aproximando de um neurônio
+da camada oculta
+
+00:01:32.776 --> 00:01:37.259
+para entender
+como calculamos S de T+1.
+
+00:01:37.296 --> 00:01:42.403
+Aproximar ainda mais nos mostra
+como os cálculos são feitos.
+
+00:01:42.440 --> 00:01:43.859
+Você deve se lembrar
+
+00:01:43.896 --> 00:01:46.227
+que o próximo estado
+foi calculado
+
+00:01:46.264 --> 00:01:48.467
+por uma função de ativação
+simples,
+
+00:01:48.504 --> 00:01:50.826
+como uma tangente
+hiperbólica,
+
+00:01:50.863 --> 00:01:54.194
+de uma combinação linear
+de diferentes entradas
+
+00:01:54.231 --> 00:01:57.371
+e com as matrizes de peso
+correspondentes.
+
+00:01:57.408 --> 00:02:01.627
+A saída também foi calculada
+como uma combinação linear.
+
+00:02:01.664 --> 00:02:05.491
+Usando LSTMs, não temos mais
+as computações básicas
+
+00:02:05.528 --> 00:02:08.197
+que tivemos
+no neurônio simples.
+
+00:02:08.234 --> 00:02:10.005
+Se afastando novamente,
+
+00:02:10.883 --> 00:02:14.115
+nosso sistema terá
+layout parecido.
+
+00:02:14.152 --> 00:02:16.963
+Os neurônios dos estados ocultos
+são substituídos
+
+00:02:17.000 --> 00:02:19.683
+por células LSTM
+
+00:02:19.720 --> 00:02:22.339
+e podem ser empilhadas
+como peças de Lego,
+
+00:02:22.376 --> 00:02:24.011
+assim como antes.
+
+00:02:25.316 --> 00:02:28.171
+Se nos aproximarmos
+de uma célula,
+
+00:02:28.208 --> 00:02:32.099
+não temos mais
+um cálculo único,
+
+00:02:32.136 --> 00:02:34.570
+mas quatro
+cálculos separados.
+
+00:02:34.607 --> 00:02:37.755
+Esta é nossa célula LSTM,
+
+00:02:37.792 --> 00:02:40.875
+este é o primeiro cálculo,
+
+00:02:40.912 --> 00:02:44.107
+o segundo, o terceiro
+
+00:02:44.144 --> 00:02:46.308
+e, por fim, o quarto.
+
+00:02:47.660 --> 00:02:51.062
+A rede LSTM permite
+que um sistema recorrente
+
+00:02:51.099 --> 00:02:53.136
+aprenda
+com vários passos de tempo
+
+00:02:53.173 --> 00:02:54.539
+enquanto treina a rede
+
+00:02:54.576 --> 00:02:58.267
+usando os mesmos princípios
+da retropropagação.
+
+00:02:58.304 --> 00:03:02.122
+Nesses casos, não consideramos
+apenas alguns passos,
+
+00:03:02.159 --> 00:03:03.843
+como fizemos nas RNNs,
+
+00:03:03.880 --> 00:03:06.772
+mas mais de mil.
+
+00:03:07.916 --> 00:03:11.103
+A célula
+é totalmente diferençável,
+
+00:03:11.140 --> 00:03:13.870
+todas as funções dela
+possuem um gradiente
+
+00:03:13.907 --> 00:03:17.163
+ou um derivativo
+que pode ser calculado.
+
+00:03:17.200 --> 00:03:19.235
+As funções são uma sigmoide,
+
+00:03:19.272 --> 00:03:22.626
+uma tangente hiperbólica,
+uma multiplicação
+
+00:03:22.663 --> 00:03:24.538
+e uma soma.
+
+00:03:24.575 --> 00:03:26.982
+Isso permite utilizar
+retropropagação
+
+00:03:27.019 --> 00:03:29.006
+ou gradiente descendente
+estocástico
+
+00:03:29.043 --> 00:03:31.469
+quando atualizamos os pesos.
+
+00:03:31.506 --> 00:03:33.970
+A ideia principal
+das células LSTM
+
+00:03:34.007 --> 00:03:38.174
+é a de que elas podem decidir
+quais informações esquecer,
+
+00:03:38.211 --> 00:03:41.861
+quais informações armazenar
+e quando utilizá-las.
+
+00:03:41.898 --> 00:03:43.900
+A célula
+também ajuda a decidir
+
+00:03:43.937 --> 00:03:46.582
+quando mover as informações
+de estados anteriores
+
+00:03:46.619 --> 00:03:48.348
+para a próxima.
+
+00:03:48.385 --> 00:03:52.549
+Vimos que a célula LSTM
+possui três sigmoides.
+
+00:03:52.586 --> 00:03:56.694
+A saída de cada sigmoide
+é entre zero e 1.
+
+00:03:56.731 --> 00:03:58.965
+Passar os dados através
+de uma sigmoide
+
+00:03:59.002 --> 00:04:02.109
+responde intuitivamente
+as seguintes perguntas:
+
+00:04:02.146 --> 00:04:04.515
+Deixamos
+todos os dados passarem
+
+00:04:04.552 --> 00:04:08.309
+quando a saída da sigmoide
+for 1 ou próxima disso?
+
+00:04:08.346 --> 00:04:11.071
+Ou forçamos o resultado
+a ser zero
+
+00:04:11.108 --> 00:04:13.221
+quando nenhum dado
+for passado?
+
+00:04:13.258 --> 00:04:16.397
+Isso quando a saída da sigmoide
+for zero
+
+00:04:16.434 --> 00:04:18.030
+ou próxima disso.
+
+00:04:18.822 --> 00:04:21.406
+As três sigmoides
+agem como um mecanismo
+
+00:04:21.443 --> 00:04:25.134
+que filtra o que entra
+na célula, caso entre,
+
+00:04:25.171 --> 00:04:27.495
+o que é retido na célula
+
+00:04:27.532 --> 00:04:30.662
+e o que atravessa
+até a saída.
+
+00:04:30.699 --> 00:04:33.059
+A ideia principal das LSTMs
+
+00:04:33.096 --> 00:04:36.206
+é de que as três funções
+também sejam treinadas
+
+00:04:36.243 --> 00:04:37.990
+usando a retropropagação
+
+00:04:38.027 --> 00:04:41.333
+ajustando os pesos
+que são fornecidos.
+
+00:04:41.370 --> 00:04:42.605
+Os próximos vídeos
+
+00:04:42.642 --> 00:04:45.218
+ajudarão a entender melhor
+as LSTMs.
+

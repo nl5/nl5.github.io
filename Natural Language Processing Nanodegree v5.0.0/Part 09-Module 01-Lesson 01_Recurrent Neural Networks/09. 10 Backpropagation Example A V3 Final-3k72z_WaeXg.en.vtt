@@ -1,0 +1,172 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.895
+Remember our feedforward illustration?
+
+00:00:02.895 --> 00:00:04.560
+We had n inputs,
+
+00:00:04.559 --> 00:00:08.309
+three neurons in the hidden layer, and two outputs.
+
+00:00:08.310 --> 00:00:10.980
+For this example, we will need to simplify
+
+00:00:10.980 --> 00:00:14.609
+things even more and look at a model with two inputs,
+
+00:00:14.609 --> 00:00:18.100
+x_1 and x_2, and a single output, y.
+
+00:00:18.100 --> 00:00:21.635
+We will have a weight matrix, W_1,
+
+00:00:21.635 --> 00:00:23.955
+from the input to the hidden layer,
+
+00:00:23.954 --> 00:00:28.695
+the elements of the matrix will be W_ij just as before.
+
+00:00:28.695 --> 00:00:31.320
+We will also have a weight matrix vector,
+
+00:00:31.320 --> 00:00:35.064
+W_2, from the hidden layer to the output.
+
+00:00:35.064 --> 00:00:40.619
+Notice that it's a vector and not a matrix as we only have one output.
+
+00:00:40.619 --> 00:00:42.934
+Don't forget your pencil and notes.
+
+00:00:42.935 --> 00:00:48.179
+Pause the video any time you need and make sure you're following the math here.
+
+00:00:48.179 --> 00:00:53.170
+We will begin with a feedforward pass of the inputs across the network,
+
+00:00:53.170 --> 00:00:55.425
+then calculate the output,
+
+00:00:55.424 --> 00:00:57.195
+and based on the error,
+
+00:00:57.195 --> 00:01:02.189
+use backpropagation to calculate the partial derivatives.
+
+00:01:02.189 --> 00:01:08.838
+Calculating the values of the activations at each of the three hidden neurons is simple.
+
+00:01:08.838 --> 00:01:11.099
+We have a linear combination of
+
+00:01:11.099 --> 00:01:15.919
+the inputs with a corresponding weight elements of the matrix W_1.
+
+00:01:15.920 --> 00:01:20.950
+All that is followed by an activation function.
+
+00:01:20.950 --> 00:01:26.760
+The outputs are a dot product of the activations of the previous layer vector,
+
+00:01:26.760 --> 00:01:30.546
+H, with the weights of W2.
+
+00:01:30.546 --> 00:01:33.070
+As I mentioned before,
+
+00:01:33.069 --> 00:01:36.879
+the aim of the back propagation process is to minimize,
+
+00:01:36.879 --> 00:01:40.109
+in our case, the loss function or the square error.
+
+00:01:40.109 --> 00:01:43.224
+To do that, we need to calculate the partial derivatives
+
+00:01:43.224 --> 00:01:46.929
+of the square error with respect to each of the weights.
+
+00:01:46.930 --> 00:01:48.895
+Since we just found the output,
+
+00:01:48.894 --> 00:01:56.649
+we can now minimize the error by finding the updated values of delta of W_ij and,
+
+00:01:56.650 --> 00:01:58.150
+of course, in every case,
+
+00:01:58.150 --> 00:02:05.969
+we need to do so for every single layer K. This value equals to the negative of
+
+00:02:05.969 --> 00:02:09.840
+alpha multiplied by the partial derivative
+
+00:02:09.840 --> 00:02:14.314
+of the loss function e. Since the error is a polynomial,
+
+00:02:14.314 --> 00:02:16.965
+finding its derivative is immediate.
+
+00:02:16.965 --> 00:02:18.965
+By using basic calculus,
+
+00:02:18.965 --> 00:02:21.719
+we can seek that this incremental value is simply
+
+00:02:21.719 --> 00:02:26.919
+the learning rate alpha multiplied by d minus y,
+
+00:02:26.919 --> 00:02:32.009
+and by the partial derivative of y with respect to each of the weights.
+
+00:02:32.009 --> 00:02:33.405
+If you're asking yourselves,
+
+00:02:33.405 --> 00:02:36.125
+what happened to the desired output D?
+
+00:02:36.125 --> 00:02:38.490
+Well, that was a constant value,
+
+00:02:38.490 --> 00:02:42.125
+so it's partial derivative was simply a zero.
+
+00:02:42.125 --> 00:02:44.354
+Notice that I used the chain rule here?
+
+00:02:44.354 --> 00:02:46.034
+In the beginning of this video,
+
+00:02:46.034 --> 00:02:49.145
+I mentioned that backpropagation is actually
+
+00:02:49.145 --> 00:02:52.740
+stochastic gradient descent with the use of the chain rule.
+
+00:02:52.740 --> 00:02:55.330
+Well, now we have our gradient.
+
+00:02:55.330 --> 00:02:59.660
+The symbol that we use for the gradient is usually lowercase delta.
+
+00:02:59.659 --> 00:03:03.389
+This partial derivative of the calculated output defines
+
+00:03:03.389 --> 00:03:07.634
+the gradient and we will find it by using the chain rule.
+
+00:03:07.634 --> 00:03:09.419
+So let's pause for a minute,
+
+00:03:09.419 --> 00:03:14.039
+remind ourselves what the chain rule is and how it's used.
+
+00:03:14.039 --> 00:03:16.169
+When you're feeling comfortable with this concept,
+
+00:03:16.169 --> 00:03:19.000
+we will continue with the actual calculation.
+

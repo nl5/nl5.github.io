@@ -1,0 +1,473 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.355 --> 00:00:03.618
+Depois de completada a passagem
+de alimentação direta,
+
+00:00:03.655 --> 00:00:07.338
+ter recebido o resultado
+e calculado o erros,
+
+00:00:07.375 --> 00:00:09.338
+vamos de trás para frente
+
+00:00:09.375 --> 00:00:11.435
+para alterar os pesos
+
+00:00:11.472 --> 00:00:14.982
+a fim de diminuir
+o erro de rede.
+
+00:00:16.288 --> 00:00:19.366
+Voltar da saída
+para a entrada
+
+00:00:19.403 --> 00:00:21.006
+e alterar os pesos
+
+00:00:21.043 --> 00:00:23.982
+é o processo chamado
+de retropropagação,
+
+00:00:24.019 --> 00:00:27.711
+que é um gradiente descendente
+estocástico computado
+
+00:00:27.748 --> 00:00:29.543
+a partir da regra de cadeia.
+
+00:00:29.580 --> 00:00:33.406
+Se você ainda não conhece
+o que é retropropagação,
+
+00:00:33.443 --> 00:00:35.646
+esta seção o ajudará.
+
+00:00:36.566 --> 00:00:39.863
+Nós seremos
+um pouco mais matemáticos.
+
+00:00:39.900 --> 00:00:44.222
+Acho fascinante ver
+como a matemática ganha vida,
+
+00:00:44.259 --> 00:00:46.992
+como os cálculos matemáticos
+
+00:00:47.029 --> 00:00:50.641
+possibilitam implementar
+uma rede neural,
+
+00:00:50.678 --> 00:00:53.618
+que é a pedra
+fundamental da IA.
+
+00:00:54.435 --> 00:00:57.225
+Para implementar uma rede
+neural básica,
+
+00:00:57.262 --> 00:01:00.504
+não precisamos dominar
+a matemática,
+
+00:01:00.541 --> 00:01:03.360
+pois existem ferramentas
+de código aberto.
+
+00:01:03.397 --> 00:01:05.680
+Mas, para entender
+como isso funciona
+
+00:01:05.717 --> 00:01:07.970
+e para otimizar o programa,
+
+00:01:08.007 --> 00:01:10.874
+é sempre importante
+conhecer os cálculos.
+
+00:01:10.911 --> 00:01:13.106
+É aqui que peço novamente
+
+00:01:13.143 --> 00:01:15.163
+para que você use
+uma técnica antiga
+
+00:01:15.200 --> 00:01:17.753
+e anote enquanto
+eu derivo os cálculos.
+
+00:01:17.790 --> 00:01:20.250
+Enquanto anota,
+
+00:01:20.287 --> 00:01:22.536
+você se familiariza
+com os cálculos,
+
+00:01:22.573 --> 00:01:24.685
+pois isso terá a sua letra.
+
+00:01:24.966 --> 00:01:27.618
+Para mim, isso sempre
+foi muito útil.
+
+00:01:28.890 --> 00:01:31.935
+O objetivo é encontrar
+um conjunto de pesos
+
+00:01:31.972 --> 00:01:34.360
+que minimizam
+o erro de rede.
+
+00:01:34.397 --> 00:01:36.112
+Como fazemos isso?
+
+00:01:36.149 --> 00:01:38.743
+Utilizamos um processo
+iterativo
+
+00:01:38.780 --> 00:01:43.351
+que fornece uma entrada por vez
+do conjunto de treinamento.
+
+00:01:43.388 --> 00:01:44.935
+Como disse antes,
+
+00:01:44.972 --> 00:01:46.703
+durante a passagem
+feedforward,
+
+00:01:46.740 --> 00:01:49.911
+nós calculamos
+o erro da rede.
+
+00:01:49.948 --> 00:01:54.546
+Podemos utilizá-lo para colocar
+os pesos na direção correta
+
+00:01:54.583 --> 00:01:57.946
+reduzindo o erro
+pouco a pouco.
+
+00:01:57.983 --> 00:02:02.251
+Fazemos isso até determinarmos
+que o erro é pequeno.
+
+00:02:02.288 --> 00:02:04.931
+E quão pequeno será isso?
+
+00:02:04.968 --> 00:02:07.684
+Como saber se temos
+um mapeamento bom
+
+00:02:07.721 --> 00:02:10.131
+da entrada até a saída?
+
+00:02:10.168 --> 00:02:12.606
+Não existe resposta simples.
+
+00:02:12.643 --> 00:02:15.731
+Haverá soluções práticas
+para algumas perguntas
+
+00:02:15.768 --> 00:02:18.602
+na próxima seção
+sobre sobreajuste.
+
+00:02:18.639 --> 00:02:22.627
+Imagine uma rede
+com apenas um peso W.
+
+00:02:22.664 --> 00:02:25.763
+Durante um dado ponto
+no processo de treinamento,
+
+00:02:25.800 --> 00:02:28.283
+o peso terá valor
+igual a WA,
+
+00:02:28.320 --> 00:02:32.274
+e o erro no ponto A
+é E sobre A.
+
+00:02:32.311 --> 00:02:33.891
+Para reduzir o erro,
+
+00:02:33.928 --> 00:02:38.403
+precisamos aumentar
+o valor do peso WA.
+
+00:02:38.440 --> 00:02:41.507
+Como o gradiente
+ou o derivativo,
+
+00:02:41.544 --> 00:02:44.915
+que é o coeficiente angular
+da curva no ponto A,
+
+00:02:44.952 --> 00:02:47.972
+é negativo, como ele está
+indo para baixo,
+
+00:02:48.009 --> 00:02:50.831
+precisamos alterar o peso
+na direção negativa
+
+00:02:50.868 --> 00:02:54.441
+para podermos aumentar
+o valor de WA.
+
+00:02:55.839 --> 00:02:57.407
+Se, por outro lado,
+
+00:02:57.444 --> 00:03:00.198
+o peso tiver valor
+igual a WB,
+
+00:03:00.235 --> 00:03:03.175
+com erro de rede
+de E sobre B,
+
+00:03:03.212 --> 00:03:04.567
+para reduzir o erro,
+
+00:03:04.604 --> 00:03:06.990
+precisamos diminuir
+o peso WB.
+
+00:03:07.027 --> 00:03:11.199
+O gradiente do ponto B
+é positivo.
+
+00:03:11.236 --> 00:03:13.036
+Neste caso, alterar o peso
+
+00:03:13.073 --> 00:03:16.245
+dando um passo na direção
+negativa do gradiente
+
+00:03:16.282 --> 00:03:20.685
+significa que estamos diminuindo
+o valor do peso corretamente.
+
+00:03:20.722 --> 00:03:23.621
+Observamos o caso
+de um peso único,
+
+00:03:23.658 --> 00:03:26.421
+que simplifica
+um caso prático,
+
+00:03:26.458 --> 00:03:28.797
+pois a rede neural
+possui muitos pesos.
+
+00:03:28.834 --> 00:03:32.350
+Podemos resumir o processo
+utilizando esta equação,
+
+00:03:32.387 --> 00:03:35.134
+na qual alfa é a taxa
+de aprendizagem
+
+00:03:35.171 --> 00:03:36.846
+ou o tamanho do passo.
+
+00:03:36.883 --> 00:03:40.710
+Vemos que o peso W,
+pelo que acabei de dizer,
+
+00:03:40.747 --> 00:03:44.991
+se altera na direção oposta
+do derivativo parcial do erro
+
+00:03:45.028 --> 00:03:47.136
+em respeito a W.
+
+00:03:47.173 --> 00:03:48.414
+Você pode se perguntar:
+
+00:03:48.451 --> 00:03:50.999
+"Por que estamos vendo
+derivativos parciais?"
+
+00:03:51.036 --> 00:03:54.814
+Porque o erro é uma função
+com muitas variáveis,
+
+00:03:54.851 --> 00:03:56.462
+e a derivativa parcial
+
+00:03:56.499 --> 00:03:58.990
+nos permite medir
+como o erro é impactado
+
+00:03:59.027 --> 00:04:00.800
+por cada peso separadamente.
+
+00:04:00.837 --> 00:04:03.934
+Existe um material sobre
+ajuste de taxa de aprendizagem
+
+00:04:03.971 --> 00:04:05.630
+no fim deste vídeo.
+
+00:04:05.667 --> 00:04:08.134
+Há também uma seção
+sobre hiperparâmetros
+
+00:04:08.171 --> 00:04:10.127
+depois desta aula.
+
+00:04:11.383 --> 00:04:14.391
+Como muitos pesos
+determinam a saída da rede,
+
+00:04:14.428 --> 00:04:18.176
+utilizamos um vetor
+dos derivativos parciais
+
+00:04:18.213 --> 00:04:20.544
+do erro de rede
+para cada peso.
+
+00:04:20.581 --> 00:04:22.975
+Este símbolo
+triangular invertido,
+
+00:04:23.012 --> 00:04:25.480
+se você não o conhece,
+é o gradiente.
+
+00:04:26.321 --> 00:04:29.911
+Ele é o vetor
+dos derivativos parciais do erro
+
+00:04:29.948 --> 00:04:32.002
+em relação a cada um
+dos pesos.
+
+00:04:33.248 --> 00:04:35.664
+Para fins de notação,
+
+00:04:35.701 --> 00:04:38.055
+teremos alguns índices.
+
+00:04:38.092 --> 00:04:41.191
+Nesta ilustração,
+que você já deve conhecer,
+
+00:04:41.228 --> 00:04:44.288
+nos concentramos nas ligações
+entre a camada K
+
+00:04:44.325 --> 00:04:46.032
+e a camada K+1.
+
+00:04:47.065 --> 00:04:52.742
+O peso Wij liga
+o neurônio I da camada K
+
+00:04:52.779 --> 00:04:55.344
+ao neurônio J
+da camada K+1,
+
+00:04:55.381 --> 00:04:57.240
+assim como já vimos antes.
+
+00:04:57.277 --> 00:04:58.816
+Vamos chamar a quantidade,
+
+00:04:58.853 --> 00:05:02.399
+com a qual mudamos
+ou atualizamos o peso Wij,
+
+00:05:02.436 --> 00:05:04.667
+de delta de Wij.
+
+00:05:04.704 --> 00:05:09.017
+O K sobrescrito indica
+que o peso liga a camada K
+
+00:05:09.054 --> 00:05:10.762
+à camada K+1
+
+00:05:10.799 --> 00:05:14.282
+ou, em outras palavras,
+ela é originada da camada K.
+
+00:05:14.319 --> 00:05:19.091
+Calcular o peso delta
+de Wij é simples.
+
+00:05:19.128 --> 00:05:20.970
+Ele é igual
+à taxa de aprendizagem
+
+00:05:21.007 --> 00:05:23.689
+multiplicada pelo derivativo
+parcial do erro
+
+00:05:23.726 --> 00:05:28.306
+em relação ao peso de Wij
+de cada camada.
+
+00:05:28.343 --> 00:05:30.507
+Pegaremos o negativo
+desse termo,
+
+00:05:30.544 --> 00:05:33.090
+pelos motivos
+que já mencionei.
+
+00:05:33.127 --> 00:05:35.315
+Basicamente,
+a retropropagação
+
+00:05:35.352 --> 00:05:39.218
+é o cálculo do derivativo parcial
+do erro E
+
+00:05:39.255 --> 00:05:41.530
+em relação a cada peso
+
+00:05:41.567 --> 00:05:43.453
+e o ajuste dos pesos
+
+00:05:43.490 --> 00:05:48.684
+a partir do valor calculado
+de delta de Wij.
+
+00:05:48.721 --> 00:05:52.496
+Esses cálculos são feitos
+em todas as camadas.
+
+00:05:52.533 --> 00:05:55.320
+Vejamos nosso sistema
+outra vez.
+
+00:05:55.357 --> 00:05:58.224
+Para o erro,
+utilizaremos a função de perda
+
+00:05:58.261 --> 00:06:04.206
+que é a saída desejada menos
+a saída da rede ao quadrado.
+
+00:06:04.243 --> 00:06:06.824
+Nós dividimos
+o termo de erro por dois
+
+00:06:06.861 --> 00:06:09.961
+para simplificar o cálculo
+que veremos depois.
+
+00:06:09.998 --> 00:06:13.539
+Agora que definimos
+as equações,
+
+00:06:13.576 --> 00:06:15.875
+podemos calcular
+com um exemplo.
+

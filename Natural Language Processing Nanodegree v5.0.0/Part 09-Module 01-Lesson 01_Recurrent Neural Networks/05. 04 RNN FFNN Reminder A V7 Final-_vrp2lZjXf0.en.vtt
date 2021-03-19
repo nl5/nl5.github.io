@@ -1,0 +1,214 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.830
+Before we dive into RNNs,
+
+00:00:01.830 --> 00:00:06.759
+let's remember the process we use in feedforward neural networks.
+
+00:00:06.759 --> 00:00:10.629
+We can have many hidden layers between the inputs and the outputs,
+
+00:00:10.630 --> 00:00:14.625
+but for simplicity, we will start with a single hidden layer.
+
+00:00:14.625 --> 00:00:16.397
+We will remind ourselves why,
+
+00:00:16.397 --> 00:00:19.009
+when, and how it is used.
+
+00:00:19.010 --> 00:00:24.234
+After we have a clear understanding of the mathematical background as well,
+
+00:00:24.234 --> 00:00:28.640
+we will take another step and open the door to RNNs.
+
+00:00:28.640 --> 00:00:33.625
+You will see that once you have a solid understanding in the basic feedforward network,
+
+00:00:33.625 --> 00:00:37.274
+the step towards RNNs is a simple one.
+
+00:00:37.274 --> 00:00:43.000
+Some of you may be familiar with the concept of convolutional neural networks,
+
+00:00:43.000 --> 00:00:44.875
+or CNNs in short.
+
+00:00:44.875 --> 00:00:47.229
+When implementing your neural net,
+
+00:00:47.229 --> 00:00:50.495
+you will find that you can combine these techniques.
+
+00:00:50.496 --> 00:00:53.710
+For example, one can use CNNs in
+
+00:00:53.710 --> 00:00:57.520
+the first few layers for the purposes of feature extraction,
+
+00:00:57.520 --> 00:01:02.725
+and then use RNNs in the final layer where memory needs to be considered.
+
+00:01:02.725 --> 00:01:06.969
+A popular application for this is in gesture recognition.
+
+00:01:06.969 --> 00:01:10.522
+But no worries, if you're not familiar with CNNs, that's okay.
+
+00:01:10.522 --> 00:01:13.332
+It's not the focus of this lesson.
+
+00:01:13.332 --> 00:01:16.969
+When working on a feedforward neural network,
+
+00:01:16.969 --> 00:01:19.935
+we actually simulate an artificial neural network
+
+00:01:19.935 --> 00:01:23.284
+by using a nonlinear function approximation.
+
+00:01:23.284 --> 00:01:28.864
+That function will act as a system that has n number of inputs,
+
+00:01:28.864 --> 00:01:32.554
+weights, and k number of outputs.
+
+00:01:32.555 --> 00:01:38.600
+We will use x as the input vector and y as the output vector.
+
+00:01:38.599 --> 00:01:45.849
+Inputs and outputs can also be many-to-many, many-to-one, and one-to-many.
+
+00:01:45.849 --> 00:01:51.454
+So, when neural network essentially works as a nonlinear function approximator,
+
+00:01:51.454 --> 00:01:59.840
+what we do is we try to fit a smooth function between given points like x1 y1, x2 y2,
+
+00:01:59.840 --> 00:02:06.094
+and so on, in such a way that when we have a new input x',
+
+00:02:06.094 --> 00:02:10.004
+we can find the new output y'.
+
+00:02:10.004 --> 00:02:15.289
+We will elaborate on these nonlinear function approximations later in the lesson.
+
+00:02:15.289 --> 00:02:18.049
+There are two main types of applications.
+
+00:02:18.050 --> 00:02:20.810
+One is classification, where we
+
+00:02:20.810 --> 00:02:25.590
+identify which of a set of categories a new input belongs to.
+
+00:02:25.590 --> 00:02:28.909
+For example, an image classification where
+
+00:02:28.909 --> 00:02:33.342
+the neural network receives as an input an image,
+
+00:02:33.342 --> 00:02:35.509
+and can know if it's a cat.
+
+00:02:35.509 --> 00:02:38.030
+The other application is regression,
+
+00:02:38.030 --> 00:02:40.384
+where we approximate a function,
+
+00:02:40.384 --> 00:02:46.634
+so the network produces continuous values following a supervised training process.
+
+00:02:46.634 --> 00:02:50.644
+A simple example can be time series forecasting,
+
+00:02:50.645 --> 00:02:53.689
+where we predict the price of a stock tomorrow
+
+00:02:53.689 --> 00:02:57.656
+based on the price of the stock over the past five days.
+
+00:02:57.656 --> 00:03:01.349
+The input to the network would be five values
+
+00:03:01.349 --> 00:03:05.909
+representing the price of the stock for each of the past five days,
+
+00:03:05.909 --> 00:03:09.395
+and the output we want is tomorrow's price.
+
+00:03:09.395 --> 00:03:15.040
+Our task in neural networks is to find the best set of weights that
+
+00:03:15.039 --> 00:03:20.694
+yield a good output where x represents the inputs,
+
+00:03:20.694 --> 00:03:24.430
+and W represents the weights.
+
+00:03:24.430 --> 00:03:27.270
+We start with random weights.
+
+00:03:27.270 --> 00:03:28.945
+In feedforward neural networks,
+
+00:03:28.944 --> 00:03:33.424
+we have static mapping from the inputs to the outputs.
+
+00:03:33.425 --> 00:03:37.410
+We use the word static as we have no memory and
+
+00:03:37.409 --> 00:03:42.629
+the output depends only on the inputs and the weights.
+
+00:03:42.629 --> 00:03:47.759
+In other words, for the same input and the same weights,
+
+00:03:47.759 --> 00:03:52.004
+we always receive the same output.
+
+00:03:52.004 --> 00:03:55.500
+Generally speaking, when working with neural networks,
+
+00:03:55.500 --> 00:04:00.599
+we have two primary phases: training and evaluation.
+
+00:04:00.599 --> 00:04:01.974
+In the training phase,
+
+00:04:01.974 --> 00:04:05.849
+we take the dataset called the training set which includes
+
+00:04:05.849 --> 00:04:10.629
+many pairs of inputs and their corresponding targets or outputs.
+
+00:04:10.629 --> 00:04:14.460
+And the goal is to find a set of weights that
+
+00:04:14.460 --> 00:04:18.720
+would best map the inputs to the desired outputs.
+
+00:04:18.720 --> 00:04:22.410
+In other words, the goal of the training phase is to yield
+
+00:04:22.410 --> 00:04:26.910
+a network that generalizes beyond the train set.
+
+00:04:26.910 --> 00:04:28.715
+In the evaluation phase,
+
+00:04:28.714 --> 00:04:32.944
+we use the network that was created in the training phase,
+
+00:04:32.944 --> 00:04:35.235
+apply our new inputs,
+
+00:04:35.235 --> 00:04:39.000
+and expect to obtain the desired outputs.
+

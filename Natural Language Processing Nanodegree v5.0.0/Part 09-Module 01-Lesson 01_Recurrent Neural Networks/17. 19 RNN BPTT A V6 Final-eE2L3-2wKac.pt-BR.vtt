@@ -1,0 +1,235 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.170 --> 00:00:02.731
+Esperamos que você
+esteja mais confiante
+
+00:00:02.768 --> 00:00:06.376
+e tenha uma compreensão
+conceitual profunda das RNNs.
+
+00:00:06.413 --> 00:00:09.161
+Mas como treinamos
+essas redes?
+
+00:00:09.198 --> 00:00:11.296
+Como encontrar
+bons conjuntos de pesos
+
+00:00:11.333 --> 00:00:13.665
+que minimizariam o erro?
+
+00:00:13.702 --> 00:00:17.960
+Nosso framework de treinamento
+será parecido com o que já vimos,
+
+00:00:17.997 --> 00:00:19.543
+com uma pequena alteração
+
+00:00:19.580 --> 00:00:22.176
+no algoritmo
+da retropropagação.
+
+00:00:22.213 --> 00:00:26.285
+Ao treinar RNNs,
+usamos a retropropagação
+
+00:00:26.322 --> 00:00:28.021
+através do tempo.
+
+00:00:28.058 --> 00:00:32.421
+Para simplificar,
+a partir deste momento,
+
+00:00:32.458 --> 00:00:35.501
+sempre que eu falar
+sobre derivativos parciais,
+
+00:00:35.538 --> 00:00:37.749
+eu direi simplesmente
+"derivativos",
+
+00:00:37.786 --> 00:00:40.462
+pois falarei sobre eles
+com frequência.
+
+00:00:41.110 --> 00:00:44.183
+Antes de começar,
+só um lembrete.
+
+00:00:44.220 --> 00:00:47.055
+Se as anotações
+são importantes para você,
+
+00:00:47.092 --> 00:00:48.808
+continue usando-as.
+
+00:00:49.728 --> 00:00:52.995
+Para entender melhor
+a retropropagação através do tempo,
+
+00:00:53.032 --> 00:00:55.444
+precisamos de algumas
+definições de notação.
+
+00:00:55.481 --> 00:00:57.796
+Já vimos isso
+em vídeos anteriores,
+
+00:00:57.833 --> 00:00:59.702
+mas vamos
+enfatizar novamente.
+
+00:00:59.739 --> 00:01:02.071
+O vetor de estado S de T
+
+00:01:02.108 --> 00:01:04.678
+é dado pela aplicação
+da função de ativação,
+
+00:01:04.715 --> 00:01:07.973
+uma tangente hiperbólica,
+por exemplo,
+
+00:01:08.010 --> 00:01:11.731
+à soma do produto
+do vetor de entrada X de T
+
+00:01:11.768 --> 00:01:14.563
+com matriz de peso Wx
+
+00:01:14.600 --> 00:01:18.838
+e o produto do vetor de estado
+S de T - 1 anterior
+
+00:01:18.875 --> 00:01:21.581
+com matriz de peso Ws.
+
+00:01:21.618 --> 00:01:23.518
+A saída no tempo T
+
+00:01:23.555 --> 00:01:27.469
+é igual ao produto
+do vetor de estado S de T
+
+00:01:27.506 --> 00:01:29.861
+com uma matriz de peso Wy,
+
+00:01:29.898 --> 00:01:33.916
+a menos que esteja utilizando
+uma função softmax, por exemplo.
+
+00:01:33.953 --> 00:01:36.164
+E a função de perda,
+
+00:01:36.201 --> 00:01:38.018
+o erro quadrático E de T
+
+00:01:38.055 --> 00:01:41.233
+igual ao quadrado
+da diferença da saída desejada
+
+00:01:41.270 --> 00:01:44.569
+e da rede no tempo T.
+
+00:01:44.606 --> 00:01:47.585
+Em aulas anteriores,
+vimos outras funções de erro,
+
+00:01:47.622 --> 00:01:50.489
+como a de perda
+por entropia cruzada, por exemplo.
+
+00:01:50.526 --> 00:01:55.842
+Por consistência, manteremos
+o mesmo erro nesta aula.
+
+00:01:56.472 --> 00:01:58.329
+Na retropropagação
+através do tempo,
+
+00:01:58.366 --> 00:02:00.852
+treinamos o sistema
+de forma independente
+
+00:02:00.889 --> 00:02:02.755
+em um tempo específico T
+
+00:02:02.792 --> 00:02:07.096
+e treinamos o sistema
+em um tempo específico T
+
+00:02:07.133 --> 00:02:11.691
+levando em consideração
+tudo o que aconteceu antes.
+
+00:02:11.728 --> 00:02:16.787
+Por exemplo, imagine
+o passo de tempo T=3.
+
+00:02:17.628 --> 00:02:19.738
+O erro quadrático
+permanece igual,
+
+00:02:19.775 --> 00:02:21.210
+o quadrado da diferença
+
+00:02:21.247 --> 00:02:24.270
+entre a saída desejada
+e a saída da rede.
+
+00:02:24.307 --> 00:02:27.132
+Neste caso, no tempo T=3.
+
+00:02:27.169 --> 00:02:31.347
+Este é o esquema dobrado
+neste tempo específico.
+
+00:02:31.384 --> 00:02:33.891
+Para atualizar cada
+matriz de peso,
+
+00:02:33.928 --> 00:02:37.158
+devemos encontrar os derivativos
+da função de perda
+
+00:02:37.195 --> 00:02:38.988
+no tempo T=3
+
+00:02:39.025 --> 00:02:42.283
+como uma função
+de todas as matrizes de peso.
+
+00:02:42.320 --> 00:02:45.515
+Em outras palavras,
+modificamos cada matriz
+
+00:02:45.552 --> 00:02:47.356
+usando
+o gradiente descendente,
+
+00:02:47.393 --> 00:02:51.172
+como fizemos antes
+nas redes neurais feedforward.
+
+00:02:51.209 --> 00:02:56.182
+Mas, além disso, precisamos
+considerar os passos anteriores.
+
+00:02:58.141 --> 00:03:00.060
+Para entender melhor
+como continuar
+
+00:03:00.097 --> 00:03:02.916
+com o processo de retropropagação
+através do tempo,
+
+00:03:02.953 --> 00:03:05.395
+nós desdobraremos o modelo.
+
+00:03:05.432 --> 00:03:07.553
+Isso acontecerá
+no próximo vídeo.
+

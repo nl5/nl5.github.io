@@ -1,0 +1,310 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.109
+We now need to calculate the gradient.
+
+00:00:03.109 --> 00:00:05.730
+We will do that one step at a time.
+
+00:00:05.730 --> 00:00:08.880
+In our example, we only have one hidden layer.
+
+00:00:08.880 --> 00:00:12.570
+So the back propagation process will have two steps.
+
+00:00:12.570 --> 00:00:17.460
+Let's be more precise now and decide that the gradient calculated for
+
+00:00:17.460 --> 00:00:23.580
+each element Ij in the matrix is called delta of Ij.
+
+00:00:23.579 --> 00:00:25.715
+In step number one,
+
+00:00:25.716 --> 00:00:28.170
+we will calculate the gradient with respect to
+
+00:00:28.170 --> 00:00:33.400
+the weight vector W2 from the output to the hidden layer.
+
+00:00:33.399 --> 00:00:35.339
+And in step two,
+
+00:00:35.340 --> 00:00:37.740
+we will calculate the gradient with respect to
+
+00:00:37.740 --> 00:00:44.075
+the weight matrix W1 from the hidden layer to the input.
+
+00:00:44.075 --> 00:00:47.115
+Okay, so let's start with step number one.
+
+00:00:47.115 --> 00:00:49.150
+We already calculated y.
+
+00:00:49.149 --> 00:00:54.879
+We will find its partial derivative with respect to the weight vector W2.
+
+00:00:54.880 --> 00:00:58.935
+Given that y is a linear summation over terms,
+
+00:00:58.935 --> 00:01:04.980
+you will find that the gradient is simply the value of the corresponding activation h,
+
+00:01:04.980 --> 00:01:08.503
+as all the other terms were zero.
+
+00:01:08.503 --> 00:01:11.495
+This will hold for gradient one,
+
+00:01:11.495 --> 00:01:15.070
+gradient two, and gradient three.
+
+00:01:15.069 --> 00:01:18.559
+You probably noticed that we have only one index for
+
+00:01:18.560 --> 00:01:22.730
+delta here and that's because we have a single output.
+
+00:01:22.730 --> 00:01:28.430
+Previously, we saw that the incremental value delta of Wij equals to
+
+00:01:28.430 --> 00:01:34.700
+the learning rate alpha multiplied by d minus y and multiplied by the gradient.
+
+00:01:34.700 --> 00:01:37.204
+So at the second layer,
+
+00:01:37.204 --> 00:01:48.875
+the incremental value of delta of Wi equals alpha multiplied by d minus y and by hi.
+
+00:01:48.875 --> 00:01:51.575
+In our second step,
+
+00:01:51.575 --> 00:01:55.490
+we want to update the weights of layer one by calculating
+
+00:01:55.489 --> 00:02:00.414
+the partial derivative of y with respect to the weight matrix W1.
+
+00:02:00.415 --> 00:02:04.040
+Here is where things get a little more interesting.
+
+00:02:04.040 --> 00:02:05.983
+When calculating the gradient,
+
+00:02:05.983 --> 00:02:08.905
+with respect to the weight matrix W1,
+
+00:02:08.905 --> 00:02:11.270
+we need to use the chain rule.
+
+00:02:11.270 --> 00:02:17.475
+The approach, obtain the partial derivative of y with respect to h
+
+00:02:17.474 --> 00:02:20.682
+and multiply it by the partial derivative of h
+
+00:02:20.682 --> 00:02:25.039
+with respect to the corresponding elements in W1.
+
+00:02:25.039 --> 00:02:30.549
+In this example, we only have three neurons in the single hidden layer.
+
+00:02:30.550 --> 00:02:35.295
+Therefore, this will be a linear combination of three elements.
+
+00:02:35.294 --> 00:02:39.125
+Let's calculate each derivative separately.
+
+00:02:39.125 --> 00:02:44.439
+Since y is a linear combination of h and its corresponding weights,
+
+00:02:44.439 --> 00:02:53.004
+its partial derivative with respect to h will be the weight elements a vector W2.
+
+00:02:53.004 --> 00:02:56.340
+Now, what is the partial derivative of each element of
+
+00:02:56.340 --> 00:03:00.133
+vector h with respect to its corresponding weights in matrix W1?
+
+00:03:00.133 --> 00:03:01.740
+Let's see.
+
+00:03:01.740 --> 00:03:05.564
+We've already considered each element of vector h separately.
+
+00:03:05.564 --> 00:03:07.365
+So here is h1.
+
+00:03:07.366 --> 00:03:12.156
+We also have h2 and h3.
+
+00:03:12.156 --> 00:03:14.145
+If we generalize this,
+
+00:03:14.145 --> 00:03:20.515
+each element j is an activation function of a corresponding linear combination.
+
+00:03:20.514 --> 00:03:25.789
+Finding its partial derivative means finding the partial derivative of
+
+00:03:25.789 --> 00:03:28.609
+the activation function and
+
+00:03:28.610 --> 00:03:32.925
+multiplying it by the partial derivative of the linear combination.
+
+00:03:32.925 --> 00:03:37.520
+All, of course, with respect to the correct elements of the weight W1.
+
+00:03:37.520 --> 00:03:43.450
+Feel free to pause anytime you need to catch up on your notes.
+
+00:03:43.449 --> 00:03:45.854
+As I said before,
+
+00:03:45.854 --> 00:03:49.019
+there are various activation functions.
+
+00:03:49.020 --> 00:03:54.510
+So let's just call the partial derivative of the activation function fi prime.
+
+00:03:54.509 --> 00:03:59.712
+Each neuron will have its own value of fi and fi prime,
+
+00:03:59.712 --> 00:04:02.699
+according to the activation function you use.
+
+00:04:02.699 --> 00:04:06.599
+The partial derivative of the linear combination with respect to
+
+00:04:06.599 --> 00:04:12.460
+Wij is simply xi since all of the other components are zero.
+
+00:04:12.460 --> 00:04:18.660
+So the partial derivative of h with respect to the weight matrix W1 is
+
+00:04:18.660 --> 00:04:26.052
+simply fi prime at neuron j multiplied by xi.
+
+00:04:26.052 --> 00:04:30.980
+We now have all the pieces required for step number two,
+
+00:04:30.980 --> 00:04:34.595
+giving us the gradient delta of ij.
+
+00:04:34.595 --> 00:04:39.830
+We know that the gradient of the output y with respect to each of the elements in matrix
+
+00:04:39.829 --> 00:04:48.719
+W1 is the multiplication of these two partial derivatives that we just calculated.
+
+00:04:48.720 --> 00:04:51.690
+Since in the example,
+
+00:04:51.689 --> 00:04:55.185
+we have two inputs and three hidden neurons,
+
+00:04:55.185 --> 00:05:00.261
+we will have six gradients to calculate, delta one one,
+
+00:05:00.261 --> 00:05:04.189
+delta one two, delta one three,
+
+00:05:04.189 --> 00:05:12.204
+delta two one, delta two two and finally, delta two three.
+
+00:05:12.204 --> 00:05:14.945
+After finding the gradient in step two,
+
+00:05:14.946 --> 00:05:19.695
+finding the incremental value of Wij is immediate.
+
+00:05:19.694 --> 00:05:23.134
+Again, in the case of the loss function that we're using here,
+
+00:05:23.134 --> 00:05:30.045
+it's simply the multiplication of the gradient by alpha and by d minus y.
+
+00:05:30.045 --> 00:05:33.660
+At the end of the back propagation part,
+
+00:05:33.660 --> 00:05:36.990
+each element in the weight matrix can be updated
+
+00:05:36.990 --> 00:05:41.280
+by the incremental values we calculated using these two steps.
+
+00:05:41.279 --> 00:05:44.159
+If we have more layers which is usually the case,
+
+00:05:44.160 --> 00:05:45.900
+we will have more steps.
+
+00:05:45.899 --> 00:05:49.214
+You can imagine that the process becomes more complicated.
+
+00:05:49.214 --> 00:05:52.834
+Luckily, we have the programming tools for that.
+
+00:05:52.834 --> 00:05:56.909
+In all of these calculations we did not emphasize
+
+00:05:56.910 --> 00:06:02.064
+the biased input as it does not change any of the concepts we covered.
+
+00:06:02.064 --> 00:06:03.975
+As I mentioned before,
+
+00:06:03.975 --> 00:06:07.770
+simply consider the bias is a constant input that is
+
+00:06:07.769 --> 00:06:12.329
+also connected to each of the neurons of the hidden layers by weight.
+
+00:06:12.329 --> 00:06:16.229
+The only difference between the bias and the other inputs is
+
+00:06:16.230 --> 00:06:20.835
+the fact that it remains the same as each of the other inputs change.
+
+00:06:20.834 --> 00:06:24.129
+In this example, for each new input we
+
+00:06:24.129 --> 00:06:27.894
+updated the weights after each calculation of the output.
+
+00:06:27.894 --> 00:06:32.954
+It is often beneficial to update the weights once every end steps.
+
+00:06:32.954 --> 00:06:36.969
+This is called mini batch training and involves averaging
+
+00:06:36.970 --> 00:06:43.110
+the changes to the weights over multiple steps before actually updating the weights.
+
+00:06:43.110 --> 00:06:47.020
+There are two primary reasons for using mini batch training.
+
+00:06:47.019 --> 00:06:49.779
+The first is to reduce the complexity of
+
+00:06:49.779 --> 00:06:54.759
+the training process since fewer computations are required.
+
+00:06:54.759 --> 00:06:59.334
+The second and more important is that when we average multiple,
+
+00:06:59.334 --> 00:07:01.870
+possibly noisy changes to the weights,
+
+00:07:01.870 --> 00:07:05.069
+we end up with a less noisy correction.
+
+00:07:05.069 --> 00:07:11.000
+This means that the learning process may actually converge faster and more accurately.
+

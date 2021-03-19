@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.035
+When we minimize the network error using backpropagation,
+
+00:00:04.035 --> 00:00:09.530
+we may either properly fit the model to the data or overfit.
+
+00:00:09.529 --> 00:00:12.714
+Generally speaking, when we have a finite training set,
+
+00:00:12.714 --> 00:00:15.300
+there's a risk of overfitting.
+
+00:00:15.300 --> 00:00:20.780
+Overfitting means that our model will fit the training data too closely.
+
+00:00:20.780 --> 00:00:25.304
+In other words, we over trained the model or the network to fit our data.
+
+00:00:25.304 --> 00:00:28.370
+As a result, we unintentionally also
+
+00:00:28.370 --> 00:00:31.970
+model the noise or random elements of the training set.
+
+00:00:31.969 --> 00:00:39.030
+If that happens, our model will not generalize well when tested on new inputs.
+
+00:00:39.030 --> 00:00:44.500
+There are generally two main approaches to addressing the overfitting problem.
+
+00:00:44.500 --> 00:00:48.619
+The first is to stop the training process early,
+
+00:00:48.619 --> 00:00:52.489
+and the second is the use of regularization.
+
+00:00:52.490 --> 00:00:55.295
+When we stop the training process early,
+
+00:00:55.295 --> 00:00:59.465
+we do that in the region where the network begins to overfit.
+
+00:00:59.465 --> 00:01:05.030
+By doing so, we reduce degradation in the performance on the test set.
+
+00:01:05.030 --> 00:01:09.635
+It would be ideal if we knew precisely when we should stop the training process.
+
+00:01:09.635 --> 00:01:13.555
+However, that is often difficult to determine.
+
+00:01:13.555 --> 00:01:18.360
+One way of determining when to stop the training is by carving
+
+00:01:18.359 --> 00:01:24.980
+a small data set out of the training set which we will call the validation set.
+
+00:01:24.980 --> 00:01:30.293
+Assuming that the accuracy of the validation set is similar to that of the test set,
+
+00:01:30.293 --> 00:01:33.790
+we can use it to estimate when the training should stop.
+
+00:01:33.790 --> 00:01:39.290
+The drawback of this approach is that we end up with fewer samples to train our model on,
+
+00:01:39.290 --> 00:01:42.160
+so our training set is smaller.
+
+00:01:42.159 --> 00:01:49.159
+An alternative mainstream approach to mitigating overfitting is to use regularization.
+
+00:01:49.159 --> 00:01:53.259
+Regularization means that we impose a constraint on the training of
+
+00:01:53.260 --> 00:01:58.010
+the network such that better generalization can be achieved.
+
+00:01:58.010 --> 00:02:04.000
+Dropout is a widely used regularization scheme which helps in that manner.
+

@@ -1,0 +1,217 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.315
+We are finally ready to talk about Recurrent Neural Networks or RNN's in short.
+
+00:00:06.315 --> 00:00:10.635
+Everything we've seen so far prepared us for this moment.
+
+00:00:10.634 --> 00:00:13.004
+We went over the feedforward process,
+
+00:00:13.005 --> 00:00:16.620
+as well as the back propagation process in much detail.
+
+00:00:16.620 --> 00:00:20.539
+This will all help you understand the next set of videos.
+
+00:00:20.539 --> 00:00:22.445
+As I mentioned before,
+
+00:00:22.445 --> 00:00:25.295
+if you look up the definition of the word Recurrent,
+
+00:00:25.295 --> 00:00:29.890
+you will find that it simply means occurring often or repeatedly.
+
+00:00:29.890 --> 00:00:34.495
+So why are these networks called Recurrent Neural Networks?
+
+00:00:34.494 --> 00:00:35.779
+It's simply because with RNN's,
+
+00:00:35.780 --> 00:00:41.350
+we perform the same task for each element in the input sequence.
+
+00:00:41.350 --> 00:00:44.030
+We will see a lot more of this sketch later.
+
+00:00:44.030 --> 00:00:48.620
+RNN's also attempt to address the need for capturing information
+
+00:00:48.619 --> 00:00:52.534
+and previous inputs by maintaining internal memory elements,
+
+00:00:52.534 --> 00:00:56.259
+also known as States.
+
+00:00:56.259 --> 00:01:01.832
+Many applications have temporal dependencies.
+
+00:01:01.832 --> 00:01:08.754
+Meaning, that the current output depends not only on the current input,
+
+00:01:08.754 --> 00:01:14.515
+but also on a memory element which takes into account past inputs.
+
+00:01:14.515 --> 00:01:16.370
+For cases like these,
+
+00:01:16.370 --> 00:01:19.005
+we need to use RNN's.
+
+00:01:19.004 --> 00:01:25.250
+A good example for the use of RNN is predicting the next word in a sentence,
+
+00:01:25.250 --> 00:01:31.879
+which typically requires looking at the last few words rather than only the current one.
+
+00:01:31.879 --> 00:01:35.914
+We also mentioned quite a few other categories of applications,
+
+00:01:35.915 --> 00:01:40.305
+such as Sentiment Analysis, Speech Recognition,
+
+00:01:40.305 --> 00:01:45.780
+Time Series Predictions, Natural Language Processing, and Gesture Recognition.
+
+00:01:45.780 --> 00:01:48.935
+Frankly, applications of our RNN's are popping up
+
+00:01:48.935 --> 00:01:53.347
+almost everyday making it challenging to keep up.
+
+00:01:53.347 --> 00:01:57.295
+So how should we think about this new neural network?
+
+00:01:57.295 --> 00:01:59.004
+What is its structure?
+
+00:01:59.004 --> 00:02:00.045
+How are the training,
+
+00:02:00.045 --> 00:02:02.295
+and evaluation phases changed?
+
+00:02:02.295 --> 00:02:08.145
+Well, RNN's are based on the same principles behind feedforward neural networks,
+
+00:02:08.145 --> 00:02:12.840
+which is why we spend so much time reminding ourselves of the latter.
+
+00:02:12.840 --> 00:02:15.969
+Just as feedforward neural networks,
+
+00:02:15.969 --> 00:02:17.835
+in the RNN network,
+
+00:02:17.835 --> 00:02:25.490
+the inputs and outputs can also be many-to-many, many-to-one, and one-to-many.
+
+00:02:25.490 --> 00:02:29.814
+There are however, two fundamental differences between RNN's,
+
+00:02:29.814 --> 00:02:32.995
+and feedforward neural networks.
+
+00:02:32.995 --> 00:02:38.830
+The first, is the manner by which we define our inputs and outputs.
+
+00:02:38.830 --> 00:02:42.190
+Instead of training the network using a single-input,
+
+00:02:42.189 --> 00:02:44.829
+single-output at each time step,
+
+00:02:44.830 --> 00:02:49.630
+we train with sequences since previous inputs matter.
+
+00:02:49.629 --> 00:02:54.879
+The second difference, stems from the memory elements that RNN's host.
+
+00:02:54.879 --> 00:03:02.935
+Current inputs, as well as activations of neurons serve as inputs to the next time step.
+
+00:03:02.935 --> 00:03:06.045
+In feedforward neural networks,
+
+00:03:06.044 --> 00:03:12.969
+we saw a flow of information from the input to the output without any feedback.
+
+00:03:12.969 --> 00:03:16.014
+Now, that feedforward scheme changes,
+
+00:03:16.014 --> 00:03:19.629
+and includes the feedback or memory elements.
+
+00:03:19.629 --> 00:03:22.495
+We will consider memory defined,
+
+00:03:22.495 --> 00:03:25.134
+as the output of the hidden layer,
+
+00:03:25.134 --> 00:03:30.969
+which will serve as an additional input to the network at the following training step.
+
+00:03:30.969 --> 00:03:35.560
+We will no longer use H as the output of the hidden layer,
+
+00:03:35.560 --> 00:03:37.854
+but S for state,
+
+00:03:37.854 --> 00:03:40.509
+referring to a system with memory.
+
+00:03:40.509 --> 00:03:44.814
+The basic scheme of RNN is called Simple RNN,
+
+00:03:44.814 --> 00:03:49.180
+and is also known as an Elman Network.
+
+00:03:49.180 --> 00:03:50.980
+Notice that in this illustration,
+
+00:03:50.979 --> 00:03:53.319
+I only used two outputs.
+
+00:03:53.319 --> 00:03:56.799
+Well, you can have many outputs as well,
+
+00:03:56.800 --> 00:03:58.600
+certainly, more than two.
+
+00:03:58.599 --> 00:04:00.794
+But to simplify the sketch a bit,
+
+00:04:00.794 --> 00:04:03.704
+let's just stay with two for now.
+
+00:04:03.705 --> 00:04:09.075
+For those of you who come from engineering or computer science backgrounds,
+
+00:04:09.074 --> 00:04:10.799
+this will probably remind you of
+
+00:04:10.800 --> 00:04:16.020
+a simple state machine with combination of logic, and memory.
+
+00:04:16.019 --> 00:04:19.799
+The output depends not only on the external inputs,
+
+00:04:19.800 --> 00:04:24.180
+but also on previous inputs which come from memory cells.
+
+00:04:24.180 --> 00:04:27.280
+The RNN is conceptually similar.
+
+00:04:27.279 --> 00:04:29.159
+But the beauty in our case,
+
+00:04:29.160 --> 00:04:31.305
+is that the system will train itself,
+
+00:04:31.305 --> 00:04:36.720
+and learn how to optimize the weight matrix to realize the network.
+

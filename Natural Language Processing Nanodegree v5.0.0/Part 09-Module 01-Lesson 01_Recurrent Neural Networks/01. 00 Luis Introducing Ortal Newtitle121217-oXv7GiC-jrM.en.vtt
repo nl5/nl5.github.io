@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.339
+Hello. For the next section in recurrent neural networks,
+
+00:00:03.339 --> 00:00:05.830
+I am very excited to introduce you to my colleague Ortal.
+
+00:00:05.830 --> 00:00:05.969
+Hi Luis.
+
+00:00:05.969 --> 00:00:09.754
+Hi Ortal. Talking to us from the academic world.
+
+00:00:09.755 --> 00:00:12.580
+She has a Ph.D. in computer engineering and spent years as
+
+00:00:12.580 --> 00:00:14.589
+a university professor and researcher in
+
+00:00:14.589 --> 00:00:18.160
+the field of applied cryptography and embedded platforms.
+
+00:00:18.160 --> 00:00:20.410
+She also worked on the design and analysis of
+
+00:00:20.410 --> 00:00:24.175
+intelligent algorithms for high speed custom digital architectures.
+
+00:00:24.175 --> 00:00:27.100
+Thank you Luis. Hi everyone.
+
+00:00:27.100 --> 00:00:28.885
+I'm so happy to be here.
+
+00:00:28.885 --> 00:00:32.545
+I got into machine learning through my research in embedded systems.
+
+00:00:32.545 --> 00:00:35.820
+Since then, I've developed a passion for deep learning and in
+
+00:00:35.820 --> 00:00:39.770
+particular recurrent neural networks or RNNs in short.
+
+00:00:39.770 --> 00:00:44.239
+RNNs are widely used in many applications such as speech recognition,
+
+00:00:44.238 --> 00:00:46.875
+machine translation and video analysis.
+
+00:00:46.875 --> 00:00:49.859
+In this lesson, Luis and I will be breaking down
+
+00:00:49.859 --> 00:00:53.755
+these concepts for you and teaching you how such systems work.
+
+00:00:53.755 --> 00:00:55.510
+Ready to go?
+

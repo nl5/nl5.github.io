@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.940
+Hopefully, you are now feeling more confident and
+
+00:00:02.940 --> 00:00:06.150
+have a deeper conceptual understanding of RNNS.
+
+00:00:06.150 --> 00:00:09.240
+But how do we train such networks?
+
+00:00:09.240 --> 00:00:13.750
+How can we find a good set of weights that would minimize the error?
+
+00:00:13.750 --> 00:00:18.094
+You will see that our training framework will be similar to what we've seen before,
+
+00:00:18.094 --> 00:00:21.835
+with a slight change in the back propagation algorithm.
+
+00:00:21.835 --> 00:00:27.765
+When training RNNS, we use what we call back propagation through time.
+
+00:00:27.765 --> 00:00:32.475
+For simplicity reasons, let's decide that from this point,
+
+00:00:32.475 --> 00:00:35.460
+whenever I refer to partial derivatives,
+
+00:00:35.460 --> 00:00:37.649
+I will simply say derivatives,
+
+00:00:37.649 --> 00:00:40.589
+as I will need to refer to those quite often.
+
+00:00:40.590 --> 00:00:42.630
+And before I start,
+
+00:00:42.630 --> 00:00:44.140
+just a small reminder.
+
+00:00:44.140 --> 00:00:47.035
+If you feel that taking notes has been working for you,
+
+00:00:47.034 --> 00:00:49.233
+please continue to do so.
+
+00:00:49.234 --> 00:00:53.065
+To better understand back propagation through time,
+
+00:00:53.064 --> 00:00:55.420
+we need a few notational definitions.
+
+00:00:55.420 --> 00:00:59.825
+We've seen them before in a previous video but let's emphasize them again.
+
+00:00:59.825 --> 00:01:03.380
+The state vector S_of_t is given by applying
+
+00:01:03.380 --> 00:01:07.665
+an activation function let's say a hyperbolic tangent for example,
+
+00:01:07.665 --> 00:01:13.580
+to the sum of the product of the input vector X_of_t with a weight matrix Wx,
+
+00:01:13.579 --> 00:01:21.349
+and the product of the previous state vector S_of_t minus 1 with the weight matrix Ws.
+
+00:01:21.349 --> 00:01:27.394
+The output at time t simply equals to the product of the state vector S_of_t,
+
+00:01:27.394 --> 00:01:29.149
+with a weight matrix Wy,
+
+00:01:29.150 --> 00:01:33.620
+unless you're also using a soft max function for example.
+
+00:01:33.620 --> 00:01:35.859
+And the loss function,
+
+00:01:35.859 --> 00:01:40.609
+the square error E_of_t equals to the square of the difference between the
+
+00:01:40.609 --> 00:01:45.829
+desired and the network output at time t. In previous lessons,
+
+00:01:45.829 --> 00:01:50.429
+you've seen other error functions such as the cross entropy loss for example.
+
+00:01:50.430 --> 00:01:56.030
+But for consistency, we will stay with the same error we've seen so far in this lesson.
+
+00:01:56.030 --> 00:01:58.373
+In back propagation through time,
+
+00:01:58.373 --> 00:02:04.009
+we don't independently train the system at a specific time t. What we do,
+
+00:02:04.010 --> 00:02:07.490
+is we train the system at a specific time t as
+
+00:02:07.489 --> 00:02:11.570
+well as take into account all that has happened before.
+
+00:02:11.570 --> 00:02:17.004
+For example, assume that we are at timestep, t equals 3.
+
+00:02:17.004 --> 00:02:20.590
+Our square error remains as before the square of
+
+00:02:20.590 --> 00:02:24.233
+the difference between the desired output and the network output,
+
+00:02:24.233 --> 00:02:27.170
+in this case at time t equals three.
+
+00:02:27.169 --> 00:02:31.284
+This is the folded scheme at this particular time.
+
+00:02:31.284 --> 00:02:33.924
+To update each weight matrix,
+
+00:02:33.925 --> 00:02:37.750
+we need to find the derivatives of the loss function at time
+
+00:02:37.750 --> 00:02:42.159
+t equals three as a function of all of the weight matrices.
+
+00:02:42.159 --> 00:02:45.939
+In other words, we will modify each matrix using
+
+00:02:45.939 --> 00:02:51.444
+gradient descent just as we did before in feedforward neural networks.
+
+00:02:51.444 --> 00:02:57.829
+But in addition, we also need to consider the previous timesteps.
+
+00:02:57.830 --> 00:03:02.935
+To better understand how to continue with this process of back propagation through time,
+
+00:03:02.935 --> 00:03:05.460
+we will unfold this model.
+
+00:03:05.460 --> 00:03:07.409
+All this, in the next video.
+

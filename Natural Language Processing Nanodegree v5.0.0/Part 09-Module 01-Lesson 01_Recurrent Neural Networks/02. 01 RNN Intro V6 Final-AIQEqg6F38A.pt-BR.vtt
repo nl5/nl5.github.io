@@ -1,0 +1,244 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.544 --> 00:00:04.327
+Nesta aula, vamos nos concentrar
+nas redes neurais recorrentes,
+
+00:00:04.360 --> 00:00:07.209
+conhecidas também como RNNs.
+
+00:00:07.242 --> 00:00:10.417
+Muitos aplicativos utilizam
+dependências temporais,
+
+00:00:10.450 --> 00:00:12.771
+ou dependências
+ao longo do tempo.
+
+00:00:12.804 --> 00:00:14.205
+O que isso significa?
+
+00:00:14.238 --> 00:00:19.661
+Bom, significa que nossa saída atual
+depende não só da entrada atual,
+
+00:00:19.694 --> 00:00:22.222
+mas também
+de entradas passadas.
+
+00:00:22.255 --> 00:00:24.564
+Então digamos que farei
+o jantar esta noite.
+
+00:00:24.597 --> 00:00:27.696
+Bom, ontem eu comi pizza,
+
+00:00:27.729 --> 00:00:29.942
+então talvez seja melhor
+eu comer uma salada.
+
+00:00:30.264 --> 00:00:32.599
+Em essência,
+o que teremos é uma rede
+
+00:00:32.632 --> 00:00:36.668
+similar às redes feedforward
+que já conhecemos,
+
+00:00:36.701 --> 00:00:39.605
+porém, contendo memória.
+
+00:00:39.638 --> 00:00:43.109
+Você deve ter reparado que,
+nos programas que você já viu,
+
+00:00:43.142 --> 00:00:45.196
+somente a entrada atual
+tinha importância.
+
+00:00:45.229 --> 00:00:48.027
+Por exemplo,
+ao classificar uma imagem.
+
+00:00:48.060 --> 00:00:49.627
+Isso é um gato?
+
+00:00:49.660 --> 00:00:52.807
+Mas talvez não seja
+um gato parado.
+
+00:00:52.840 --> 00:00:56.418
+Talvez, quando a foto foi tirada,
+o gato estivesse se mexendo.
+
+00:00:56.451 --> 00:00:57.941
+A partir
+de uma única imagem,
+
+00:00:57.974 --> 00:01:02.694
+pode ser difícil determinar
+se ele está andando ou correndo.
+
+00:01:02.727 --> 00:01:05.907
+Talvez seja só um gato talentoso
+fazendo uma pose engraçada,
+
+00:01:05.940 --> 00:01:07.748
+com duas patas no ar.
+
+00:01:07.781 --> 00:01:10.784
+Quando observamos o gato
+quadro a quadro,
+
+00:01:10.817 --> 00:01:13.280
+nós nos lembramos
+do que vimos antes.
+
+00:01:13.313 --> 00:01:16.560
+Então sabemos se o gato está
+parado ou andando.
+
+00:01:16.593 --> 00:01:19.661
+Nós também sabemos distinguir
+andar de correr,
+
+00:01:19.694 --> 00:01:21.882
+mas uma máquina é capaz
+de fazer o mesmo?
+
+00:01:24.001 --> 00:01:26.842
+É aí que as redes neurais
+recorrentes, ou RNNs,
+
+00:01:26.875 --> 00:01:28.116
+entram em cena.
+
+00:01:28.149 --> 00:01:30.466
+RNNs são redes neurais -
+
+00:01:30.499 --> 00:01:32.922
+bom, redes neurais
+artificiais -
+
+00:01:32.955 --> 00:01:35.280
+capazes de capturar
+dependências temporais,
+
+00:01:35.313 --> 00:01:37.694
+que são dependências
+ao longo do tempo.
+
+00:01:38.466 --> 00:01:41.249
+Se você procurar a definição
+da palavra "recorrente",
+
+00:01:41.282 --> 00:01:45.893
+verá que é "aquilo que ocorre
+com frequência ou repetidamente".
+
+00:01:46.467 --> 00:01:50.335
+Então por que essas redes se chamam
+redes neurais recorrentes?
+
+00:01:50.368 --> 00:01:53.428
+Porque, com as RNNs,
+realizamos a mesma tarefa
+
+00:01:53.461 --> 00:01:56.278
+para cada elemento
+da sequência de entrada.
+
+00:01:57.466 --> 00:02:00.808
+Nesta lição, começaremos
+com um pouco de História.
+
+00:02:00.841 --> 00:02:04.438
+É muito interessante ver
+como este campo evoluiu.
+
+00:02:04.471 --> 00:02:08.201
+Vamos relembrar
+o que são redes feedforward.
+
+00:02:08.234 --> 00:02:12.090
+Você verá que as RNNs são baseadas
+em ideias muito parecidas
+
+00:02:12.123 --> 00:02:14.816
+com as ideias por trás
+das redes feedforward.
+
+00:02:14.849 --> 00:02:17.719
+Então, depois que entendermos bem
+os fundamentos,
+
+00:02:17.752 --> 00:02:20.801
+será fácil entender
+os próximos passos.
+
+00:02:21.425 --> 00:02:23.721
+Ao se concentrar
+nas redes feedforward,
+
+00:02:23.754 --> 00:02:27.309
+você vai aprender sobre cálculo
+aproximado de função não linear,
+
+00:02:27.342 --> 00:02:29.088
+treinamento
+usando retropropagação,
+
+00:02:29.121 --> 00:02:31.750
+ou o chamado "gradiente
+descendente estocástico",
+
+00:02:31.783 --> 00:02:33.649
+e avaliação.
+
+00:02:33.682 --> 00:02:35.700
+Você vai aprender tudo isso.
+
+00:02:36.750 --> 00:02:40.214
+Mas é claro que nosso foco principal
+serão as RNNs.
+
+00:02:40.247 --> 00:02:43.443
+Eu já dei um bom exemplo
+de por que precisamos de RNNs.
+
+00:02:43.476 --> 00:02:44.756
+Você se lembra do gato?
+
+00:02:44.789 --> 00:02:49.112
+Mas há muitas outras aplicações.
+Nós também vamos estudá-las.
+
+00:02:49.145 --> 00:02:53.740
+Vamos ver a RNN simples,
+também conhecida como Rede de Elman,
+
+00:02:53.773 --> 00:02:56.061
+e aprender a treinar a rede.
+
+00:02:56.094 --> 00:02:59.512
+Entenderemos também as limitações
+das RNN simples
+
+00:02:59.545 --> 00:03:04.673
+e como podemos superá-las
+usando o que chamamos de LSTMs.
+
+00:03:04.706 --> 00:03:08.440
+Não se assuste, você não precisa
+decorar todos esses nomes agora.
+
+00:03:08.473 --> 00:03:10.775
+Vamos abordar com calma
+cada conceito
+
+00:03:10.808 --> 00:03:14.144
+e falar de todos eles
+com muito mais detalhes depois.
+

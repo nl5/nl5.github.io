@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.769
+To give you an idea of how useful RNNs and LSTMs are let's take a sneak peek.
+
+00:00:06.769 --> 00:00:13.349
+The world's leading tech companies are all using RNNs and LSTMs in their applications.
+
+00:00:13.349 --> 00:00:15.445
+Let's take a look at some of those.
+
+00:00:15.445 --> 00:00:19.425
+Speech recognition, where a sequence of data samples
+
+00:00:19.425 --> 00:00:24.480
+extracted from an audio signal is continuously mapped to text.
+
+00:00:24.480 --> 00:00:26.789
+Good examples are Google Assistant,
+
+00:00:26.789 --> 00:00:29.699
+Apple's Siri, Amazon's Alexa,
+
+00:00:29.699 --> 00:00:32.399
+and Nuance's Dragon solutions.
+
+00:00:32.399 --> 00:00:36.644
+All of these use RNNs as a part of their speech recognition software.
+
+00:00:36.645 --> 00:00:40.560
+Time series predictions, where we predict traffic patterns
+
+00:00:40.560 --> 00:00:44.804
+on specific roads to help drivers optimize their driving paths,
+
+00:00:44.804 --> 00:00:46.335
+like they do in Waze,
+
+00:00:46.335 --> 00:00:50.310
+or predicting what movie a consumer will want to watch next,
+
+00:00:50.310 --> 00:00:51.795
+like they do in Netflix.
+
+00:00:51.795 --> 00:00:55.635
+Predicting stock price movements based on historical patterns
+
+00:00:55.634 --> 00:00:59.375
+of stock movements and potentially other market conditions,
+
+00:00:59.375 --> 00:01:01.710
+that change over time.
+
+00:01:01.710 --> 00:01:04.590
+This is practiced by most quantitive hedge funds.
+
+00:01:04.590 --> 00:01:08.076
+Natural Language Processing or NLP in short,
+
+00:01:08.075 --> 00:01:13.334
+such as machine translation used by Google or Salesforce for example.
+
+00:01:13.334 --> 00:01:16.579
+Question answering like Google Analytics,
+
+00:01:16.579 --> 00:01:18.659
+if you've got a question about your app,
+
+00:01:18.659 --> 00:01:21.969
+you'll soon be able to ask Google Analytics directly.
+
+00:01:21.969 --> 00:01:23.679
+Have you heard of chatbots?
+
+00:01:23.679 --> 00:01:26.250
+Many companies such as Google, Baidu, and,
+
+00:01:26.250 --> 00:01:28.769
+Slack are using RNNs to drive
+
+00:01:28.769 --> 00:01:32.439
+their Natural Language Processing engines for such applications.
+
+00:01:32.439 --> 00:01:36.090
+And of course, there are many other NLP applications.
+
+00:01:36.090 --> 00:01:40.389
+The last application we will focus on is gesture recognition,
+
+00:01:40.388 --> 00:01:45.364
+where we observe a sequence of video frames to determine which gesture the user has made.
+
+00:01:45.364 --> 00:01:49.685
+For example, waiving your right arm or swinging it.
+
+00:01:49.685 --> 00:01:52.560
+Here are a few gesture recognition technology companies
+
+00:01:52.560 --> 00:01:56.040
+and companies that are applying gesture recognition to their products.
+

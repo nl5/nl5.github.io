@@ -1,0 +1,199 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.384
+Let's look at the feedforward part first.
+
+00:00:03.384 --> 00:00:05.710
+To make our computations easier,
+
+00:00:05.710 --> 00:00:08.279
+let's decide to have n inputs,
+
+00:00:08.279 --> 00:00:13.179
+three neurons in a single hidden layer, and two outputs.
+
+00:00:13.179 --> 00:00:14.980
+By the way, in practice,
+
+00:00:14.980 --> 00:00:18.780
+we can have thousands of neurons in a single hidden layer.
+
+00:00:18.780 --> 00:00:22.765
+We will use W_1 as the set of weights from x to h,
+
+00:00:22.765 --> 00:00:27.550
+and W_2 as the set of weights from h to y.
+
+00:00:27.550 --> 00:00:29.905
+Since we have only one hidden layer,
+
+00:00:29.905 --> 00:00:34.510
+we will have only two steps in each feedforward cycle.
+
+00:00:34.509 --> 00:00:41.259
+Step one, we'll be finding h from a given input and a set of weights W_1.
+
+00:00:41.259 --> 00:00:44.964
+And step two, we'll be finding the output y
+
+00:00:44.965 --> 00:00:50.225
+from the calculated h and the set of weights W_2.
+
+00:00:50.225 --> 00:00:55.170
+You will find that other than the use of non-linear activation functions,
+
+00:00:55.170 --> 00:00:57.039
+which I will talk about soon,
+
+00:00:57.039 --> 00:01:02.609
+all of the calculations involve linear combinations of inputs and weights.
+
+00:01:02.609 --> 00:01:07.484
+Or in other words, we will use matrix multiplications.
+
+00:01:07.484 --> 00:01:09.504
+Let's start with step number one,
+
+00:01:09.504 --> 00:01:15.114
+finding h. Notice that if we have more than one neuron in the hidden layer,
+
+00:01:15.114 --> 00:01:16.729
+which is usually the case,
+
+00:01:16.730 --> 00:01:19.204
+h is actually a vector.
+
+00:01:19.203 --> 00:01:21.954
+We will have our initial inputs x,
+
+00:01:21.954 --> 00:01:24.054
+x is also a vector,
+
+00:01:24.055 --> 00:01:27.325
+and we want to find the values of the hidden neurons,
+
+00:01:27.325 --> 00:01:32.870
+h. Each input is connected to each neuron in the hidden layer.
+
+00:01:32.870 --> 00:01:40.445
+For simplicity, we will use the following indices: W_11 connects x_1 to h_1,
+
+00:01:40.444 --> 00:01:44.264
+W_13 connects x_1 to h_3,
+
+00:01:44.265 --> 00:01:48.775
+W_21 connects x_2 to h_1,
+
+00:01:48.775 --> 00:01:55.540
+W_n3 connects x_n to h_3, and so on.
+
+00:01:55.540 --> 00:02:00.565
+The vector of the inputs x_1, x_2,
+
+00:02:00.564 --> 00:02:02.545
+all the way up to x_n,
+
+00:02:02.545 --> 00:02:09.448
+is multiplied by the weight matrix W_1 to give us the hidden neurons.
+
+00:02:09.448 --> 00:02:11.989
+So each vector, h,
+
+00:02:11.989 --> 00:02:17.849
+equals vector x multiplied by the weight matrix, W_1.
+
+00:02:17.849 --> 00:02:21.745
+In this case, we have a weight matrix with n rows,
+
+00:02:21.745 --> 00:02:24.009
+as we have n inputs,
+
+00:02:24.009 --> 00:02:29.019
+and three columns, as we have three neurons in the hidden layer.
+
+00:02:29.020 --> 00:02:32.650
+If you multiply the input vector by the weight matrix,
+
+00:02:32.650 --> 00:02:35.455
+you will have a simple linear combination for
+
+00:02:35.455 --> 00:02:39.219
+each neuron in the hidden layer giving us vector,
+
+00:02:39.219 --> 00:02:42.125
+h. So for example,
+
+00:02:42.125 --> 00:02:46.750
+h_1 will be x_1 times W_11,
+
+00:02:46.750 --> 00:02:51.219
+plus x_2 times W_21, and so on.
+
+00:02:51.219 --> 00:02:55.509
+But we are not done with calculating the hidden layer yet.
+
+00:02:55.509 --> 00:02:58.359
+Notice the prime symbol I've been using?
+
+00:02:58.360 --> 00:03:02.275
+I used it to remind us that we are not done with finding h yet.
+
+00:03:02.275 --> 00:03:05.140
+We're almost there but not quite yet.
+
+00:03:05.139 --> 00:03:10.799
+To make sure that the values of h do not explode or increase too much in size,
+
+00:03:10.800 --> 00:03:16.555
+we need to use an activation function usually denoted by the Greek letter, phi.
+
+00:03:16.555 --> 00:03:19.300
+We can use a hyperbolic tangent.
+
+00:03:19.300 --> 00:03:26.010
+Using this function will ensure that our outputs are between one and negative one.
+
+00:03:26.009 --> 00:03:28.120
+We can also use a sigmoid.
+
+00:03:28.120 --> 00:03:33.879
+Using this function will ensure that our outputs are between one and zero.
+
+00:03:33.879 --> 00:03:38.710
+We can also use a rectified linear unit or in short, a ReLu function,
+
+00:03:38.710 --> 00:03:44.400
+where the negative values are nulled and the positive values remain as they are.
+
+00:03:44.400 --> 00:03:50.310
+Each activation function has its advantages and disadvantages.
+
+00:03:50.310 --> 00:03:54.215
+What they all share is that they allow the network to represent
+
+00:03:54.215 --> 00:03:58.659
+nonlinear relationships between its inputs and its outputs.
+
+00:03:58.659 --> 00:04:04.875
+And this is very important since most real world data is nonlinear.
+
+00:04:04.875 --> 00:04:12.789
+Mathematically, the linear combination and activation function can simply be written as h
+
+00:04:12.789 --> 00:04:16.389
+equals to the output of an activation function of
+
+00:04:16.389 --> 00:04:21.689
+the input vector multiplied by the corresponding weight matrix.
+
+00:04:21.689 --> 00:04:25.379
+Using these functions can be a bit tricky as they
+
+00:04:25.379 --> 00:04:29.475
+contribute to the vanishing gradient problem that we mentioned before.
+
+00:04:29.475 --> 00:04:32.000
+But more on this later.
+

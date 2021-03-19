@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.485
+In this lesson, we will focus on recurrent neural networks,
+
+00:00:04.485 --> 00:00:07.185
+or what we call in short RNNs.
+
+00:00:07.184 --> 00:00:10.544
+Many applications involve temporal dependencies
+
+00:00:10.544 --> 00:00:14.189
+or dependencies over time. What does that mean?
+
+00:00:14.189 --> 00:00:19.634
+Well, it means our current output depends not only on the current input,
+
+00:00:19.635 --> 00:00:22.493
+but also on past inputs.
+
+00:00:22.492 --> 00:00:25.559
+So, if I want to make dinner tonight, let's see,
+
+00:00:25.559 --> 00:00:27.689
+I had pizza yesterday,
+
+00:00:27.690 --> 00:00:29.960
+so maybe I should consider a salad.
+
+00:00:29.960 --> 00:00:33.030
+Essentially, what we will have is a network that is
+
+00:00:33.030 --> 00:00:36.675
+similar to feedforward networks that we've seen before,
+
+00:00:36.674 --> 00:00:39.334
+but with the addition of memory.
+
+00:00:39.335 --> 00:00:40.960
+You may have noticed,
+
+00:00:40.960 --> 00:00:43.270
+that in the applications you've seen before,
+
+00:00:43.270 --> 00:00:45.273
+only the current input mattered.
+
+00:00:45.273 --> 00:00:49.520
+For example, classifying a picture, is this a cat?
+
+00:00:49.520 --> 00:00:53.000
+But perhaps this is not a static cat.
+
+00:00:53.000 --> 00:00:56.229
+Maybe when the picture was shot, the cat was moving.
+
+00:00:56.229 --> 00:00:58.179
+From a single image,
+
+00:00:58.179 --> 00:01:02.894
+it may be difficult to determine if it is indeed walking or maybe it's running.
+
+00:01:02.895 --> 00:01:07.865
+Maybe it's just a very talented cat standing in a funny pose with two feet up in the air.
+
+00:01:07.864 --> 00:01:10.854
+When we observe the cat, frame by frame,
+
+00:01:10.855 --> 00:01:13.387
+we remember what we saw before,
+
+00:01:13.387 --> 00:01:16.707
+so we know if the cat is still or if it's walking.
+
+00:01:16.707 --> 00:01:19.495
+We can also distinguish walking from running,
+
+00:01:19.495 --> 00:01:22.918
+but can the machine do the same?
+
+00:01:22.918 --> 00:01:27.960
+This is where recurrent neural networks or RNNs come in.
+
+00:01:27.959 --> 00:01:33.059
+RNNs are artificial neural networks,
+
+00:01:33.060 --> 00:01:35.385
+that can capture temporal dependencies,
+
+00:01:35.385 --> 00:01:37.965
+which are dependencies over time.
+
+00:01:37.965 --> 00:01:41.320
+If you look up the definition of the word recurrent,
+
+00:01:41.319 --> 00:01:46.614
+you will find that it simply means occurring often or repeatedly.
+
+00:01:46.614 --> 00:01:50.250
+So, why are these networks called recurrent neural networks?
+
+00:01:50.250 --> 00:01:53.765
+It's simply because with RNNs we perform the same task for
+
+00:01:53.765 --> 00:01:57.325
+each element in the input sequence.
+
+00:01:57.325 --> 00:02:01.049
+In this lesson, we will start with a bit of history.
+
+00:02:01.049 --> 00:02:04.536
+It's really interesting to see how this field has evolved.
+
+00:02:04.536 --> 00:02:08.259
+We will remind ourselves what feedforward networks are.
+
+00:02:08.259 --> 00:02:11.039
+You will see that RNNs are based on
+
+00:02:11.039 --> 00:02:14.965
+very similar ideas to those behind feedforward networks.
+
+00:02:14.965 --> 00:02:17.775
+So, once we have a clear understanding of the fundamentals,
+
+00:02:17.775 --> 00:02:21.180
+we can easily understand the next steps.
+
+00:02:21.180 --> 00:02:24.920
+While focusing on feedforward networks, you will learn about,
+
+00:02:24.919 --> 00:02:29.299
+non-linear function approximation, training using backpropagation,
+
+00:02:29.300 --> 00:02:33.671
+or what we call stochastic gradient descent, and evaluation.
+
+00:02:33.670 --> 00:02:36.343
+All these should be familiar to you.
+
+00:02:36.343 --> 00:02:40.120
+Our main focus of course will be RNNs.
+
+00:02:40.120 --> 00:02:43.615
+I have given you a good example of why we need RNNs.
+
+00:02:43.615 --> 00:02:47.064
+Remember the cat, but there are many other applications,
+
+00:02:47.064 --> 00:02:49.425
+we will focus on those as well.
+
+00:02:49.425 --> 00:02:53.785
+We will look at the simple RNN also known as the Elman network,
+
+00:02:53.784 --> 00:02:56.319
+and learn how to train the network.
+
+00:02:56.319 --> 00:02:58.989
+We will also understand the limitations of simple RNNs,
+
+00:02:58.990 --> 00:03:04.840
+and how they can be overcome by using what we call LSTMs.
+
+00:03:04.840 --> 00:03:08.680
+Don't be alarmed, you don't need to remember all these names right now.
+
+00:03:08.680 --> 00:03:11.170
+We will slowly progress into each concept and
+
+00:03:11.169 --> 00:03:14.839
+talk about all of them in much detail later.
+

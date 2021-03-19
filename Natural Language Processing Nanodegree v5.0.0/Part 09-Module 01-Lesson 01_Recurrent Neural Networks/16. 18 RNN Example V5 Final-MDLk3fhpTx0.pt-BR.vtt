@@ -1,0 +1,302 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.231 --> 00:00:03.773
+Vamos continuar
+com o exemplo RNN conceitual.
+
+00:00:03.810 --> 00:00:07.169
+Imagine que queremos construir
+um detector de sequência
+
+00:00:07.206 --> 00:00:11.289
+e vamos decidir
+que ele rastreará letras.
+
+00:00:11.326 --> 00:00:14.613
+Na verdade, construiremos
+um detector de letras.
+
+00:00:14.650 --> 00:00:17.645
+Mais especificamente,
+queremos que nossa rede
+
+00:00:17.682 --> 00:00:20.358
+detecte a palavra "Udacity".
+
+00:00:20.395 --> 00:00:21.750
+Só a palavra.
+
+00:00:22.558 --> 00:00:25.895
+Antes de começarmos,
+precisamos tomar decisões.
+
+00:00:26.919 --> 00:00:28.374
+Podemos definir a entrada
+
+00:00:28.411 --> 00:00:31.029
+utilizando
+uma codificação vetorial one-hot
+
+00:00:31.066 --> 00:00:33.974
+contendo
+sete valores binários.
+
+00:00:34.011 --> 00:00:37.614
+Aqui eu utilizei as letras
+na ordem ascendente,
+
+00:00:37.651 --> 00:00:39.229
+mas isso é arbitrário.
+
+00:00:39.266 --> 00:00:42.221
+Cada letra será
+representada por 1,
+
+00:00:42.258 --> 00:00:44.695
+no índice ao qual
+ela representa,
+
+00:00:44.732 --> 00:00:46.925
+e zero em qualquer
+outro lugar.
+
+00:00:46.962 --> 00:00:51.322
+Por exemplo, a letra A
+será representada por 1
+
+00:00:51.359 --> 00:00:54.154
+seguida de seis zeros.
+
+00:00:54.191 --> 00:00:57.028
+Aqui estão
+as letras de que precisamos.
+
+00:00:59.571 --> 00:01:01.935
+As letras que não aparecem
+na palavra Udacity
+
+00:01:01.972 --> 00:01:05.890
+podem ser endereçadas
+por um vetor contendo zeros,
+
+00:01:05.927 --> 00:01:07.955
+como estas letras,
+por exemplo.
+
+00:01:08.700 --> 00:01:10.555
+A sequência
+que queremos detectar
+
+00:01:10.592 --> 00:01:12.226
+terá comprimento
+igual a sete
+
+00:01:12.263 --> 00:01:14.571
+com entradas
+na seguinte ordem:
+
+00:01:15.355 --> 00:01:16.619
+U,
+
+00:01:16.656 --> 00:01:17.835
+D,
+
+00:01:17.872 --> 00:01:20.762
+A, C,
+
+00:01:20.799 --> 00:01:26.140
+I, T e, por fim, Y.
+
+00:01:26.811 --> 00:01:28.531
+Podemos treinar o sistema
+
+00:01:28.568 --> 00:01:32.340
+alimentando letras aleatórias
+a cada passo de tempo
+
+00:01:33.148 --> 00:01:34.962
+criando
+uma sequência de entradas
+
+00:01:34.999 --> 00:01:38.075
+demonstrada aqui
+da esquerda para a direita.
+
+00:01:38.112 --> 00:01:41.914
+Ocasionalmente, também
+inserimos a palavra "Udacity".
+
+00:01:41.951 --> 00:01:46.327
+Configuramos os valores alvo,
+as saídas como zero sempre,
+
+00:01:46.364 --> 00:01:48.662
+exceto para quando
+a última letra Y
+
+00:01:48.699 --> 00:01:52.798
+da sequência Udacity
+entrar no sistema.
+
+00:01:52.835 --> 00:01:56.499
+Somente aí o alvo
+será configurado como 1.
+
+00:01:56.536 --> 00:01:59.590
+Novamente, o sistema
+reconhecerá as entradas
+
+00:01:59.627 --> 00:02:02.361
+e responderá
+com a saída alvo igual a 1,
+
+00:02:02.398 --> 00:02:06.177
+quando a sequência
+desejada for detectada.
+
+00:02:06.214 --> 00:02:10.166
+Desenhar a rede
+em uma forma desdobrada
+
+00:02:10.203 --> 00:02:13.258
+nos dará um vetor de entrada
+com sete valores,
+
+00:02:13.295 --> 00:02:16.670
+uma única saída e um estado.
+
+00:02:16.707 --> 00:02:19.627
+O estado pode ter qualquer
+quantia de neurônios ocultos.
+
+00:02:19.664 --> 00:02:24.513
+Nesta ilustração, usaremos N
+para deixar as coisas genéricas.
+
+00:02:24.550 --> 00:02:25.973
+O primeiro vetor de estado
+
+00:02:26.010 --> 00:02:28.237
+geralmente é configurado
+como zero,
+
+00:02:28.274 --> 00:02:30.669
+permitindo o próximo estado
+a evoluir
+
+00:02:30.706 --> 00:02:32.438
+conforme as entradas chegam.
+
+00:02:32.475 --> 00:02:36.862
+Ao treinar a rede, configuramos
+os alvos como zero ou 1.
+
+00:02:36.899 --> 00:02:40.365
+O alvo será zero quando
+a palavra não for detectada,
+
+00:02:40.402 --> 00:02:42.285
+e 1 quando for.
+
+00:02:42.322 --> 00:02:46.061
+Se treinarmos o sistema em alvos,
+que são zero ou 1,
+
+00:02:46.098 --> 00:02:49.124
+esperamos que o resultado
+também pegue valores
+
+00:02:49.161 --> 00:02:51.421
+entre zero e 1.
+
+00:02:51.458 --> 00:02:54.605
+Após treinar o sistema
+e otimizar os pesos,
+
+00:02:54.642 --> 00:02:57.917
+esperamos que, quando
+a sequência "Udacity" aparecer,
+
+00:02:57.954 --> 00:03:01.350
+a saída sinalize
+que a sequência foi detectada
+
+00:03:01.387 --> 00:03:03.710
+obtendo um valor
+próximo a 1,
+
+00:03:03.747 --> 00:03:06.334
+como 0,9, neste caso.
+
+00:03:07.197 --> 00:03:12.422
+De forma prática, podemos
+estabelecer um limite de 0,9
+
+00:03:12.459 --> 00:03:16.329
+e decidir que, sempre
+que a saída exceder o limite,
+
+00:03:16.366 --> 00:03:19.558
+a sequência de interesse
+será detectada.
+
+00:03:20.518 --> 00:03:23.485
+O valor 0,9 deste caso,
+a propósito,
+
+00:03:23.522 --> 00:03:26.463
+foi selecionado
+como um exemplo arbitrário.
+
+00:03:27.175 --> 00:03:31.341
+No exemplo, a RNN foi treinada
+para reconhecer sequências
+
+00:03:31.378 --> 00:03:32.941
+de sete entradas,
+
+00:03:32.978 --> 00:03:35.766
+como as letras
+na palavra "Udacity".
+
+00:03:35.803 --> 00:03:37.644
+Mas poderíamos
+ter treinado a RNN
+
+00:03:37.681 --> 00:03:40.882
+para reconhecer sequências
+com comprimento diferente,
+
+00:03:40.919 --> 00:03:43.291
+como as cinco letras
+da palavra "feliz".
+
+00:03:43.328 --> 00:03:45.778
+De forma geral,
+a RNN pode lidar
+
+00:03:45.815 --> 00:03:48.111
+com comprimentos
+de sequência variados.
+
+00:03:48.148 --> 00:03:50.210
+Como treinamos a rede?
+
+00:03:50.247 --> 00:03:53.472
+Em outras palavras,
+como otimizamos os pesos
+
+00:03:53.509 --> 00:03:55.896
+a fim de minimizar
+o erro de saída?
+
+00:03:55.933 --> 00:03:59.096
+Fazemos isso com retropropagação
+através do tempo,
+
+00:03:59.133 --> 00:04:02.375
+e aprenderemos sobre isso
+nos próximos vídeos.
+

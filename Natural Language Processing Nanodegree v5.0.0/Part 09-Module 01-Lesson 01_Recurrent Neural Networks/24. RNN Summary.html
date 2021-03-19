@@ -1,0 +1,640 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   RNN Summary
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Recurrent Neural Networks
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Ortal .html">
+       01. Introducing Ortal
+      </a>
+     </li>
+     <li class="">
+      <a href="02. RNN Introduction.html">
+       02. RNN Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="03. RNN History.html">
+       03. RNN History
+      </a>
+     </li>
+     <li class="">
+      <a href="04. RNN Applications.html">
+       04. RNN Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Feedforward Neural Network-Reminder.html">
+       05. Feedforward Neural Network-Reminder
+      </a>
+     </li>
+     <li class="">
+      <a href="06. The Feedforward Process.html">
+       06. The Feedforward Process
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Feedforward Quiz.html">
+       07. Feedforward Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Backpropagation- Theory.html">
+       08. Backpropagation- Theory
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Backpropagation - Example (part a).html">
+       09. Backpropagation - Example (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Backpropagation- Example (part b).html">
+       10. Backpropagation- Example (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Backpropagation Quiz.html">
+       11. Backpropagation Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="12.  RNN (part a).html">
+       12.  RNN (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="13. RNN (part b).html">
+       13. RNN (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="14. RNN-  Unfolded Model.html">
+       14. RNN-  Unfolded Model
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Unfolded Model Quiz.html">
+       15. Unfolded Model Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="16. RNN- Example.html">
+       16. RNN- Example
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Backpropagation Through Time (part a).html">
+       17. Backpropagation Through Time (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Backpropagation Through Time (part b).html">
+       18. Backpropagation Through Time (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Backpropagation Through Time (part c).html">
+       19. Backpropagation Through Time (part c)
+      </a>
+     </li>
+     <li class="">
+      <a href="20. BPTT Quiz 1.html">
+       20. BPTT Quiz 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. BPTT Quiz 2.html">
+       21. BPTT Quiz 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. BPTT Quiz 3.html">
+       22. BPTT Quiz 3
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Some more math.html">
+       23. Some more math
+      </a>
+     </li>
+     <li class="">
+      <a href="24. RNN Summary.html">
+       24. RNN Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. From RNN to LSTM.html">
+       25. From RNN to LSTM
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Wrap Up.html">
+       26. Wrap Up
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          24. RNN Summary
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Let's summarize what we have seen so far:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          RNN Summary
+         </p>
+        </h3>
+        <video controls="">
+         <source src="24. RNN Summary-nXP0oGGRrO8.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="24. RNN Summary-nXP0oGGRrO8.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="24. RNN Summary-nXP0oGGRrO8.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="true" kind="subtitles" label="en" src="24. RNN Summary-nXP0oGGRrO8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As you have seen, in RNNs the current state depends on the input as well as the previous states, with the use of an activation function.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 56_" class="img img-fluid" src="img/screen-shot-2017-11-09-at-3.53.12-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 56
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The current output is a simple linear combination of the current state elements with the corresponding weight matrix.
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           \bar{y}_t=\bar{s}_t W_y
+          </span>
+          (without the use of an activation function)
+         </p>
+         <p>
+          or
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           \bar{y}_t=\sigma(\bar{s}_t W_y)
+          </span>
+          (with the use of an activation function)
+         </p>
+         <p>
+          <em>
+           Equation 57
+          </em>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          We can represent the recurrent network with the use of a folded model or an unfolded model:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_The RNN  Folded Model_" class="img img-fluid" src="img/screen-shot-2017-11-27-at-2.44.11-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             The RNN  Folded Model
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_The RNN Unfolded Model_" class="img img-fluid" src="img/screen-shot-2017-11-27-at-3.48.31-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             The RNN Unfolded Model
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the case of a single hidden (state) layer, we will have three weight matrices to consider. Here we use the following notations:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           W_x
+          </span>
+          -  represents the weight matrix connecting the inputs to the state layer.
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           W_y
+          </span>
+          - represents the weight matrix connecting the state to the output.
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           W_s
+          </span>
+          - represents the weight matrix connecting the state from the previous timestep to the state in the following timestep.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The gradient calculations for the purpose of adjusting the weight matrices are the following:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 58_" class="img img-fluid" src="img/screen-shot-2017-11-21-at-4.21.41-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 58
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 59_" class="img img-fluid" src="img/screen-shot-2017-11-21-at-4.17.35-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 59
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 60_" class="img img-fluid" src="img/screen-shot-2017-11-21-at-4.17.19-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 60
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In equations
+          <em>
+           51
+          </em>
+          and
+          <em>
+           52
+          </em>
+          we used
+          <strong>
+           Backpropagation Through Time (BPTT)
+          </strong>
+          where we accumulate all of the contributions from previous timesteps.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          When training RNNs using BPTT, we can choose to use mini-batches, where we update the weights in batches periodically (as opposed to once every inputs sample). We calculate the gradient for each step but do not update the weights right away. Instead, we update the weights once every fixed number of steps. This helps reduce the complexity of the training process and helps remove noise from the weight updates.
+         </p>
+         <p>
+          The following is the equation used for
+          <strong>
+           Mini-Batch Training Using Gradient Descent
+          </strong>
+          :
+          <br/>
+          (where
+          <span class="mathquill ud-math">
+           \delta_{ij}
+          </span>
+          represents the gradient calculated once every inputs sample and M represents the number of gradients we accumulate in the process).
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 61_" class="img img-fluid" src="img/screen-shot-2017-11-09-at-6.01.16-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 61
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If we backpropagate more than ~10 timesteps, the gradient will become too small. This phenomena is known as  the
+          <strong>
+           vanishing gradient problem
+          </strong>
+          where the contribution of information decays geometrically over time. Therefore temporal dependencies that span many time steps will effectively be discarded by the network.
+          <strong>
+           Long Short-Term Memory (LSTM)
+          </strong>
+          cells were designed to specifically solve this problem.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In RNNs we can also have the opposite problem, called the
+          <strong>
+           exploding gradient
+          </strong>
+          problem, in which the value of the gradient grows uncontrollably. A simple solution for the exploding gradient problem is
+          <strong>
+           Gradient Clipping
+          </strong>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          More information about Gradient Clipping can be found
+          <a href="https://arxiv.org/abs/1211.5063" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <p>
+          You can concentrate on Algorithm 1 which describes the gradient clipping idea in simplicity.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="25. From RNN to LSTM.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('24. RNN Summary')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,140 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.306 --> 00:00:04.002
+Ao minimizarmos o erro de rede
+com retropropagação,
+
+00:00:04.039 --> 00:00:08.386
+podemos ajustar o modelo
+aos dados ou sobreajustá-lo.
+
+00:00:09.482 --> 00:00:12.713
+De maneira geral, em um conjunto
+de treinamento finito
+
+00:00:12.750 --> 00:00:14.786
+existe o risco
+de sobreajuste.
+
+00:00:15.994 --> 00:00:20.629
+Isso significa que o modelo
+chega perto do ajuste.
+
+00:00:20.666 --> 00:00:24.032
+Em outras palavras, treinamos
+o modelo ou a rede em excesso
+
+00:00:24.069 --> 00:00:25.496
+a fim de ajustar os dados,
+
+00:00:25.533 --> 00:00:29.434
+como resultado, sem querer,
+modelamos o ruído
+
+00:00:29.471 --> 00:00:31.904
+ou os elementos
+do conjunto de treinamento.
+
+00:00:31.941 --> 00:00:35.169
+Se isso acontecer,
+o modelo não difundirá bem
+
+00:00:35.206 --> 00:00:37.658
+quando for testado
+com novas entradas.
+
+00:00:38.971 --> 00:00:44.280
+Existem duas abordagens
+para resolver o sobreajuste.
+
+00:00:44.317 --> 00:00:48.712
+A primeira é interromper
+o processo de treinamento cedo,
+
+00:00:48.749 --> 00:00:52.601
+e a segunda é utilizar
+a regularização.
+
+00:00:52.638 --> 00:00:55.096
+Paramos o processo
+de treinamento cedo
+
+00:00:55.133 --> 00:00:59.255
+na região na qual a rede
+começa a sobreajustar.
+
+00:00:59.292 --> 00:01:03.292
+Dessa forma, reduzimos
+a degradação do desempenho
+
+00:01:03.329 --> 00:01:04.876
+no conjunto de teste.
+
+00:01:04.913 --> 00:01:09.669
+Seria ideal saber precisamente
+quando parar o processo,
+
+00:01:09.706 --> 00:01:13.077
+mas isso geralmente
+é difícil de determinar.
+
+00:01:14.261 --> 00:01:17.493
+Uma forma para determinar
+quando parar o treinamento
+
+00:01:17.530 --> 00:01:20.236
+é selecionar um pequeno
+conjunto de dados
+
+00:01:20.273 --> 00:01:22.061
+do conjunto de treinamento,
+
+00:01:22.098 --> 00:01:24.829
+que chamaremos
+de conjunto de validação.
+
+00:01:24.866 --> 00:01:27.624
+Presumindo que a precisão
+do conjunto de validação
+
+00:01:27.655 --> 00:01:30.188
+é igual ao conjunto
+de treinamento,
+
+00:01:30.225 --> 00:01:33.764
+podemos usá-lo para estimar
+quando o treinamento deve parar.
+
+00:01:33.801 --> 00:01:39.116
+O ruim é que teremos menos
+amostras para treinar o modelo,
+
+00:01:39.153 --> 00:01:41.878
+então o conjunto
+de treinamento será menor.
+
+00:01:42.910 --> 00:01:46.597
+Uma alternativa de abordagem
+para mitigar o sobreajuste
+
+00:01:46.634 --> 00:01:49.277
+é a utilização
+da regularização.
+
+00:01:49.314 --> 00:01:54.446
+Isso significa impor restrições
+ao treinamento da rede
+
+00:01:54.483 --> 00:01:57.883
+para que a melhor generalização
+possa ser alcançada.
+
+00:01:57.920 --> 00:02:01.806
+O Dropout é um esquema
+de regularização
+
+00:02:01.843 --> 00:02:03.535
+que auxilia nesse sentido.
+

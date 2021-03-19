@@ -1,0 +1,311 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.310 --> 00:00:04.179
+Estamos prontos para falar
+sobre redes neurais recorrentes
+
+00:00:04.216 --> 00:00:06.564
+ou RNN.
+
+00:00:06.601 --> 00:00:10.515
+Tudo que vimos até agora
+nos preparou para este momento.
+
+00:00:10.552 --> 00:00:12.924
+Vimos o processo
+de feedforward
+
+00:00:12.961 --> 00:00:16.675
+e de retropropagação
+em detalhe.
+
+00:00:16.712 --> 00:00:20.727
+Isso ajudará a entender
+o próximo conjunto de vídeos.
+
+00:00:20.764 --> 00:00:22.495
+Como dito antes,
+
+00:00:22.532 --> 00:00:25.343
+se buscarmos a definição
+da palavra "recorrente",
+
+00:00:25.380 --> 00:00:30.247
+ela significa acontecer
+com frequência ou repetidamente.
+
+00:00:30.284 --> 00:00:34.135
+Por que as redes são chamadas
+de neural recorrente?
+
+00:00:34.172 --> 00:00:39.215
+Porque, com a RNN, cumprimos
+a mesma tarefa em cada elemento
+
+00:00:39.252 --> 00:00:41.135
+na sequência de entrada.
+
+00:00:41.172 --> 00:00:43.760
+Veremos muito mais
+sobre isso mais tarde.
+
+00:00:44.512 --> 00:00:48.568
+RNN tenta suprir a necessidade
+de obter informações
+
+00:00:48.605 --> 00:00:49.997
+e entradas anteriores
+
+00:00:50.034 --> 00:00:52.633
+mantendo elementos
+de memória interna
+
+00:00:52.670 --> 00:00:55.074
+conhecidos como estados.
+
+00:00:57.787 --> 00:01:01.675
+Muitos programas
+possuem dependências temporais.
+
+00:01:02.347 --> 00:01:05.921
+A saída atual depende
+
+00:01:05.958 --> 00:01:08.889
+não só da entrada atual,
+
+00:01:08.926 --> 00:01:11.289
+mas de um elemento de memória
+
+00:01:11.326 --> 00:01:14.593
+que leva em consideração
+entradas anteriores.
+
+00:01:14.630 --> 00:01:18.482
+Para casos como este,
+utilizamos a RNN.
+
+00:01:19.810 --> 00:01:22.233
+Um exemplo
+da aplicação da RNN
+
+00:01:22.270 --> 00:01:25.329
+é a previsão da próxima palavra
+de uma frase,
+
+00:01:25.366 --> 00:01:31.178
+que observa as últimas palavras
+em vez de só observar a atual.
+
+00:01:31.907 --> 00:01:35.944
+Nós mencionamos outras
+categorias de aplicação,
+
+00:01:35.981 --> 00:01:38.648
+como a análise
+de sentimento,
+
+00:01:38.685 --> 00:01:42.042
+reconhecimento de fala,
+previsão de séries temporais,
+
+00:01:42.079 --> 00:01:45.761
+processamento de língua natural
+e reconhecimento de gesto.
+
+00:01:45.798 --> 00:01:50.161
+As aplicações da RNN
+surgem quase que diariamente
+
+00:01:50.198 --> 00:01:52.738
+ficando difícil acompanhar.
+
+00:01:53.859 --> 00:01:56.937
+Como devemos ver
+a nova rede neural?
+
+00:01:56.974 --> 00:01:58.954
+Qual é a estrutura dela?
+
+00:01:58.991 --> 00:02:02.393
+Como as fases de treinamento
+e avaliação mudaram?
+
+00:02:02.430 --> 00:02:05.681
+RNN se baseia
+nos mesmos princípios
+
+00:02:05.718 --> 00:02:08.121
+das redes feedforward,
+
+00:02:08.158 --> 00:02:12.739
+e é por isso que passamos
+tanto tempo falando dela.
+
+00:02:13.347 --> 00:02:15.953
+Como nas redes neurais
+feedforward,
+
+00:02:15.990 --> 00:02:17.626
+na rede RNN,
+
+00:02:17.663 --> 00:02:21.920
+as entradas e saídas também
+podem ser de muitos para muitos,
+
+00:02:21.957 --> 00:02:25.201
+de muitos para um
+e de um para muitos.
+
+00:02:25.238 --> 00:02:29.945
+Mas existem duas diferenças
+fundamentais entre a rede RNN
+
+00:02:29.982 --> 00:02:32.315
+e a feedforward.
+
+00:02:33.322 --> 00:02:36.417
+A primeira é a forma
+com a qual definimos
+
+00:02:36.454 --> 00:02:39.145
+as entradas e saídas.
+
+00:02:39.182 --> 00:02:43.162
+Em vez de treinar a rede
+com entrada e saída únicas
+
+00:02:43.199 --> 00:02:44.760
+em cada passo de tempo,
+
+00:02:44.797 --> 00:02:46.589
+treinamos em sequência,
+
+00:02:46.626 --> 00:02:49.514
+pois as entradas
+anteriores importam.
+
+00:02:49.551 --> 00:02:53.037
+A segunda diferença
+vem dos elementos de memória
+
+00:02:53.074 --> 00:02:55.082
+que a rede hospeda.
+
+00:02:55.119 --> 00:02:58.800
+Entradas atuais
+e as ativações de neurônios
+
+00:02:58.837 --> 00:03:02.425
+funcionam como entradas
+para o próximo passo de tempo.
+
+00:03:03.834 --> 00:03:08.017
+Nas redes neurais feedforward,
+vimos um fluxo de informações
+
+00:03:08.054 --> 00:03:12.737
+da entrada para a saída
+sem nenhum feedback.
+
+00:03:12.774 --> 00:03:15.985
+Agora o esquema
+feedforward muda
+
+00:03:16.022 --> 00:03:19.792
+e inclui os elementos
+de feedback ou de memória.
+
+00:03:19.829 --> 00:03:25.177
+Consideramos a memória definida
+com saída da camada oculta,
+
+00:03:25.214 --> 00:03:29.009
+que servirá como entrada
+adicional da rede
+
+00:03:29.046 --> 00:03:31.249
+no passo de treinamento
+seguinte.
+
+00:03:31.286 --> 00:03:35.714
+Não usaremos mais H
+como saída da camada oculta,
+
+00:03:35.751 --> 00:03:37.954
+mas S de estado,
+
+00:03:37.991 --> 00:03:40.482
+fazendo referência
+a um sistema com memória.
+
+00:03:40.519 --> 00:03:45.226
+O esquema básico da RNN
+é chamado de RNN simples,
+
+00:03:45.263 --> 00:03:49.146
+que também é conhecida
+como Rede Elman.
+
+00:03:49.183 --> 00:03:53.347
+Perceba que, na ilustração,
+só utilizei duas saídas.
+
+00:03:53.384 --> 00:03:56.993
+Você pode ter
+quantas saídas desejar,
+
+00:03:57.030 --> 00:03:58.874
+com certeza
+mais do que duas,
+
+00:03:58.911 --> 00:04:00.858
+mas, para simplificar
+o desenho,
+
+00:04:00.895 --> 00:04:03.611
+vamos ficar com duas.
+
+00:04:04.507 --> 00:04:05.753
+Para aqueles
+
+00:04:05.790 --> 00:04:09.072
+com experiência em engenharia
+ou ciência da computação,
+
+00:04:09.109 --> 00:04:14.402
+isso lembra um estado de máquina
+simples com lógica combinacional
+
+00:04:14.439 --> 00:04:15.968
+e memória.
+
+00:04:16.005 --> 00:04:19.744
+O resultado não só depende
+das entradas externas,
+
+00:04:19.781 --> 00:04:21.935
+mas de entradas anteriores
+
+00:04:21.972 --> 00:04:24.485
+que vêm
+de células de memória.
+
+00:04:24.522 --> 00:04:27.244
+A RNN é conceitualmente
+parecida,
+
+00:04:27.281 --> 00:04:29.171
+mas a beleza, neste caso,
+
+00:04:29.208 --> 00:04:31.285
+é que o sistema se treinará
+
+00:04:31.322 --> 00:04:33.976
+e aprenderá a otimizar
+as matrizes de peso
+
+00:04:34.013 --> 00:04:36.195
+para realizar a rede.
+

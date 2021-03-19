@@ -1,0 +1,258 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.222 --> 00:00:02.899
+Lembra-se da ilustração
+feedforward?
+
+00:00:02.936 --> 00:00:04.668
+Tínhamos N entradas,
+
+00:00:04.705 --> 00:00:06.884
+três neurônios
+na camada oculta
+
+00:00:06.921 --> 00:00:08.492
+e duas saídas.
+
+00:00:08.529 --> 00:00:12.132
+Para este exemplo, precisamos
+simplificar mais as coisas
+
+00:00:12.169 --> 00:00:14.758
+e observar um modelo
+com duas entradas,
+
+00:00:14.795 --> 00:00:18.792
+X1 e X2, e uma única saída Y.
+
+00:00:18.829 --> 00:00:21.662
+Temos uma matriz de peso W1
+
+00:00:21.699 --> 00:00:24.198
+da entrada
+até a camada oculta,
+
+00:00:24.235 --> 00:00:28.702
+e os elementos da matriz
+serão Wij, como antes.
+
+00:00:28.739 --> 00:00:32.726
+Também teremos
+um vetor matricial de peso W2
+
+00:00:32.763 --> 00:00:35.007
+da camada oculta
+até a saída.
+
+00:00:35.044 --> 00:00:38.167
+Perceba que é um vetor
+e não uma matriz,
+
+00:00:38.204 --> 00:00:40.278
+pois só temos uma saída.
+
+00:00:40.315 --> 00:00:42.853
+Não se esqueça do lápis
+e do papel.
+
+00:00:42.890 --> 00:00:45.268
+Pause o vídeo
+sempre que precisar
+
+00:00:45.305 --> 00:00:48.452
+e siga o cálculo.
+
+00:00:48.489 --> 00:00:51.052
+Começaremos
+com um passe feedforward
+
+00:00:51.089 --> 00:00:53.197
+das entradas da rede
+
+00:00:53.234 --> 00:00:55.562
+e calcularemos a saída.
+
+00:00:55.599 --> 00:00:59.076
+Baseado no erro, utilizaremos
+a retropropagação
+
+00:00:59.113 --> 00:01:01.822
+para calcular
+os derivativos parciais.
+
+00:01:02.845 --> 00:01:05.693
+Calcular os valores
+das ativações
+
+00:01:05.730 --> 00:01:09.012
+em cada neurônio oculto
+é simples.
+
+00:01:09.049 --> 00:01:12.172
+Temos uma combinação
+linear das entradas
+
+00:01:12.209 --> 00:01:15.882
+com o elemento de peso
+correspondente da matriz W1.
+
+00:01:15.919 --> 00:01:19.179
+Isso é seguido
+pela função de ativação.
+
+00:01:20.947 --> 00:01:23.682
+Os resultados serão
+um diagrama de pontos
+
+00:01:23.719 --> 00:01:27.746
+das ativações do vetor
+da camada anterior H
+
+00:01:27.783 --> 00:01:30.267
+com os pesos de W2.
+
+00:01:31.250 --> 00:01:32.690
+Como já disse,
+
+00:01:33.410 --> 00:01:35.969
+o objetivo do processo
+de retropropagação
+
+00:01:36.006 --> 00:01:37.737
+é minimizar, no nosso caso,
+
+00:01:37.774 --> 00:01:40.196
+a função de erro
+ou o erro quadrático.
+
+00:01:40.233 --> 00:01:43.066
+Para isso, calculamos
+os derivativos parciais
+
+00:01:43.103 --> 00:01:44.578
+do erro quadrático
+
+00:01:44.615 --> 00:01:46.892
+em relação
+a cada um dos pesos.
+
+00:01:46.929 --> 00:01:48.981
+Como acabamos
+de encontrar a saída,
+
+00:01:49.018 --> 00:01:50.892
+podemos minimizar o erro
+
+00:01:50.929 --> 00:01:53.243
+encontrando
+os valores atualizados
+
+00:01:53.280 --> 00:01:56.219
+do delta de Wij.
+
+00:01:56.256 --> 00:02:01.341
+E, em todo caso, fazemos isso
+em cada camada K.
+
+00:02:02.693 --> 00:02:07.035
+Este valor é igual
+a alfa negativo
+
+00:02:07.072 --> 00:02:09.732
+multiplicado
+pelo derivativo parcial
+
+00:02:09.769 --> 00:02:11.827
+da função de perda E.
+
+00:02:11.864 --> 00:02:14.291
+Como o erro é um polinômio,
+
+00:02:14.328 --> 00:02:17.150
+encontrar os derivativos
+é imediato.
+
+00:02:17.187 --> 00:02:18.835
+Utilizando
+um cálculo básico,
+
+00:02:18.872 --> 00:02:23.459
+vemos que o valor incremental
+é a taxa de aprendizagem alfa
+
+00:02:23.496 --> 00:02:26.987
+multiplicada por D menos Y
+
+00:02:27.024 --> 00:02:29.707
+e pelo derivativo
+parcial de Y
+
+00:02:29.744 --> 00:02:31.877
+em relação
+a cada um dos pesos.
+
+00:02:31.914 --> 00:02:36.317
+Se quiser saber o que aconteceu
+com a saída D desejada,
+
+00:02:36.354 --> 00:02:38.410
+ela é um valor constante,
+
+00:02:38.447 --> 00:02:42.002
+então o derivativo parcial
+era simplesmente um zero.
+
+00:02:42.039 --> 00:02:44.373
+Perceba que eu utilizei
+a regra de cadeia.
+
+00:02:44.410 --> 00:02:48.292
+No começo do vídeo,
+disse que retropropagação
+
+00:02:48.329 --> 00:02:50.933
+é um gradiente descendente
+estocástico
+
+00:02:50.970 --> 00:02:53.552
+com a utilização
+da regra de cadeia.
+
+00:02:53.589 --> 00:02:55.597
+Agora temos nosso gradiente.
+
+00:02:55.634 --> 00:02:59.588
+O símbolo para o gradiente
+é um delta minúsculo.
+
+00:02:59.625 --> 00:03:02.543
+O derivativo parcial
+do resultado calculado
+
+00:03:02.580 --> 00:03:04.381
+define o gradiente,
+
+00:03:04.418 --> 00:03:07.495
+e nós o encontramos
+utilizando a regra de cadeia.
+
+00:03:07.532 --> 00:03:09.498
+Vamos pausar
+por um instante.
+
+00:03:09.535 --> 00:03:12.244
+Lembre-se de como é
+a regra de cadeia
+
+00:03:12.281 --> 00:03:13.844
+e como ela é utilizada.
+
+00:03:13.881 --> 00:03:16.109
+Quando entender o conceito,
+
+00:03:16.146 --> 00:03:18.653
+continuaremos
+com os cálculos.
+

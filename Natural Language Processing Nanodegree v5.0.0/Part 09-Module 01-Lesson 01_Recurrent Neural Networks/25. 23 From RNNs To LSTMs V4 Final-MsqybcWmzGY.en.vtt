@@ -1,0 +1,217 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.549
+The Long Short-Term Memory cells,
+
+00:00:02.549 --> 00:00:09.969
+or LSTM cells, were proposed in 1997 by Sepp Hochreiter and Jürgen Schmidhuber.
+
+00:00:09.970 --> 00:00:16.170
+The goal of the cell is to overcome the vanishing gradient problem.
+
+00:00:16.170 --> 00:00:20.520
+You will see that it allows certain inputs to be latched, or stored,
+
+00:00:20.519 --> 00:00:26.734
+for long periods of time without forgetting them as would be the case in RNNs.
+
+00:00:26.734 --> 00:00:30.725
+When calculating the gradient using backpropagation through time,
+
+00:00:30.725 --> 00:00:35.405
+the gradients stemming back many timessteps can become negligible.
+
+00:00:35.405 --> 00:00:37.112
+For the same reason,
+
+00:00:37.112 --> 00:00:41.490
+the partial derivative of the error can also become negligible.
+
+00:00:41.490 --> 00:00:45.475
+This is the fundamental problem in RNNs.
+
+00:00:45.475 --> 00:00:48.260
+You will see that in LSTMs,
+
+00:00:48.259 --> 00:00:50.765
+we want to avoid the loss of information,
+
+00:00:50.765 --> 00:00:52.850
+or the vanishing gradient problem,
+
+00:00:52.850 --> 00:00:58.320
+by intentionally latching on to some information over many timesteps.
+
+00:00:58.320 --> 00:01:05.359
+Remembering information over long periods of time is easily achieved using these methods.
+
+00:01:05.359 --> 00:01:10.170
+Many real world applications such as Google's language translation tools,
+
+00:01:10.170 --> 00:01:14.359
+or Amazon's Alexa, are powered by LSTMs.
+
+00:01:14.359 --> 00:01:18.090
+In reality, most of the RNN applications we mentioned are
+
+00:01:18.090 --> 00:01:22.508
+moving towards implementations using LSTMs.
+
+00:01:22.507 --> 00:01:26.609
+To understand the difference between LSTMs and RNNs,
+
+00:01:26.609 --> 00:01:29.224
+let's look at the RNN system,
+
+00:01:29.224 --> 00:01:32.509
+and zoom in on one neuron in a hidden layer,
+
+00:01:32.510 --> 00:01:36.995
+and understand how we calculated S of T plus one.
+
+00:01:36.995 --> 00:01:42.064
+Zooming in a bit more will help us remember how the calculations are done.
+
+00:01:42.064 --> 00:01:43.864
+As you may recall,
+
+00:01:43.864 --> 00:01:48.419
+the next state was calculated through a simple activation function,
+
+00:01:48.420 --> 00:01:50.719
+let's say a hyperbolic tangent,
+
+00:01:50.719 --> 00:01:54.230
+of a linear combination of different inputs,
+
+00:01:54.230 --> 00:01:57.424
+and their corresponding weight matrices.
+
+00:01:57.424 --> 00:02:01.355
+The output was calculated as a simple linear combination as well.
+
+00:02:01.355 --> 00:02:08.060
+Using LSTMs, we no longer have basic computations as we had here in a single neuron.
+
+00:02:08.060 --> 00:02:14.015
+Zooming out again, our system will have a very similar layout.
+
+00:02:14.014 --> 00:02:19.399
+The neurons of the hidden states are replaced with LSTM cells,
+
+00:02:19.400 --> 00:02:23.530
+and can be stacked like lego pieces, just as before.
+
+00:02:23.530 --> 00:02:27.814
+If we zoom in on one cell,
+
+00:02:27.814 --> 00:02:31.925
+we will find that we no longer have a single calculation,
+
+00:02:31.925 --> 00:02:34.650
+but we have four separate ones.
+
+00:02:34.650 --> 00:02:36.800
+This is our LSTM cell,
+
+00:02:36.800 --> 00:02:40.535
+this is our first calculation,
+
+00:02:40.534 --> 00:02:43.859
+our second, our third,
+
+00:02:43.860 --> 00:02:46.865
+and finally, the fourth.
+
+00:02:46.865 --> 00:02:51.830
+The LSTM network allows a recurrent system to learn over
+
+00:02:51.830 --> 00:02:58.400
+many timesteps while training the network using the same backpropagation principles.
+
+00:02:58.400 --> 00:03:03.770
+In these cases, we are no longer considering a few timesteps back as we did in RNNs,
+
+00:03:03.770 --> 00:03:07.980
+but can consider over 1,000.
+
+00:03:07.979 --> 00:03:11.689
+The cell is fully differentiable, meaning,
+
+00:03:11.689 --> 00:03:16.895
+that all of its functions have a gradient or a derivative that we can calculate.
+
+00:03:16.895 --> 00:03:19.195
+These functions are a sigmoid,
+
+00:03:19.194 --> 00:03:24.500
+a hyperbolic tangent, multiplication, and addition.
+
+00:03:24.500 --> 00:03:27.004
+This allows us to use backpropagation,
+
+00:03:27.004 --> 00:03:29.044
+or stochastic gradient descent,
+
+00:03:29.044 --> 00:03:31.574
+when updating the weights.
+
+00:03:31.574 --> 00:03:33.964
+The main idea with LSTM cells,
+
+00:03:33.965 --> 00:03:38.104
+is that they can decide which information to remove or forget,
+
+00:03:38.104 --> 00:03:40.069
+which information to store,
+
+00:03:40.069 --> 00:03:42.000
+and when to use it.
+
+00:03:42.000 --> 00:03:48.365
+The cell can also help decide when to move the previous states information to the next.
+
+00:03:48.365 --> 00:03:52.300
+We just saw that the LSTM cell has three sigmoids.
+
+00:03:52.300 --> 00:03:56.685
+The output of each sigmoid is between zero and one.
+
+00:03:56.685 --> 00:04:01.830
+Having the data flow through a sigmoid intuitively answers the following questions.
+
+00:04:01.830 --> 00:04:06.725
+Do we let all the data flow through when the output of the sigmoid is one,
+
+00:04:06.724 --> 00:04:08.340
+or close to it?
+
+00:04:08.340 --> 00:04:11.085
+Or do we force the output to be a zero,
+
+00:04:11.085 --> 00:04:13.260
+where none of the data flows through.?
+
+00:04:13.259 --> 00:04:18.159
+And that would be if the output of the sigmoid is zero, or close to it.
+
+00:04:18.160 --> 00:04:24.145
+These three sigmoids act as a mechanism to filter what goes into the cell,
+
+00:04:24.144 --> 00:04:27.404
+if at all, what is retained within the cell,
+
+00:04:27.404 --> 00:04:30.989
+and what passes through to its output.
+
+00:04:30.990 --> 00:04:35.430
+The key idea in LSTMs is that these three gating functions are
+
+00:04:35.430 --> 00:04:41.155
+also trained using backpropagation by adjusting the weights that feed into them.
+
+00:04:41.154 --> 00:04:45.000
+Our next set of videos will help you understand LSTMs further.
+

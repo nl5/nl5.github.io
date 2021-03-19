@@ -1,0 +1,172 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.290
+Let's look at a basic model of an artificial neural network,
+
+00:00:04.290 --> 00:00:06.720
+where we have only a single, hidden layer.
+
+00:00:06.719 --> 00:00:09.570
+The inputs are each connected to the neurons in
+
+00:00:09.570 --> 00:00:12.960
+the hidden layer and the neurons in the hidden layer are each
+
+00:00:12.960 --> 00:00:15.885
+connected to the neurons in the output layer where
+
+00:00:15.884 --> 00:00:19.562
+each neuron there represents a single output.
+
+00:00:19.562 --> 00:00:23.777
+We can look at it as a collection of mathematical functions.
+
+00:00:23.777 --> 00:00:27.089
+Each input is connected mathematically to a hidden layer
+
+00:00:27.089 --> 00:00:30.734
+of neurons through a set of weights we need to modify,
+
+00:00:30.734 --> 00:00:37.314
+and each hidden layer neuron is connected to the output layer in a similar way.
+
+00:00:37.314 --> 00:00:39.979
+There is no limit to the number of inputs,
+
+00:00:39.979 --> 00:00:42.214
+number of hidden neurons in a layer,
+
+00:00:42.215 --> 00:00:44.000
+and number of outputs,
+
+00:00:44.000 --> 00:00:47.539
+nor are there any correlations between those numbers,
+
+00:00:47.539 --> 00:00:50.327
+so we can have n inputs,
+
+00:00:50.328 --> 00:00:54.495
+m hidden neurons, and k outputs.
+
+00:00:54.494 --> 00:00:57.439
+In a closer, even more simplistic look,
+
+00:00:57.439 --> 00:01:01.579
+we can see that each input is multiplied by its corresponding weight
+
+00:01:01.579 --> 00:01:06.319
+and added at the next layer's neuron with a bias as well.
+
+00:01:06.319 --> 00:01:09.469
+The bias is an external parameter of the neuron and can
+
+00:01:09.469 --> 00:01:13.510
+be modeled by adding an external fixed value input.
+
+00:01:13.510 --> 00:01:15.800
+This entire summation will usually go through
+
+00:01:15.799 --> 00:01:20.307
+an activation function to the next layer or to the output.
+
+00:01:20.308 --> 00:01:22.467
+But what is our goal?
+
+00:01:22.466 --> 00:01:28.295
+We can look at our system as a black box that has n inputs and k outputs.
+
+00:01:28.295 --> 00:01:32.200
+Our goal is to design the system in such a way that it will give us
+
+00:01:32.200 --> 00:01:36.635
+the correct output y for a specific input x.
+
+00:01:36.635 --> 00:01:41.260
+Our job is to decide what's inside this black box.
+
+00:01:41.260 --> 00:01:45.640
+We know that we will use artificial neural networks and need to train it to
+
+00:01:45.640 --> 00:01:51.292
+eventually have a system that will yield the correct output to a specific input.
+
+00:01:51.292 --> 00:01:54.075
+Well, correct, most of the time.
+
+00:01:54.075 --> 00:01:57.689
+Essentially, what we really want is to find
+
+00:01:57.689 --> 00:02:02.534
+the optimal set of weights connecting the input to the hidden layer,
+
+00:02:02.534 --> 00:02:07.137
+and the optimal set of weights connecting the hidden layer to the output.
+
+00:02:07.137 --> 00:02:09.629
+We will never have a perfect estimation,
+
+00:02:09.629 --> 00:02:12.794
+but we can try to be as close to it as we can.
+
+00:02:12.794 --> 00:02:17.024
+To do that, we need to start a process you're already familiar with,
+
+00:02:17.025 --> 00:02:19.814
+and that is the training phase.
+
+00:02:19.814 --> 00:02:21.840
+So, let's look at the training phase,
+
+00:02:21.840 --> 00:02:25.860
+where we will find the best set of weights for our system.
+
+00:02:25.860 --> 00:02:31.800
+This phase will include two steps, feedforward and backpropagation,
+
+00:02:31.800 --> 00:02:35.550
+which we will repeat as many times as we need until
+
+00:02:35.550 --> 00:02:39.905
+we decide that our system is as best as it can be.
+
+00:02:39.905 --> 00:02:42.147
+In the feedforward part,
+
+00:02:42.147 --> 00:02:45.234
+we will calculate the output of the system.
+
+00:02:45.235 --> 00:02:52.545
+The output will be compared to the correct output giving us an indication of the error.
+
+00:02:52.544 --> 00:02:55.564
+There are a few ways to determine the error.
+
+00:02:55.564 --> 00:02:58.405
+We will look at it mathematically in a bit.
+
+00:02:58.405 --> 00:03:00.564
+In the backpropagation part,
+
+00:03:00.564 --> 00:03:04.870
+we will change the weights as we try to minimize the error,
+
+00:03:04.870 --> 00:03:09.375
+and start the feedforward process all over again.
+
+00:03:09.375 --> 00:03:11.879
+In the next few videos,
+
+00:03:11.879 --> 00:03:13.530
+we will take a closer look at
+
+00:03:13.530 --> 00:03:18.435
+the mathematical calculations in the feedforward and the backpropagation steps.
+
+00:03:18.435 --> 00:03:20.920
+We will browse through what you already know,
+
+00:03:20.919 --> 00:03:24.000
+but hopefully also give you a deeper understanding.
+

@@ -1,0 +1,438 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   RNN History
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Recurrent Neural Networks
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Ortal .html">
+       01. Introducing Ortal
+      </a>
+     </li>
+     <li class="">
+      <a href="02. RNN Introduction.html">
+       02. RNN Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="03. RNN History.html">
+       03. RNN History
+      </a>
+     </li>
+     <li class="">
+      <a href="04. RNN Applications.html">
+       04. RNN Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Feedforward Neural Network-Reminder.html">
+       05. Feedforward Neural Network-Reminder
+      </a>
+     </li>
+     <li class="">
+      <a href="06. The Feedforward Process.html">
+       06. The Feedforward Process
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Feedforward Quiz.html">
+       07. Feedforward Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Backpropagation- Theory.html">
+       08. Backpropagation- Theory
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Backpropagation - Example (part a).html">
+       09. Backpropagation - Example (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Backpropagation- Example (part b).html">
+       10. Backpropagation- Example (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Backpropagation Quiz.html">
+       11. Backpropagation Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="12.  RNN (part a).html">
+       12.  RNN (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="13. RNN (part b).html">
+       13. RNN (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="14. RNN-  Unfolded Model.html">
+       14. RNN-  Unfolded Model
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Unfolded Model Quiz.html">
+       15. Unfolded Model Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="16. RNN- Example.html">
+       16. RNN- Example
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Backpropagation Through Time (part a).html">
+       17. Backpropagation Through Time (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Backpropagation Through Time (part b).html">
+       18. Backpropagation Through Time (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Backpropagation Through Time (part c).html">
+       19. Backpropagation Through Time (part c)
+      </a>
+     </li>
+     <li class="">
+      <a href="20. BPTT Quiz 1.html">
+       20. BPTT Quiz 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. BPTT Quiz 2.html">
+       21. BPTT Quiz 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. BPTT Quiz 3.html">
+       22. BPTT Quiz 3
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Some more math.html">
+       23. Some more math
+      </a>
+     </li>
+     <li class="">
+      <a href="24. RNN Summary.html">
+       24. RNN Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. From RNN to LSTM.html">
+       25. From RNN to LSTM
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Wrap Up.html">
+       26. Wrap Up
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. RNN History
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="a-bit-of-history">
+          A bit of history
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          How did the theory behind RNN evolve? Where were we a few years ago and where are we now?
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          02 RNN History V4 Final
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. 02 RNN History V4 Final-HbxAnYUfRnc.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. 02 RNN History V4 Final-HbxAnYUfRnc.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="03. 02 RNN History V4 Final-HbxAnYUfRnc.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="03. 02 RNN History V4 Final-HbxAnYUfRnc.pt-BR.vtt" srclang="pt-BR"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As mentioned in this video, RNNs have a key flaw, as capturing relationships that span more than 8 or 10 steps back is practically impossible. This flaw stems from the "
+          <strong>
+           vanishing gradient
+          </strong>
+          " problem in which the contribution of information decays geometrically over time.
+         </p>
+         <p>
+          What does this mean?
+         </p>
+         <p>
+          As you may recall, while training our network we use
+          <strong>
+           backpropagation
+          </strong>
+          . In the backpropagation process we adjust our weight matrices with the use of a
+          <strong>
+           gradient
+          </strong>
+          . In the process, gradients are calculated by continuous multiplications of derivatives.  The value of these derivatives may be so small, that these continuous multiplications may cause the gradient to practically "vanish".
+         </p>
+         <p>
+          <strong>
+           LSTM
+          </strong>
+          is one option to overcome the Vanishing Gradient problem in RNNs.
+         </p>
+         <p>
+          Please use these resources if you would like to read more about the
+          <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem" rel="noopener noreferrer" target="_blank">
+           Vanishing Gradient
+          </a>
+          problem or understand further the concept of a
+          <a href="https://socratic.org/algebra/exponents-and-exponential-functions/geometric-sequences-and-exponential-functions" rel="noopener noreferrer" target="_blank">
+           Geometric Series
+          </a>
+          and how its values may exponentially decrease.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If you are still curious, for more information on the important milestones mentioned here, please take a peek at the following links:
+         </p>
+         <ul>
+          <li>
+           <p>
+            <a href="https://en.wikipedia.org/wiki/Time_delay_neural_network" rel="noopener noreferrer" target="_blank">
+             TDNN
+            </a>
+           </p>
+          </li>
+          <li>
+           <p>
+            Here is the original
+            <a href="http://onlinelibrary.wiley.com/doi/10.1207/s15516709cog1402_1/abstract" rel="noopener noreferrer" target="_blank">
+             Elman Network
+            </a>
+            publication from 1990. This link is provided here as it's a significant milestone in the world on RNNs. To simplify things a bit, you can take a look at the following
+            <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network#Elman_networks_and_Jordan_networks" rel="noopener noreferrer" target="_blank">
+             additional info
+            </a>
+            .
+           </p>
+          </li>
+          <li>
+           <p>
+            In this
+            <a href="http://www.bioinf.jku.at/publications/older/2604.pdf" rel="noopener noreferrer" target="_blank">
+             LSTM
+            </a>
+            link you will find the original paper written by
+            <a href="https://en.wikipedia.org/wiki/Sepp_Hochreiter" rel="noopener noreferrer" target="_blank">
+             Sepp Hochreiter
+            </a>
+            and
+            <a href="http://people.idsia.ch/~juergen/" rel="noopener noreferrer" target="_blank">
+             Jürgen Schmidhuber
+            </a>
+            . Don't get into all the details just yet. We will cover all of this later!
+           </p>
+          </li>
+         </ul>
+         <p>
+          As mentioned in the video, Long Short-Term Memory Cells (LSTMs) and Gated Recurrent Units (GRUs) give a solution to the vanishing gradient problem, by helping us apply networks that have temporal dependencies.  In this lesson we will focus on RNNs and continue with LSTMs. We will not be focusing on GRUs.
+          <br/>
+          More information about GRUs can be found in the following
+          <a href="https://deeplearning4j.org/lstm.html" rel="noopener noreferrer" target="_blank">
+           blog
+          </a>
+          . Focus on the overview titled:
+          <strong>
+           GRUs
+          </strong>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. RNN Applications.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. RNN History')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

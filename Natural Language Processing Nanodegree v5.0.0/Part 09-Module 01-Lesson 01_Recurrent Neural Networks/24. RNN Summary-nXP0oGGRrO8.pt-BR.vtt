@@ -1,0 +1,330 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.276 --> 00:00:02.436
+Para resumir o que discutimos,
+
+00:00:02.473 --> 00:00:06.077
+agora entendemos que,
+nas RNNs, o estado atual
+
+00:00:06.114 --> 00:00:10.524
+depende dos inputs
+e dos estados anteriores
+
+00:00:10.561 --> 00:00:13.112
+utilizando
+uma função de ativação,
+
+00:00:13.149 --> 00:00:16.069
+como a tangente hiperbólica,
+a sigmoide
+
+00:00:16.106 --> 00:00:18.797
+ou a função ReLU, por exemplo.
+
+00:00:18.834 --> 00:00:20.916
+O output atual
+
+00:00:20.953 --> 00:00:25.096
+é uma combinação linear simples
+dos elementos de estado atual
+
+00:00:25.133 --> 00:00:27.515
+com a matriz de peso
+correspondente.
+
+00:00:27.552 --> 00:00:29.739
+Podemos utilizar
+a função softmax
+
+00:00:29.776 --> 00:00:31.605
+para calcular os outputs.
+
+00:00:32.805 --> 00:00:37.028
+Esta é a forma dobrada
+do esquema RNN.
+
+00:00:37.740 --> 00:00:40.099
+Quando temos
+apenas uma camada oculta,
+
+00:00:40.136 --> 00:00:43.075
+precisamos atualizar
+três matrizes de peso:
+
+00:00:43.112 --> 00:00:48.031
+Wy, ligando o estado à saída,
+
+00:00:48.068 --> 00:00:51.659
+Ws, ligando o estado
+a ele mesmo,
+
+00:00:51.696 --> 00:00:55.835
+e Wx, ligando o input
+ao estado.
+
+00:00:55.872 --> 00:00:58.548
+Este é o modelo desdobrado,
+
+00:00:58.585 --> 00:01:01.109
+que estamos utilizando mais.
+
+00:01:02.500 --> 00:01:05.492
+Vejamos os cálculos do gradiente
+novamente.
+
+00:01:05.529 --> 00:01:07.963
+Calcular o gradiente
+do erro quadrático,
+
+00:01:08.000 --> 00:01:10.126
+ou do que chamamos
+de "função de perda",
+
+00:01:10.163 --> 00:01:14.965
+em relação à matriz de peso Wy
+foi simples.
+
+00:01:15.002 --> 00:01:19.125
+A propósito, podemos utilizar
+outras funções de erro.
+
+00:01:20.156 --> 00:01:25.267
+Ao calcular o gradiente
+em relação a Ws e Wx,
+
+00:01:25.304 --> 00:01:27.091
+precisamos ser cuidadosos
+
+00:01:27.128 --> 00:01:30.506
+e considerar o que aconteceu
+em instantes de tempo anteriores,
+
+00:01:30.543 --> 00:01:33.365
+acumulando
+todas as contribuições.
+
+00:01:33.402 --> 00:01:35.019
+Para esses cálculos,
+
+00:01:35.056 --> 00:01:36.809
+utilizamos o processo chamado
+
+00:01:36.846 --> 00:01:39.354
+de "retropropagação
+através do tempo".
+
+00:01:40.418 --> 00:01:42.300
+Como já falamos,
+
+00:01:42.337 --> 00:01:44.346
+ao utilizar a retropropagação,
+
+00:01:44.383 --> 00:01:46.769
+podemos utilizar minilotes.
+
+00:01:46.806 --> 00:01:49.689
+Podemos fazer o mesmo
+nas RNNs.
+
+00:01:49.726 --> 00:01:51.046
+Atualizar os pesos
+
+00:01:51.083 --> 00:01:53.216
+na retropropagação
+através do tempo
+
+00:01:53.253 --> 00:01:56.326
+também pode ser realizado
+periodicamente nos lotes,
+
+00:01:56.363 --> 00:01:59.302
+em vez de fazer isso
+em toda amostra de input.
+
+00:02:00.127 --> 00:02:01.694
+Como lembrete,
+
+00:02:01.731 --> 00:02:04.333
+calculamos o gradiente
+de cada passo,
+
+00:02:04.370 --> 00:02:07.502
+mas não atualizamos
+os pesos imediatamente.
+
+00:02:07.539 --> 00:02:11.449
+Podemos atualizá-los
+após um número de passos,
+
+00:02:11.486 --> 00:02:13.227
+por exemplo, 20.
+
+00:02:13.264 --> 00:02:17.731
+Isso reduz a complexidade
+do processo de treinamento
+
+00:02:17.768 --> 00:02:20.755
+e também pode remover ruído
+das atualizações de peso,
+
+00:02:20.792 --> 00:02:23.615
+pois fazer a média do conjunto
+de amostras ruidosas
+
+00:02:23.652 --> 00:02:26.246
+tende a produzir
+um valor menos ruidoso.
+
+00:02:26.283 --> 00:02:28.479
+Você deve estar se perguntando
+
+00:02:28.516 --> 00:02:31.511
+o que acontece quando temos
+muitos instantes de tempo
+
+00:02:31.548 --> 00:02:35.231
+e não só alguns,
+como no exemplo anterior.
+
+00:02:35.268 --> 00:02:38.239
+Lembra do exemplo
+de retropropagação através do tempo?
+
+00:02:38.276 --> 00:02:40.421
+Só havia
+três instantes de tempo.
+
+00:02:40.458 --> 00:02:43.038
+Podemos ter ainda
+mais de uma camada oculta.
+
+00:02:43.075 --> 00:02:45.008
+Então o que acontece?
+
+00:02:45.045 --> 00:02:47.902
+Podemos acumular
+as contribuições dos gradientes
+
+00:02:47.939 --> 00:02:50.135
+de cada um
+dos instantes de tempo?
+
+00:02:50.172 --> 00:02:53.867
+A resposta para isso é:
+"Não, não podemos."
+
+00:02:53.904 --> 00:02:58.020
+Estudos mostraram que, se houver
+poucos instantes de tempo,
+
+00:02:58.057 --> 00:03:00.451
+por exemplo, oito ou dez,
+
+00:03:00.488 --> 00:03:03.403
+podemos utilizar o método
+de forma eficaz.
+
+00:03:03.440 --> 00:03:05.850
+Se retropropagarmos
+além disso,
+
+00:03:05.887 --> 00:03:08.327
+o gradiente ficará
+pequeno demais
+
+00:03:08.364 --> 00:03:11.157
+e teremos o problema
+da dissipação do gradiente,
+
+00:03:11.194 --> 00:03:13.328
+no qual as contribuições
+das informações
+
+00:03:13.365 --> 00:03:16.108
+decaem geometricamente
+com o tempo.
+
+00:03:16.145 --> 00:03:18.761
+Em outra palavras,
+as dependências temporais
+
+00:03:18.798 --> 00:03:20.852
+que se expandem
+durante passos de tempo,
+
+00:03:20.889 --> 00:03:24.883
+por exemplo, por mais de oito, nove
+ou dez passos de tempo,
+
+00:03:24.920 --> 00:03:28.531
+serão desprezadas pela rede.
+
+00:03:28.568 --> 00:03:32.218
+Como abordamos o problema
+da dissipação do gradiente?
+
+00:03:32.255 --> 00:03:34.683
+As células de memória longa
+de curta duração,
+
+00:03:34.720 --> 00:03:39.971
+ou LSTMs, foram inventadas
+para resolver o problema,
+
+00:03:40.008 --> 00:03:43.268
+e é sobre elas que falaremos
+nos próximos vídeos.
+
+00:03:43.305 --> 00:03:48.019
+O outro cenário a se notar
+é o de gradientes explosivos,
+
+00:03:48.056 --> 00:03:51.825
+nos quais o valor do gradiente
+cresce de forma descontrolada.
+
+00:03:51.862 --> 00:03:55.715
+Felizmente, um esquema simples
+chamado de "recorte de gradiente"
+
+00:03:55.752 --> 00:03:58.627
+praticamente
+resolve o problema.
+
+00:03:58.664 --> 00:04:02.395
+Basicamente,
+em cada passo de tempo,
+
+00:04:02.432 --> 00:04:05.837
+conferimos se o gradiente
+excede algum limite.
+
+00:04:05.874 --> 00:04:09.859
+Se exceder, normalizamos
+o gradiente excessivo.
+
+00:04:09.896 --> 00:04:13.923
+Normalizar significa penalizar mais
+os gradientes muito grandes
+
+00:04:13.960 --> 00:04:18.272
+do que aqueles que são
+um pouco maiores do que o limite.
+
+00:04:18.309 --> 00:04:20.224
+Recortar gradientes grandes
+
+00:04:20.261 --> 00:04:23.631
+evita o problema
+do gradiente explosivo.
+
+00:04:23.668 --> 00:04:26.704
+Há mais informações
+sobre recorte de gradiente
+
+00:04:26.741 --> 00:04:28.868
+no texto após este vídeo.
+

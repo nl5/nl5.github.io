@@ -1,0 +1,207 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.190 --> 00:00:03.018
+Ainda temos que ajustar Wx,
+
+00:00:03.055 --> 00:00:05.501
+a matriz de peso que liga
+a camada de entrada
+
+00:00:05.538 --> 00:00:08.213
+à camada oculta
+ou de estado.
+
+00:00:08.250 --> 00:00:12.839
+Vamos simplificar o desenho
+e deixar só o que precisamos.
+
+00:00:12.876 --> 00:00:16.398
+O processo para ajustar Wx
+
+00:00:16.435 --> 00:00:21.054
+será parecido com o que usamos
+para atualizar Ws.
+
+00:00:21.091 --> 00:00:24.916
+Dito isso, vejamos
+o processo detalhadamente.
+
+00:00:24.953 --> 00:00:28.777
+Se observarmos o passo
+de tempo T=3,
+
+00:00:28.814 --> 00:00:32.259
+o erro em relação
+à matriz Wx
+
+00:00:32.296 --> 00:00:35.828
+não depende somente
+do vetor S3,
+
+00:00:35.865 --> 00:00:41.059
+mas também do S2
+e do antecessor, S1,
+
+00:00:41.096 --> 00:00:46.208
+que são todos afetados
+pela mesma matriz Wx.
+
+00:00:46.245 --> 00:00:49.481
+À primeira vista,
+pode parecer
+
+00:00:49.518 --> 00:00:53.481
+que precisamos considerar
+só o vetor S3.
+
+00:00:53.518 --> 00:00:56.929
+O derivativo
+no passo de tempo T=3,
+
+00:00:56.966 --> 00:00:59.320
+utilizando a regra de cadeia,
+é claro,
+
+00:00:59.357 --> 00:01:02.568
+será igual ao derivativo
+do erro quadrático
+
+00:01:02.605 --> 00:01:05.656
+em relação à saída Y3
+
+00:01:05.693 --> 00:01:08.585
+multiplicado
+pelo derivativo da saída
+
+00:01:08.622 --> 00:01:11.216
+em relação a S3.
+
+00:01:11.253 --> 00:01:15.831
+Por fim, multiplicado
+pelo derivativo de S3
+
+00:01:15.868 --> 00:01:19.072
+em relação à matriz Wx.
+
+00:01:19.109 --> 00:01:21.552
+Vamos voltar um pouco.
+
+00:01:21.589 --> 00:01:25.903
+Como dito,
+S3 também depende
+
+00:01:25.940 --> 00:01:28.831
+de S2 e S1,
+
+00:01:28.868 --> 00:01:33.763
+que são afetados
+pela mesma matriz Wx.
+
+00:01:33.800 --> 00:01:36.131
+O gradiente que procuramos
+
+00:01:36.168 --> 00:01:40.276
+não é somente o produto
+dos três derivativos vistos,
+
+00:01:40.313 --> 00:01:44.388
+mas é o acúmulo
+de todas as contribuições
+
+00:01:44.425 --> 00:01:48.235
+originadas
+de cada estado anterior.
+
+00:01:48.272 --> 00:01:52.511
+Vamos considerar
+o estado anterior S2.
+
+00:01:52.548 --> 00:01:55.520
+Novamente, utilizando
+a regra de cadeia,
+
+00:01:55.557 --> 00:01:58.028
+vemos que o caminho seguinte
+
+00:01:58.065 --> 00:02:01.101
+dá uma contribuição
+adicional
+
+00:02:01.138 --> 00:02:03.672
+ao gradiente geral.
+
+00:02:04.757 --> 00:02:06.637
+Mas não terminamos ainda.
+
+00:02:06.674 --> 00:02:10.230
+Temos mais um estado S1
+a ser considerado.
+
+00:02:10.267 --> 00:02:12.550
+Adicionaremos
+a contribuição dele
+
+00:02:12.587 --> 00:02:15.285
+ao gradiente
+acumulativo geral.
+
+00:02:15.322 --> 00:02:18.247
+Começando da saída
+e fazendo a retropropagação
+
+00:02:18.284 --> 00:02:20.247
+até o primeiro estado,
+
+00:02:20.284 --> 00:02:23.286
+forneceremos
+o componente adicional seguinte
+
+00:02:23.323 --> 00:02:25.615
+ao gradiente geral.
+
+00:02:28.111 --> 00:02:30.970
+Vejamos novamente
+o gradiente acumulativo
+
+00:02:31.007 --> 00:02:34.042
+que obtemos utilizando
+a retropropagação através do tempo,
+
+00:02:34.079 --> 00:02:38.194
+que calculamos considerando
+os vetores de estado que temos,
+
+00:02:38.231 --> 00:02:43.035
+estados S3, S2 e S1.
+
+00:02:43.072 --> 00:02:44.969
+Este é
+o gradiente necessário
+
+00:02:45.006 --> 00:02:49.923
+a fim de atualizar corretamente
+a matriz Wx.
+
+00:02:51.395 --> 00:02:53.026
+De forma geral,
+
+00:02:53.063 --> 00:02:56.403
+precisamos considerar
+vários passos de tempo passados
+
+00:02:56.440 --> 00:02:58.818
+e não só três,
+como neste exemplo,
+
+00:02:58.855 --> 00:03:00.427
+e de um framework geral
+
+00:03:00.464 --> 00:03:03.195
+para definir a retropropagação
+através do tempo
+
+00:03:03.232 --> 00:03:06.379
+a fim de atualizar Wx.
+

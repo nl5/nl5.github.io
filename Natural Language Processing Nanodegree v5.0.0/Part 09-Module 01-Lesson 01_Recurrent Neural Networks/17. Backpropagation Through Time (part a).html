@@ -1,0 +1,573 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Backpropagation Through Time (part a)
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Recurrent Neural Networks
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Ortal .html">
+       01. Introducing Ortal
+      </a>
+     </li>
+     <li class="">
+      <a href="02. RNN Introduction.html">
+       02. RNN Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="03. RNN History.html">
+       03. RNN History
+      </a>
+     </li>
+     <li class="">
+      <a href="04. RNN Applications.html">
+       04. RNN Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Feedforward Neural Network-Reminder.html">
+       05. Feedforward Neural Network-Reminder
+      </a>
+     </li>
+     <li class="">
+      <a href="06. The Feedforward Process.html">
+       06. The Feedforward Process
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Feedforward Quiz.html">
+       07. Feedforward Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Backpropagation- Theory.html">
+       08. Backpropagation- Theory
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Backpropagation - Example (part a).html">
+       09. Backpropagation - Example (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Backpropagation- Example (part b).html">
+       10. Backpropagation- Example (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Backpropagation Quiz.html">
+       11. Backpropagation Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="12.  RNN (part a).html">
+       12.  RNN (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="13. RNN (part b).html">
+       13. RNN (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="14. RNN-  Unfolded Model.html">
+       14. RNN-  Unfolded Model
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Unfolded Model Quiz.html">
+       15. Unfolded Model Quiz
+      </a>
+     </li>
+     <li class="">
+      <a href="16. RNN- Example.html">
+       16. RNN- Example
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Backpropagation Through Time (part a).html">
+       17. Backpropagation Through Time (part a)
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Backpropagation Through Time (part b).html">
+       18. Backpropagation Through Time (part b)
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Backpropagation Through Time (part c).html">
+       19. Backpropagation Through Time (part c)
+      </a>
+     </li>
+     <li class="">
+      <a href="20. BPTT Quiz 1.html">
+       20. BPTT Quiz 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. BPTT Quiz 2.html">
+       21. BPTT Quiz 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. BPTT Quiz 3.html">
+       22. BPTT Quiz 3
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Some more math.html">
+       23. Some more math
+      </a>
+     </li>
+     <li class="">
+      <a href="24. RNN Summary.html">
+       24. RNN Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. From RNN to LSTM.html">
+       25. From RNN to LSTM
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Wrap Up.html">
+       26. Wrap Up
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          17. Backpropagation Through Time (part a)
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          We are now ready to understand how to train the RNN.
+         </p>
+         <p>
+          When we train RNNs we also use backpropagation, but with a conceptual change. The process is similar to that in the FFNN, with the exception that we need to consider previous time steps, as the system has memory. This process is called
+          <strong>
+           Backpropagation Through Time (BPTT)
+          </strong>
+          and will be the topic of the next three videos.
+         </p>
+         <ul>
+          <li>
+           As always, don't forget to take notes.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following videos we will use the Loss Function for our error. The Loss Function is the square of the difference between the desired and the calculated outputs. There are variations to the Loss Function, for example, factoring it with a scalar. In the backpropagation example we used a factoring scalar of 1/2 for calculation convenience.
+         </p>
+         <p>
+          As described previously, the two most commonly used are the
+          <a href="https://en.wikipedia.org/wiki/Mean_squared_error" rel="noopener noreferrer" target="_blank">
+           Mean Squared Error (MSE)
+          </a>
+          (usually used in regression problems) and the
+          <a href="https://www.ics.uci.edu/~pjsadows/notes.pdf" rel="noopener noreferrer" target="_blank">
+           cross entropy
+          </a>
+          (usually used in classification problems).
+         </p>
+         <p>
+          Here, we are using a variation of the MSE.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          19 RNN BPTT A V6 Final
+         </p>
+        </h3>
+        <video controls="">
+         <source src="17. 19 RNN BPTT A V6 Final-eE2L3-2wKac.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="17. 19 RNN BPTT A V6 Final-eE2L3-2wKac.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="17. 19 RNN BPTT A V6 Final-eE2L3-2wKac.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="17. 19 RNN BPTT A V6 Final-eE2L3-2wKac.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Before diving into Backpropagation Through Time we need a few reminders.
+         </p>
+         <p>
+          The state vector
+          <span class="mathquill ud-math">
+           \bar{s}_t
+          </span>
+          is calculated the following way:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 33_" class="img img-fluid" src="img/screen-shot-2017-11-06-at-2.45.22-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 33
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The output vector
+          <span class="mathquill ud-math">
+           \bar{y}_t
+          </span>
+          can be product of the state vector
+          <span class="mathquill ud-math">
+           \bar{s}_t
+          </span>
+          and the corresponding weight elements of matrix
+          <span class="mathquill ud-math">
+           W_y
+          </span>
+          . As mentioned before, if the desired outputs are between 0 and 1, we can also use a softmax function. The following set of equations depicts these calculations:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 34_" class="img img-fluid" src="img/screen-shot-2017-11-06-at-4.12.59-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 34
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As mentioned before, for the error calculations we will use the Loss Function, where
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           E_t
+          </span>
+          represents the output error at time t
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           d_t
+          </span>
+          represents the desired output at time t
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           y_t
+          </span>
+          represents the calculated output at time t
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Equation 35_" class="img img-fluid" src="img/screen-shot-2017-11-21-at-4.02.19-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Equation 35
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In
+          <strong>
+           BPTT
+          </strong>
+          we train the network at timestep t as well as take into account all of the previous timesteps.
+         </p>
+         <p>
+          The easiest way to explain the idea is to simply jump into an example.
+         </p>
+         <p>
+          In this example we will focus on the
+          <strong>
+           BPTT
+          </strong>
+          process for time step t=3. You will see that in order to adjust all three weight matrices,
+          <span class="mathquill ud-math">
+           W_x, W_s
+          </span>
+          and
+          <span class="mathquill ud-math">
+           W_y
+          </span>
+          , we need to consider timestep 3 as well as timestep 2 and timestep 1.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As we are focusing on timestep t=3, the Loss function will be:
+          <span class="mathquill ud-math">
+           E_3=(\bar{d}_3-\bar{y}_3)^2
+          </span>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_The Folded Model at Timestep 3_" class="img img-fluid" src="img/screen-shot-2017-11-27-at-1.43.36-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             The Folded Model at Timestep 3
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          To update each weight matrix, we need to find the partial derivatives of the Loss Function at time 3,  as a function of all of the weight matrices. We will modify each matrix using gradient descent while considering the previous timesteps.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="_Gradient Considerations in the Folded Model_" class="img img-fluid" src="img/screen-shot-2017-11-27-at-1.46.43-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <em>
+             Gradient Considerations in the Folded Model
+            </em>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="18. Backpropagation Through Time (part b).html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('17. Backpropagation Through Time (part a)')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.440
+After the first wave of artificial neural networks in the mid 80s,
+
+00:00:04.440 --> 00:00:07.200
+it became clear that feedforward networks are
+
+00:00:07.200 --> 00:00:11.370
+limited since they are unable to capture temporal dependencies,
+
+00:00:11.369 --> 00:00:13.244
+which, as we said before,
+
+00:00:13.244 --> 00:00:16.379
+are dependencies that change over time.
+
+00:00:16.379 --> 00:00:21.382
+Modeling temporal data is critical in most real-world applications,
+
+00:00:21.382 --> 00:00:25.500
+since natural signals like speech and video have time
+
+00:00:25.500 --> 00:00:31.009
+varying properties and are characterized by having dependencies across time.
+
+00:00:31.010 --> 00:00:34.785
+By the way, biological neural networks have recurring connections,
+
+00:00:34.784 --> 00:00:41.144
+so applying recurrence to artificial feedforward neural networks made natural sense.
+
+00:00:41.145 --> 00:00:46.515
+The first attempt to add memory to neural networks were the Time Delay Neural Networks,
+
+00:00:46.515 --> 00:00:48.855
+or TDNNs in short.
+
+00:00:48.854 --> 00:00:54.019
+And TDNNs, inputs from past timesteps were introduced to the network input,
+
+00:00:54.020 --> 00:00:57.350
+changing the actual external inputs.
+
+00:00:57.350 --> 00:00:59.760
+This had the advantage of clearly allowing
+
+00:00:59.759 --> 00:01:02.835
+the network to look beyond the current timestep,
+
+00:01:02.835 --> 00:01:05.594
+but also introduce to clear disadvantage,
+
+00:01:05.594 --> 00:01:11.170
+since the temporal dependencies were limited to the window of the time chosen.
+
+00:01:11.170 --> 00:01:15.920
+Simple RNNs, also known as Elman networks and Jordan networks,
+
+00:01:15.920 --> 00:01:17.234
+were next to follow.
+
+00:01:17.234 --> 00:01:20.340
+We will talk about all those later in the lesson.
+
+00:01:20.340 --> 00:01:25.275
+It was recognized in the early 90s that all of these networks suffer from what we call,
+
+00:01:25.275 --> 00:01:27.060
+the vanishing gradient problem,
+
+00:01:27.060 --> 00:01:31.865
+in which contributions of information decayed geometrically over time.
+
+00:01:31.864 --> 00:01:34.409
+So, capturing relationships that spanned
+
+00:01:34.409 --> 00:01:39.054
+more than eight or ten steps back was practically impossible.
+
+00:01:39.055 --> 00:01:41.340
+Despite the elegance of these networks,
+
+00:01:41.340 --> 00:01:44.185
+they all had this key flaw.
+
+00:01:44.185 --> 00:01:48.045
+We will discuss the vanishing gradient problem in detail later.
+
+00:01:48.045 --> 00:01:52.585
+You can also find more information about this topic right after this video.
+
+00:01:52.584 --> 00:01:56.309
+In the mid 90s, Long Short-Term Memory cells,
+
+00:01:56.310 --> 00:01:58.530
+or LSTMs in short,
+
+00:01:58.530 --> 00:02:02.125
+were invented to address this very problem.
+
+00:02:02.125 --> 00:02:06.269
+The key novelty in LSTMs was the idea that some signals,
+
+00:02:06.269 --> 00:02:08.115
+what we call state variables,
+
+00:02:08.115 --> 00:02:11.129
+can be kept fixed by using gates,
+
+00:02:11.129 --> 00:02:16.030
+and reintroduced or not at an appropriate time in the future.
+
+00:02:16.030 --> 00:02:20.219
+In this way, arbitrary time intervals can be represented,
+
+00:02:20.219 --> 00:02:23.685
+and temporal dependencies can be captured.
+
+00:02:23.685 --> 00:02:25.754
+Don't be alarmed by this sketch.
+
+00:02:25.754 --> 00:02:30.359
+We will get into all of the LSTM details later in this lesson.
+
+00:02:30.360 --> 00:02:34.275
+Variations on LSTMs such as Gated Recurrent Networks,
+
+00:02:34.275 --> 00:02:35.865
+or GRUs in short,
+
+00:02:35.865 --> 00:02:38.550
+further refined this theme, and nowadays,
+
+00:02:38.550 --> 00:02:42.240
+represent another mainstream approach to realizing RNNs..
+

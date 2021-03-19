@@ -1,0 +1,150 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.107 --> 00:00:04.545
+Para você ter uma ideia
+de como as RNNs e LSTMs são úteis,
+
+00:00:04.578 --> 00:00:06.177
+vamos dar uma espiada.
+
+00:00:06.591 --> 00:00:11.184
+As maiores empresas de tecnologia
+do mundo estão usando RNNs e LSTMs
+
+00:00:11.217 --> 00:00:13.132
+em seus programas.
+
+00:00:13.165 --> 00:00:15.615
+Vamos dar uma olhada
+em alguns deles.
+
+00:00:15.648 --> 00:00:17.236
+Reconhecimento de fala,
+
+00:00:17.269 --> 00:00:19.297
+em que uma sequência
+de amostras de dados
+
+00:00:19.330 --> 00:00:24.247
+extraída de um sinal de áudio é
+continuamente convertida em texto.
+
+00:00:24.280 --> 00:00:26.646
+Alguns bons exemplos são
+o Google Assistant,
+
+00:00:26.679 --> 00:00:32.133
+a Siri da Apple, a Alexa da Amazon
+e as soluções Dragon da Nuance.
+
+00:00:32.166 --> 00:00:36.673
+Todos eles usam RNNs em seu software
+de reconhecimento de fala.
+
+00:00:36.706 --> 00:00:38.495
+Previsão
+de séries temporais,
+
+00:00:38.528 --> 00:00:41.639
+em que prevemos padrões de trânsito
+em estradas específicas,
+
+00:00:41.672 --> 00:00:44.852
+para ajudar os motoristas
+a otimizarem seus trajetos,
+
+00:00:44.885 --> 00:00:46.351
+como fazem no Waze.
+
+00:00:46.384 --> 00:00:50.073
+Ou prever o próximo filme
+que o cliente vai querer assistir,
+
+00:00:50.106 --> 00:00:51.958
+como fazem na Netflix.
+
+00:00:51.991 --> 00:00:53.970
+Prever a movimentação
+dos preços de ações
+
+00:00:54.003 --> 00:00:56.714
+com base em padrões históricos
+da movimentação da Bolsa
+
+00:00:56.747 --> 00:01:01.454
+e outras condições do mercado
+que mudam com o tempo.
+
+00:01:01.487 --> 00:01:04.399
+Isso é feito na maioria
+dos fundos hedge quantitativos.
+
+00:01:04.432 --> 00:01:07.853
+Processamento
+de linguagem natural, ou PLN,
+
+00:01:07.886 --> 00:01:11.080
+como a tradução automática,
+usada pelo Google
+
+00:01:11.113 --> 00:01:13.434
+ou pela Salesforce,
+por exemplo.
+
+00:01:13.467 --> 00:01:16.452
+Sistema de perguntas e respostas,
+como o Google Analytics.
+
+00:01:16.485 --> 00:01:18.592
+Se tiver uma pergunta
+sobre seu aplicativo,
+
+00:01:18.625 --> 00:01:21.952
+em breve você poderá perguntar
+diretamente ao Google Analytics.
+
+00:01:21.985 --> 00:01:23.719
+Você já ouviu falar
+em chatbot?
+
+00:01:23.752 --> 00:01:26.938
+Muitas empresas,
+como Google, Baidu e Slack,
+
+00:01:26.971 --> 00:01:30.728
+estão usando RNNs para direcionar
+o processamento de linguagem natural
+
+00:01:30.761 --> 00:01:32.479
+para esse tipo de programa.
+
+00:01:32.512 --> 00:01:35.815
+E é claro que existem
+muitos outros programas de PLN.
+
+00:01:35.848 --> 00:01:40.113
+O último programa que vamos abordar
+é o de reconhecimento de gestos,
+
+00:01:40.146 --> 00:01:42.404
+em que vemos uma sequência
+de quadros de vídeo
+
+00:01:42.437 --> 00:01:45.245
+para determinar o gesto
+que o usuário fez.
+
+00:01:45.278 --> 00:01:49.464
+Por exemplo, acenar
+ou balançar o braço direito.
+
+00:01:49.497 --> 00:01:52.458
+Estas são empresas de tecnologia
+de reconhecimento de gestos
+
+00:01:52.491 --> 00:01:56.242
+e empresas que usam o reconhecimento
+de gestos em seus produtos.
+

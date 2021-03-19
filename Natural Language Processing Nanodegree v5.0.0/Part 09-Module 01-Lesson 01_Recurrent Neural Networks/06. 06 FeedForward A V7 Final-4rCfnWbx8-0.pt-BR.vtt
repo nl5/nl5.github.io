@@ -1,0 +1,297 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.245 --> 00:00:03.491
+Primeiro vamos ver
+a etapa de feedforward.
+
+00:00:03.524 --> 00:00:08.276
+Para facilitar os cálculos,
+vamos optar por ter n entradas,
+
+00:00:08.309 --> 00:00:11.261
+três neurônios
+em uma única camada oculta
+
+00:00:11.294 --> 00:00:13.294
+e duas saídas.
+
+00:00:13.327 --> 00:00:14.848
+Aliás, na prática,
+
+00:00:14.881 --> 00:00:18.546
+podemos ter milhares de neurônios
+em uma única camada oculta.
+
+00:00:18.579 --> 00:00:22.634
+Usaremos W1 para o conjunto de pesos
+de x para h
+
+00:00:22.667 --> 00:00:27.366
+e W2 para o conjunto de pesos
+de h para y.
+
+00:00:27.399 --> 00:00:29.879
+Como só temos
+uma camada oculta,
+
+00:00:29.912 --> 00:00:34.210
+só teremos dois passos
+em cada ciclo de feedforward.
+
+00:00:34.243 --> 00:00:38.468
+O 1º passo será descobrir o h
+de uma determinada entrada
+
+00:00:38.501 --> 00:00:41.397
+e o conjunto de pesos W1.
+
+00:00:41.430 --> 00:00:46.943
+E o 2º passo será descobrir
+a saída y do h obtido
+
+00:00:46.976 --> 00:00:49.892
+e o conjunto de pesos W2.
+
+00:00:50.952 --> 00:00:55.002
+Você verá que, exceto quando usarmos
+funções de ativação não lineares,
+
+00:00:55.035 --> 00:00:56.997
+das quais falarei em breve,
+
+00:00:57.030 --> 00:01:00.529
+todos os cálculos vão envolver
+combinações lineares
+
+00:01:00.562 --> 00:01:02.683
+de entradas e pesos.
+
+00:01:02.716 --> 00:01:06.353
+Em outras palavras, usaremos
+multiplicação de matrizes.
+
+00:01:07.405 --> 00:01:11.409
+Vamos começar com o 1º passo:
+descobrir o h.
+
+00:01:11.442 --> 00:01:15.026
+Observe que, se houver mais
+de um neurônio na camada oculta,
+
+00:01:15.059 --> 00:01:16.684
+o que geralmente acontece,
+
+00:01:16.717 --> 00:01:19.123
+h será um vetor.
+
+00:01:19.156 --> 00:01:21.843
+Teremos
+as entradas iniciais x -
+
+00:01:21.876 --> 00:01:24.150
+x também é um vetor -
+
+00:01:24.183 --> 00:01:28.227
+e queremos descobrir os valores
+dos neurônios ocultos, h.
+
+00:01:28.260 --> 00:01:32.603
+Cada entrada está conectada
+a cada neurônio na camada oculta.
+
+00:01:32.636 --> 00:01:36.365
+Para simplificar, usaremos
+os seguintes índices:
+
+00:01:36.398 --> 00:01:40.244
+W11 conecta x1 a h1,
+
+00:01:40.277 --> 00:01:44.064
+W13 conecta x1 a h3,
+
+00:01:44.097 --> 00:01:48.792
+W21 conecta x2 a h1,
+
+00:01:48.825 --> 00:01:54.802
+Wn3 conecta xn a h3,
+e assim por diante.
+
+00:01:56.704 --> 00:01:58.565
+O vetor das entradas -
+
+00:01:58.598 --> 00:02:02.577
+ou seja, de x1 a xn -
+
+00:02:02.610 --> 00:02:06.259
+é multiplicado
+pela matriz de peso W1,
+
+00:02:06.292 --> 00:02:09.379
+para obtermos
+os neurônios ocultos.
+
+00:02:09.412 --> 00:02:13.859
+Então cada vetor h
+é igual ao vetor x
+
+00:02:13.892 --> 00:02:17.617
+multiplicado
+pela matriz de peso W1.
+
+00:02:17.650 --> 00:02:21.785
+Neste caso, temos uma matriz de peso
+com n linhas -
+
+00:02:21.818 --> 00:02:24.035
+já que temos n entradas -
+
+00:02:24.068 --> 00:02:25.648
+e três colunas -
+
+00:02:25.681 --> 00:02:28.913
+já que temos três neurônios
+na camada oculta.
+
+00:02:28.946 --> 00:02:32.572
+Se multiplicarmos o vetor de entrada
+pela matriz de peso,
+
+00:02:32.605 --> 00:02:35.041
+vamos obter
+uma combinação linear simples
+
+00:02:35.074 --> 00:02:37.561
+para cada neurônio
+da camada oculta,
+
+00:02:37.594 --> 00:02:40.186
+o que nos dará o vetor h.
+
+00:02:40.219 --> 00:02:42.109
+Então, por exemplo,
+
+00:02:42.142 --> 00:02:46.681
+h1 será x1 vezes W11,
+
+00:02:46.714 --> 00:02:51.206
+mais x2 vezes W21,
+e assim por diante.
+
+00:02:51.239 --> 00:02:55.276
+Mas ainda não terminamos
+de calcular a camada oculta.
+
+00:02:55.309 --> 00:02:58.060
+Reparou no sinal de linha
+que usei aqui?
+
+00:02:58.093 --> 00:03:02.122
+Fiz isso para ressaltar
+que ainda não descobrimos o h.
+
+00:03:02.155 --> 00:03:05.263
+Estamos quase lá,
+mas ainda falta uma parte.
+
+00:03:05.266 --> 00:03:08.401
+Para garantir que os valores de h
+não se multipliquem
+
+00:03:08.434 --> 00:03:10.602
+ou se excedam em tamanho,
+
+00:03:10.635 --> 00:03:13.620
+temos que usar
+uma função de ativação,
+
+00:03:13.653 --> 00:03:16.680
+que costuma ser representada
+pela letra grega fi.
+
+00:03:16.713 --> 00:03:19.409
+Podemos usar
+uma tangente hiperbólica.
+
+00:03:19.442 --> 00:03:20.758
+Ao usar essa função,
+
+00:03:20.791 --> 00:03:25.776
+garantimos que as nossas saídas
+estarão entre 1 e -1.
+
+00:03:25.809 --> 00:03:28.316
+Nós também podemos usar
+uma sigmoide.
+
+00:03:28.349 --> 00:03:29.476
+Ao usar esta função,
+
+00:03:29.509 --> 00:03:33.689
+garantimos que as nossas saídas
+estarão entre 1 e 0.
+
+00:03:33.722 --> 00:03:36.386
+Podemos também usar
+uma unidade linear retificada,
+
+00:03:36.419 --> 00:03:38.685
+ou função ReLu,
+
+00:03:38.718 --> 00:03:40.770
+na qual os valores negativos
+são anulados,
+
+00:03:40.803 --> 00:03:44.079
+e os valores positivos
+permanecem iguais.
+
+00:03:45.115 --> 00:03:50.076
+Cada função de ativação tem
+vantagens e desvantagens.
+
+00:03:50.109 --> 00:03:53.212
+O que todas têm em comum é
+permitir que a rede
+
+00:03:53.245 --> 00:03:58.558
+represente relações não lineares
+entre suas entradas e saídas.
+
+00:03:58.591 --> 00:04:00.199
+E isso é muito importante,
+
+00:04:00.232 --> 00:04:04.105
+porque a maioria dos dados
+do mundo real é não linear.
+
+00:04:05.877 --> 00:04:10.248
+Matematicamente, a combinação linear
+e a função de ativação
+
+00:04:10.281 --> 00:04:11.811
+podem ser escritas como:
+
+00:04:11.844 --> 00:04:17.475
+h é igual à saída de uma função
+de ativação do vetor de entrada
+
+00:04:17.508 --> 00:04:21.357
+multiplicada pela matriz de peso
+correspondente.
+
+00:04:22.450 --> 00:04:24.840
+Usar essas funções
+pode ser complicado,
+
+00:04:24.873 --> 00:04:27.728
+pois contribuem para o Problema
+da Dissipação do Gradiente
+
+00:04:27.761 --> 00:04:29.672
+que mencionamos antes.
+
+00:04:29.705 --> 00:04:31.700
+Mas falaremos disso depois.
+

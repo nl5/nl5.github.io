@@ -1,0 +1,307 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.498
+We finished step one,
+
+00:00:02.498 --> 00:00:06.960
+and will now start with step number two which is finding the output y,
+
+00:00:06.960 --> 00:00:10.710
+by using the values of h, we just calculated.
+
+00:00:10.710 --> 00:00:13.410
+Since we have more than one output,
+
+00:00:13.410 --> 00:00:15.720
+y will be a vector as well.
+
+00:00:15.720 --> 00:00:17.538
+We have our initial inputs h,
+
+00:00:17.538 --> 00:00:21.570
+and want to find the values of the output y.
+
+00:00:21.570 --> 00:00:27.875
+Mathematically, the idea is identical to what we just saw in step number one.
+
+00:00:27.875 --> 00:00:30.000
+We now have different inputs.
+
+00:00:30.000 --> 00:00:34.140
+We call them h, and a different weight matrix,
+
+00:00:34.140 --> 00:00:36.125
+we call it W2.
+
+00:00:36.125 --> 00:00:38.784
+The output will be vector y.
+
+00:00:38.784 --> 00:00:41.619
+Notice that the weight matrix has three rows,
+
+00:00:41.619 --> 00:00:44.459
+as we have three neurons in the hidden layer,
+
+00:00:44.460 --> 00:00:48.630
+and two columns, as we have only two outputs.
+
+00:00:48.630 --> 00:00:52.605
+And again, we have a vector by matrix multiplication.
+
+00:00:52.604 --> 00:00:56.979
+Vector h, multiplied by the weight matrix W2,
+
+00:00:56.979 --> 00:00:59.699
+gives us the output vector y.
+
+00:00:59.700 --> 00:01:02.155
+We can put it in a simple equation,
+
+00:01:02.155 --> 00:01:08.269
+where y equals h times W. Once we have the outputs,
+
+00:01:08.269 --> 00:01:11.789
+we don't necessarily need an activation function.
+
+00:01:11.790 --> 00:01:17.594
+In some applications, it can be beneficial to use for example, a softmax function,
+
+00:01:17.594 --> 00:01:19.769
+what we call sigma x,
+
+00:01:19.769 --> 00:01:24.239
+if we want the output values to be between zero and one.
+
+00:01:24.239 --> 00:01:30.009
+You can find more information on this topic in the text after this video.
+
+00:01:30.010 --> 00:01:33.015
+To have a good approximation of the output y,
+
+00:01:33.015 --> 00:01:36.045
+we need more than one level of hidden layers.
+
+00:01:36.045 --> 00:01:38.400
+Maybe even 10 or more.
+
+00:01:38.400 --> 00:01:42.450
+In this picture, I use the general number P. The number
+
+00:01:42.450 --> 00:01:46.269
+of neurons in each layer can change from one layer to the next,
+
+00:01:46.269 --> 00:01:48.104
+and as I mentioned before,
+
+00:01:48.105 --> 00:01:49.890
+can be even thousands.
+
+00:01:49.890 --> 00:01:52.890
+Essentially, you can look at these neurons as building
+
+00:01:52.890 --> 00:01:56.204
+blocks or lego pieces that can be stacked.
+
+00:01:56.204 --> 00:01:58.739
+So how is this done mathematically?
+
+00:01:58.739 --> 00:02:00.420
+Just as before.
+
+00:02:00.420 --> 00:02:02.924
+A simple vector by matrix multiplication,
+
+00:02:02.924 --> 00:02:05.415
+followed by an activation function,
+
+00:02:05.415 --> 00:02:08.324
+where the vector indicates the inputs,
+
+00:02:08.324 --> 00:02:13.884
+and the matrix indicates the weights connecting one layer to the next.
+
+00:02:13.884 --> 00:02:16.525
+To generalize this model,
+
+00:02:16.526 --> 00:02:19.550
+let's look into one random K F layer.
+
+00:02:19.550 --> 00:02:23.330
+The weight Wij, from the K F layer,
+
+00:02:23.330 --> 00:02:24.950
+to the K plus one,
+
+00:02:24.949 --> 00:02:27.709
+corresponds to the I F input,
+
+00:02:27.710 --> 00:02:31.140
+going into the J F output.
+
+00:02:31.139 --> 00:02:33.544
+You might want to get a pencil for this one,
+
+00:02:33.544 --> 00:02:37.119
+as these are important mathematical derivations.
+
+00:02:37.120 --> 00:02:38.490
+As you follow the math,
+
+00:02:38.490 --> 00:02:42.800
+pause the video, write the derivations in your notes.
+
+00:02:42.800 --> 00:02:46.189
+Try to do so throughout the entire lesson.
+
+00:02:46.189 --> 00:02:48.789
+Let's treat layer K,
+
+00:02:48.789 --> 00:02:54.875
+as the inputs x and layer K plus one as the outputs of the hidden layer
+
+00:02:54.875 --> 00:03:02.794
+h. We will have n_x inputs, and m_h outputs.
+
+00:03:02.794 --> 00:03:06.199
+By the way, if we are not dealing with inputs but
+
+00:03:06.199 --> 00:03:09.889
+rather than the outputs of the previous hidden layer,
+
+00:03:09.889 --> 00:03:14.044
+the only thing that will change is the letter that we choose to use,
+
+00:03:14.044 --> 00:03:16.609
+but the calculations will be the same.
+
+00:03:16.610 --> 00:03:19.015
+So to make the notation simple,
+
+00:03:19.014 --> 00:03:26.834
+let's just stay with x. h1 is the output of an activation function of a sum,
+
+00:03:26.835 --> 00:03:30.930
+where the sum is a multiplication of each input xi,
+
+00:03:30.930 --> 00:03:35.510
+by its corresponding weight component Wi1.
+
+00:03:35.509 --> 00:03:41.120
+The same way hm is the output of an activation function of a sum,
+
+00:03:41.120 --> 00:03:45.490
+and the sum is the multiplication of each input xi,
+
+00:03:45.490 --> 00:03:49.534
+by its corresponding weight component Wim.
+
+00:03:49.534 --> 00:03:53.194
+For example, if we have three inputs,
+
+00:03:53.194 --> 00:03:55.954
+and we want to calculate h1,
+
+00:03:55.955 --> 00:04:02.590
+it will be the output of an activation function of the following linear combination.
+
+00:04:02.590 --> 00:04:08.500
+These single element calculations will be helpful in understanding back propagation,
+
+00:04:08.500 --> 00:04:11.550
+which is why we want to understand them as well.
+
+00:04:11.550 --> 00:04:13.930
+But as before, we can also look at
+
+00:04:13.930 --> 00:04:18.811
+these calculations as a vector by matrix multiplication.
+
+00:04:18.810 --> 00:04:23.659
+By the way you probably noticed that I didn't emphasize the bias input here.
+
+00:04:23.660 --> 00:04:26.985
+The bias does not change any of these calculations.
+
+00:04:26.985 --> 00:04:31.389
+Simply consider it as a constant input usually one,
+
+00:04:31.389 --> 00:04:36.490
+that is also connected to each of the neurons of the hidden layer by a weight.
+
+00:04:36.490 --> 00:04:40.410
+The only difference between the bias and any other input,
+
+00:04:40.410 --> 00:04:45.235
+is the fact that it remains the same as each of the other inputs change.
+
+00:04:45.235 --> 00:04:47.830
+And just as all the other inputs,
+
+00:04:47.829 --> 00:04:52.359
+the weights connecting it to the next layer are updated as well.
+
+00:04:52.360 --> 00:04:54.250
+So let's stop for a minute.
+
+00:04:54.250 --> 00:04:56.355
+What is our goal again?
+
+00:04:56.355 --> 00:04:59.305
+Our goal is to find the best set of weights,
+
+00:04:59.305 --> 00:05:02.095
+that will give us at the end the desired output.
+
+00:05:02.095 --> 00:05:03.742
+Right? At the end,
+
+00:05:03.742 --> 00:05:07.405
+we want to find a system that will give us the correct output,
+
+00:05:07.404 --> 00:05:10.164
+for a specific input.
+
+00:05:10.165 --> 00:05:12.290
+In the training phase,
+
+00:05:12.290 --> 00:05:15.819
+we actually know the output of a given input.
+
+00:05:15.819 --> 00:05:20.899
+We calculate the output of the system in order to adjust the weights.
+
+00:05:20.899 --> 00:05:23.589
+We do that by finding the error,
+
+00:05:23.589 --> 00:05:25.869
+and trying to minimize it.
+
+00:05:25.870 --> 00:05:30.485
+Each iteration of the training phase will decrease the error just a bit,
+
+00:05:30.485 --> 00:05:35.050
+until we eventually decide that the error is small enough.
+
+00:05:35.050 --> 00:05:38.199
+Let's focus on an intuitive error calculation,
+
+00:05:38.199 --> 00:05:42.144
+which is simply finding the difference between the calculated,
+
+00:05:42.144 --> 00:05:44.974
+and the desired output.
+
+00:05:44.975 --> 00:05:46.945
+This is our basic error.
+
+00:05:46.944 --> 00:05:50.040
+For our back propagation calculations,
+
+00:05:50.040 --> 00:05:51.834
+we will use the square error,
+
+00:05:51.834 --> 00:05:55.000
+which is also called the loss function.
+

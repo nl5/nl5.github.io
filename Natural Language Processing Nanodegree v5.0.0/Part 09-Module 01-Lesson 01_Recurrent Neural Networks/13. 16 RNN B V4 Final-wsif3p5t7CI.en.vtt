@@ -1,0 +1,199 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.384
+In feedforward neural networks,
+
+00:00:02.384 --> 00:00:09.274
+the output at any time is a function of the current input and the weights alone.
+
+00:00:09.275 --> 00:00:12.690
+We assume that the inputs are independent of each other.
+
+00:00:12.689 --> 00:00:16.259
+Therefore, there is no significance to the sequence.
+
+00:00:16.260 --> 00:00:21.465
+So we actually train the system by randomly drawing inputs and target pairs.
+
+00:00:21.464 --> 00:00:25.320
+In RNNs, our output at time t,
+
+00:00:25.320 --> 00:00:29.204
+depends not only on the current input and weights,
+
+00:00:29.204 --> 00:00:32.054
+but also on previous inputs.
+
+00:00:32.054 --> 00:00:35.354
+Such as the input to time T minus 1,
+
+00:00:35.354 --> 00:00:38.129
+T minus 2 and so on.
+
+00:00:38.130 --> 00:00:40.285
+So, how can we visualize that?
+
+00:00:40.284 --> 00:00:43.444
+Let's look at our neural network again.
+
+00:00:43.445 --> 00:00:50.774
+We have an input x and output y and a hidden layer s. Remember s?
+
+00:00:50.774 --> 00:00:52.259
+It stands for State,
+
+00:00:52.259 --> 00:00:55.179
+which is a term we use when the system has memory.
+
+00:00:55.179 --> 00:00:58.590
+Wx represents the weight matrix,
+
+00:00:58.590 --> 00:01:01.745
+connecting the inputs to the state layer.
+
+00:01:01.744 --> 00:01:04.590
+Wy represents the weight matrix,
+
+00:01:04.590 --> 00:01:10.245
+connecting the state to the output and Ws represents the weight matrix,
+
+00:01:10.245 --> 00:01:16.035
+connecting the state from the previous timestep to the state in the next timestep.
+
+00:01:16.034 --> 00:01:19.724
+Notice that the single s is fed back to the system.
+
+00:01:19.724 --> 00:01:21.746
+In every single timestep,
+
+00:01:21.746 --> 00:01:23.900
+the system will look the same.
+
+00:01:23.900 --> 00:01:27.560
+This is what we call the folded model.
+
+00:01:27.560 --> 00:01:31.490
+Since the input is spread over time and we
+
+00:01:31.489 --> 00:01:35.104
+performed the same task for every element in the sequence,
+
+00:01:35.105 --> 00:01:41.090
+we can unfold the model in time and represent it the following way.
+
+00:01:41.090 --> 00:01:43.564
+Just as an example,
+
+00:01:43.564 --> 00:01:46.984
+you can see that the output at time T plus 2,
+
+00:01:46.984 --> 00:01:51.709
+depends on the input at time T plus 2 on the way
+
+00:01:51.709 --> 00:01:57.794
+matrices and also on all previous inputs.
+
+00:01:57.795 --> 00:02:00.545
+Let's use the following definitions,
+
+00:02:00.545 --> 00:02:05.150
+x of t is the input vector at time t,
+
+00:02:05.150 --> 00:02:11.689
+y of t is the output vector at time t and s of t is
+
+00:02:11.689 --> 00:02:17.954
+the hidden state vector at time t. In feedforward neural networks,
+
+00:02:17.954 --> 00:02:22.590
+we use an activation function to obtain the hidden layer h. And all we
+
+00:02:22.590 --> 00:02:28.495
+need are the inputs and the weight matrix connecting the inputs to the hidden layer.
+
+00:02:28.495 --> 00:02:33.045
+In RNNs, we use an activation function to obtain s,
+
+00:02:33.044 --> 00:02:35.219
+but with a slight twist.
+
+00:02:35.219 --> 00:02:40.694
+The input to the activation function is now the sum of one,
+
+00:02:40.694 --> 00:02:45.329
+the product of the inputs and their corresponding weight matrix,
+
+00:02:45.330 --> 00:02:49.410
+Wx and two, the product of
+
+00:02:49.409 --> 00:02:55.004
+the previous activation values and their corresponding weight matrix Ws.
+
+00:02:55.004 --> 00:03:01.500
+The output vector is calculated exactly the same as in feedforward neural networks.
+
+00:03:01.500 --> 00:03:04.155
+It can be a linear combination of the inputs to
+
+00:03:04.155 --> 00:03:07.140
+each output node with a corresponding weight matrix
+
+00:03:07.139 --> 00:03:14.394
+Wy or for example a soft max function of the same linear combination.
+
+00:03:14.395 --> 00:03:19.825
+Notice, that RNNs share the same parameters during each timestep.
+
+00:03:19.824 --> 00:03:23.159
+So although intuitively, it appears that RNNs are more
+
+00:03:23.159 --> 00:03:27.689
+complicated than feedforward neural networks since they have memory.
+
+00:03:27.689 --> 00:03:32.659
+In practice, the number of parameters that need to be learned remains modest.
+
+00:03:32.659 --> 00:03:36.240
+The unfolding scheme we mentioned is generic and can be
+
+00:03:36.240 --> 00:03:41.129
+adjusted according to the neural network architecture we aim to build.
+
+00:03:41.129 --> 00:03:45.000
+We can decide how many inputs and outputs we need.
+
+00:03:45.000 --> 00:03:48.018
+For example in sentiment analysis,
+
+00:03:48.018 --> 00:03:55.199
+we can have many inputs and a single output that spans the spectrum of happy to sad.
+
+00:03:55.199 --> 00:03:58.155
+Another example can be time series predictions,
+
+00:03:58.155 --> 00:04:03.775
+where we may have many inputs and many outputs which are not necessarily aligned.
+
+00:04:03.775 --> 00:04:06.563
+RNNs can be stacked like Legos,
+
+00:04:06.563 --> 00:04:09.120
+just as feedforward neural networks can.
+
+00:04:09.120 --> 00:04:14.099
+For example, we can have the output of a single RNN level, say,
+
+00:04:14.099 --> 00:04:20.805
+vector y become the input to a second layer whose output is vector o.
+
+00:04:20.805 --> 00:04:24.439
+Each layer operates independently of the other layers,
+
+00:04:24.439 --> 00:04:27.360
+as architecturally it doesn't matter where the inputs
+
+00:04:27.360 --> 00:04:31.259
+come from or where the outputs are headed to.
+
