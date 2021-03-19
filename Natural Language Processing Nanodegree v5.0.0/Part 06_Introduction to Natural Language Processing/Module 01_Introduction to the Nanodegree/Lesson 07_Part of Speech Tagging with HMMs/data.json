@@ -1,0 +1,602 @@
+{
+  "data": {
+    "lesson": {
+      "id": 568227,
+      "key": "5483fffa-0272-4902-8aed-fc7d1818c8e5",
+      "title": "Part of Speech Tagging with HMMs",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Luis will give you an overview of several part-of-speech tagging, including a deeper dive on hidden Markov models.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/5483fffa-0272-4902-8aed-fc7d1818c8e5/568227/1544210391130/Part+of+Speech+Tagging+with+HMMs+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/5483fffa-0272-4902-8aed-fc7d1818c8e5/568227/1544210386350/Part+of+Speech+Tagging+with+HMMs+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 591201,
+          "key": "aa550181-f1d2-46fe-af4a-e740dbf50093",
+          "title": "Intro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "aa550181-f1d2-46fe-af4a-e740dbf50093",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 594186,
+              "key": "92738ab1-6ccf-44d8-ba5c-b2c7eafb3256",
+              "title": "3 Intro POS V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "EbPSP604JJA",
+                "china_cdn_id": "EbPSP604JJA.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591176,
+          "key": "eef59e6f-a843-4f56-a0a8-e9141ed9503f",
+          "title": "Part of Speech Tagging",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "eef59e6f-a843-4f56-a0a8-e9141ed9503f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591189,
+              "key": "6d7dbf1a-e07e-4921-b947-dbc11f026be7",
+              "title": "NLPND POS 01 Intro V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "P4aMooNAGVs",
+                "china_cdn_id": "P4aMooNAGVs.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591177,
+          "key": "cb86bcaa-cad8-42bf-ae77-5e9d0c756787",
+          "title": "Lookup Table",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cb86bcaa-cad8-42bf-ae77-5e9d0c756787",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591190,
+              "key": "3547e3bb-34d1-4b58-b508-c416c1924240",
+              "title": "NLPND POS 02 Lookup Table V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "BkbeShOwz6w",
+                "china_cdn_id": "BkbeShOwz6w.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591178,
+          "key": "f31db9c1-46a5-4868-abde-48557aa93399",
+          "title": "Bigrams",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f31db9c1-46a5-4868-abde-48557aa93399",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591191,
+              "key": "0184cada-3915-40e9-b2af-bd1f33fc055f",
+              "title": "NLPND POS 03 Bigrams V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pnZYAsyLb0Y",
+                "china_cdn_id": "pnZYAsyLb0Y.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591179,
+          "key": "74fc5398-f7a1-4e30-9d62-2910accc6eef",
+          "title": "When bigrams won't work",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "74fc5398-f7a1-4e30-9d62-2910accc6eef",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591192,
+              "key": "33bf68b4-6bf8-4dfa-86ff-f2981cf76d5e",
+              "title": "NLPND POS 04 When Bigrams Wont Work V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "WgbJR7CyfQY",
+                "china_cdn_id": "WgbJR7CyfQY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591180,
+          "key": "d08367b6-bb12-42b1-bb8a-8fe719efd654",
+          "title": "Hidden Markov Models",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d08367b6-bb12-42b1-bb8a-8fe719efd654",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591193,
+              "key": "16537f1c-9169-4454-8cc7-79c43cb01b48",
+              "title": "NLPND POS 05 Hidden Markov Models V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "aQsYnmio9_E",
+                "china_cdn_id": "aQsYnmio9_E.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591181,
+          "key": "74b782f8-374c-4c6f-b696-152f358dc40a",
+          "title": "Quiz: How many paths?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "74b782f8-374c-4c6f-b696-152f358dc40a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591194,
+              "key": "fc23e4b2-d13b-4766-937e-29bf03dd3692",
+              "title": "NLPND POS 06 Quiz How Many Paths V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "k8FFLUKm_Bo",
+                "china_cdn_id": "k8FFLUKm_Bo.mp4"
+              }
+            },
+            {
+              "id": 591206,
+              "key": "7a0cfd06-98b1-4cd5-b749-1dd782970bff",
+              "title": "How many paths quiz",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "7a0cfd06-98b1-4cd5-b749-1dd782970bff",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How many ways are there to tag the sentence \"Jane will spot Will\", if each word can be tagged with either \"N\", \"M\", or \"V\"?",
+                "matchers": [
+                  {
+                    "expression": "81"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 591182,
+          "key": "c64c1aa9-3ff5-457b-9028-6656ffcfd660",
+          "title": "Solution: How many paths",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c64c1aa9-3ff5-457b-9028-6656ffcfd660",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591195,
+              "key": "b6c22997-1bf9-4d7c-9ad9-050b8f4a6b09",
+              "title": "NLPND POS 07 Solution How Many Paths V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "5ZITaEcNMpM",
+                "china_cdn_id": "5ZITaEcNMpM.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591183,
+          "key": "c684cc21-e3e0-42c4-92ee-2bec446a6127",
+          "title": "Quiz: How many paths now?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c684cc21-e3e0-42c4-92ee-2bec446a6127",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591196,
+              "key": "d7647109-4b0d-4f5a-a39b-662138e1bfa4",
+              "title": "NLPND POS 08 Quiz How Many Paths Now V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "TSm1a_EL9Kk",
+                "china_cdn_id": "TSm1a_EL9Kk.mp4"
+              }
+            },
+            {
+              "id": 591208,
+              "key": "622af6e2-6701-4ebe-8030-81dc6094683a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5ac584a3_how-many-paths-now/how-many-paths-now.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/622af6e2-6701-4ebe-8030-81dc6094683a",
+              "caption": "",
+              "alt": "",
+              "width": 1598,
+              "height": 492,
+              "instructor_notes": null
+            },
+            {
+              "id": 591209,
+              "key": "387d4c7d-70bb-41bf-982a-bf680c86ff22",
+              "title": "How many paths now",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "387d4c7d-70bb-41bf-982a-bf680c86ff22",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How many different paths from **start** to **end** are in this trellis?",
+                "matchers": [
+                  {
+                    "expression": "4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 591184,
+          "key": "a17b2798-b7b2-4b77-93b5-f423b6a2cb36",
+          "title": "Quiz: Which path is more likely?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a17b2798-b7b2-4b77-93b5-f423b6a2cb36",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591197,
+              "key": "49946020-717b-47aa-8387-20c1b8e9fb60",
+              "title": "NLPND POS 09 Quiz Which Path Is More Likely V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "1r1L_nJSzDs",
+                "china_cdn_id": "1r1L_nJSzDs.mp4"
+              }
+            },
+            {
+              "id": 614982,
+              "key": "c8f16a48-9e44-4cfb-bd6a-5a5b5cf12c34",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5adeb621_hmmquiz/hmmquiz.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c8f16a48-9e44-4cfb-bd6a-5a5b5cf12c34",
+              "caption": "",
+              "alt": "",
+              "width": 2560,
+              "height": 1170,
+              "instructor_notes": null
+            },
+            {
+              "id": 591211,
+              "key": "1cdd4650-73dd-45ce-8114-036430d7a088",
+              "title": "best path quiz",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "1cdd4650-73dd-45ce-8114-036430d7a088",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Among the paths from <start> to <finish> in this trellis diagram, which one generates the sentence \"Jane will spot Will.\" with the highest probability?",
+                "answers": [
+                  {
+                    "id": "a1522894140630",
+                    "text": "N-N-N-N",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1522894240217",
+                    "text": "N-M-N-N",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1522894241881",
+                    "text": "N-N-V-N",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1522894242687",
+                    "text": "N-M-V-N",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 591185,
+          "key": "13ba8275-3425-47b1-83bc-00fb161b3d93",
+          "title": "Solution: Which path is more likely?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "13ba8275-3425-47b1-83bc-00fb161b3d93",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591198,
+              "key": "af081ab9-7f4f-4ed6-ab0e-04c190ac0a6f",
+              "title": "NLPND POS 10 Solution Which Path Is More Likely V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "1qSN7BhUjDY",
+                "china_cdn_id": "1qSN7BhUjDY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591186,
+          "key": "0a09f0b4-7f4c-44f5-a1aa-33c9a645733c",
+          "title": "Viterbi Algorithm Idea",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0a09f0b4-7f4c-44f5-a1aa-33c9a645733c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 594465,
+              "key": "808fd70f-b3f6-4e01-85ef-8d0baa0a909c",
+              "title": "NLPND POS 11 Viterbi Algorithm Idea V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "g0z9fm0yGL4",
+                "china_cdn_id": "g0z9fm0yGL4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 594461,
+          "key": "fdf13627-62ab-4501-a89e-de30b67d619e",
+          "title": "Viterbi Algorithm",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "fdf13627-62ab-4501-a89e-de30b67d619e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 594462,
+              "key": "97cbd7f7-5581-4588-8e81-061ebaceb765",
+              "title": "NLPND POS 12 Viterbi Algorithm V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "BQn_RZqXpfg",
+                "china_cdn_id": "BQn_RZqXpfg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 591214,
+          "key": "4db89c47-2dab-4496-850f-28b2cc709f4d",
+          "title": "Further Reading",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4db89c47-2dab-4496-850f-28b2cc709f4d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 591217,
+              "key": "6e06f781-7c52-4e8b-aadb-79e60c44aa11",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Further Reading",
+              "instructor_notes": ""
+            },
+            {
+              "id": 591216,
+              "key": "6c84642a-9476-46f7-83c7-cc27028b4e13",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5ac58e52_speech-and-language/speech-and-language.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6c84642a-9476-46f7-83c7-cc27028b4e13",
+              "caption": "",
+              "alt": "",
+              "width": 378,
+              "height": 499,
+              "instructor_notes": null
+            },
+            {
+              "id": 591215,
+              "key": "d835323f-52ec-43aa-b139-f35c994ced60",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "If you'd like to explore more on this topic, we recommend the following book on Speech and Language Processing by Daniel Jurafsky and James H. Martin.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 591188,
+          "key": "a3404715-203a-490d-ad4b-f179212bba11",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a3404715-203a-490d-ad4b-f179212bba11",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 594187,
+              "key": "68f5b266-16e5-4aa2-9723-94c7b725e875",
+              "title": "4 Outro POS V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Sv8mSXQT03Y",
+                "china_cdn_id": "Sv8mSXQT03Y.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

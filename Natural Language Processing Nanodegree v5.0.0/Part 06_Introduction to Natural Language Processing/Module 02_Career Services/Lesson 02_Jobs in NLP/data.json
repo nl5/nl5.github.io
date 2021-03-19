@@ -1,0 +1,189 @@
+{
+  "data": {
+    "lesson": {
+      "id": 729603,
+      "key": "456cb5f2-610c-4666-a155-37d2fab3dbfb",
+      "title": "Jobs in NLP",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Learn about common jobs in natural language processing, and get tips on how to stay active in the community.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/456cb5f2-610c-4666-a155-37d2fab3dbfb/729603/1556335937342/Jobs+in+NLP+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/456cb5f2-610c-4666-a155-37d2fab3dbfb/729603/1556335934711/Jobs+in+NLP+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 729604,
+          "key": "cd5e0a45-0159-4fe3-a0a2-f155d7644369",
+          "title": "Jobs in NLP",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cd5e0a45-0159-4fe3-a0a2-f155d7644369",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 729605,
+              "key": "226cd2e7-b14f-4434-a0a7-bd2862307727",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# 6 Questions About Natural Language Processing Jobs\n## 1. How do I break into Natural Language Processing?\nNLP is becoming an increasingly multidisciplinary field, and it can be daunting to define its scope on your own. Take the time to conduct some [industry research](https://career-resource-center.udacity.com/tech-jobs-find-your-career-path/career-industry-research), starting with identifying your own interests and subsequently keeping up with the most updated news around the applications of NLP in different roles and relevant industries. \nYour entrance into the field can come from a variety of ways. You can be an existing software engineer or data scientist who learns NLP concepts and skills. Or, you can be a linguist who learns programming. Remember that there is a very human element with NLP, especially with robots. If an intelligent robot has a human voice that's a little too creepy to consumers, who is best equipped to offer a solution to this? It would likely be a team made up of people with linguistics, psychology, and software development skills.\n\nOnce you’ve identified potential entry points based on your skills, interests and background, you’ll be able to build a roadmap for how to break into the industry, whether that involves attaining more industry-specific skills and experience, building your online presence in the industry, or improving your existing portfolio to target your desired role — or all of the above. \n\n## 2. What can I do beyond my Nanodegree Program to impress employers?\n\nAside from what you’ve learned in the Nanodegree program, characteristics of successful professionals working on NLP include (but are not limited to) the following: \n\n* Time management \n* Good communication skills to convey highly technical information to fellow team members\n* Demonstrated curiosity and passion for solving NLP problems — this translates into professional and competitive foresight that can help a company stay on the cutting edge.\n\nYou can demonstrate these qualities with the following behaviors: \n* Contribute to open source NLP projects (you can showcase your work via GitHub)\n* Write articles on relevant NLP topics, participate in online discussions, sharing NLP news via LinkedIn to demonstrate your interest and thought leadership\n* Continue learning new skills and improving proficiency with NLP open source libraries, such as [NLTK](http://www.nltk.org/), [spaCy](https://spacy.io/), [Gensim](https://radimrehurek.com/gensim/) \n\nAlthough the above is by no means an exhaustive list, taking the time to practice these behaviors will only strengthen your chances of moving forward in an application process. \n\n## 3. Are there any education requirements for pursuing a job in Natural Language Processing? \n\nIf you are looking for a very research heavy role, the job might ask for a PhD. A way to navigate against this requirement if you don't have the educational background is to enter the industry in another way. For example, can you join an NLP-focused company as a software engineer or data analyst, and grow in the company?\n\nWhile there is great value in performing academic work to push the field forward, in the job market, what matters most is demonstrating your ability to do the job well. \n\nTo do this, it’s important that you optimize your online professional profiles, such as on LinkedIn and GitHub. These are the most common profiles that recruiters will rely on to assess you as an applicant, so be sure to dedicate some time improving them if you haven’t already. A great place to start is with the career projects in your classroom, which provide you with an opportunity to receive personalized feedback on how to make improvements. \n\n## 4. What are some jobs that involve Natural Language Processing?\nAfter completing this Nanodegree program, you could potentially work in a variety of roles that involve solving NLP problems, such as: \n\n* Machine Learning Engineer\n* NLP Engineer\n* NLP Data Scientist\n* NLP Researcher\n* Computational Linguist\n* Voice User Interface Designer\n* Conversation Designer\n\nAs you can see, there are many roles available related to NLP. In order to find the role that is a good fit for you, be sure to pay attention to the job description to determine whether the role will involve working on NLP problems. Some of these roles may also require you to cultivate additional skills in order to meet their qualifications. (Tip: If you're more than 75% qualified for the job on paper, you're probably a good candidate and should give applying a shot!)\n\nIn the beginning, you might find that instead of searching for specific job titles, finding top AI startups and companies and looking at their overall jobs page is more helpful for surfacing potential opportunities. \n\n##  5. How can I prepare for interviews?\nAs with any other industry or role, practice is essential. There is a wide offering of interview resources available online, including practice questions and solutions. To get you started, we recommend checking out the following resources:\n\n* [NLP on Quora](https://www.quora.com/topic/Natural-Language-Processing) — Did you know that a lot of NLP experts and researchers frequently answer questions on Quora? For this reason, Quora has amassed a large database of information (including interview questions) on NLP. \n* [NLP on Reddit](https://www.reddit.com/r/LanguageTechnology) — Interviewing is a common topic in Reddit’s NLP (or /r/LanguageTechnology) forums. \n\nAdditionally, your interviewer will likely ask for your opinion on research topics related to the problems you will be expected to solve on the job. While you are not expected to know the answers to everything, this is also helpful for gauging your depth of knowledge, passion for the field, and whether you’ve stayed informed on the latest advances and developments in the field. You can stay informed by reading up on NLP in places such as [Medium](https://medium.com/tag/nlp) and active blogs. \n \n## 6. Okay, I know all of this now. What should I do next?\nRight now, you are learning the foundational skills for a career involving Natural Language Processing. Focus on your learning, and imagine yourself in different roles. We recommend performing a [job search](https://career-resource-center.udacity.com/job-boards) to see what's out there.\n\nWe'll help you get started. We searched for \"Natural Language Processing\" jobs worldwide on LinkedIn. Click the button below to see the search results. Change your search terms and apply filters. Once you have an idea of which jobs or companies you may be interested in, read about the companies or find personal blogs by people working in those roles. You can even reach out to people for [informational interviews](https://career-resource-center.udacity.com/networking/informational-interviews).\n\n<center><a href=\"https://www.linkedin.com/jobs/search/?keywords=natural%20language%20processing&location=Worldwide&locationId=OTHERS.worldwide\" target=\"_blank\"><button style=\"box-sizing: border-box; border-radius: 4px; background: #02B3E4; border: none; height: 44px; padding: 0 25px; color: white; cursor: pointer; font-family: Open Sans,sans-serif; display: inline-block; border: none; font-size: 12px; letter-spacing: 1px; font-weight: 600; text-transform: uppercase;\">Go to LinkedIn Search</button></a></center><br>\n\nAfter you spend some time looking at various jobs available to you, come back to the Classroom to continue.\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 694204,
+          "key": "66e62122-a6ae-4351-9887-0178fe2b3e6c",
+          "title": "Meet the Careers Team",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "66e62122-a6ae-4351-9887-0178fe2b3e6c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 797405,
+              "key": "973f15bd-3078-4587-b1fc-4f55e31fd03d",
+              "title": "Meet the Careers Team",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "cuKecPpZ7PM",
+                "china_cdn_id": "cuKecPpZ7PM.mp4"
+              }
+            },
+            {
+              "id": 694206,
+              "key": "a4107ec7-a079-443c-a007-742f0696915f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Whatever your career goals are - whether it's finding a new job or learning more about an industry - Udacity is here to help you. You'll find in your Nanodegree program:\n\n* The **Udacity Career Portal**, a customized career track where you can see your step-by-step progress and get one-on-one feedback from experts along the way.\n* A **Professional Profile** to showcase your new skills, background, and career goals.\n* Career-focused projects to get **personalized feedback on your LinkedIn and GitHub profiles**. Increase your online presence and attract the attention of recruiters and collaborators, or just meet people with similar interests and grow your network.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 728571,
+              "key": "c9dc5aa7-e801-496e-bdc1-a7235b00b27a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Career Service: No Resubmission Required\n\nIn this Nanodegree program, you can get personalized feedback on your LinkedIn and GitHub profiles. **Unlike other Nanodegree projects, you submit to a Career Service once to get feedback and do not need to meet specifications to continue on in your program.** \n\nThe value of Career Service reviews is not in meeting specifications on subjective rubric items, but in getting honest, personalized guidance from a Career Mentor. Learning from this guidance is what will guide you on the path to truly improving your job search materials. \n\n We highly encourage you to take advantage of this guidance. Most Alumni who report jobs and other opportunities (such as collaboration) attribute their success to networking.\n\n\n\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 440370,
+          "key": "6c7f9ba9-b49e-4915-ae23-050bacff6326",
+          "title": "Access Your Career Portal",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6c7f9ba9-b49e-4915-ae23-050bacff6326",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 440384,
+              "key": "d9034285-f932-4a33-bd00-a3193c80b7c8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The Career Portal: Your Path to Getting Hired\nIn your **Career Portal**, you'll find a personalized job search guide that includes 1:1 reviews of your resume, LinkedIn profile, and more.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 440383,
+              "key": "a4856ff4-9db2-4d35-a1a3-81c70543916d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/October/59f3a027_get-hired-with-the-udacity-career-portal/get-hired-with-the-udacity-career-portal.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a4856ff4-9db2-4d35-a1a3-81c70543916d",
+              "caption": "",
+              "alt": "Career Portal",
+              "width": 1040,
+              "height": 640,
+              "instructor_notes": null
+            },
+            {
+              "id": 440381,
+              "key": "82ae1cf8-98d5-4906-9c20-845948d480a0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## How Do I Get To My Career Portal?\nTo access the Career Portal, look for the briefcase icon in your left-hand sidebar when you're logged into your [Udacity classroom](https://classroom.udacity.com/me).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 440373,
+              "key": "d43325be-ae2a-4637-9890-ffa00eb71360",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/October/59f39c10_screen-shot-2017-10-27-at-1.49.58-pm/screen-shot-2017-10-27-at-1.49.58-pm.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d43325be-ae2a-4637-9890-ffa00eb71360",
+              "caption": "",
+              "alt": "Udacity classroom left-hand sidebar",
+              "width": 203,
+              "height": 281,
+              "instructor_notes": null
+            },
+            {
+              "id": 440382,
+              "key": "d60fb33c-f423-4647-95ea-5d3fe1d9d50d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Unable to find your Career Portal?\nNot seeing the Career Portal icon? Write into [career-support@udacity.com](mailto:career-support@udacity.com) for help getting access.",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

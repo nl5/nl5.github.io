@@ -1,0 +1,66 @@
+{
+  "data": {
+    "lesson": {
+      "id": 572361,
+      "key": "7e147b95-3853-434b-a1fa-034022540cc0",
+      "title": "What's Next?",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Here's how to keep building your NLP expertise!",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": null,
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 572364,
+          "key": "d9beb0fc-37ed-44f2-b628-2363fc431401",
+          "title": "Ready to Level Up with NLP?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d9beb0fc-37ed-44f2-b628-2363fc431401",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 572365,
+              "key": "3c043ed7-d7c3-44bf-a4c6-369d60bbe114",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "It's been our pleasure taking you through just a small taste of the NLP experience.\n\nIf you're ready to fully unlock the power of NLP, [come join us in the Nanodegree classroom](https://www.udacity.com/course/natural-language-processing-nanodegree--nd892). You'll get complete access to:\n\n* Cutting edge material on Natural Language Processing and Speech Recognition.\n* Hands-on projects where you'll build models and test them on real data.\n* **Your own AI mentor** to answer your questions and provide reviews on your project\n\n[Click here to get started!](https://www.udacity.com/course/natural-language-processing-nanodegree--nd892)",
+              "instructor_notes": ""
+            },
+            {
+              "id": 573309,
+              "key": "6698d5d7-a5b7-46ae-84e6-0b2bfe720f4c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/January/5a62819b_aind-slides.008.1200x900/aind-slides.008.1200x900.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6698d5d7-a5b7-46ae-84e6-0b2bfe720f4c",
+              "caption": "",
+              "alt": "",
+              "width": 1200,
+              "height": 900,
+              "instructor_notes": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "data": {
+    "lesson": {
+      "id": 665054,
+      "key": "58b8870f-4383-420d-856e-a3e083c9525d",
+      "title": "(Optional) IBM Watson Bookworm Lab",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Learn how to build a simple question-answering agent using IBM Watson.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": null,
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 310531,
+          "key": "c17087d2-d4e0-4676-8138-148b7cf02624",
+          "title": "Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c17087d2-d4e0-4676-8138-148b7cf02624",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 328359,
+              "key": "57e2b428-9f6d-409c-bb8f-bb6fa6cb767a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/593868e7_watson-logo/watson-logo.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/57e2b428-9f6d-409c-bb8f-bb6fa6cb767a",
+              "caption": "",
+              "alt": "",
+              "width": 220,
+              "height": 218,
+              "instructor_notes": null
+            },
+            {
+              "id": 328358,
+              "key": "b6afdc20-9860-4f0c-ad29-7207bbafc1ef",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this project, you will use IBM Watson's NLP Services to create a simple question-answering system. \n\nYou will first use IBM Watson [Discovery](https://www.ibm.com/watson/services/discovery/) service to _pre-process a document collection and extract relevant information_. Then you will use the [Assistant](https://www.ibm.com/watson/ai-assistant/) service to _build a natural language interface_ that can respond to questions.\n\n## THIS PROJECT IS NOT SUBMITTED FOR REVIEW.\nVisit the Study Groups or Knowledge if you would like to discuss the project.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 310532,
+          "key": "712f4340-17b5-4b70-a1c0-25b65ab7be5c",
+          "title": "Getting Started",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "712f4340-17b5-4b70-a1c0-25b65ab7be5c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 328361,
+              "key": "6735779f-35da-4cfa-9b98-08ba9a072d25",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Clone this repository to your local computer:\n> https://github.com/udacity/AIND-NLP-Bookworm\n\nIf you have the AIND Anaconda environment prepared, now is a good time to activate it.\n\nOpen the notebook `bookworm.ipynb` from a terminal using the following command:\n\n> ```jupyter notebook bookworm.ipynb```\n\nThen follow the instructions in the notebook.\n\n**Note**: You may have to install some packages (mentioned in the notebook). To do so, simply open another terminal and use pip.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 310533,
+          "key": "cab3ad22-ec28-4f91-a98d-58a9b896c394",
+          "title": "Tasks",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cab3ad22-ec28-4f91-a98d-58a9b896c394",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 328368,
+              "key": "01bca096-b4ea-4f28-89de-57846ec3cc35",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Complete each task in the notebook by implementing or modifying code wherever there is a `TODO` comment in a code cell, and answering any inline questions by modifying markdown cells. E.g.:\n\n> **Q**: What is the overall sentiment detected in this text? Mention the type (positive/negative) and score.\n>\n> **A**: Negative, -0.798\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 728772,
+              "key": "f98cff17-e90d-4e63-abc2-e71f427f5f60",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Additional instructions are included in the [Bookworm project repository on Github](https://github.com/udacity/AIND-NLP-Bookworm).\n\n### 1. Create and configure Discovery service\n\n- **Prepare an environment**: Notebook connects to a Discovery service instance and creates/fetches an environment.\n- **Test configuration**: The service processes a small sample text and returns enriched output.\n- **Analyze test output**: All inline questions are answered correctly based on the output, and a word-cloud of keywords is shown.\n\n### 2. Ingest documents\n\n- **Prepare a document collection**: A collection is created and documents are added to it, one document per paragraph of text.\n- **Test query**: A simple query is made against the collection, and relevant results are returned. Inline questions are answered correctly.\n\n### 3. Parse natural language questions\n\n- **Add intents**: At least 3 intents are added to the Conversation service, each with at least 5 example utterances. Inline questions are answered adequately.\n\n- **Add entities**: At least 3 entities are added to the Conversation service, each with at least 1 example entity. Inline questions are answered adequately.\n\n- **Design dialog flow**: An appropriate dialog flow has been designed using the Conversation service workspace tool, with at least 3 nodes. Inline questions are answered adequately.\n\n- **Test dialog**: A simple 1-question dialog is demonstrated in the notebook, showing what node was triggered.\n\n### 4. Query document collection to fetch answers\n\n- **Process sample question**: A sample question is run through the Conversation service. The intent and entities identified are extracted, and optionally the dialog node that was triggered.\n\n- **Query the collection**: A query is designed based on the information extracted in the previous step, and run against the Discovery service collection.\n\n- **Process returned results**: Results obtained from the Discovery service are processed to provide a specific response to the natural language question that was asked.\n\n### 5. Reflections\n\n- **Reflections**: Inline question adequately answered, including strengths and weaknesses of an API-based solution like this.\n\n### (Optional) Extensions\n\n- Try with a different dataset (submit data files along with the notebook, or include instructions on how to fetch them).\n- Deploy as a Bluemix application.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 727817,
+          "key": "abebad70-c20e-4352-96a1-c4b013849027",
+          "title": "Workspace: Bookworm",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "abebad70-c20e-4352-96a1-c4b013849027",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 727875,
+              "key": "de37d807-e3da-4621-bd94-6e53f253182c",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "viewd441kucbj1e",
+              "pool_id": "jupyter",
+              "view_id": "jupyter-14f9wbly7fkr",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowGrade": false,
+                    "allowSubmit": false,
+                    "defaultPath": "/"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}
