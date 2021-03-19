@@ -1,0 +1,406 @@
+{
+  "data": {
+    "lesson": {
+      "id": 593928,
+      "key": "803aa80a-5caa-4fc9-934f-3357d1593616",
+      "title": "Sentiment Analysis",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Learn about using several machine learning classifiers, including Recurrent Neural Networks, to predict the sentiment in text. Apply this to a dataset of movie reviews.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/803aa80a-5caa-4fc9-934f-3357d1593616/593928/1544211161336/Sentiment+Analysis+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/803aa80a-5caa-4fc9-934f-3357d1593616/593928/1544211158976/Sentiment+Analysis+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 614092,
+          "key": "462b1b98-282a-4233-8e2a-f0b5731512e1",
+          "title": "Intro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "462b1b98-282a-4233-8e2a-f0b5731512e1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614109,
+              "key": "0dece4d0-ceaa-4973-a617-44106cd1edec",
+              "title": "Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "MXeF39TDdZY",
+                "china_cdn_id": "MXeF39TDdZY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 593929,
+          "key": "6622f6e8-172d-40eb-8bc9-1e24b37f69b2",
+          "title": "Sentiment Analysis with a Regular Classifier",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6622f6e8-172d-40eb-8bc9-1e24b37f69b2",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614107,
+              "key": "096e414b-0489-4238-bca4-1dc458a7f985",
+              "title": "Sentiment Analysis 1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "5aIgZ3llgSo",
+                "china_cdn_id": "5aIgZ3llgSo.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 593930,
+          "key": "648d1e34-9ddc-45d7-8e25-c51aeef92640",
+          "title": "Notebook: Sentiment Analysis with a regular classifier",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "648d1e34-9ddc-45d7-8e25-c51aeef92640",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 593933,
+              "key": "c8082734-20d7-4ffc-8c3c-278feacf1f18",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "view9f1e7b8e",
+              "pool_id": "jupyter",
+              "view_id": "9f1e7b8e-9d7a-429c-9cd9-5dc571ac04b4",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/sentiment_analysis.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 593937,
+          "key": "6f3626f0-0917-4efc-ab52-74d26269b929",
+          "title": "[SOLUTION]: Sentiment Analysis with a regular clas",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6f3626f0-0917-4efc-ab52-74d26269b929",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 593938,
+              "key": "e7a42ea3-2be4-4de7-9489-37103d09fc51",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "view9f1e7b8e",
+              "pool_id": "jupyter",
+              "view_id": "2e5c4cb5-493a-4f12-872e-c80a8f659972",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/sentiment_analysis_solution.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 593931,
+          "key": "5d87edd4-2f79-4fd8-9e34-f21118ec7b29",
+          "title": "Sentiment Analysis with RNN",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "5d87edd4-2f79-4fd8-9e34-f21118ec7b29",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614903,
+              "key": "ad4199c4-44c9-4079-a2ce-4214418502bd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Sentiment Analysis with RNNs\n\nHere's where things get a bit more complicated. Consider the following two reviews:\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 614904,
+              "key": "908da634-8813-4469-b877-c2490f236d74",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5ade8c6c_sentences/sentences.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/908da634-8813-4469-b877-c2490f236d74",
+              "caption": "",
+              "alt": "",
+              "width": 2212,
+              "height": 604,
+              "instructor_notes": null
+            },
+            {
+              "id": 614905,
+              "key": "53cd7de7-188a-413c-b6b7-792bd41e86fa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "One is positive, and one is negative, even though they have very similar words. In a one-hot encoding, or in a bag of words model, their vectors would be very similar, so one would imagine that the output is very similar too.\n\nOne way to fix this is to consider the _order_ of the words. This is where RNNs and LSTMs come to the rescue. With an RNN (LSTM) architecture, we'd be feeding the one-hot-encoded word vectors one by one. At each point, the model takes as input, the previous output, joined with the new word, in order to produce an output. The final output is an encoding of the sentence.\n\nOnce we have the encoding of this sentence, we run that through one or more dense layers, which will then get trained to predict the sentiment of the review.\n\nThis process is illustrated in the video below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 614902,
+              "key": "df32c932-9886-4b9b-a160-69aecb165852",
+              "title": "Sentiment Analysis RNN GIF",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "GZWyEHOdZ0w",
+                "china_cdn_id": "GZWyEHOdZ0w.mp4"
+              }
+            },
+            {
+              "id": 615138,
+              "key": "74410887-d673-4502-aa86-cc324c0e271b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Review Material\n\nFor the next lab, if you need a refresher on either RNNs or Keras, please feel free to check the **Extracurricular Material** for optional lessons on those topics.\n\n- [Recurrent Neural Networks](https://classroom.udacity.com/nanodegrees/nd892/parts/40fbbde5-9ddb-4a1a-8082-c229f990e2e5)\n- [Keras](https://classroom.udacity.com/nanodegrees/nd892/parts/31db15bf-c704-4f04-ba36-bcd825ae42ef)\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 593932,
+          "key": "712c0605-2d22-48af-b60a-5dbd39895c19",
+          "title": "Notebook: Sentiment Analysis with an RNN",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "712c0605-2d22-48af-b60a-5dbd39895c19",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 593934,
+              "key": "be185d94-275c-4ddb-886d-2084ae0b2b5a",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "view77d556d6",
+              "pool_id": "jupyter",
+              "view_id": "77d556d6-2c6f-42f1-bf09-0b8554bacab8",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/rnn_sentiment_analysis.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 593935,
+          "key": "dd9a41e8-0557-4d92-ade0-d27259cf8abf",
+          "title": "[SOLUTION]: Sentiment Analysis with an RNN",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "dd9a41e8-0557-4d92-ade0-d27259cf8abf",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 593936,
+              "key": "c7556fa2-0d8f-498a-9b17-fba934cbc9ce",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "view77d556d6",
+              "pool_id": "jupyter",
+              "view_id": "e99776d7-2fbe-4f67-8454-3a448573ce2c",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/rnn_sentiment_analysis_solution.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 614651,
+          "key": "833a157f-b643-4cff-8f59-41fc68bee956",
+          "title": "Optional Material",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "833a157f-b643-4cff-8f59-41fc68bee956",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614690,
+              "key": "63d50c20-c5bc-48f7-89d3-77c4acba5647",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Optional Material\n\nIf you enjoyed Sentiment Analysis, and you'd like to dive deeper into the topic, we've added two sections in the **Extracurricular Material**.\n\n- [Sentiment Analysis with Andrew Trask](https://classroom.udacity.com/nanodegrees/nd892/parts/9190adbd-e236-463b-8a5c-86357c6b9647/modules/4c362e4e-0fae-40ee-ad75-e4b40fc269cd/lessons/9a0eb131-7858-4354-87cf-aa86b890d6ec/concepts/c5670bc6-fbb3-4ac9-a1de-7bc3eb039e73): In this section/notebook, Andrew Trask (the author of Grokking Deep Learning) works out the IMDB example in detail by building a neural network in numpy.\n\n- [Sentiment Prediction RNN](https://classroom.udacity.com/nanodegrees/nd892/parts/9190adbd-e236-463b-8a5c-86357c6b9647/modules/4c362e4e-0fae-40ee-ad75-e4b40fc269cd/lessons/34a24397-2b0f-4c04-9088-1cea220c03b8/concepts/5904c93a-0dbc-4900-80ec-3e5523b56c70): In this section, Mat Leonard builds a Recurrent Neural Network for sentiment analysis on TensorFlow.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 614111,
+          "key": "7b0a49a4-091f-4bc3-a048-67c1c8534af6",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7b0a49a4-091f-4bc3-a048-67c1c8534af6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614951,
+              "key": "4893693a-79b6-476a-87a5-947b4dfc323b",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59406a18_meme/meme.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4893693a-79b6-476a-87a5-947b4dfc323b",
+              "caption": "",
+              "alt": "",
+              "width": 250,
+              "height": 250,
+              "instructor_notes": null
+            },
+            {
+              "id": 614112,
+              "key": "eebeca92-dabb-487b-8559-db602d67760c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Congratulations! In this section you've learned sentiment analysis, both with a regular classifier, and with a recurrent neural network, and you've applied it to the IMDB reviews database.\n\nThe next few sections will dive much deeper into some cutting edge RNN architectures. See you in the next section!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 729651,
+              "key": "aa4a971c-efbc-418d-a355-9e87248498dc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "If you'd like to work through the notebooks on your own machine or otherwise outside the classroom, you can find the code in this [GitHub repo](https://github.com/udacity/NLP-Exercises/tree/master/2.3-sentiment-analysis).",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

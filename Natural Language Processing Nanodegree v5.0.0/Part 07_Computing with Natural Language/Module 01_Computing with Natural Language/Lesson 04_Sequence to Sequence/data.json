@@ -1,0 +1,262 @@
+{
+  "data": {
+    "lesson": {
+      "id": 614828,
+      "key": "e926d323-9f84-4b2c-bbeb-0fa8e56c0c43",
+      "title": "Sequence to Sequence",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Here you'll learn about a specific architecture of RNNs for generating one sequence from another sequence. These RNNs are useful for chatbots, machine translation, and more!",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/e926d323-9f84-4b2c-bbeb-0fa8e56c0c43/614828/1544465317038/Sequence+to+Sequence+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/e926d323-9f84-4b2c-bbeb-0fa8e56c0c43/614828/1544465314414/Sequence+to+Sequence+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 614832,
+          "key": "8eb3430a-2aed-450b-8b2d-15153df5643d",
+          "title": "Introducing Jay Alammar",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8eb3430a-2aed-450b-8b2d-15153df5643d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614835,
+              "key": "152c024c-24c6-4a75-abad-0000d97fdf56",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59406a18_meme/meme.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/152c024c-24c6-4a75-abad-0000d97fdf56",
+              "caption": "Hi! Luis again.",
+              "alt": "",
+              "width": 250,
+              "height": 250,
+              "instructor_notes": null
+            },
+            {
+              "id": 614833,
+              "key": "8b7309b8-f0ae-44fb-8387-ae8c3d37e427",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Hello! For this next section, I'd like to introduce you to Jay Alammar. Jay has done some great work in interactive explorations of neural networks. If you haven't already, make sure you check out [his blog](http://jalammar.github.io/).\n\nJay will be teaching you about a particular RNN architecture called \"sequence to sequence\". In this case, you feed in a sequence of data and the network will output another sequence. This is typically used in problems such as machine translation, where you'd feed in a sentence in English and get out a sentence in Arabic.\n\nSequence to sequence will prepare you for the next section, **Deep Learning Attention**, also taught by Jay.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 614883,
+          "key": "ba18d246-4440-4c33-b97e-765091759edc",
+          "title": "Previous Material",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ba18d246-4440-4c33-b97e-765091759edc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614885,
+              "key": "abaf23dd-f913-4e80-bbb9-c6d6d43ce836",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Previous Material\n\nThis section will occasionally refer to two sections in the **Extracurricular Material**. However, you don't need to go through these sections to understand this material.\n\n- [Sentiment Analysis with Andrew Trask](https://classroom.udacity.com/nanodegrees/nd892/parts/9190adbd-e236-463b-8a5c-86357c6b9647/modules/4c362e4e-0fae-40ee-ad75-e4b40fc269cd/lessons/9a0eb131-7858-4354-87cf-aa86b890d6ec/concepts/c5670bc6-fbb3-4ac9-a1de-7bc3eb039e73): In this section/notebook, Andrew Trask (the author of Grokking Deep Learning) works out the IMDB example in detail by building a neural network in numpy.\n\n- [Sentiment Prediction RNN](https://classroom.udacity.com/nanodegrees/nd892/parts/9190adbd-e236-463b-8a5c-86357c6b9647/modules/4c362e4e-0fae-40ee-ad75-e4b40fc269cd/lessons/34a24397-2b0f-4c04-9088-1cea220c03b8/concepts/5904c93a-0dbc-4900-80ec-3e5523b56c70): In this section, Mat Leonard builds a Recurrent Neural Network for sentiment analysis on TensorFlow.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 290322,
+          "key": "ab43e169-e8fb-49c4-b7ca-b677cfa29445",
+          "title": "Jay Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ab43e169-e8fb-49c4-b7ca-b677cfa29445",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 290380,
+              "key": "4b25ec51-acbf-40e9-984d-e425cdc53851",
+              "title": "Jay's Introduction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "HPOzAlXhuxQ",
+                "china_cdn_id": "HPOzAlXhuxQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 290381,
+          "key": "83ea44df-25e0-4e6a-9554-5e8ecacc852d",
+          "title": "Applications",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "83ea44df-25e0-4e6a-9554-5e8ecacc852d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 290382,
+              "key": "a7b723d1-b791-4a78-a4fa-6adaedc91c23",
+              "title": "Applications seq2seq",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "tDJBDwriJYQ",
+                "china_cdn_id": "tDJBDwriJYQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 290383,
+          "key": "be468484-4bd5-4fb0-82d6-5f5697af07da",
+          "title": "Architectures",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "be468484-4bd5-4fb0-82d6-5f5697af07da",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 290384,
+              "key": "43c36dd9-7e0d-46cf-81a5-6de93ef5d4ba",
+              "title": "Architecture encoder decoder",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "dkHdEAJnV_w",
+                "china_cdn_id": "dkHdEAJnV_w.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 290385,
+          "key": "f999d8f6-b4c1-4cd0-811e-4767b127ae50",
+          "title": "Architectures in More Depth",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f999d8f6-b4c1-4cd0-811e-4767b127ae50",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 290386,
+              "key": "cfcb73a2-9746-4bc3-9adb-dae362fd516f",
+              "title": "Architecture in More Depth",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "rdAo4MqLbEk",
+                "china_cdn_id": "rdAo4MqLbEk.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 615010,
+          "key": "48262008-e790-453b-ac3e-7f89ef9caddc",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "48262008-e790-453b-ac3e-7f89ef9caddc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 615014,
+              "key": "4c7d2550-3e70-41f9-a758-9cc5b2e44361",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5adebe58_jihadsquare/jihadsquare.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4c7d2550-3e70-41f9-a758-9cc5b2e44361",
+              "caption": "Hi! It's Jay",
+              "alt": "",
+              "width": 250,
+              "height": 250,
+              "instructor_notes": null
+            },
+            {
+              "id": 615013,
+              "key": "2b036e68-aa78-4ec3-b805-9872c454908c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Great job! In this section you've learned the sequence to sequence RNN architecture. This will get you ready for the next section, which deals with deep learning attention. Attention is commonly used for many applications in NLP and Computer Vision such as machine translation, image captioning, and text summarization.",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

@@ -1,0 +1,766 @@
+{
+  "data": {
+    "lesson": {
+      "id": 568231,
+      "key": "2a9657a9-56bf-4859-911c-7cc8e517bdb5",
+      "title": "Topic Modeling",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "In this section, you'll learn to split a collection of documents into topics using Latent Dirichlet Analysis (LDA). In the lab, you'll be able to apply this model to a dataset of news articles.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/2a9657a9-56bf-4859-911c-7cc8e517bdb5/568231/1544211300226/Topic+Modeling+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/2a9657a9-56bf-4859-911c-7cc8e517bdb5/568231/1544211287060/Topic+Modeling+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 568232,
+          "key": "b6e84b61-e5c2-46f9-9e30-a0ec99ac7e28",
+          "title": "Intro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b6e84b61-e5c2-46f9-9e30-a0ec99ac7e28",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653423,
+              "key": "1bfa5b0a-62a6-4c21-9358-6296c439c8ed",
+              "title": "Introduction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pmpHsYaKxr0",
+                "china_cdn_id": "pmpHsYaKxr0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614114,
+          "key": "a5b369e5-4ddf-4109-a729-0e8c738b8a65",
+          "title": "References",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a5b369e5-4ddf-4109-a729-0e8c738b8a65",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614115,
+              "key": "b20b9e0e-7e9a-45e5-a483-3e0a3cb218db",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# References\n\nIn this section, we'll be following this article by David Blei, Andrew Ng, and Michael Jordan.\n- [Latent Dirichlet Allocation](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 568233,
+          "key": "248b6f66-f663-4889-9773-244cbec396c1",
+          "title": "Bag of Words",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "248b6f66-f663-4889-9773-244cbec396c1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653424,
+              "key": "e33c62f9-9d8e-4076-b9a2-9b817e785edf",
+              "title": "Bag Of Words",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "WILdZVzSAiE",
+                "china_cdn_id": "WILdZVzSAiE.mp4"
+              }
+            },
+            {
+              "id": 653449,
+              "key": "719186a8-0916-4b83-b8b5-babb10a1e25f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/June/5b284290_bag-of-words-quiz/bag-of-words-quiz.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/719186a8-0916-4b83-b8b5-babb10a1e25f",
+              "caption": "",
+              "alt": "",
+              "width": 1395,
+              "height": 633,
+              "instructor_notes": null
+            },
+            {
+              "id": 614082,
+              "key": "df3b18b6-b935-46cc-a1ed-3255efd42a5e",
+              "title": "Bag of words quiz",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "df3b18b6-b935-46cc-a1ed-3255efd42a5e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "If we have 500 documents and 1000 words, how many parameters does the bag of words model have?",
+                "answers": [
+                  {
+                    "id": "a1524336165861",
+                    "text": "1,500",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1524336219142",
+                    "text": "50,000",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1524336224675",
+                    "text": "150,000",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1524336229736",
+                    "text": "500,000",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1524336237155",
+                    "text": "1,000,000",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 568235,
+          "key": "7339e910-0d20-49a3-bb99-b46bf7857ff4",
+          "title": "Latent Variables",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7339e910-0d20-49a3-bb99-b46bf7857ff4",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653425,
+              "key": "becbc5c4-ef8b-40a3-af81-0c0292cf2381",
+              "title": "Latent Variables",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9JQ51vOh_NY",
+                "china_cdn_id": "9JQ51vOh_NY.mp4"
+              }
+            },
+            {
+              "id": 653450,
+              "key": "174ab69d-e942-4ae6-8195-9c9b74f7ac14",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/June/5b284399_how-many-parameters-quiz/how-many-parameters-quiz.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/174ab69d-e942-4ae6-8195-9c9b74f7ac14",
+              "caption": "",
+              "alt": "",
+              "width": 1382,
+              "height": 604,
+              "instructor_notes": null
+            },
+            {
+              "id": 614084,
+              "key": "b836f2f3-cff4-4bd8-aaa6-18e368a49c98",
+              "title": "How many parameters quiz",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "b836f2f3-cff4-4bd8-aaa6-18e368a49c98",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "If we have 500 documents, 10 topics, and 1000 words, how many parameters does our Latent Variables model have?",
+                "answers": [
+                  {
+                    "id": "a1524336316547",
+                    "text": "1,500",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1524336359621",
+                    "text": "15,000",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1524336362894",
+                    "text": "20,000",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1524336365987",
+                    "text": "150,000",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1524336369693",
+                    "text": "500,000",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 568234,
+          "key": "19d17f20-5271-4081-a9f0-a89fed5a6f7a",
+          "title": "Matrix Multiplication",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "19d17f20-5271-4081-a9f0-a89fed5a6f7a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653426,
+              "key": "89cb4e1c-e611-4232-bde9-fe98d8d8c6fe",
+              "title": "Matrix Multiplication",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "8GE2EvgdG1Y",
+                "china_cdn_id": "8GE2EvgdG1Y.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614037,
+          "key": "625cffa7-051d-4be1-935d-0a269b63b86f",
+          "title": "Matrices",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "625cffa7-051d-4be1-935d-0a269b63b86f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653428,
+              "key": "cb1e88f0-b100-478c-b5fa-cb223831d61c",
+              "title": "Matrices",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "xBrotILG97c",
+                "china_cdn_id": "xBrotILG97c.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614035,
+          "key": "6cd6633a-fa53-463f-9a8b-0ff8a876a5ee",
+          "title": "Quiz: Picking Topics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6cd6633a-fa53-463f-9a8b-0ff8a876a5ee",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653429,
+              "key": "e6500c23-2e0d-4642-90f4-be944088f2fd",
+              "title": "Quiz Picking Topics",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "aMNNHZ1Z-FA",
+                "china_cdn_id": "aMNNHZ1Z-FA.mp4"
+              }
+            },
+            {
+              "id": 614085,
+              "key": "748719eb-5c25-4a87-90a3-6265232484cb",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5adb8746_topics-quiz/topics-quiz.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/748719eb-5c25-4a87-90a3-6265232484cb",
+              "caption": "",
+              "alt": "",
+              "width": 2560,
+              "height": 1078,
+              "instructor_notes": null
+            },
+            {
+              "id": 614086,
+              "key": "bbbb44f0-561d-4bf6-a6e5-0b0706300b30",
+              "title": "Topics Quiz",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "bbbb44f0-561d-4bf6-a6e5-0b0706300b30",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which of the three models is more likely to generate the topics in our model?",
+                "answers": [
+                  {
+                    "id": "a1524336502454",
+                    "text": "Left",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1524336553988",
+                    "text": "Middle",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1524336556290",
+                    "text": "Right",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 614036,
+          "key": "69797f68-c6e6-4f3e-8521-a0866534bb23",
+          "title": "Solution: Picking Topics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "69797f68-c6e6-4f3e-8521-a0866534bb23",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653430,
+              "key": "6493f9b3-b97a-40cf-b259-9b59d0b13483",
+              "title": "Solution Picking Topics",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "c4_EyKrMzg4",
+                "china_cdn_id": "c4_EyKrMzg4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614038,
+          "key": "cd1d8fb0-febf-4ba5-8b1a-7598eb4bbc77",
+          "title": "Beta Distributions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cd1d8fb0-febf-4ba5-8b1a-7598eb4bbc77",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653432,
+              "key": "5026816b-9a84-417b-a1de-75196e7c70ff",
+              "title": "Beta Distributions",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "jR4sf50AFio",
+                "china_cdn_id": "jR4sf50AFio.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614039,
+          "key": "e2cc973e-5fc7-4fff-9359-5432647d1355",
+          "title": "Dirichlet Distributions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e2cc973e-5fc7-4fff-9359-5432647d1355",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653433,
+              "key": "55a9bad0-3407-4028-b536-61154e86b0b2",
+              "title": "NLPND LDA 09 Dirichlet Distributions RENDER V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "4wWyD0gB7H8",
+                "china_cdn_id": "4wWyD0gB7H8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614040,
+          "key": "05a10bf0-cfc1-4a33-9e04-724c0bcd76f8",
+          "title": "Latent Dirichlet Allocation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "05a10bf0-cfc1-4a33-9e04-724c0bcd76f8",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653436,
+              "key": "fd388ff3-928e-4d61-a25f-15fea7c7eea1",
+              "title": "Latent Dirichlet Alocation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "2wn8pNa6mg0",
+                "china_cdn_id": "2wn8pNa6mg0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614041,
+          "key": "b52049d3-55b1-4670-8fc3-dcd19ace7365",
+          "title": "Sample a Topic",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b52049d3-55b1-4670-8fc3-dcd19ace7365",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653435,
+              "key": "5286dca1-4fe8-44f0-9ce7-0c006ad201f7",
+              "title": "Sample A Topic",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "znDgb27W5As",
+                "china_cdn_id": "znDgb27W5As.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614042,
+          "key": "81b2c083-c64c-47c0-acd0-25da214b247e",
+          "title": "Sample a Word",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "81b2c083-c64c-47c0-acd0-25da214b247e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653437,
+              "key": "4a9d9168-1bf0-496e-947f-eb84a70b2b65",
+              "title": "Sample A Word",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "FckwjJOm9Qk",
+                "china_cdn_id": "FckwjJOm9Qk.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614043,
+          "key": "a1a5dc89-da5e-4aad-b7d8-b6147b94e564",
+          "title": "Combining the Models",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a1a5dc89-da5e-4aad-b7d8-b6147b94e564",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653438,
+              "key": "60063dd0-f016-4036-a2f2-92ed50ff2bc0",
+              "title": "Combining the Models",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "KRjuchtNilM",
+                "china_cdn_id": "KRjuchtNilM.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614044,
+          "key": "a7a7902c-c185-47e9-b3e6-fc19587d9325",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a7a7902c-c185-47e9-b3e6-fc19587d9325",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 653439,
+              "key": "720b1cf5-8156-48d0-8ff6-1a7654021f42",
+              "title": "Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "y8vecBYUFPo",
+                "china_cdn_id": "y8vecBYUFPo.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 614045,
+          "key": "145549f0-1b33-4c25-928f-5f97e76dca21",
+          "title": "Notebook: Topic Modeling",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "145549f0-1b33-4c25-928f-5f97e76dca21",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614627,
+              "key": "d5cd943d-913b-4d67-b928-ccd451f91457",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "viewc794ae4d",
+              "pool_id": "jupyter",
+              "view_id": "c794ae4d-0905-4510-bad7-870d04878589",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/Latent_dirichlet_allocation.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 614684,
+          "key": "7078049f-832f-44bc-853a-9dc5e8c5e5c7",
+          "title": "[SOLUTION] Topic Modeling",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7078049f-832f-44bc-853a-9dc5e8c5e5c7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614688,
+              "key": "d79b618f-5206-4bc7-8876-3e04ccc25165",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "viewc794ae4d",
+              "pool_id": "jupyter",
+              "view_id": "f4d7d4a9-b1c2-4737-b58f-55d6406042f7",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/Solution%20-%20Latent_dirichlet_allocation.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 615140,
+          "key": "6b1e4da1-cfec-4832-8e63-ec48378df4c5",
+          "title": "Next Steps",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6b1e4da1-cfec-4832-8e63-ec48378df4c5",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 615141,
+              "key": "148e44fd-dc19-4261-b4a5-0955a7ea3e56",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59406a18_meme/meme.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/148e44fd-dc19-4261-b4a5-0955a7ea3e56",
+              "caption": "",
+              "alt": "",
+              "width": 250,
+              "height": 250,
+              "instructor_notes": null
+            },
+            {
+              "id": 615144,
+              "key": "db37e234-7ff0-4252-ac62-04388fa4d67b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Next Lessons\n\nGreat job getting through the Topic Modeling lab!\n\nThe next few lessons will be based on Neural Networks, in particular, Recurrent Neural Networks (RNN) and Long Short-Term Memory Networks (LSTM). If you need a refresher on these topics, please feel free to check the **Extracurricular Material** for optional lessons.\n\n- [Recurrent Neural Networks (RNN)](https://classroom.udacity.com/nanodegrees/nd892/parts/40fbbde5-9ddb-4a1a-8082-c229f990e2e5)\n- [Long Short-Term Memory Networks (LSTM)](https://classroom.udacity.com/nanodegrees/nd892/parts/40fbbde5-9ddb-4a1a-8082-c229f990e2e5)\n\nOtherwise, continue on, to learn some Sentiment Analysis!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 729650,
+              "key": "ecb6e9ab-340a-4f55-aeeb-a1358d323356",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "If you'd like to work through the notebooks on your own machine or otherwise outside the classroom, you can find the code in this [GitHub repo](https://github.com/udacity/NLP-Exercises/tree/master/2.2-topic-modeling).",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

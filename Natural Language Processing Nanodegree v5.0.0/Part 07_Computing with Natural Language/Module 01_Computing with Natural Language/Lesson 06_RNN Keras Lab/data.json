@@ -1,0 +1,522 @@
+{
+  "data": {
+    "lesson": {
+      "id": 614291,
+      "key": "06c89f82-2fd1-409e-9d09-e785d32036d7",
+      "title": "RNN Keras Lab",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "This section will prepare you for the Machine Translation project. Here you will get hands-on practice with RNNs in Keras.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": null,
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 615018,
+          "key": "fdd60287-65df-4b30-b3d6-0574caf25a3d",
+          "title": "Intro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "fdd60287-65df-4b30-b3d6-0574caf25a3d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 615019,
+              "key": "454577d9-50fb-44fc-ac47-5a6a225df6a3",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5adebe58_jihadsquare/jihadsquare.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/454577d9-50fb-44fc-ac47-5a6a225df6a3",
+              "caption": "Hi! It's Jay",
+              "alt": "",
+              "width": 250,
+              "height": 250,
+              "instructor_notes": null
+            },
+            {
+              "id": 615020,
+              "key": "6a964890-a34d-416f-8bde-2224520eabed",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Hi again!\nThis section will get you ready for the upcoming Machine Translation project.\n\nIn the project, you'll be able to build a model that does machine translation. To be more specific, you'll be building 4 models, which are:\n- A simple RNN.\n- An RNN with embedding.\n- A bidirectional RNN.\n- (Optional) An encoder-decoder model.\n\nIn the following lab, we'll practice how to build the first model, a simple RNN in Keras. The one difference between this lab and the project is that in the lab, the RNN will process inputs and outputs on a character basis, whereas the RNN in the project will process them on a word basis.\n\nBut before that, let's look at some of the technical details of using RNNs for Machine Translation.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 347934,
+          "key": "3ea3dcb6-7ee0-45c0-955d-5bec5c9f3a25",
+          "title": "Machine Translation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3ea3dcb6-7ee0-45c0-955d-5bec5c9f3a25",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 348243,
+              "key": "bdf044a1-0fe9-4207-a0e5-ec2b584e406c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Machine Translation can be thought of as a sequence-to-sequence learning problem.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348244,
+              "key": "d3ba7494-ff00-45f8-a9a3-49f5f6717681",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/596cd4b8_nlp-m1-l4-machine-translation.002/nlp-m1-l4-machine-translation.002.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d3ba7494-ff00-45f8-a9a3-49f5f6717681",
+              "caption": "Machine Translation: A Sequence-to-Sequence Learning Problem",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348245,
+              "key": "ad5fd55a-f97f-45d9-a604-060c68f2afc2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You have one sequence going in, i.e. a sentence in the source language,\nand one sequence coming out, its translation in the target language.\n\nThis seems like a very hard problem - and it is! But recent advances in Recurrent Neural Networks have shown a lot of improvement. A typical approach is to use a recurrent layer to encode the meaning of the sentence by processing the words in a sequence, and then either use a dense or fully-connected layer to produce the output, or use another decoding layer.\n\nExperimenting with different network architectures and recurrent layer units (such as LSTMs, GRUs, etc.), you can come up with a fairly simple model that performs decently well on small-to-medium size datasets.\nCommercial-grade translation systems need to deal with a much larger vocabulary, and hence have to use a much more complex model, apply different optimizations, etc. Training such models requires a lot of data and compute time.\n\n## Neural Net Architecture for Machine Translation\n\nLet's develop a basic neural network architecture for machine translation.\n\n### Input Representation\n\nThe key thing to note here is that instead of a single word vector or document vector as input, we need to represent each sentence in the source language as a sequence of word vectors.\nTherefore, we convert each word or token into a one-hot encoded vector, and stack those vectors into a matrix - this becomes our input to the neural network.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348659,
+              "key": "232e706b-d5bc-41a2-9be8-adb5915d5525",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/59701a90_nlp-m1-l4-machine-translation.003/nlp-m1-l4-machine-translation.003.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/232e706b-d5bc-41a2-9be8-adb5915d5525",
+              "caption": "Input Representation",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348660,
+              "key": "c5ab614c-4881-4909-b6ed-f2a7d2c65f7d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You may be wondering what to do about sequences of different length: One common approach is to simply take the sequence of maximum length in your corpus, and pad each sequence with a special token to make them all the same length.\n\n### Basic RNN Architecture\n\nOnce we have the sequence of word vectors, we can feed them in one at a time to the neural network.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348661,
+              "key": "24371f8f-3274-46a8-af65-95b36255f670",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/59701a90_nlp-m1-l4-machine-translation.004/nlp-m1-l4-machine-translation.004.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/24371f8f-3274-46a8-af65-95b36255f670",
+              "caption": "Basic RNN Architecture for Machine Translation",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348662,
+              "key": "f66f9616-2424-463c-8ac3-82c9133b1319",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### Embedding Layer\nThe first layer of the network is typically an embedding layer that helps enhance the representation of the word. This produces a more compact word vector that is then fed into one or more recurrent layers.\n\n#### Recurrent Layer(s)\nThis is where the magic happens! The recurrent layer(s) help incorporate information from across the sequence, allowing each output word to be affected by potentially any previous input word.\n\n_Note: You could skip the embedding step, and feed in the one-hot encoded vectors directly to the recurrent layer(s). This may reduce the complexity of the model and make it easier to train, but the quality of translation may suffer as one-hot encoded vectors cannot exploit similarities and differences between words._\n\n#### Dense Layer(s)\nThe output of the recurrent layer(s) is fed into one or more fully-connected dense layers that produce softmax output, which can be interpreted as one-hot encoded words in the target language.\n\nAs each word is passed in as input, its corresponding translation is obtained from the final output. The output words are then collected in a sequence to produce the complete translation of the input sentence.\n\n_Note: For efficient processing we would like to capture the output in a matrix of fixed size, and for that we need to have output sequences of the same length. Again, we can achieve this by using the same padding technique as we used for input._\n\n\n### Recurrent Layer: Internals\n\nLet’s take a closer look at what is going on inside a recurrent layer.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348664,
+              "key": "feecb86f-b601-4756-a494-7c1a9d8fa73b",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/59701a90_nlp-m1-l4-machine-translation.005/nlp-m1-l4-machine-translation.005.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/feecb86f-b601-4756-a494-7c1a9d8fa73b",
+              "caption": "Recurrent Layer: Internals",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348663,
+              "key": "d0c9a9fb-7f12-444f-8b4c-e6591a757f45",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "- The input word vector <span class=\"mathquill\">x_t</span> is first multiplied by the weight matrix:\n<span class=\"mathquill\">W_x</span>\n- Then bias values are added to produce our first intermediate result:\n<span class=\"mathquill\">x_t W_x + b</span>\n- Meanwhile, the state vector from the previous time step <span class=\"mathquill\">h_{t-1}</span> is multiplied with another weight matrix <span class=\"mathquill\">W_h</span> to produce our second intermediate result:\n<span class=\"mathquill\">h_{t-1} W_h</span>\n- These two are then added together, and passed through an activation function such as ReLU, sigmoid or tanh to produce the state for the current time step: <span class=\"mathquill\">h_t</span>\n- This state vector is passed on as input to the next fully-connected layer, that applies another weight matrix, bias and activation to produce the output: <span class=\"mathquill\">y_t</span>\n\nLet’s simplify this diagram and look at the bigger picture again.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348716,
+              "key": "e5ab47ab-09c6-4333-9812-dbefc71b9033",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/59701a90_nlp-m1-l4-machine-translation.006/nlp-m1-l4-machine-translation.006.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e5ab47ab-09c6-4333-9812-dbefc71b9033",
+              "caption": "Basic RNN: Schematic",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348717,
+              "key": "127b7dfd-3c0c-4bae-8d8c-ba491e5b4041",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The key thing to note here is that the RNN’s state <span class=\"mathquill\">h_t</span> is used to produce the output <span class=\"mathquill\">y_t</span>, as well as looped back to produce the next state.\n\nIn summary, a recurrent layer computes the current state <span class=\"mathquill\">h_t</span> as:\n\n> <span class=\"mathquill\">h_t = f(x_t W_x + h_{t-1} W_h + b)</span>\n\nHere <span class=\"mathquill\">f(\\cdot)</span> is some non-linear activation function, <span class=\"mathquill\">x_t</span> is the input vector, <span class=\"mathquill\">W_x</span> is the input weight matrix, <span class=\"mathquill\">h_{t-1}</span> is the previous state vector, <span class=\"mathquill\">W_h</span> is the recurrent weight matrix and <span class=\"mathquill\">b</span> is the bias vector.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348724,
+              "key": "0a5992b8-133b-49e1-9629-55951b615f03",
+              "title": "RNN Parameters",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "0a5992b8-133b-49e1-9629-55951b615f03",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Let's say you've decided to use a word vector (<span class=\"mathquill\">x_t</span>) of length 200, and a state vector (<span class=\"mathquill\">h_t</span>) of length 300. Treating these as single-row matrices, we can write the sizes as 1x200 and 1x300 respectively.\n\nNow, what is the size of each parameter of the RNN? Match the correct sizes below."
+                },
+                "concepts_label": "Parameter",
+                "answers_label": "Size (rows x cols)",
+                "concepts": [
+                  {
+                    "text": "Input weight matrix (<span class=\"mathquill\">W_x</span>)",
+                    "correct_answer": {
+                      "id": "a1500559950774",
+                      "text": "200x300"
+                    }
+                  },
+                  {
+                    "text": "Recurrent weight matrix (<span class=\"mathquill\">W_h</span>)",
+                    "correct_answer": {
+                      "id": "a1500560867488",
+                      "text": "300x300"
+                    }
+                  },
+                  {
+                    "text": "Bias vector (<span class=\"mathquill\">b</span>)",
+                    "correct_answer": {
+                      "id": "a1500560915470",
+                      "text": "1x300"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1500560915470",
+                    "text": "1x300"
+                  },
+                  {
+                    "id": "a1500561048710",
+                    "text": "300x1"
+                  },
+                  {
+                    "id": "a1500561041443",
+                    "text": "300x200"
+                  },
+                  {
+                    "id": "a1500561068207",
+                    "text": "200x200"
+                  },
+                  {
+                    "id": "a1500561053807",
+                    "text": "1x500"
+                  },
+                  {
+                    "id": "a1500560867488",
+                    "text": "300x300"
+                  },
+                  {
+                    "id": "a1500559950774",
+                    "text": "200x300"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 348725,
+              "key": "785fd431-cc69-49bb-b140-e258efb246a3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Unrolling an RNN\n\nIt’s easier to understand how this works over time if we unroll it.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348718,
+              "key": "f970ce66-7eb2-4070-854b-c816c990eac7",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/59701a91_nlp-m1-l4-machine-translation.007/nlp-m1-l4-machine-translation.007.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f970ce66-7eb2-4070-854b-c816c990eac7",
+              "caption": "Basic RNN: Unrolled",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348719,
+              "key": "f033032f-b2f6-4a92-8e4b-93dc357914df",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Each copy of the network you see represents its state at the respective time step.\nAt any time <span class=\"mathquill\">t</span>, the recurrent layer receives input <span class=\"mathquill\">x_t</span> as well as the state vector from the previous step, <span class=\"mathquill\">h_{t-1}</span>. This process is continued till the entire input is exhausted.\n\nThe main drawback of such a simple model is that we are trying to read the corresponding output for each input word immediately. This would only work in situations where the source and target language have an almost one-to-one mapping between words.\n\n\n## Encoder-Decoder Architecture\n\nWhat we should ideally do is to let the network learn an internal representation of the entire input sentence, and then start generating the output translation. In fact, you need two different networks in order to achieve this.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348720,
+              "key": "df4e6a06-a47e-4e10-9f26-d0957a83da5c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/59701a91_nlp-m1-l4-machine-translation.008/nlp-m1-l4-machine-translation.008.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/df4e6a06-a47e-4e10-9f26-d0957a83da5c",
+              "caption": "Encoder-Decoder: Unrolled",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348721,
+              "key": "a80bc7b7-ea63-4c82-b7a8-772eced5cd1d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The first is called an Encoder, which accepts the source sentence, one word at a time, and captures its overall meaning in a single vector. This is simply the state vector at the last time step. Note that the encoder network is not used to produce any outputs.\n\nThe second network is called a Decoder, which then interprets the final sentence vector and expands it into the corresponding sentence in the target language, again one word at a time.\n\nThe first time step for the decoder network is special. It is fed in the final sentence vector from the encoder <span class=\"mathquill\">h_t</span>, and given a sentinel input to kickstart the process. The recurrent portion of the network produces a state vector  <span class=\"mathquill\">c_0</span>, and with that the fully-connected portion produces the first output word in the target language,  <span class=\"mathquill\">y_0</span>.\n\nAt each subsequent time step t, the decoder network uses its own previous state  <span class=\"mathquill\">c_{t-1}</span> as well as its own previous output  <span class=\"mathquill\">y_{t-1}</span>, in order to produce the current output,  <span class=\"mathquill\">y_t</span>.\n\nThis process is typically continued for a fixed number of iterations, with the idea that the network will start producing special padding symbols after all meaningful words have been generated. Alternately, the network could be trained to output a stop symbol, such as a period (.), to indicate that the translation is complete.\n\nIf we roll back the time steps, we can see what the overall architecture looks like.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 348722,
+              "key": "9952a4f3-bdf8-48f6-9dfd-f7ed9c25a059",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/July/59701a91_nlp-m1-l4-machine-translation.009/nlp-m1-l4-machine-translation.009.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9952a4f3-bdf8-48f6-9dfd-f7ed9c25a059",
+              "caption": "Encoder-Decoder: Schematic",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 348723,
+              "key": "7291288e-79ae-4562-9f8f-5ed731c62671",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "This encoder-decoder design very popular for several sequence-to-sequence tasks, not just Machine Translation.\n\nNow, there are several variations of this design that can be used to enhance the performance of the network.\n- One option is to use different kinds of recurrent neural network units, such as LSTMs, GRUs etc. instead of vanilla RNN units. That allows the network to better analyze the input sequence, at the cost of additional model complexity.\n- Another dimension to explore is how many recurrent layers to use. Each layer effectively incorporates information from the input sequence, producing a compact state vector at each time step. Additional layers can essentially incorporate information across these state vectors.\n- Other more innovative approaches include adding in a backward encoder (bidirectional encoder-decoder model), feeding in the sentence vector to each time step of the decoder (attention mechanism), etc.\n\nFeel free to experiment with these different approaches to see what architecture works best for your task. Keep in mind that these mechanisms typically add to the model complexity, which means you need more data and time to train the additional parameters.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 614293,
+          "key": "bb41eb65-e43c-493c-9e03-f7ae5bacbf80",
+          "title": "Deciphering Code with character-level RNNs",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bb41eb65-e43c-493c-9e03-f7ae5bacbf80",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 615121,
+              "key": "8eecd651-f751-40b9-b02f-8aac92fbfd25",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "view48c07d4a",
+              "pool_id": "jupyter",
+              "view_id": "8d1be921-b880-42e3-b329-e31e9ea03933",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/Deciphering%20Code%20with%20Character-Level%20RNN.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 614295,
+          "key": "46fd995b-27ce-4553-b9c4-8bca3d0ffa3a",
+          "title": "[SOLUTION] Deciphering code with character-level RNNs",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "46fd995b-27ce-4553-b9c4-8bca3d0ffa3a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 614297,
+              "key": "e5b8a215-affb-4250-8379-ddab953a984f",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "view48c07d4a",
+              "pool_id": "jupyter",
+              "view_id": "48c07d4a-127b-4703-a53a-0f0ee0370533",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "ports": [],
+                    "allowSubmit": false,
+                    "defaultPath": "/notebooks/SOLUTION Deciphering Code with Character-Level RNN.ipynb"
+                  },
+                  "kind": "jupyter"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 615152,
+          "key": "4bb616aa-2cf3-4c4c-a5eb-8e786c224df7",
+          "title": "Congratulations!",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4bb616aa-2cf3-4c4c-a5eb-8e786c224df7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 615154,
+              "key": "e368f044-dd52-41ff-8c13-2528d03c18f4",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/April/5adf1241_3amigos/3amigos.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e368f044-dd52-41ff-8c13-2528d03c18f4",
+              "caption": "Congratulations!",
+              "alt": "",
+              "width": 681,
+              "height": 234,
+              "instructor_notes": null
+            },
+            {
+              "id": 615157,
+              "key": "b4b58182-005b-4998-83f0-d7f3eb4d457b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Congratulations!\n\nGreat job! In this section you've learned many cutting edge topics in Natural Language Processing, and finished some very challenging labs. You are now ready to put all this in practice in the Machine Translation Project. Best of luck, and we look forward to seeing what you produce!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 729654,
+              "key": "69cfc681-5427-402b-bd7b-5325a6a6872e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "If you'd like to work through the notebooks on your own machine or otherwise outside the classroom, you can find the code in this [GitHub repo](https://github.com/udacity/NLP-Exercises/tree/master/2.6-rnn-keras-lab).",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}
