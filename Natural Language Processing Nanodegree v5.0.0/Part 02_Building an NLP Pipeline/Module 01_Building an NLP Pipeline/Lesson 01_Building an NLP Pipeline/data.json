@@ -1,0 +1,490 @@
+{
+  "data": {
+    "lesson": {
+      "id": 570805,
+      "key": "0a4f24ae-664a-4532-8e19-a7d4b90245f9",
+      "title": "Building an NLP Pipeline",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Learn about text processing, feature extraction, and part-of-speech tagging.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/0a4f24ae-664a-4532-8e19-a7d4b90245f9/570805/1544914208595/Building+an+NLP+Pipeline+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/0a4f24ae-664a-4532-8e19-a7d4b90245f9/570805/1544914205414/Building+an+NLP+Pipeline+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 339939,
+          "key": "dd4d1944-a66c-40ea-a5b4-469abfc9ca44",
+          "title": "NLP and Pipelines",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "dd4d1944-a66c-40ea-a5b4-469abfc9ca44",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339944,
+              "key": "2f7722fa-f903-4f65-b079-47a5eb2cb0ed",
+              "title": "Natural Language Processing",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "UQBxJzoCp-I",
+                "china_cdn_id": "UQBxJzoCp-I.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 339972,
+          "key": "f133cf85-6f21-411d-949b-ac405be883b3",
+          "title": "How NLP Pipelines Work",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f133cf85-6f21-411d-949b-ac405be883b3",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339974,
+              "key": "40bc6840-872a-4041-880c-19c469fa46bf",
+              "title": "NLP M1-L1 01 NLP Pipeline",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "vJx6oKlu_MM",
+                "china_cdn_id": "vJx6oKlu_MM.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 339975,
+          "key": "39539f1f-81fc-42c6-b960-9678392916ee",
+          "title": "Text Processing",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "39539f1f-81fc-42c6-b960-9678392916ee",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339978,
+              "key": "bdf67ea2-312b-4662-a37f-578d09e5c31f",
+              "title": "Text Processing",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "Source: https://en.wikipedia.org/wiki/Kingfisher",
+              "video": {
+                "youtube_id": "pqheVyctkNQ",
+                "china_cdn_id": "pqheVyctkNQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330228,
+          "key": "255aab5f-4c2f-4d2f-a320-aabfb6d6bc53",
+          "title": "Counting Words",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "255aab5f-4c2f-4d2f-a320-aabfb6d6bc53",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 330243,
+              "key": "84fb8636-fba7-414b-af9b-e6d2c690eef2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let's implement a simple function that is often used in Natural Language Processing: Counting word frequencies.\n\nConsider this passage of text:\n\n> As I was waiting, a man came out of a side room, and at a glance I was sure he must be Long John. His left leg was cut off close by the hip, and under the left shoulder he carried a crutch, which he managed with wonderful dexterity, hopping about upon it like a bird. He was very tall and strong, with a face as big as a ham—plain and pale, but intelligent and smiling. Indeed, he seemed in the most cheerful spirits, whistling as he moved about among the tables, with a merry word or a slap on the shoulder for the more favoured of his guests.\n\n&mdash; _Excerpt from Treasure Island, by Robert Louis Stevenson._\n\nIn the following coding exercise, we have provided code to load the text from a file, call the function `count_words()` to obtain word counts (which you need to implement), and print the 10 most common and least common unique words.\n\n_Complete the portions marked as TODO to count how many times each unique word occurs in the text._\n\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 330360,
+              "key": "462395ab-7741-48b3-ade0-dd830ebb3bd1",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "462395ab-7741-48b3-ade0-dd830ebb3bd1",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Count words",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "6516269154172928",
+                "initial_code_files": [
+                  {
+                    "text": "\"\"\"Count words.\"\"\"\n\ndef count_words(text):\n    \"\"\"Count how many times each unique word occurs in text.\"\"\"\n    counts = dict()  # dictionary of { <word>: <count> } pairs to return\n    \n    # TODO: Convert to lowercase\n    \n    # TODO: Split text into tokens (words), leaving out punctuation\n    # (Hint: Use regex to split on non-alphanumeric characters)\n    \n    # TODO: Aggregate word counts using a dictionary\n    \n    return counts\n\n\ndef test_run():\n    with open(\"input.txt\", \"r\") as f:\n        text = f.read()\n        counts = count_words(text)\n        sorted_counts = sorted(counts.items(), key=lambda pair: pair[1], reverse=True)\n        \n        print(\"10 most common words:\\nWord\\tCount\")\n        for word, count in sorted_counts[:10]:\n            print(\"{}\\t{}\".format(word, count))\n        \n        print(\"\\n10 least common words:\\nWord\\tCount\")\n        for word, count in sorted_counts[-10:]:\n            print(\"{}\\t{}\".format(word, count))\n\n\nif __name__ == \"__main__\":\n    test_run()\n",
+                    "name": "count_words.py"
+                  },
+                  {
+                    "text": "As I was waiting, a man came out of a side room, and at a glance I was sure he must be Long John. His left leg was cut off close by the hip, and under the left shoulder he carried a crutch, which he managed with wonderful dexterity, hopping about upon it like a bird. He was very tall and strong, with a face as big as a ham—plain and pale, but intelligent and smiling. Indeed, he seemed in the most cheerful spirits, whistling as he moved about among the tables, with a merry word or a slap on the shoulder for the more favoured of his guests.",
+                    "name": "input.txt"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 339979,
+          "key": "ede61d65-eea9-40f2-aa0d-a9ee7030a9d8",
+          "title": "Feature Extraction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ede61d65-eea9-40f2-aa0d-a9ee7030a9d8",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339980,
+              "key": "ab6729aa-9b93-473d-8058-467e33b3baab",
+              "title": "Feature Extraction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "WordNet visualization tool: http://mateogianolio.com/wordnet-visualization/",
+              "video": {
+                "youtube_id": "UgENzCmfFWE",
+                "china_cdn_id": "UgENzCmfFWE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 339981,
+          "key": "abc420ac-83f0-4b33-8cfb-e46c059f7990",
+          "title": "Modeling",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "abc420ac-83f0-4b33-8cfb-e46c059f7990",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339982,
+              "key": "7fbdbf9d-aa93-4765-935c-1a3e182cadd3",
+              "title": "Modeling",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "P4w_2rkxBvE",
+                "china_cdn_id": "P4w_2rkxBvE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 340544,
+          "key": "3ad6d24e-f523-4557-8c7e-fede9a70b323",
+          "title": "Quiz: Split Sentences",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3ad6d24e-f523-4557-8c7e-fede9a70b323",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340545,
+              "key": "44f4fff9-a15a-4563-adc2-d9c0efc77f47",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this exercise, you will read in some text from a file, split the text into sentences, and then each sentence into words (tokens). Instead of using the built-in Python string method `.split()`, try using the Regular Expression package `re`.\n\nCome up with an appropriate regular expression that matches sentence delimiters, and use it like this:\n\n```python\nsentences = re.split(r\"<your regexp>\", text)\n```\n\nNote the '`r`' preceding the regexp string - this denotes a _raw_ string and tells Python not to interpret the characters in any special way (e.g. escape sequences like `'\\n'` do not get converted to newlines, etc.).\n\nSpecifying word delimiters is also pretty easy. Refer to the `re` library documentation [here](https://docs.python.org/3.5/library/re.html) for details.\n\nRemember to remove leading and trailing spaces. If that results in any empty strings, drop them from the list that is returned.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340547,
+              "key": "649a397e-c41d-494c-8af3-9551c29a68c3",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "**Note**: The `nltk` package is not available within programming quizzes, but you can use it going forward for labs and projects.",
+              "user_state": {
+                "node_key": "649a397e-c41d-494c-8af3-9551c29a68c3",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Split Sentences",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "6048588907020288",
+                "initial_code_files": [
+                  {
+                    "text": "\"\"\"Splitting text data into tokens.\"\"\"\n\nimport re\n\ndef sent_tokenize(text):\n    \"\"\"Split text into sentences.\"\"\"\n    \n    # TODO: Split text by sentence delimiters (remove delimiters)\n    \n    # TODO: Remove leading and trailing spaces from each sentence\n    \n    pass  # TODO: Return a list of sentences (remove blank strings)\n\n\ndef word_tokenize(sent):\n    \"\"\"Split a sentence into words.\"\"\"\n    \n    # TODO: Split sent by word delimiters (remove delimiters)\n    \n    # TODO: Remove leading and trailing spaces from each word\n    \n    pass  # TODO: Return a list of words (remove blank strings)\n\n\ndef test_run():\n    \"\"\"Called on Test Run.\"\"\"\n\n    text = \"The first time you see The Second Renaissance it may look boring. Look at it at least twice and definitely watch part 2. It will change your view of the matrix. Are the human people the ones who started the war? Is AI a bad thing?\"\n    print(\"--- Sample text ---\", text, sep=\"\\n\")\n    \n    sentences = sent_tokenize(text)\n    print(\"\\n--- Sentences ---\")\n    print(sentences)\n    \n    print(\"\\n--- Words ---\")\n    for sent in sentences:\n        print(sent)\n        print(word_tokenize(sent))\n        print()  # blank line for readability\n",
+                    "name": "tokenizer.py"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 340302,
+          "key": "01650495-80b2-4ee0-909a-8c731725d437",
+          "title": "Part-of-Speech Tagging",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "01650495-80b2-4ee0-909a-8c731725d437",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340303,
+              "key": "50f3c4bd-aa21-4573-9ebc-8bcbafc03808",
+              "title": "Part-of-Speech Tagging",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "WFEu8bXI5OA",
+                "china_cdn_id": "WFEu8bXI5OA.mp4"
+              }
+            },
+            {
+              "id": 594027,
+              "key": "29540cd2-d7fe-49a5-847b-c6f2dbb3a308",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Note**: Part-of-speech tagging using a predefined grammar like this is a simple, but limited solution. It can be very tedious and error-prone for a large corpus of text, since you have to account for all possible sentence structures and tags!\n\nThere are other more advanced forms of POS tagging that can learn sentence structures and tags from given data, including Hidden Markov Models (HMMs) and Recurrent Neural Networks (RNNs).",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 340304,
+          "key": "f657fec3-7c8a-46eb-acb0-191c5d90f1f0",
+          "title": "Named Entity Recognition",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f657fec3-7c8a-46eb-acb0-191c5d90f1f0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340305,
+              "key": "5f1d0db0-3093-4b38-a767-fb13142222fe",
+              "title": "Named Entity Recognition",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "QUQu2nsE7vE",
+                "china_cdn_id": "QUQu2nsE7vE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 340312,
+          "key": "9ca58996-a428-41d4-8e2c-81233d87e988",
+          "title": "Bag of Words",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9ca58996-a428-41d4-8e2c-81233d87e988",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340851,
+              "key": "97372500-102c-4f6c-97aa-0bd5f028aff6",
+              "title": "Bag Of Words",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "A7M1z8yLl0w",
+                "china_cdn_id": "A7M1z8yLl0w.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 340313,
+          "key": "abfec1ff-ac46-4c00-a027-b8a332ecb942",
+          "title": "TF-IDF",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "abfec1ff-ac46-4c00-a027-b8a332ecb942",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 345549,
+              "key": "3a7c9439-6beb-436f-a6e6-9cd3768c05dc",
+              "title": "TF-IDF",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "XZBiBIRcACE",
+                "china_cdn_id": "XZBiBIRcACE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 340314,
+          "key": "4339cec3-b8b3-40ad-b5d9-826a88730d69",
+          "title": "One-Hot Encoding",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4339cec3-b8b3-40ad-b5d9-826a88730d69",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340853,
+              "key": "6cafd8ad-ba4c-498e-b590-b4453310dd83",
+              "title": "One-Hot Encoding",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "a0j1CDXFYZI",
+                "china_cdn_id": "a0j1CDXFYZI.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 340315,
+          "key": "6144b961-2654-4cb9-920c-0419d94d78d1",
+          "title": "Word Embeddings",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6144b961-2654-4cb9-920c-0419d94d78d1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340854,
+              "key": "42b79875-d61d-4bb4-93eb-c952ea68d8d0",
+              "title": "Word Embeddings",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "4mM_S9L2_JQ",
+                "china_cdn_id": "4mM_S9L2_JQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 340320,
+          "key": "48e4d71b-203f-4bdb-a4de-8de0d4f40889",
+          "title": "t-SNE",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "48e4d71b-203f-4bdb-a4de-8de0d4f40889",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340858,
+              "key": "6fd2d52e-6bce-4f91-88a5-6835f1ca7b4a",
+              "title": "T-SNE",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "xxcK8oZ6_WE",
+                "china_cdn_id": "xxcK8oZ6_WE.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

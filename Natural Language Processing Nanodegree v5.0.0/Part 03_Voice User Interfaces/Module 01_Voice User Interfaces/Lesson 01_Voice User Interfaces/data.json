@@ -1,0 +1,412 @@
+{
+  "data": {
+    "lesson": {
+      "id": 570806,
+      "key": "4f9a9fbd-ce50-4b01-86ce-4a20d9bfdc74",
+      "title": "Voice User Interfaces",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Learn about phonetics, acoustic models, and deep neural networks.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/4f9a9fbd-ce50-4b01-86ce-4a20d9bfdc74/570806/1544914218283/Voice+User+Interfaces+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/4f9a9fbd-ce50-4b01-86ce-4a20d9bfdc74/570806/1544914215111/Voice+User+Interfaces+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 287972,
+          "key": "cfbae6e2-d825-463d-995a-bd4cb4ad8102",
+          "title": "Welcome to Voice User Interfaces!",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cfbae6e2-d825-463d-995a-bd4cb4ad8102",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 325449,
+              "key": "221802ed-da9e-4b94-a8fb-bcd0ef4342e8",
+              "title": "Welcome",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "zYDIgmGo4Xc",
+                "china_cdn_id": "zYDIgmGo4Xc.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 287976,
+          "key": "f87be48f-7caf-40e4-8085-d6736004e90c",
+          "title": "VUI Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f87be48f-7caf-40e4-8085-d6736004e90c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 324591,
+              "key": "b15a6646-5e63-4554-a6c5-3377358c07c7",
+              "title": "VUI Overview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "w5QGti1LHzc",
+                "china_cdn_id": "w5QGti1LHzc.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 287977,
+          "key": "f5518ea4-dd51-4fe0-a1e4-87535ee57f37",
+          "title": "VUI Applications",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f5518ea4-dd51-4fe0-a1e4-87535ee57f37",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 325698,
+              "key": "5f011b69-e4fd-4f27-a56b-08b478587011",
+              "title": "VUI Applications",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "wZLP8cdiA2Y",
+                "china_cdn_id": "wZLP8cdiA2Y.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 287979,
+          "key": "3b330319-0c12-4cb7-aae7-55ec06331d25",
+          "title": "Conversational AI with Alexa",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3b330319-0c12-4cb7-aae7-55ec06331d25",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 325451,
+              "key": "9a3dc23b-9fec-4650-9ed3-90bbcf01d29d",
+              "title": "Conversational AI with Alexa",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "1EU8jusdLZI",
+                "china_cdn_id": "1EU8jusdLZI.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 287981,
+          "key": "4cf534af-99c6-45c1-be50-4b39be711614",
+          "title": "Lab: Space Geek",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4cf534af-99c6-45c1-be50-4b39be711614",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 287994,
+              "key": "31a4afcc-4bcc-4f67-b0fa-dc2dcd887506",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Lab: Space Geek\n\nAs a preliminary exercise for building Alexa skills, we're going to use an existing Alexa template from the [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit?&sc_category=Chilean&sc_channel=RD&sc_campaign=Udacity&sc_publisher=website&sc_content=Content&sc_detail=course&sc_funnel=Start&sc_country=WW&sc_medium=Chilean_RD_Udacity_website_Content_course_Start_WW_AdvancedDevs_NLP&sc_segment=AdvancedDevs&sc_keywords=NLP \"Alexa Skills Kit\") for a fact skill named \"space geek\".  This fact skill does nothing more than provide a random fact about space when invoked by saying \"Alexa, open space geek\" or \"Alexa, ask space geek for a fact\".  Later, you will change and expand this skill for your \"Alexa History Skill Project\".  Note that if you wish to submit a fact skill for publishing to Amazon you will need to change the facts so that they are not a duplicate of the skill provided.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 300272,
+              "key": "7a84b61f-b891-4feb-94fc-5fbdef137701",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/April/58fe8beb_alexa-lab-overview2/alexa-lab-overview2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/7a84b61f-b891-4feb-94fc-5fbdef137701",
+              "caption": "Alexa Skills pipeline",
+              "alt": null,
+              "width": 1200,
+              "height": 675,
+              "instructor_notes": null
+            },
+            {
+              "id": 287982,
+              "key": "d296a675-4431-400d-958a-1fc2252ba6da",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As you build your app, you will define an Interaction Model consisting of words and phrases for the skill through your [Amazon Developer Console](https://developer.amazon.com/alexa-skills-kit) and link it to a request/response server function.  For this, we will use  an [AWS Lambda](https://aws.amazon.com/lambda/) function implemented in JavaScript.  Speech recognition and speech synthesis are taken care of for you by the Alexa Service.\n\n#### Follow the [Amazon step-by-step instructions](https://github.com/alexa/skill-sample-nodejs-fact/) for building the Alexa sample fact skill\n\nThe Amazon instructions for this project and the Alexa procedures change from time to time.  Below is a general guide on the steps you should find there.  If you have questions, please bring them up in Slack or the Forums.\n\n##### 1. Set up the fact skill in the Amazon Developer Portal\n* Sign in or create free Amazon Developer Portal login (Note that you will only be asked to provide a credit card here if you indicate you plan to monetize your work)\n* Add a new skill with Name of \"*My Fact Skill*\" and Invocation Name of \"*space geek*\".  This will populate the correct starter Interaction Model.\n* Review existing Intent Schema and Sample Utterances provided and save\n\n##### 2. Create Skill Logic in AWS Lambda\n\n* Create an AWS Account and sign in.  This will require a credit card, but the AWS Free Tier will cover your needs for this exercise and the project.\n* Create an AWS Lambda Function using the _alexa-skill-kit-sdk-factskill_ blueprint\n* Configure the trigger and function per the instructions and create the function named \"_myFactSkill_\"\n* Copy the ARN number for transfer back to the skill definition in the Developer portal.\n\n##### 3. Add your Lambda Function to your Skill\n\n* Go back to the configuration section of the Alexa \"_My Fact Skill_\" you created in the Amazon Developer Portal\n* Add the ARN number for myFactSkill\n\n##### 4. Test Your Skill\n\n* Type \"open space geek\" in the Service Simulator in the \"_My Fact Skill_\" Service Simulator.  You should see a Lambda Request and Lambda Response.  By clicking the \"Listen\" icon, you can hear Alexa's response.\n\n\n##### 5. Customize Your Skill\n\n* The Amazon instructions suggest TODOs to make the skill unique.  We'll do more of this kind of thing in the Alexa History Skill project\n\n\n##### 6. Publish Your Skill\n\n* Optional!  ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 330518,
+          "key": "bf895442-7584-420f-a9ac-324dc5af1160",
+          "title": "Challenges in ASR",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bf895442-7584-420f-a9ac-324dc5af1160",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339674,
+              "key": "40a3095f-d6cd-477f-8936-f10c7d3aa22a",
+              "title": "Challenges in ASR",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "59nKRkvk6As",
+                "china_cdn_id": "59nKRkvk6As.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297393,
+          "key": "0078c73e-8c41-47cb-b66e-560958b01c4b",
+          "title": "Phonetics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0078c73e-8c41-47cb-b66e-560958b01c4b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339679,
+              "key": "8066108c-34f7-4c9f-acbe-17f0d6826d7d",
+              "title": "Phonetics",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "v3lz8t0ZWnQ",
+                "china_cdn_id": "v3lz8t0ZWnQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297396,
+          "key": "55d0af08-cb6a-4c9d-80c2-b646112124cc",
+          "title": "Quiz: Phonetics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "55d0af08-cb6a-4c9d-80c2-b646112124cc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 336513,
+              "key": "4f19ce4f-fd7b-438b-9b0a-d2cbfa911d84",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Phonemes vs Graphemes",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336507,
+              "key": "415ebbbf-9785-4861-8748-26f2fbc26223",
+              "title": "Phonemes vs Graphemes",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "415ebbbf-9785-4861-8748-26f2fbc26223",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "A [pangram](https://en.wikipedia.org/wiki/Pangram) is a sentence using every letter of a given alphabet at least once.  A *phonetic pangram* is a sentence that uses every *phoneme* at least once.  The sentences below are a mixture of regular (grapheme-based) pangrams and phonetic (phoneme-based) pangrams.  Place a check beside all the phonetic pangrams.",
+                "answers": [
+                  {
+                    "id": "a1498077125186",
+                    "text": "How vexingly quick daft zebras jump!",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498077447828",
+                    "text": "Crazy Fredrick bought many very exquisite opal jewels.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498077448997",
+                    "text": "The hungry purple dinosaur ate the kind, zingy fox, the jabbering crab, and the mad whale and started vending and quacking.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498077449831",
+                    "text": "The quick brown fox jumps over the lazy dog.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498077579894",
+                    "text": "The beige hue on the waters of the loch impressed all, including the French queen, before she heard that symphony again, just as young Arthur wanted.",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 297397,
+          "key": "b1a3d69b-aac1-49ec-bcd6-ca0092354fda",
+          "title": "Acoustic Models and the Trouble with Time",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b1a3d69b-aac1-49ec-bcd6-ca0092354fda",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339681,
+              "key": "0d0e8769-bebd-4418-89af-2528bb026336",
+              "title": "Acoustic Models and the Trouble with Time",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "jVTZCa9Qqmk",
+                "china_cdn_id": "jVTZCa9Qqmk.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330524,
+          "key": "7c158a04-1932-48d9-978f-9453ee4c11ba",
+          "title": "Language Models",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7c158a04-1932-48d9-978f-9453ee4c11ba",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339691,
+              "key": "e7d775f9-cc9b-4511-aa2f-7b0965a7d549",
+              "title": "Language Models",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "vrrP9fzJGSE",
+                "china_cdn_id": "vrrP9fzJGSE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297402,
+          "key": "a198e171-9f44-46cd-8cd5-ac11e20ea503",
+          "title": "Deep Neural Networks as Speech Models",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a198e171-9f44-46cd-8cd5-ac11e20ea503",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339688,
+              "key": "9044d093-98f3-4ecb-84d9-36fbf24aa46d",
+              "title": "Deep Neural Networks as Speech Models",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Rv8LGuiyzB8",
+                "china_cdn_id": "Rv8LGuiyzB8.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}
