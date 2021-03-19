@@ -1,0 +1,294 @@
+{
+  "data": {
+    "lesson": {
+      "id": 568239,
+      "key": "2fa4cc08-d608-4b97-b87f-5c511e62c8c3",
+      "title": "(Optional) Alexa History Skill",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Build your own Alexa skill and deploy it!",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": null,
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 288097,
+          "key": "8c622605-2ca1-4d79-af4a-7ba96c9db8af",
+          "title": "Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8c622605-2ca1-4d79-af4a-7ba96c9db8af",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 307591,
+              "key": "c4739869-3b65-4af6-836f-901d3d763a1e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/May/590c70d7_vui-alexa-skill-overview/vui-alexa-skill-overview.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c4739869-3b65-4af6-836f-901d3d763a1e",
+              "caption": "",
+              "alt": "",
+              "width": 960,
+              "height": 540,
+              "instructor_notes": null
+            },
+            {
+              "id": 723080,
+              "key": "5aa1b37b-3876-4ce8-9015-b100a9044e5e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Lab: Build an Alexa History Skill\n\nIt's time to create your own Alexa Skill!  In this lab, you’ll build a fully functional skill for [Amazon’s Alexa](https://developer.amazon.com/alexa) that provides year-dated facts from AI History (or some other History of your choosing).  Through the process, you’ll get to use the [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit) - a current state of the art API for building voice systems.  \n\nBut before delving into the lab, it's best for you to go over the [Alexa Fact Skill tutorial](https://github.com/alexa/skill-sample-nodejs-fact) that the Alexa team provides as a template for building Alexa Skills. Do that now, and come back to continue this lab.\n\n**Done with the Alexa Fact Skill tutorial?**\n\nGreat! In this lab, we'll build on top of that template to create a slightly more advanced Alexa Skill -- a History skill that, in addition to giving the user a random history fact, is also able to take a specific date from the user and give a fact from that year. \n\nYou are free to choose any category you wish for your facts.  For example, you could have a skill that provides historical facts about a sport, or a location, or hobby, but each fact you provide must include a **four-digit year**.  \n\nIf you are not sure what category you want to try, don't worry...an example file has been provided with a few historical facts about artificial intelligence to get you started.  It can be hard to come up with a robust list of suitable facts - feel free to crowdsource a list of historical facts with your fellow students!\n\n## THIS LAB IS NOT SUBMITTED FOR REVIEW.\nVisit Knowledge or Study Groups if you would like to discuss the project.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 650933,
+          "key": "0170fd5e-c3e0-4a65-85f2-628b105dd9a5",
+          "title": "Getting Started",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0170fd5e-c3e0-4a65-85f2-628b105dd9a5",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 723082,
+              "key": "e4d1335a-4526-452f-bab3-c0d024fae030",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Getting Started\n\nNow that you've completed the [Alexa Fact Skill tutorial](https://github.com/alexa/skill-sample-nodejs-fact), we can start talking about the History Skill. We are providing you with [starter code](https://github.com/udacity/NLPND-VUI-Alexa) from GitHub with some unit tests to help guide your progress. The next concept has some tasks that you need to complete to build the history skill. You can run the unit tests as you complete the tasks to see a reflection of your progress.\n\n### Your Amazon accounts\n\nBy completing the Fact skill tutorial, you should have already completed setting up your [Amazon Alexa Developer account](https://developer.amazon.com/alexa/) and [Amazon AWS account](https://aws.amazon.com/). \n\nIf you do not already have an AWS account, be sure to create one.  You will need to provide a credit card to set up the account, but new accounts receive the [AWS Free Tier](https://aws.amazon.com/free/) which should suffice for this project as it includes one million non-expiring AWS Lambda requests per month.  Note: Lambda functions for Alexa skills can be hosted in either the US East (N. Virginia) or EU (Ireland) region. These are the only regions the Alexa Skills Kit supports, so you may need to change this setting in the upper right portion of your screen on the console.\n\n\n### Starter Code\nInstall your starter code locally.\n* Download or clone the [starter code](https://github.com/udacity/NLPND-VUI-Alexa) from GitHub\n* Save it in a directory named `NLPND-VUI-Alexa`.  It contains the following directories and files:\n    - **src/model/en-US.json** - This is the main Alexa file. It contains the components that Alexa needs to build the \"Interaction Model\" for your skill. It used to declare \"intents\", which are ways to handle user requests. The file is also used to give Alexa samples for what a user might say to trigger a certain intent (for example, \"tell me a history fact\").\n    - **src/lambda/index.js** - This is the main Lambda file. It will contain the code that is tasked with finding the right response to give to the user -- initially picking a random fact from a list, but later searching a list for facts for a certain year.\n    - **tests/*.js** - various unit tests to be run locally with mocha; you do not need to change these\n\nAfter completing the tasks locally, we'll just copy the contents of the first two files in the list above and paste them in specific places in the Alexa and AWS consoles. You can think of the Alexa code as front-end code guiding the user's interaction with Alexa, and, the lambda code as the back-end that gets a programmatic request and returns an appropriate response.\n\n### Environment\n\n##### 1. Install [Node.js](https://nodejs.org/) per instructions on the website for your machine.\n\n##### 2. Install dependencies for the project\n\n* Navigate to the `NLPND-VUI-Alexa/src` directory of the starter code and open a terminal window.  \n* The dependencies we need are listed in the `package.json` file and include the [alexa-sdk](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs) library for Alexa as well as  [mocha](https://mochajs.org/) test framework for Node.js along with [chai](http://chaijs.com/) and [aws-lambda-mock-context](https://www.npmjs.com/package/aws-lambda-mock-context) for local unit testing.  Install them all with the following command:\n```shell\n$ npm install\n```\n* There should now be a directory named `node_modules` within the `src` directory.  This is how Node.js attaches libraries for your code.\n\n##### 3. Unit testing\n* You can now run the provided unit tests from the command line within the `src` directory with the following command.  Try it now:\n```shell\n$ npm test\n```\nThe test code is in two parts:  \"Part 1\", and \"Part 2\". Initially, all tests will fail.  As you complete the tasks ahead, you can use these unit tests (and write more yourself) to quickly test code changes prior to deployment to AWS Lambda.\n\n##### 4. JavaScript coding\n* At this point, you can open your project with a code editor of your choice.  Some free ones that support JavaScript and Node.js include [Atom](https://atom.io/) and [Visual Studio Code](https://code.visualstudio.com/)\n\n* Udacity has a free course available that will quickly bring you up to speed on JS syntax: \n### [Introduction to Javascript](https://www.udacity.com/course/intro-to-javascript--ud803)\n[<img alt=\"Introduction to Javascript\" src=\"https://lh3.googleusercontent.com/ihDVPNChYL9xwjDejhDQj-1VA1OWCRvYZFdMh5qmDdAxCRuUjwEZMUBs5mUHQ_w9NzVy3MibrmR3m5kO8rI=s0#w=654&h=402=s276#w=1724&h=1060\" />](https://www.udacity.com/course/intro-to-javascript--ud803)  \nThe JavaScript skills needed for this project primarily require following patterns you find in the existing starter code and the use of general coding constructs such as for loops, conditional statements, and arrays. Here are a few links that might be helpful for quick reference:\n    * [js for loops](https://www.w3schools.com/js/js_loop_for.asp)\n    * [js conditional statements](https://www.w3schools.com/js/js_if_else.asp)\n    * [js arrays](https://www.w3schools.com/js/js_arrays.asp)\n    * [js String includes() method](https://www.w3schools.com/jsref/jsref_includes.asp)\n    * [js JSON](https://www.w3schools.com/js/js_json.asp)\n    * [Alexa skill examples](https://github.com/alexa)\n    * [Node.js API reference](https://nodejs.org/dist/latest-v6.x/docs/api/)",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 288100,
+          "key": "1abf8296-2751-4c1d-8d5f-078bf3bfa9e6",
+          "title": "Tasks",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "1abf8296-2751-4c1d-8d5f-078bf3bfa9e6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 723083,
+              "key": "1ae4fd19-14f1-4430-b56e-2d6f757f1d8c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Tasks\nThe lab consists of two parts:\n1. Expand history fact skills set\n2. Add a feature by creating a new intent with built-in slot",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723084,
+              "key": "b7bead95-2354-4df8-b196-2dec28932411",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Part 1: Expand history facts skills\n\n#### Tasks:\n1. Choose a history category you wish to use for your skill.  We're going to use Alexa sample skill template from [History Facts](https://github.com/alexa/skill-sample-nodejs-fact) GitHub repo.\n2. Expand the sample utterances in the [starter code](https://github.com/udacity/NLPND-VUI-Alexa) `src/models/en-US.json` file to include at least 15 appropriate samples/utterances for `GetNewFactIntent`.   Examples can be found [here](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/models/en-US.json).\n3. Expand the facts list at the top of the `src/lambda/index.js` file such that there are at least 10 distinct facts, where each includes a 4-digit year in its text.  These will be spoken by the Amazon Text-To-Speech algorithm (TTS), so keep in mind where you wish pauses to occur.  To hear how it sounds, enter your sentence in the developer portal under the “Test” section.\n4. Test it!   All “Part 1” local unit tests should pass.  In the next lesson, you'll try the skill out by uploading your changes to the Interactive model in the Developer Portal and AWS Lambda.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723085,
+              "key": "85d8eee7-4bb1-4420-b7e6-38e67bcc3f67",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Part 2: Add a feature by creating a new intent with built-in slot\n\nIn addition to the `GetNewFactIntent` intent already included in Part 1, add a new [intent](https://developer.amazon.com/docs/custom-skills/create-the-interaction-model-for-your-skill.html#intents-and-slots) including a [built-in slot](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html) that will provide the user with a fact matching the year requested. You can name this new intent `GetNewYearFactIntent` and build-in slot named `FACT_YEAR`. \n\n*Built-in Amazon slots can be used for the fact year. Consider using [AMAZON.FOUR_DIGIT_NUMBER](https://developer.amazon.com/docs/custom-skills/slot-type-reference.html#four_digit_number) for this purpose. This is not required, however, if you prefer to try a different slot definition.*\n\n#### Tasks:\n1. Provide at least 15 utterances for the new `GetNewYearFactIntent` intent.\n2. Complete the TODO’s in `src/lambda/index.js` file to implement a [Lambda function handler](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html) for `GetNewYearFactIntent` that will provide a fact for the specific year requested and provide a random fact if the year is not found in the fact list. \n _You can use [GetNewFactHandler](https://github.com/udacity/NLPND-VUI-Alexa/blob/master/src/lambda/index.js) as a template._\n3. Test it! All “Part 2” local unit tests should pass.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723086,
+              "key": "ed6c6c7d-a36a-455d-bf51-a940be3cad41",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "From the terminal, run `npm test` inside the `src` directory to check your passing tests.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723087,
+              "key": "14cb7b42-38a2-4c3c-a92a-cb74f79bc246",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/September/5ba94985_npm-test-ok/npm-test-ok.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/14cb7b42-38a2-4c3c-a92a-cb74f79bc246",
+              "caption": "",
+              "alt": "",
+              "width": 922,
+              "height": 500,
+              "instructor_notes": null
+            }
+          ]
+        },
+        {
+          "id": 307593,
+          "key": "c21d552e-e5b2-49a3-80e3-b1ed1c02b93d",
+          "title": "Deploying Your Skill",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c21d552e-e5b2-49a3-80e3-b1ed1c02b93d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 723091,
+              "key": "e47d93ac-63d5-452a-8f75-fd68b9285884",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Deploying your Skill\n\nThe Fact Skill [tutorial](https://github.com/alexa/skill-sample-nodejs-fact) steps you through setting up an Alexa Skill.  The starter code can be deployed in the same way.  The following step-by-step instructions assume you already have completed the steps in the **Getting Started** concept, and are ready to deploy your starter code.  Open both [Alexa Developer](https://developer.amazon.com/alexa/) portal and the [Amazon AWS](https://aws.amazon.com/) console to complete the tasks. \n\n#### Tasks inside Alexa Developer portal:\n1. On Alexa Developer portal, click `Create Skill`, enter `Skill name`, and choose `Custom` model and `Fact Skill` template.\n2. Navigate to the *Build* tab inside the skill *Interaction Model*.\n3. From the *Interaction Model* menu on the left, select *JSON Editor*.\n4. Paste or drag-and-drop the contents of your `src/model/en-US.json` file in the text box on that page.\n5. Click Save Model at the top of the page.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723092,
+              "key": "39575a97-0bba-4ef9-be0f-712d81a09f84",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/September/5ba94a30_alexa-interaction-model/alexa-interaction-model.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/39575a97-0bba-4ef9-be0f-712d81a09f84",
+              "caption": "",
+              "alt": "",
+              "width": 921,
+              "height": 742,
+              "instructor_notes": null
+            },
+            {
+              "id": 723093,
+              "key": "16d2a7e8-b3de-4b33-a0e4-a9dc0d052a04",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### Tasks inside AWS console:\n1. Navigate to AWS console and choose the [AWS Lambda](https://aws.amazon.com/lambda/) service.\n2. Create and set up the Lambda function using `Serverless Application Repository` and `NodeJS` template by following [step 2](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/instructions/2-lambda-function.md) of Alexa sample skills set instructions.\n3. Time to connect AWS Lambda service and Alexa Developer VUI console! Copy `AWS Lambda ARN` into VUI `Endpoint`. See [step 3](https://github.com/alexa/skill-sample-nodejs-fact/blob/en-US/instructions/3-connect-vui-to-code.md) detail instructions.\n4. Copy the contents of your `src/lambda/index.js` into the `index.js` file in the editor under the **Function Code** header.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723094,
+              "key": "3180c51e-4dd7-4845-8c03-b4d40783ece8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "_Copy AWS Lambda ARN into VUI Endpoint to connect Lambda service and VUI console:_",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723096,
+              "key": "6971f0cb-cf9b-4903-820b-166c66f7d5ea",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/September/5ba94a84_vui-endpoint/vui-endpoint.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6971f0cb-cf9b-4903-820b-166c66f7d5ea",
+              "caption": "",
+              "alt": "",
+              "width": 1184,
+              "height": 684,
+              "instructor_notes": null
+            },
+            {
+              "id": 723099,
+              "key": "60f8152c-af28-48d2-b616-cc9eb151d09a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "_Copy `index.js` script into AWS Lambda Function Code:_",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723101,
+              "key": "9be1714e-2380-4c91-970c-f388bbd80adc",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/September/5ba94abe_alexa-lambda-function-code/alexa-lambda-function-code.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9be1714e-2380-4c91-970c-f388bbd80adc",
+              "caption": "",
+              "alt": "",
+              "width": 1093,
+              "height": 560,
+              "instructor_notes": null
+            },
+            {
+              "id": 723102,
+              "key": "81262bba-6c02-4e17-ac42-5b47c43641c7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### Test your Alexa skill deployment\n\nOnce your Lambda function is deployed and ready, and you have successfully built the skill in the Alexa Developer Console, you can proceed to the Test tab in the Alexa Developer Console to test your skill.\n\nNotes on testing:\n * You might have to enable testing your skill by toggling the button on the top left \n * You can use the Alexa simulator to utterances by voice or by typing text into the text box.\n * With more advanced utterances (especially those including slots), you might have to run more explicit tests from the *Manual JSON* tab. \n * You can monitor the logs in [AWS Cloudwatch](https://console.aws.amazon.com/cloudwatch) to check any error messages logged by the Lambda function. You can also see the output of any log messages your code creates (using `console.log('')`).\n * More at [Test Your Skill](https://developer.amazon.com/docs/devconsole/test-your-skill.html)",
+              "instructor_notes": ""
+            },
+            {
+              "id": 723103,
+              "key": "6ea6fa5d-63f0-4738-aa3a-85c9678167a8",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/September/5ba94afa_alexa-simulator/alexa-simulator.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6ea6fa5d-63f0-4738-aa3a-85c9678167a8",
+              "caption": "",
+              "alt": "",
+              "width": 1120,
+              "height": 977,
+              "instructor_notes": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "id": 1724,
+  "project_id": 314,
+  "upload_types": [
+    "zip"
+  ],
+  "file_filter_regex": "\\A(?!(((.*/)?(__MACOSX|\\.git|node_modules|bower_components|jspm_packages|\\.idea|build|.ipynb_checkpoints|\\.Trash-0|logs)(\\Z|/))))((.*\\.(css|docx|gradle|htm|html|java|js|markdown|md|pdf|py|rmd|rst|sql|swift|txt|xml|yaml|yml)\\Z)|((.*/)?(README|Readme|readme|Makefile)\\Z))",
+  "nomination_eligible": false,
+  "stand_out": "## (1) Add a Language Model to the Decoder\n\nThe performance of the decoding step can be greatly enhanced by incorporating a language model.  Build your own language model from scratch, or leverage a repository or toolkit that you find online to improve your predictions.\n\n## (2) Train on Bigger Data\n\nIn the project, you used some of the smaller downloads from the LibriSpeech corpus.  Try training your model on some larger datasets - instead of using `dev-clean.tar.gz`, download one of the larger training sets on the [website](http://www.openslr.org/12/).\n\n## (3) Try out Different Audio Features\n\nIn this project, you had the choice to use _either_ spectrogram or MFCC features.  Take the time to test the performance of _both_ of these features.  For a special challenge, train a network that uses raw audio waveforms!",
+  "hide_criteria": false,
+  "created_at": "2018-03-16T20:56:04.856Z",
+  "updated_at": "2020-05-16T14:36:33.864Z",
+  "hashtag": "",
+  "max_upload_size_mb": 500,
+  "estimated_sla": null,
+  "project_assistant_enabled": false,
+  "checkmate_enabled": false,
+  "checkmate_metadata": null,
+  "available_for_cert_project": false,
+  "classroom_node_id": 568243,
+  "classroom_project_key": "cc9e639d-a239-48e7-8297-2e325d0d0ea3",
+  "language": "en-us",
+  "ndkeys": [
+    "nd892-ent",
+    "nd669-cn",
+    "nd892-cn-1",
+    "nd892-cn",
+    "nd892",
+    "nd892-cn-ent",
+    "nd892-beta"
+  ],
+  "coursekeys": [],
+  "sections": [
+    {
+      "id": 3868,
+      "name": "STEP 2: Model 0: RNN",
+      "created_at": "2018-05-13T21:16:46.289Z",
+      "updated_at": "2018-05-13T21:17:13.495Z",
+      "deleted_at": null,
+      "position": 0,
+      "rubric_id": 1724,
+      "rubric_items": [
+        {
+          "id": 11316,
+          "section_id": 3868,
+          "passed_description": "The submission trained the model for at least 20 epochs, and none of the loss values in `model_0.pickle` are undefined.  The trained weights for the model specified in `simple_rnn_model` are stored in `model_0.h5`.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:18:30.545Z",
+          "updated_at": "2018-05-13T21:18:46.371Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Trained Model 0",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 3869,
+      "name": "STEP 2: Model 1: RNN + TimeDistributed Dense",
+      "created_at": "2018-05-13T21:17:13.644Z",
+      "updated_at": "2018-05-13T21:17:22.854Z",
+      "deleted_at": null,
+      "position": 1,
+      "rubric_id": 1724,
+      "rubric_items": [
+        {
+          "id": 11317,
+          "section_id": 3869,
+          "passed_description": "The submission includes a `sample_models.py` file with a completed `rnn_model` module containing the correct architecture. ",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:18:46.591Z",
+          "updated_at": "2018-05-13T21:19:04.175Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Completed `rnn_model` Module",
+          "exceedable": false
+        },
+        {
+          "id": 11318,
+          "section_id": 3869,
+          "passed_description": "The submission trained the model for at least 20 epochs, and none of the loss values in `model_1.pickle` are undefined.  The trained weights for the model specified in `rnn_model` are stored in `model_1.h5`.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:19:04.379Z",
+          "updated_at": "2018-05-13T21:19:22.576Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Trained Model 1",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 3870,
+      "name": "STEP 2: Model 2: CNN + RNN + TimeDistributed Dense",
+      "created_at": "2018-05-13T21:17:23.034Z",
+      "updated_at": "2018-05-13T21:17:31.198Z",
+      "deleted_at": null,
+      "position": 2,
+      "rubric_id": 1724,
+      "rubric_items": [
+        {
+          "id": 11319,
+          "section_id": 3870,
+          "passed_description": "The submission includes a `sample_models.py` file with a completed `cnn_rnn_model` module containing the correct architecture.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:19:22.943Z",
+          "updated_at": "2018-05-13T21:19:38.588Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Completed `cnn_rnn_model` Module",
+          "exceedable": false
+        },
+        {
+          "id": 11320,
+          "section_id": 3870,
+          "passed_description": "The submission trained the model for at least 20 epochs, and none of the loss values in `model_2.pickle` are undefined.  The trained weights for the model specified in `cnn_rnn_model` are stored in `model_2.h5`.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:19:38.955Z",
+          "updated_at": "2018-05-13T21:19:56.548Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Trained Model 2",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 3871,
+      "name": "STEP 2: Model 3: Deeper RNN + TimeDistributed Dense",
+      "created_at": "2018-05-13T21:17:31.329Z",
+      "updated_at": "2018-05-13T21:17:41.455Z",
+      "deleted_at": null,
+      "position": 3,
+      "rubric_id": 1724,
+      "rubric_items": [
+        {
+          "id": 11321,
+          "section_id": 3871,
+          "passed_description": "The submission includes a `sample_models.py` file with a completed `deep_rnn_model` module containing the correct architecture.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:19:56.900Z",
+          "updated_at": "2018-05-13T21:20:10.594Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Completed `deep_rnn_model` Module",
+          "exceedable": false
+        },
+        {
+          "id": 11322,
+          "section_id": 3871,
+          "passed_description": "The submission trained the model for at least 20 epochs, and none of the loss values in `model_3.pickle` are undefined.  The trained weights for the model specified in `deep_rnn_model` are stored in `model_3.h5`.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:20:10.846Z",
+          "updated_at": "2018-05-13T21:20:25.785Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Trained Model 3",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 3872,
+      "name": "STEP 2: Model 4: Bidirectional RNN + TimeDistributed Dense",
+      "created_at": "2018-05-13T21:17:41.588Z",
+      "updated_at": "2018-05-13T21:17:52.666Z",
+      "deleted_at": null,
+      "position": 4,
+      "rubric_id": 1724,
+      "rubric_items": [
+        {
+          "id": 11323,
+          "section_id": 3872,
+          "passed_description": "The submission includes a `sample_models.py` file with a completed `bidirectional_rnn_model` module containing the correct architecture.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:20:26.080Z",
+          "updated_at": "2018-05-13T21:20:39.195Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Completed `bidirectional_rnn_model` Module",
+          "exceedable": false
+        },
+        {
+          "id": 11324,
+          "section_id": 3872,
+          "passed_description": "The submission trained the model for at least 20 epochs, and none of the loss values in `model_4.pickle` are undefined.  The trained weights for the model specified in `bidirectional_rnn_model` are stored in `model_4.h5`.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:20:39.392Z",
+          "updated_at": "2018-05-13T21:20:53.619Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Trained Model 4",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 3873,
+      "name": "STEP 2: Compare the Models",
+      "created_at": "2018-05-13T21:17:52.798Z",
+      "updated_at": "2018-05-13T21:18:09.075Z",
+      "deleted_at": null,
+      "position": 5,
+      "rubric_id": 1724,
+      "rubric_items": [
+        {
+          "id": 11325,
+          "section_id": 3873,
+          "passed_description": "The submission includes a detailed analysis of why different models might perform better than others.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:20:53.851Z",
+          "updated_at": "2018-05-13T21:21:08.989Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Question 1",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 3874,
+      "name": "STEP 2: Final Model",
+      "created_at": "2018-05-13T21:18:09.223Z",
+      "updated_at": "2018-05-13T21:18:30.398Z",
+      "deleted_at": null,
+      "position": 6,
+      "rubric_id": 1724,
+      "rubric_items": [
+        {
+          "id": 11326,
+          "section_id": 3874,
+          "passed_description": "The submission trained the model for at least 20 epochs, and none of the loss values in `model_end.pickle` are undefined.  The trained weights for the model specified in `final_model` are stored in `model_end.h5`.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:21:09.198Z",
+          "updated_at": "2018-05-13T21:21:17.088Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Trained Final Model",
+          "exceedable": false
+        },
+        {
+          "id": 11327,
+          "section_id": 3874,
+          "passed_description": "The submission includes a `sample_models.py` file with a completed `final_model` module containing a final architecture that is not identical to any of the previous architectures.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:21:17.230Z",
+          "updated_at": "2018-05-13T21:21:29.735Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Completed `final_model` Module",
+          "exceedable": false
+        },
+        {
+          "id": 11328,
+          "section_id": 3874,
+          "passed_description": "The submission includes a detailed description of how the final model architecture was designed.",
+          "exceeded_description": null,
+          "created_at": "2018-05-13T21:21:29.933Z",
+          "updated_at": "2018-05-13T21:21:48.909Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 2,
+          "criteria": "Question 2",
+          "exceedable": false
+        }
+      ]
+    }
+  ],
+  "project": {
+    "id": 314,
+    "name": "DNN Speech Recognizer",
+    "nanodegree_key": "nd889",
+    "is_cert_project": false,
+    "audit_project_id": null,
+    "hashtag": null,
+    "audit_rubric_id": 1144,
+    "entitlement_required": false,
+    "is_career": false,
+    "recruitment_family_id": 1,
+    "created_at": "2017-06-13T19:06:12.600Z",
+    "updated_at": "2020-05-31T08:51:47.452Z",
+    "price": "7.0",
+    "ungradeable_price": "3.0",
+    "audit_price": null
+  }
+}

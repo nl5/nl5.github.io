@@ -1,0 +1,1760 @@
+{
+  "data": {
+    "lesson": {
+      "id": 568240,
+      "key": "3c20697b-fd12-4ac8-afe3-fc8f80b932d4",
+      "title": "Speech Recognition",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Learn how an ASR pipeline works.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/3c20697b-fd12-4ac8-afe3-fc8f80b932d4/568240/1544465349920/Speech+Recognition+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/3c20697b-fd12-4ac8-afe3-fc8f80b932d4/568240/1544465345811/Speech+Recognition+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 297387,
+          "key": "b6f01605-3ae5-4319-8d5e-e97516bea815",
+          "title": "Intro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b6f01605-3ae5-4319-8d5e-e97516bea815",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339673,
+              "key": "e73f1ab5-4000-4631-a33b-792f6ad1331d",
+              "title": "Introduction to Speech Recognition",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "EcsLCpnGBGs",
+                "china_cdn_id": "EcsLCpnGBGs.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330518,
+          "key": "bf895442-7584-420f-a9ac-324dc5af1160",
+          "title": "Challenges in ASR",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bf895442-7584-420f-a9ac-324dc5af1160",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339674,
+              "key": "40a3095f-d6cd-477f-8936-f10c7d3aa22a",
+              "title": "Challenges in ASR",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "59nKRkvk6As",
+                "china_cdn_id": "59nKRkvk6As.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297394,
+          "key": "71b0adfa-7242-44d9-a4f3-c8a1a7743961",
+          "title": "Signal Analysis",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "71b0adfa-7242-44d9-a4f3-c8a1a7743961",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339690,
+              "key": "eab08c2e-f504-4518-a91b-3590d6b4c1b7",
+              "title": "Signal Analysis",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "AJKKQJZsb7o",
+                "china_cdn_id": "AJKKQJZsb7o.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330520,
+          "key": "f95ecbe2-64c3-4317-9038-882b09156d52",
+          "title": "References: Signal Analysis",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f95ecbe2-64c3-4317-9038-882b09156d52",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 331266,
+              "key": "e2dc5a8c-4a17-4a27-b057-357b32c2eece",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# References: Signal Analysis\n\n### Sound\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336236,
+              "key": "483d082c-fe2f-4158-a60e-2ff7f7576757",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594ab275_sound/sound.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/483d082c-fe2f-4158-a60e-2ff7f7576757",
+              "caption": "",
+              "alt": null,
+              "width": 797,
+              "height": 572,
+              "instructor_notes": null
+            },
+            {
+              "id": 336237,
+              "key": "2e6eced3-9218-47ba-98af-68561ae1c063",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Excellent explanations and definitions for vibration, frequency, sound waves, etc. can be found in [Wikipedia](https://en.wikipedia.org/wiki/Sound).\n\n### Signal Analysis",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336238,
+              "key": "4831f0ab-cd11-43e4-a626-974d2730fd72",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594ab2b8_helloworld-signal/helloworld-signal.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4831f0ab-cd11-43e4-a626-974d2730fd72",
+              "caption": "",
+              "alt": null,
+              "width": 804,
+              "height": 465,
+              "instructor_notes": null
+            },
+            {
+              "id": 336239,
+              "key": "e323a12c-5a4f-46ca-b1a4-cd24dc44a145",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Signal analysis in our context refers to the audio signal produced by speech. Sound vibrations cause pressure waves in the air that can be detected with a microphone and transduced into a signal.  Detailed coverage of the topic as related to Speech Recognition can be found in the following:\n\n[Cassidy, Steve. \"Speech recognition.\" Sydney Australia (2002): Chapter 3.](http://web.science.mq.edu.au/~cassidy/comp449/html/ch03.html)\n\n### Fourier Analysis\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336240,
+              "key": "84f3b5e3-de7c-4387-a67a-f4d98c6c66a1",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594ab2e9_fourier-analysis/fourier-analysis.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/84f3b5e3-de7c-4387-a67a-f4d98c6c66a1",
+              "caption": "",
+              "alt": null,
+              "width": 543,
+              "height": 270,
+              "instructor_notes": null
+            },
+            {
+              "id": 336241,
+              "key": "4a250e50-48cc-4bd9-9d05-e691fe37e0ab",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Fourier Analysis is the study decomposing mathematical functions into sums of simpler trigonometric functions. Since sound is comprised of oscillating vibrations, we can use Fourier analysis, and Fourier transforms to decompose an audio signal into component sinusoidal functions at varying frequencies.  The following website explains the process:\n\n[Fourier Transforms – the most important tool in mathematics?. (2014). IB Maths Resources from British International School Phuket. ](https://ibmathsresources.com/2014/08/14/fourier-transforms-the-most-important-tool-in-mathematics/)\n\n### Spectrograms\n\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336242,
+              "key": "bd432874-b5d8-45d2-a1d5-e732be6f8145",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594ab318_helloworld-spectrogram/helloworld-spectrogram.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/bd432874-b5d8-45d2-a1d5-e732be6f8145",
+              "caption": "",
+              "alt": null,
+              "width": 856,
+              "height": 397,
+              "instructor_notes": null
+            },
+            {
+              "id": 336243,
+              "key": "9a1a4400-fdf9-4646-8e6c-a4b2c81822a5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A spectrogram is the frequency domain representation of the audio signal through time.  It's created by splitting the audio signal into component frequencies and plotting them with respect to time.  The intensity of color in the spectrogram at any given point indicates the amplitude of the signal.  The following reference includes interesting slides showing how sounds in spectrograms can be \"read\" by experts.\n\n[Marcus, Mitch. \"CIS 391 Artificial Intelligence.\" Philadelphia (2015). Seas.upenn.edu.](http://www.seas.upenn.edu/~cis391/Lectures/speech-rec.pdf)\n\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 330521,
+          "key": "e4c7874e-ffc0-47ac-83bc-6082a80540d3",
+          "title": "Quiz: FFT",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e4c7874e-ffc0-47ac-83bc-6082a80540d3",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 331269,
+              "key": "e3fd0a45-d979-4400-a002-2ee298fb2577",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Fast Fourier Transforms\nAn [FFT](https://en.wikipedia.org/wiki/Fast_Fourier_transform), or Fast Fourier Transform, is an efficient implementation of a Discrete Fourier Transform.  The algorithm transforms a sum of sinusoidal signals into into its pure frequency components.  In the following quiz, we will demonstrate adding sinusoidal waves together and then deconstructing them back into their component frequencies.  ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 331272,
+              "key": "5f73df89-7de2-4b78-98b3-d5af71ebdb42",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59442862_sum-of-components/sum-of-components.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5f73df89-7de2-4b78-98b3-d5af71ebdb42",
+              "caption": "",
+              "alt": null,
+              "width": 640,
+              "height": 476,
+              "instructor_notes": null
+            },
+            {
+              "id": 331451,
+              "key": "b33b8ce9-4234-4cef-a098-36669164df3d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Instructions\n\n##### `choose_frequencies`\nIn the first definition, `choose_frequencies`, choose three frequencies in a range from 1 to 50.  These are the number of full cycles each sinusoidal wave will have in one \"time unit\".  Running the definition will produce a visual of the three chosen frequencies as well as a new wave that is the sum of the three.  This is similar to an acoustic signal, which is the sum of many sinusoidal waves.  The waves may have different phases and amplitudes as well.  Here's an example of a choice of (3, 8, 1) for the three frequencies.\n\n##### `add_the_waves`\nThe second definition is where the waves are created.  For this demonstration, we will only create three.  This has been done for you with the `utils.make_waves` function - take a look at to understand how it works. You just need to add them together.  This simulates an audio signal, which is really just sinusoidal waves added together.  In audio signals, the sinusoidal waves are created by sound vibrations and may be at varying amplitudes and phase as well as frequency.  To simulate this variety, the `utils.make_waves` function provides random amplitudes and phase shifts.\n\n##### `demo_fft`\nAn FFT can be created with a variety of library functions including [scipy.fftpack.fft](https://docs.scipy.org/doc/scipy-0.19.0/reference/generated/scipy.fftpack.fft.html) , which we'll use in this quiz.  Read the linked reference to understand how to use it in code.  \n\nThis FFT algorithm will create both positive and negative values, but we'll just display the positive ones.  When you're done, you should see something like the following, showing peaks at the three frequency values originally provided!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 331452,
+              "key": "dea9a168-62cd-466f-a29c-b271d102b0ef",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5945b44d_fft/fft.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/dea9a168-62cd-466f-a29c-b271d102b0ef",
+              "caption": "",
+              "alt": null,
+              "width": 640,
+              "height": 476,
+              "instructor_notes": null
+            },
+            {
+              "id": 331273,
+              "key": "26af5f6b-56c6-4796-a196-5653183e807e",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "26af5f6b-56c6-4796-a196-5653183e807e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "FFT Quiz",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5586749244964864",
+                "initial_code_files": [
+                  {
+                    "text": "import numpy as np\r\nimport scipy.fftpack\r\nimport utils as utils\r\n\r\ndef choose_frequencies():\r\n    \"\"\"\r\n    # provide three frequencies in a range between 1 and 50    \r\n    :return: [int, int, int]\r\n    \"\"\"\r\n    # *** TODO provide three frequencies between 1 and 50\r\n    freq1 = None\r\n    freq2 = None\r\n    freq3 = None\r\n    # end TODO\r\n\r\n    return [freq1, freq2, freq3]\r\n\r\n\r\ndef add_the_waves(freqs):\r\n    \"\"\"\r\n    create three sinusoidal waves and one wave that is the sum of the three\r\n    :param freqs: [int, int, int]\r\n    :return: [np.array, np.array, np.array, np.array]\r\n        representing wave1, wave2, wave3, sum of waves\r\n        each array contains 500(by default) discrete values for plotting a sinusoidal\r\n    \"\"\"\r\n    _, _, t = utils.get_wave_timing()\r\n    w1, w2, w3 = utils.make_waves(t, freqs)\r\n\r\n    # TODO sum the waves together to form sum_waves\r\n    sum_waves = None\r\n    # end TODO\r\n\r\n    return [w1, w2, w3, sum_waves]\r\n\r\n\r\ndef demo_fft(sum_waves):\r\n    num_samples, spacing, _ = utils.get_wave_timing()\r\n\r\n    # TODO create a Fast Fourier Transform of the waveform using scipy.fftpack.fft\r\n    # named 'y_fft'\r\n    y_fft = None\r\n    # end TODO\r\n\r\n    x_fft = np.linspace(0.0, 1.0/spacing, num_samples)\r\n    return x_fft, y_fft",
+                    "name": "function.py"
+                  },
+                  {
+                    "text": "import matplotlib.pyplot as plt\r\nimport numpy as np\r\n\r\ndef sinusoid(freq):\r\n    \"\"\"\r\n    return a sinusoidal of random amplitude and phase for a given frequency\r\n    :param freq: \r\n    :return: \r\n    \"\"\"\r\n    phase = np.random.random()\r\n    amplitude = 2 * (np.random.random_integers(1, 10))\r\n    return amplitude * np.cos(2 * np.pi * freq - phase)\r\n\r\n\r\ndef get_wave_timing(num_samples=500, range_of_time = 5.0):\r\n    \"\"\"\r\n    provide an array of time values of size num_samples spread evenly over range_of_time\r\n    :param num_samples: int \r\n    :param range_of_time: float\r\n    :return: int, float, np.array\r\n    \"\"\"\r\n    # sample spacing\r\n    spacing = range_of_time / num_samples\r\n    # array for time samples\r\n    t = np.linspace(0.0, range_of_time, num_samples)\r\n    return num_samples, spacing, t\r\n\r\n\r\ndef make_waves(t, freqs):\r\n    \"\"\"\r\n    convert three frequencies into arrays of discrete values representing sinusoidal waves\r\n    :param freqs: [float, float, float]\r\n    :return: [np.array, np.array, np.array]\r\n    \"\"\"\r\n    w0 = sinusoid(t * freqs[0])\r\n    w1 = sinusoid(t * freqs[1])\r\n    w2 = sinusoid(t * freqs[2])\r\n    return w0, w1, w2\r\n\r\n\r\n# def display_sinusoids(time_array, f1, f2, f3, sum):\r\n#     # plot three frequencies with random phase shifts on y axis\r\n#     # plt.figure()\r\n#     fig, ax = plt.subplots(4, 1)\r\n#     # plt.subplot(411)  # 3 rows, 1 column, fignum 1\r\n#     ax[0].plot(time_array, f1)\r\n#     ax[0].set_title('1st frequency component')\r\n\r\n#     # plt.subplot(412)  # 3 rows, 1 column, fignum 2\r\n#     ax[1].plot(time_array, f2)\r\n#     ax[1].set_title('2nd frequency component')\r\n\r\n#     # plt.subplot(413)  # 3 rows, 1 column, fignum 3\r\n#     ax[2].plot(time_array, f3)\r\n#     ax[2].set_title('3rd frequency component')\r\n\r\n#     # sum\r\n#     # plt.subplot(414)  # 3 rows, 1 column, fignum 4\r\n#     ax[3].plot(time_array, sum, 'r')\r\n#     ax[3].set_title('Sum of components')\r\n#     ax[3].set_ylabel('amplitude')\r\n#     ax[3].set_xlabel('time')\r\n\r\n#     # adjust format of display to make room for titles\r\n#     plt.subplots_adjust(\r\n#         top=0.94,\r\n#         bottom=0.11,\r\n#         left=0.11,\r\n#         right=0.97,\r\n#         hspace=0.65,\r\n#         wspace=0.2\r\n#     )\r\n#     # plt.show()\r\n#     return fig\r\n\r\n\r\n# def display_fft(xf, yf):\r\n#     num_samples = np.shape(yf)[0]\r\n#     fig, ax = plt.subplots()\r\n#     ax.plot(xf, 2.0 / num_samples * np.abs(yf[:num_samples // 2]))\r\n#     plt.title('Fast Fourier Transform')\r\n#     plt.xlabel('frequency')\r\n#     plt.ylabel('amplitude')\r\n#     return fig\r\n",
+                    "name": "utils.py"
+                  },
+                  {
+                    "text": "import numpy as np\r\nimport scipy.fftpack\r\nimport utils as utils\r\n\r\ndef choose_frequencies():\r\n    \"\"\"\r\n    # provide three frequencies in a range between 1 and 50    \r\n    :return: [int, int, int]\r\n    \"\"\"\r\n    # *** TODO provide three frequencies between 1 and 50\r\n    freq1 = 1\r\n    freq2 = 5\r\n    freq3 = 25\r\n    # end TODO\r\n\r\n    return [freq1, freq2, freq3]\r\n\r\n\r\ndef add_the_waves(freqs):\r\n    \"\"\"\r\n    create three sinusoidal waves and one wave that is the sum of the three\r\n    :param freqs: [int, int, int]\r\n    :return: [np.array, np.array, np.array, np.array]\r\n        representing wave1, wave2, wave3, sum of waves\r\n        each array contains 500(by default) discrete values for plotting a sinusoidal\r\n    \"\"\"\r\n    _, _, t = utils.get_wave_timing()\r\n    w1, w2, w3 = utils.make_waves(t, freqs)\r\n\r\n    # TODO sum the waves together to form sum_waves\r\n    sum_waves = w1+w2+w3\r\n    # end TODO\r\n\r\n    return [w1, w2, w3, sum_waves]\r\n\r\n\r\ndef demo_fft(sum_waves):\r\n    num_samples, spacing, _ = utils.get_wave_timing()\r\n\r\n    # TODO create a Fast Fourier Transform of the waveform using scipy.fftpack.fft\r\n    # named 'y_fft'\r\n    y_fft = scipy.fftpack.fft(sum_waves)\r\n    # end TODO\r\n\r\n    x_fft = np.linspace(0.0, 1.0/spacing, num_samples)\r\n    return x_fft, y_fft",
+                    "name": "solution.py"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 330519,
+          "key": "b2dc6d07-ad55-4c2d-867f-2d6b476d3054",
+          "title": "Feature Extraction with MFCC",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b2dc6d07-ad55-4c2d-867f-2d6b476d3054",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339678,
+              "key": "2dbf3a76-615a-409d-9107-8442fc64ee71",
+              "title": "Feature Extraction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "qEPu5nQ4IMg",
+                "china_cdn_id": "qEPu5nQ4IMg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330522,
+          "key": "c15deb5a-7e36-4909-b09a-1e7d8cc2915c",
+          "title": "References: Feature Extraction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c15deb5a-7e36-4909-b09a-1e7d8cc2915c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 336056,
+              "key": "06f427f0-272d-40b4-b07e-1f70bf1b956e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# References: Feature Extraction\n\n### Feature Extraction\nA summary of methods used in ASR:\n\n[Narang, Shreya, and Ms Divya Gupta. \"Speech Feature Extraction Techniques: A Review.\" International Journal of Computer Science and Mobile Computing 4.3 (2015): 107-114.](http://www.ijcsmc.com/docs/papers/March2015/V4I3201545.pdf)\n\n### Mel Scale\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336143,
+              "key": "04ede8cb-5c1b-4c50-8ba5-b7be8868650e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594aa241_mel-scale/mel-scale.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/04ede8cb-5c1b-4c50-8ba5-b7be8868650e",
+              "caption": "",
+              "alt": null,
+              "width": 640,
+              "height": 472,
+              "instructor_notes": null
+            },
+            {
+              "id": 336144,
+              "key": "538cbe4d-81ed-4687-9e82-fb07693a295b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The Mel Scale was developed in 1937 and is based on human studies of pitch perception.  At lower pitches (frequencies), humans can distinguish pitches better.  Read more about it in [Wikipedia](https://en.wikipedia.org/wiki/Mel_scale)\n\n### The Source/Filter Model",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336145,
+              "key": "6bd8e659-6d15-435f-b63e-e4657cc2ea95",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594aa275_source-filter-model/source-filter-model.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6bd8e659-6d15-435f-b63e-e4657cc2ea95",
+              "caption": "",
+              "alt": null,
+              "width": 1536,
+              "height": 938,
+              "instructor_notes": null
+            },
+            {
+              "id": 336146,
+              "key": "9187f9cb-6e56-45e2-b605-bb3614ac0c68",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The source/filter model holds that the \"source\" of voices speech is dependent upon the vibrations initiated in the vocal box, and is unique to the speaker, while the \"filter\" is the articulation of the words in the forward part of the voice tract.  The two can be separated through Cepstrum Analysis.  A detailed explanation of the Source/Filter model for speech can be found at:\n\n[Cassidy, Steve. \"Speech recognition.\" Sydney Australia (2002): Chapter 7.](http://web.science.mq.edu.au/~cassidy/comp449/html/ch07.html#d0e1094)\n\n### Cepstral Analysis\nThe source/filter model motivates Cepstral Analysis. The intuition is that the \"source\" <span class=\"mathquill\">e(n)</span> is multiplied by the \"filter\" <span class=\"mathquill\">h(n)</span> to form the signal, <span class=\"mathquill\">s(n)</span>:\n\n<span class=\"mathquill\">s(n) = e(n)\\times h(n)</span>\n\nThis signal can be converted to the frequency domain through a discrete Fourier transform, or DFT (can use the FFT algorithm):\n\n<span class=\"mathquill\">\\left |S(\\omega)  \\right |  = \\left |E(\\omega)  \\right | \\cdot \\left |H(\\omega)  \\right |</span>\n\nTake the log and we can just add the source and filter instead of multiplying:\n\n<span class=\"mathquill\">\\log\\left |S(\\omega)  \\right |  = \\log\\left |E(\\omega)  \\right |+\\log\\left |H(\\omega)  \\right |</span>\n\nHere's where it gets a bit tricky.  By taking the inverse discrete Fourier transform, or IDFT, the signal can be split.  This is the cepstrum  <span class=\"mathquill\">c(n)</span> .  Here's the final equation:\n\n<span class=\"mathquill\">c(n) = IDFT(\\log\\left |S(\\omega)  \\right |)  = IDFT(\\log\\left |E(\\omega)  \\right |+\\log\\left |H(\\omega)  \\right |)</span>\n\nBecause we are splitting the logs of the frequencies, this is not the same as the original time domain, but rather now called the *quefrency* or *cepstral* domain.  The vocal tract, or filter components that we want, can be extracted now because they vary slowly and are concentrated in the lower quefrency region.\n\nRead more in the following thorough treatment complete with diagrams:\n\n[Cepstral Analysis of Speech (Theory) : Speech Signal Processing Laboratory : Electronics & Communications : IIT GUWAHATI Virtual Lab](http://iitg.vlab.co.in/?sub=59&brch=164&sim=615&cnt=1)\n\n### MFCC\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336158,
+              "key": "5b6521d7-f0f3-415c-ae10-d0760abccd6e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594aa505_mfcc/mfcc.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5b6521d7-f0f3-415c-ae10-d0760abccd6e",
+              "caption": "",
+              "alt": null,
+              "width": 965,
+              "height": 290,
+              "instructor_notes": null
+            },
+            {
+              "id": 336159,
+              "key": "dc2540b1-3466-4e68-ac6d-164c8fe05997",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Mel Frequency Cepstrum Coefficient Analysis is the reduction of an audio signal to essential speech component features using both mel frequency analysis and cepstral analysis.  The range of frequencies are reduced and binned into groups of frequencies that humans can distinguish.  The signal is further separated into source and filter so that variations between speakers unrelated to articulation can be filtered away.  The following reference provides nice visualizations of the process of audio->spectrogram->MFCC:\n\n[Prahallad, Kishore. \"Speech Technology: A Practical Introduction, topic: Spectrogram, Cepstrum and Mel-Frequency Analysis.\" Carnegie Mellon University](http://www.speech.cs.cmu.edu/15-492/slides/03_mfcc.pdf) \n\n### MFCC Deltas and Delta-Deltas\nIntuitively, it makes sense that changes in frequencies, *deltas*, and changes in changes in frequencies, *delta-deltas*, might also be meaningful features in speech recognition.  The following succinct tutorial for MFCC's includes a short discussion on deltas and delta-deltas:\n\n[Mel Frequency Cepstral Coefficient (MFCC) tutorial. Practical Cryptography](http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/) ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 331182,
+          "key": "437aaf7b-2d01-4086-afff-56a0dd7b158a",
+          "title": "Quiz: MFCC",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "437aaf7b-2d01-4086-afff-56a0dd7b158a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 336569,
+              "key": "73ff0085-d9fb-4c1f-bb11-45b6f3e3c2bb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Mel Frequency Cepstral Coefficients (MFCC)\n[MFCC](http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/) feature extraction is complicated to explain, but easy to implement with available libraries.\n\nIn this short quiz, you'll write a function that converts a `.wav` file to MFCC features.  You'll need a way to extract the signal from the wave file and then a method\nto convert the signal to MFCC.  Here are the resources you need to write your function:\n\n* [scipy.io.wavfile.read](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.wavfile.read.html) (to extract the signal)\n* [python_speech_features.mfcc](http://python-speech-features.readthedocs.io/en/latest/) (to convert to MFCC)\n\nWhen you succeed in returning the correct file, you will \"see\" the MFCC spectrum in the output similar to the following:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336570,
+              "key": "99f01f4d-a2e8-4da6-ace7-f10b6d079539",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594af530_raw-audio/raw-audio.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/99f01f4d-a2e8-4da6-ace7-f10b6d079539",
+              "caption": "",
+              "alt": null,
+              "width": 1200,
+              "height": 296,
+              "instructor_notes": null
+            },
+            {
+              "id": 339927,
+              "key": "64dd76e9-69da-4047-b7f2-3b0dfbf3fa3c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59513c88_normalized-mfcc/normalized-mfcc.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/64dd76e9-69da-4047-b7f2-3b0dfbf3fa3c",
+              "caption": "",
+              "alt": null,
+              "width": 1200,
+              "height": 496,
+              "instructor_notes": null
+            },
+            {
+              "id": 336538,
+              "key": "a7a00336-26d2-440d-92a3-99d40babb325",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "a7a00336-26d2-440d-92a3-99d40babb325",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Mel Frequency Cepstral Coefficients (MFCC)",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5784001070628864",
+                "initial_code_files": [
+                  {
+                    "text": "from python_speech_features import mfcc\r\nimport scipy.io.wavfile as wav\r\n\r\n\r\ndef wav_to_mfcc(wav_filename, num_cepstrum):\r\n    \"\"\" extract MFCC features from a wav file\r\n\r\n    :param wav_filename: filename with .wav format\r\n    :param num_cepstrum: number of cepstrum to return\r\n    :return: MFCC features for wav file\r\n    \"\"\"\r\n\r\n    # TODO implement\r\n    raise NotImplementedError\r\n\r\n\r\n",
+                    "name": "function.py"
+                  },
+                  {
+                    "text": "from python_speech_features import mfcc\r\nimport scipy.io.wavfile as wav\r\n\r\n\r\ndef wav_to_mfcc(wav_filename, num_cepstrum):\r\n    \"\"\" extract MFCC features from a wav file\r\n    \r\n    :param wav_filename: filename with .wav format\r\n    :param num_cepstrum: number of cepstrum to return\r\n    :return: MFCC features for wav file\r\n    \"\"\"\r\n    (rate, sig) = wav.read(wav_filename)\r\n    mfcc_features = mfcc(sig, rate, numcep=num_cepstrum)\r\n    return mfcc_features\r\n",
+                    "name": "solution.py"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 297393,
+          "key": "0078c73e-8c41-47cb-b66e-560958b01c4b",
+          "title": "Phonetics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0078c73e-8c41-47cb-b66e-560958b01c4b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339679,
+              "key": "8066108c-34f7-4c9f-acbe-17f0d6826d7d",
+              "title": "Phonetics",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "v3lz8t0ZWnQ",
+                "china_cdn_id": "v3lz8t0ZWnQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297395,
+          "key": "940efacc-3166-48ce-a8a7-6453eaedb43a",
+          "title": "References: Phonetics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "940efacc-3166-48ce-a8a7-6453eaedb43a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 336501,
+              "key": "ce00141d-95bb-4af1-a840-bc023911a5fa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# References: Phonetics",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336502,
+              "key": "42395b79-de54-4d40-83ee-19eefc6d8881",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/594ad329_phonetics/phonetics.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/42395b79-de54-4d40-83ee-19eefc6d8881",
+              "caption": "",
+              "alt": null,
+              "width": 175,
+              "height": 64,
+              "instructor_notes": null
+            },
+            {
+              "id": 336503,
+              "key": "bffdc29c-6330-46d2-8c72-c3d0953a6e60",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "[Phonetics](https://en.wikipedia.org/wiki/Phonetics) is a branch of linguistics for the study of sounds of human speech: physical properties, production, acoustics, articulation, etc.\n\n### Phoneme\nIn any given language, a [phoneme](https://en.wikipedia.org/wiki/Phoneme) is the smallest sound segment that can be used to distinguish one word from another.  For example \"bat\" and \"chat\" have only one sound different but this changes the word.  The phonemes in question are \"B\" and \"CH\".  What exactly these are and how many exist varies a bit and may be influenced by accents included.  Generally, US English consists of 39 to 44 phonemes.  See ARPAbet below for more phoneme examples.\n\n### Grapheme\nThe definition of a [grapheme](https://en.wikipedia.org/wiki/Grapheme) is somewhat inconsistent in the literature.  In our context, a grapheme is the smallest symbol that distinguishes one written word from another.  For example, \"bat\" and \"chat\" have a difference of two graphemes, even though \"CH\" is considered to be a single phoneme.  In US English, 26 letters and a space combine for 27 possible graphemes. \n\n### Lexicon\nA lexicon for speech recognition is a lookup file for converting speech parts to words.  An example of this is [cmudict](http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/sphinxdict/cmudict_SPHINX_40), the Carnegie Mellon tool for speech recognition compatible with the open source [Sphinx](https://cmusphinx.github.io/) project.  Here's a short excerpt:\n\n```text\nAARDVARK\tAA R D V AA R K\nAARON\tEH R AH N\nAARON'S\tEH R AH N Z\nAARONS\tEH R AH N Z\nAARONSON\tEH R AH N S AH N\nAARONSON'S\tEH R AH N S AH N Z\nAARONSON'S(2)\tAA R AH N S AH N Z\nAARONSON(2)\tAA R AH N S AH N\n...\n```\n\n### ARPAbet\nA set of phonemes developed by the Advanced Research Projects Agency(ARPA) for the Speech Understanding Project (1970's).\n\n[ARPAnet on Wikipedia](https://en.wikipedia.org/wiki/Arpabet)\n[ARPAnet dictionary at CMU](http://www.speech.cs.cmu.edu/cgi-bin/cmudict):\n\n|\tPhoneme\t|\tExample\t|\tTranslation   \t|\n|\t---\t|\t---\t|\t---\t|\n|\tAA\t|\todd\t|\tAA D  \t|\n|\tAE\t|\tat\t|\tAE T  \t|\n|\tAH\t|\thut\t|\tHH AH T \t|\n|\tAO\t|\tought\t|\tAO T  \t|\n|\tAW\t|\tcow\t|\tK AW  \t|\n|\tAY\t|\thide\t|\tHH AY D \t|\n|\tB\t|\tbe\t|\tB IY  \t|\n|\tCH\t|\tcheese\t|\tCH IY Z \t|\n|\tD\t|\tdee\t|\tD IY  \t|\n|\tDH\t|\tthee\t|\tDH IY  \t|\n|\tEH\t|\tEd\t|\tEH D  \t|\n|\tER\t|\thurt\t|\tHH ER T \t|\n|\tEY\t|\tate\t|\tEY T  \t|\n|\tF\t|\tfee\t|\tF IY  \t|\n|\tG\t|\tgreen\t|\tG R IY N\t|\n|\tHH\t|\the\t|\tHH IY  \t|\n|\tIH\t|\tit\t|\tIH T  \t|\n|\tIY\t|\teat\t|\tIY T  \t|\n|\tJH\t|\tgee\t|\tJH IY  \t|\n|\tK\t|\tkey\t|\tK IY  \t|\n|\tL\t|\tlee\t|\tL IY  \t|\n|\tM\t|\tme\t|\tM IY  \t|\n|\tN\t|\tknee\t|\tN IY  \t|\n|\tNG\t|\tping\t|\tP IH NG \t|\n|\tOW\t|\toat\t|\tOW T  \t|\n|\tOY\t|\ttoy\t|\tT OY  \t|\n|\tP\t|\tpee\t|\tP IY  \t|\n|\tR\t|\tread\t|\tR IY D \t|\n|\tS\t|\tsea\t|\tS IY  \t|\n|\tSH\t|\tshe\t|\tSH IY  \t|\n|\tT\t|\ttea\t|\tT IY  \t|\n|\tTH\t|\ttheta\t|\tTH EY T AH\t|\n|\tUH\t|\thood\t|\tHH UH D \t|\n|\tUW\t|\ttwo\t|\tT UW  \t|\n|\tV\t|\tvee\t|\tV IY  \t|\n|\tW\t|\twe\t|\tW IY  \t|\n|\tY\t|\tyield\t|\tY IY L D\t|\n|\tZ\t|\tzee\t|\tZ IY  \t|\n|\tZH\t|\tseizure\t|\tS IY ZH ER\t|\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 297396,
+          "key": "55d0af08-cb6a-4c9d-80c2-b646112124cc",
+          "title": "Quiz: Phonetics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "55d0af08-cb6a-4c9d-80c2-b646112124cc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 336513,
+              "key": "4f19ce4f-fd7b-438b-9b0a-d2cbfa911d84",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Phonemes vs Graphemes",
+              "instructor_notes": ""
+            },
+            {
+              "id": 336507,
+              "key": "415ebbbf-9785-4861-8748-26f2fbc26223",
+              "title": "Phonemes vs Graphemes",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "415ebbbf-9785-4861-8748-26f2fbc26223",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "A [pangram](https://en.wikipedia.org/wiki/Pangram) is a sentence using every letter of a given alphabet at least once.  A *phonetic pangram* is a sentence that uses every *phoneme* at least once.  The sentences below are a mixture of regular (grapheme-based) pangrams and phonetic (phoneme-based) pangrams.  Place a check beside all the phonetic pangrams.",
+                "answers": [
+                  {
+                    "id": "a1498077125186",
+                    "text": "How vexingly quick daft zebras jump!",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498077447828",
+                    "text": "Crazy Fredrick bought many very exquisite opal jewels.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498077448997",
+                    "text": "The hungry purple dinosaur ate the kind, zingy fox, the jabbering crab, and the mad whale and started vending and quacking.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498077449831",
+                    "text": "The quick brown fox jumps over the lazy dog.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498077579894",
+                    "text": "The beige hue on the waters of the loch impressed all, including the French queen, before she heard that symphony again, just as young Arthur wanted.",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 331183,
+          "key": "7080c29d-1e60-4fe9-81a7-a5657c378ebd",
+          "title": "Voice Data Lab Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7080c29d-1e60-4fe9-81a7-a5657c378ebd",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339680,
+              "key": "8f7d3525-402f-4633-adc3-8477fc700688",
+              "title": "Voice Data Lab Introduction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9072Yx9hOXk",
+                "china_cdn_id": "9072Yx9hOXk.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297399,
+          "key": "fb423082-b406-44e9-8f3b-fb5697346d10",
+          "title": "Lab: Voice Data",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "fb423082-b406-44e9-8f3b-fb5697346d10",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340343,
+              "key": "6da81e41-5f88-475a-ac2e-b7abd75b4d7b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Lab: Voice Data\n\nThe purpose of this lab is to gain familiarity with speech data you might use to train an Automatic Speech Recognition (ASR) system.  In the following steps, you'll:\n*  Explore the LibriSpeech data set and format\n*  Create your own audio files\n* Build your own audio data set\n\nAs you complete each step , check it off in the task list that follows:\n# Lab Task List\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340344,
+              "key": "0d74e66c-5632-49ca-8969-355b3aa5494f",
+              "title": "",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "0d74e66c-5632-49ca-8969-355b3aa5494f",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "Clone the  [AIND-VUI-Lab-Voice-Data](https://github.com/udacity/AIND-VUI-Lab-Voice-Data) repository",
+                "Visit the LibriSpeech web site",
+                "Complete the LibriSpeech Corpus Quiz",
+                "Extract and explore `LibriSpeech_Samples.zip`",
+                "Complete the LibriSpeech Data Quiz",
+                "Install the Sonic Visualizer",
+                "Create five `.wav` files of about a sentence each",
+                "View a spectrogram of your audio",
+                "Create data set: Step 1 - convert and structure",
+                "Create data set: Step 2 - add utterances",
+                "Create data set: Step 3 - create .json file needed for processing"
+              ],
+              "positive_feedback": "Great job!  You've created a mini-data set in a format for ASR training and testing!",
+              "video_feedback": null,
+              "description": ""
+            },
+            {
+              "id": 340353,
+              "key": "0c98f8c2-92b0-4df0-801c-a9418ccff5b0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Clone the repository  \nTo get started, clone or download the lab repository at  [AIND-VUI-Lab-Voice-Data](https://github.com/udacity/AIND-VUI-Lab-Voice-Data). The repository contains some data and utility files for you to use in this lab.  \n\n## Visit the [LibriSpeech corpus](http://www.openslr.org/12/)  web site.  \nReview the information found on the site landing page to answer the following quiz question.\n\n## LibriSpeech Corpus Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340352,
+              "key": "1c8d0aed-83d4-470a-a255-88a084a11fab",
+              "title": "Title",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "1c8d0aed-83d4-470a-a255-88a084a11fab",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which of the following are true about the LibriSpeech data set?",
+                "answers": [
+                  {
+                    "id": "a1498537435199",
+                    "text": "The data set consists of 1000 hours of speech",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498537577267",
+                    "text": "The data set costs $0.10 per hour of speech downloaded",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498537625134",
+                    "text": "The data set is free to use",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498537639204",
+                    "text": "The data set is segmented",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498537661751",
+                    "text": "The data set includes French and Spanish",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498537691414",
+                    "text": "The data set is in English",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498537705844",
+                    "text": "The data set is appropriate for large scale speech training",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 340354,
+              "key": "37a14c04-b0c6-4bfa-a439-dd441e43b2aa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Extract and explore **LibriSpeech_Samples**\n\nExtract the **LibriSpeech_Samples** directory from the `LibriSpeech_Samples.zip` file in the **AIND-VUI-Lab-Voice-Data** directory.  This sample includes the `README.TXT`, `BOOKS.TXT`, `CHAPTERS.TXT`, and `SPEAKERS.TXT` information files for you to explore.  In addition, it contains a single path of data through **dev-clean/1993/147965/[1993-147965.trans.txt, 1993-147965-0000.wav, ...]**.  \"1993\" is the speaker number and  \"147965\" is the chapter number.  You can look up which speakers and chapters these files correspond to in the information files.  Within the chapter directory, there are `.wav` audio files and one transcription file.  \n\nThe full LibriSpeech data sets are much larger, with many more speakers and chapters.  There are `.flac` files rather than `.wav` files, which would need to be converted.  This has been done for you for the lab.  You will work with the larger corpus data set when you get to the Capstone project.\n\nRefer to the **LibriSpeech_Samples** files to answer the following quiz.\n\n ## LibriSpeech Data Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340369,
+              "key": "429bac0a-276e-4a9c-b877-b24c11a785d4",
+              "title": "",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "429bac0a-276e-4a9c-b877-b24c11a785d4",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Explore the LibriSpeech sampler and check all the following *true* statements about it.",
+                "answers": [
+                  {
+                    "id": "a1498538384956",
+                    "text": "The speaker is named Dawn",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498540317744",
+                    "text": "The speaker is named Amanda",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498540336295",
+                    "text": "The speaker is named Wendy",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498540360052",
+                    "text": "The book that is being read from is \"Frankenstein\"",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498540509706",
+                    "text": "The book that is being read from is \"My Antonia\"",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498540555635",
+                    "text": "The book that is being read from is \"Pollyanna\"",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1498540578013",
+                    "text": "The transcripts have no punctuation other than apostrophes",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1498540616999",
+                    "text": "The transcripts are entirely in upper case",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 340371,
+              "key": "54dfb596-16fc-4d64-9b39-aed7d323e9ea",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Sonic Visualizer\nDownload and install the free [Sonic Visualizer](http://www.sonicvisualiser.org/).  \n\nOpen the **Sonic Visualizer** application.  The controls are fairly straightforward and include a red button for recording and the usual array of play buttons.  Note the \"Solo Current Pane\" button, shown here with a red arrow, which will come in handy if you want to play back a single snippet when several are open.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340373,
+              "key": "ae6d657a-1f2d-4756-9ae2-c86df147ee5c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5951ed2c_sv-controls/sv-controls.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ae6d657a-1f2d-4756-9ae2-c86df147ee5c",
+              "caption": "",
+              "alt": null,
+              "width": 734,
+              "height": 102,
+              "instructor_notes": null
+            },
+            {
+              "id": 340374,
+              "key": "66298716-98b5-4b8a-96e3-c59f193014c5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Choose five sentences from a book or create your own.  Record them one at a time with the Sonic Visualizer.  You should see something like this:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340376,
+              "key": "9537b7c7-8d14-4312-94f7-da771928902a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5951ee18_sv-sentences/sv-sentences.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9537b7c7-8d14-4312-94f7-da771928902a",
+              "caption": "",
+              "alt": null,
+              "width": 1694,
+              "height": 1030,
+              "instructor_notes": null
+            },
+            {
+              "id": 340379,
+              "key": "3ecb2b8a-4252-4f98-b98d-93ebb3347175",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Create `.wav` files\nCreate a folder for your audio files called **my_audio** in your **AIND-VUI-Lab-Voice-Data** directory, and save each of these recordings there as a `.wav` file.  Your audio recordings can be located with the `File->Browse Recorded Audio Folder` command or exported individually with the `File->Export Audio File` command.  \n\n## Create a spectrogram\nSpend as much time as you wish exploring the features of the visualizer.  To see a spectrogram of your audio, try the `Pane->Add Spectrogram` command.  To see it in multiple colors, change the color choice on the right side to \"fruit salad\".  You may get a better view of the spectrogram by closing some of the panes first.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340380,
+              "key": "16fe38ac-1403-4c06-ab27-a462b54d393d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5951f0f7_spectrogram/spectrogram.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/16fe38ac-1403-4c06-ab27-a462b54d393d",
+              "caption": "",
+              "alt": null,
+              "width": 1726,
+              "height": 1015,
+              "instructor_notes": null
+            },
+            {
+              "id": 340388,
+              "key": "17194436-a16d-4075-a746-8f28626821e8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Build your data set - Step 1: Convert and structure\nOpen a terminal window in the **AIND-VUI-Lab-Voice-Data** folder.  Set the environment to a python 3 environment, such as the conda **aind** environment created in previous projects, and install the [pysoundfile](https://pysoundfile.readthedocs.io/en/0.9.0/) library:\n* Mac/Unix\n``` shell\n$ source activate aind\n$ pip install pysoundfile\n```\n* Windows\n``` shell\n$ activate aind\n$ pip install pysoundfile\n```\n\nThe `.wav` files need to be converted from an IEEE-FLOAT format produced by Sonic Visualizer to a lower resolution PCM-16 format required in later processing steps.  In addition, the audio files need to named and placed in a structure similar to the LibriSpeech file structure, i.e. sorted and identified by speaker and chapter.  We need an arbitrary speaker number and chapter number to do this.  A utiltiy `convert_flt_pcm.py` has been provided for this purpose:  \n\n``` text\nusage: convert_flt_pcm.py [-h]\n                          input_directory data_directory group speaker chapter\n\npositional arguments:\n  input_directory  Path to input directory\n  data_directory   Path to output data directory\n  group            group\n  speaker          speaker number\n  chapter          chapter number\n\noptional arguments:\n  -h, --help       show this help message and exit \n```\nConvert the files with the following command (you can use different speaker and chapter numbers if you wish).\n\n```shell\n$ python convert_flt_pcm.py my_audio MySpeech my_dev 1 12345\n```\n\n## Build your data set - Step 2: Add the utterances\n\nYou should now have a file structure with renamed `.wav` files in the **MySpeech/my_dev/1/12345** directory.  There should also be a file named `1-12345.trans.txt` with the following lines:\n``` text\n1-12345-0000 \n1-12345-0001 \n1-12345-0002 \n1-12345-0003 \n1-12345-0004 \n```\nNote these will have different ID's if you gave different \"speaker\" and \"chapter\" numbers during the conversion step.  Add sentences that correspond to your `.wav` files with the same ID.  You may need to \"play\" them to be sure of their contents.  The utterances should contain all capital letters and no punctuation except for apostrophes where needed.  Here's an example:\n\n``` text\n1-12345-0000 WHEN I DREAMED UP THE DRACO TAVERN, MY INTENT WAS TO DEAL WITH QUESTIONS OF A CERTAIN TYPE\n1-12345-0001 I'M A SCIENCE FICTION WRITER AFTER ALL\n1-12345-0002 I'M SUPPOSED TO BE ABLE TO DEAL WITH QUESTIONS OF HUGE IMPORT\n1-12345-0003 IN ADDITION I'M GOOD AT VIGNETTES AND I WANTED TO GET BETTER\n1-12345-0004 I WANTED A FORMAT IN WHICH TO DEAL WITH THE SIMPLEST MOST UNIVERSAL QUESTIONS\n```\n\n## Build your data set - Step 3: Create `.json` file needed for processing\nIn order to use this data to train an ASR, the data generator needs a concise way to access the audio files and match them to the transcription.  The following utility walks through the data structure and creates a `.json` description file.\n\n``` text\nusage: create_desc_json.py [-h] data_directory output_file\n\npositional arguments:\n  data_directory  Path to data directory\n  output_file     Path to output file\n\noptional arguments:\n  -h, --help      show this help message and exit\n```\n\nIn the terminal window, run the following:\n\n``` shell\n$ python create_desc_json.py MySpeech/my_dev my_dev.json\n```\nThat's it!  Take a look at `my_dev.json` to make sure it contains the file descriptions.  The example above yielded the following - yours should be similar but not identical:\n\n``` text\n{\"key\": \"MySpeech/my_dev\\\\1\\\\12345\\\\1-12345-0000.wav\", \"duration\": 2.608253968253968, \"text\": \"when i dreamed up the draco tavern, my intent was to deal with questions of a certain type\"}\n{\"key\": \"MySpeech/my_dev\\\\1\\\\12345\\\\1-12345-0001.wav\", \"duration\": 1.6910657596371883, \"text\": \"i'm a science fiction writer after all\"}\n{\"key\": \"MySpeech/my_dev\\\\1\\\\12345\\\\1-12345-0002.wav\", \"duration\": 1.6337414965986394, \"text\": \"i'm supposed to be able to deal with questions of huge import\"}\n{\"key\": \"MySpeech/my_dev\\\\1\\\\12345\\\\1-12345-0003.wav\", \"duration\": 1.4904308390022676, \"text\": \"in addition i'm good at vignettes and i wanted to get better\"}\n{\"key\": \"MySpeech/my_dev\\\\1\\\\12345\\\\1-12345-0004.wav\", \"duration\": 1.6910657596371883, \"text\": \"i wanted a format in which to deal with the simplest most universal questions\"}\n```\n\nBe sure to check all the boxes in the Task List that you have completed!\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 297397,
+          "key": "b1a3d69b-aac1-49ec-bcd6-ca0092354fda",
+          "title": "Acoustic Models and the Trouble with Time",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b1a3d69b-aac1-49ec-bcd6-ca0092354fda",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339681,
+              "key": "0d0e8769-bebd-4418-89af-2528bb026336",
+              "title": "Acoustic Models and the Trouble with Time",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "jVTZCa9Qqmk",
+                "china_cdn_id": "jVTZCa9Qqmk.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297398,
+          "key": "bc908139-3e3b-4453-a9a6-f6d8c897bf4c",
+          "title": "HMMs in Speech Recognition",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bc908139-3e3b-4453-a9a6-f6d8c897bf4c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339682,
+              "key": "e3571b34-3c9c-4aec-b7aa-9b5a88d48683",
+              "title": "HMMs in Speech Recognition",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9H2wP7g9d1g",
+                "china_cdn_id": "9H2wP7g9d1g.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330524,
+          "key": "7c158a04-1932-48d9-978f-9453ee4c11ba",
+          "title": "Language Models",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7c158a04-1932-48d9-978f-9453ee4c11ba",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339691,
+              "key": "e7d775f9-cc9b-4511-aa2f-7b0965a7d549",
+              "title": "Language Models",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "vrrP9fzJGSE",
+                "china_cdn_id": "vrrP9fzJGSE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297400,
+          "key": "b4168e13-06a0-41ca-bc69-7211825b7714",
+          "title": "N-Grams",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b4168e13-06a0-41ca-bc69-7211825b7714",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339684,
+              "key": "a1050987-f6b4-4174-91c5-4b9dc3ab905b",
+              "title": "N-Grams",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "cSP1p9wWhHg",
+                "china_cdn_id": "cSP1p9wWhHg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330526,
+          "key": "751fb156-5dfc-4b7c-816b-37f71a99b49e",
+          "title": "Quiz: N-Grams",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "751fb156-5dfc-4b7c-816b-37f71a99b49e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 340903,
+              "key": "a4b95441-b193-4ee8-9981-fb58423a32e6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# N-Grams\n\nAn N-Gram is an ordered sequence of words. For example:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340904,
+              "key": "d5fcb039-cdaa-4bbf-b693-0a1890c87c4c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/595564fc_ngrams-numbers/ngrams-numbers.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d5fcb039-cdaa-4bbf-b693-0a1890c87c4c",
+              "caption": "",
+              "alt": null,
+              "width": 662,
+              "height": 324,
+              "instructor_notes": null
+            },
+            {
+              "id": 340395,
+              "key": "4675e180-71f5-431d-a43d-70664a51a0fe",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following series of quizes, you will work with 2-grams, or [bigrams](https://en.wikipedia.org/wiki/Bigram), as they are more commonly called.\nThe objective is to create a function that calculates the probability that a particular sentence\ncould occur in a corpus of text, based on the probabilities of its component bigrams.  We'll do this in stages though:\n* Quiz 1 - Extract tokens and bigrams from a sentence\n* Quiz 2 - Calculate probabilities for bigrams\n* Quiz 3 - Calculate the log probability of a given sentence based on a corpus of text using bigrams\n\n#### Assumptions and terminology\nWe will assume that text data is in the form of sentences with no punctuation.  If a sentence is in a single line, we will add add a token for\nstart of sentence: `<s>` and end of sentence: `</s>`.  For example, if the sentence is \"I love language models.\" it will appear in code as:\n\n```\n'I love language models'\n```\n\nThe **tokens** for this sentence are represented as an ordered list of the lower case words plus the start and end sentence tags:\n\n```\ntokens = ['<s>', 'i', 'love', 'language', 'models', '</s>']\n```\n\nThe **bigrams** for this sentence are represented as a list of lower case ordered pairs of tokens:\n\n```\nbigrams = [('<s>', 'i'), ('i', 'love'), ('love', 'language'), ('language', 'models'), ('models', '</s>')]\n```\n\n## Quiz 1 Instructions\nIn the quiz below, write a function that returns a list of tokens and a list of bigrams for a given sentence.  You will need to first break a sentence into words in a list, then add a `<s>` and `<s/>` token to the\nstart and end of the list to represent the start and end of the sentence.\n\nYour final lists should be in the format shown above and called out in the function doc string.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 340907,
+              "key": "0e42fba2-4d93-4178-91ca-e25756259f6c",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "0e42fba2-4d93-4178-91ca-e25756259f6c",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "N-Grams Tokens and Bigrams",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "4832139748179968",
+                "initial_code_files": [
+                  {
+                    "text": "test_sentences = [\r\n    'the old man spoke to me',\r\n    'me to spoke man old the',\r\n    'old man me old man me',\r\n]\r\n\r\ndef sentence_to_bigrams(sentence):\r\n    \"\"\"\r\n    Add start '<s>' and stop '</s>' tags to the sentence and tokenize it into a list\r\n    of lower-case words (sentence_tokens) and bigrams (sentence_bigrams)\r\n    :param sentence: string\r\n    :return: list, list\r\n        sentence_tokens: ordered list of words found in the sentence\r\n        sentence_bigrams: a list of ordered two-word tuples found in the sentence\r\n    \"\"\"\r\n    #TODO implement\r\n    sentence_tokens = None\r\n    sentence_bigrams = None\r\n    return sentence_tokens, sentence_bigrams",
+                    "name": "function.py"
+                  },
+                  {
+                    "text": "test_sentences = [\r\n    'the old man spoke to me',\r\n    'me to spoke man old the',\r\n    'old man me old man me',\r\n]\r\n\r\ndef sentence_to_bigrams(sentence):\r\n    \"\"\"\r\n    Add start '<s>' and stop '</s>' tags to the sentence and tokenize it into a list\r\n    of lower-case words (sentence_tokens) and bigrams (sentence_bigrams)\r\n    :param sentence: string\r\n    :return: list, list\r\n        sentence_tokens: ordered list of words found in the sentence\r\n        sentence_bigrams: a list of ordered two-word tuples found in the sentence\r\n    \"\"\"\r\n    sentence_tokens = ['<s>'] + sentence.lower().split() + ['</s>']\r\n    sentence_bigrams = []\r\n    for i in range(len(sentence_tokens)-1):\r\n        sentence_bigrams.append((sentence_tokens[i], sentence_tokens[i+1]))\r\n    return sentence_tokens, sentence_bigrams",
+                    "name": "solution.py"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 341333,
+              "key": "cdee05b7-3fd7-40cf-9b9f-5dab69a114ce",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Probabilities and Likelihoods with Bigrams\n\nRecall from a previous video that the probability of a series of words\ncan be calculated from the chained probabilities of its history:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 341341,
+              "key": "607bf4f4-78bb-4531-846f-da98da9878cd",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59569300_eqn-jointprob-words-in-sentence/eqn-jointprob-words-in-sentence.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/607bf4f4-78bb-4531-846f-da98da9878cd",
+              "caption": "",
+              "alt": null,
+              "width": 349,
+              "height": 48,
+              "instructor_notes": null
+            },
+            {
+              "id": 341343,
+              "key": "0b6040dd-e462-4b80-b267-ea469522e7df",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The probabilities of sequence occurrences in a large textual corpus can be calculated this\nway and used as a language model to add grammar and contectual knowledge to a speech\nrecognition system.  However, there is a prohibitively large number of calculations for all the \npossible sequences of varying length in a large textual corpus. \n\nTo address this problem, we use the [Markov Assumption](https://en.wikipedia.org/wiki/Markov_property) to approximate\na sequence probability with a shorter sequence:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 341345,
+              "key": "fb333fd5-f23a-4365-8a82-c2b6ced83c1f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5956941f_eqn-markov-assumption-ngrams/eqn-markov-assumption-ngrams.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/fb333fd5-f23a-4365-8a82-c2b6ced83c1f",
+              "caption": "",
+              "alt": null,
+              "width": 344,
+              "height": 48,
+              "instructor_notes": null
+            },
+            {
+              "id": 341357,
+              "key": "0fa0d3a3-e946-45c3-95e5-59afd8006706",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the bigram case, the equation reduces to a series of bigram probabilities multiplied together to find the approximate probability for a sentence.  A concrete example:\n\n<span class=\"mathquill\">\\qquad  \\qquad  P(\"I\\: Iove\\: language\\: models\") \\approx</span>\n</br>\n<span class=\"mathquill\">\\qquad  \\qquad  \\qquad  \\qquad  P(\"love\"|\"I\")P(\"language\"|\"love\")P(\"models\"|\"language\")</span>\n\nWe can calculate the probabilities by using **counts** of the bigramsand individual tokens.  The counts are represented below with the <span class=\"mathquill\">c()</span> operator:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 341401,
+              "key": "e9f88305-fb7a-4097-b8f3-73630ce7769e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5956a5f8_eqn-bigram-mle/eqn-bigram-mle.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e9f88305-fb7a-4097-b8f3-73630ce7769e",
+              "caption": "",
+              "alt": null,
+              "width": 230,
+              "height": 52,
+              "instructor_notes": null
+            },
+            {
+              "id": 341410,
+              "key": "a3d29843-8d59-4bbf-aaa4-a874dc1c9c72",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In Python, the  [Counter](https://docs.python.org/3.6/library/collections.html#collections.Counter) method is useful for this task\n\n``` python\nfrom collections import Counter\n# Sentence: \"I am as I am\"\ntokens = ['<s>', 'i', 'am', 'as', 'i', 'am', '</s>']\ntoken_counts = Counter(tokens)\nprint(token_counts)\n# output:\n# Counter({'</s>': 1, '<s>': 1, 'am': 2, 'as': 1, 'i': 2})\n```\n\n\n## Quiz 2 Instructions\n\nIn the quiz below, write a function that returns a probability dictionary when given a lists of tokens and bigrams.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 341448,
+              "key": "a40dd7e3-0c5e-4db0-98af-1ebec2a4b17a",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "a40dd7e3-0c5e-4db0-98af-1ebec2a4b17a",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "4799971516874752",
+                "initial_code_files": [
+                  {
+                    "text": "from collections import Counter\r\nimport utils\r\n\r\n\r\ndef sample_run():\r\n    # sample usage by test code (this definition not actually run for the quiz)\r\n    tokens, bigrams = utils.bigrams_from_transcript('transcripts.txt')\r\n    bg_dict = bigram_mle(tokens, bigrams)\r\n    print(bg_dict)\r\n\r\n\r\ndef bigram_mle(tokens, bigrams):\r\n    \"\"\"\r\n    provide a dictionary of probabilities for all bigrams in a corpus of text\r\n    the calculation is based on maximum likelihood estimation and does not include\r\n    any smoothing.  A tag '<unk>' has been added for unknown probabilities.\r\n    :param tokens: list\r\n        tokens: list of all tokens in the corpus\r\n    :param bigrams: list\r\n        bigrams: list of all two word tuples in the corpus\r\n    :return: dict\r\n        bg_mle_dict: a dictionary of bigrams:\r\n            key: tuple of two bigram words, in order OR <unk> key\r\n            value: float probability\r\n\r\n    \"\"\"\r\n    bg_mle_dict = {}\r\n    bg_mle_dict['<unk>'] = 0.\r\n    #TODO implement\r\n    return bg_mle_dict\r\n",
+                    "name": "function.py"
+                  },
+                  {
+                    "text": "def bigrams_from_transcript(filename):\r\n    \"\"\"\r\n    read a file of sentences, adding start '<s>' and stop '</s>' tags; Tokenize it into a list of lower case words\r\n    and bigrams\r\n    :param filename: string \r\n        filename: path to a text file consisting of lines of non-puncuated text; assume one sentence per line\r\n    :return: list, list\r\n        tokens: ordered list of words found in the file\r\n        bigrams: a list of ordered two-word tuples found in the file\r\n    \"\"\"\r\n    tokens = []\r\n    bigrams = []\r\n    with open(filename, 'r') as f:\r\n        for line in f:\r\n            line_tokens, line_bigrams = sentence_to_bigrams(line)\r\n            tokens = tokens + line_tokens\r\n            bigrams = bigrams + line_bigrams\r\n    return tokens, bigrams\r\n\r\n\r\ndef sentence_to_bigrams(sentence):\r\n    \"\"\"\r\n    Add start '<s>' and stop '</s>' tags to the sentence and tokenize it into a list\r\n    of lower-case words (sentence_tokens) and bigrams (sentence_bigrams)\r\n    :param sentence: string\r\n    :return: list, list\r\n        sentence_tokens: ordered list of words found in the sentence\r\n        sentence_bigrams: a list of ordered two-word tuples found in the sentence\r\n    \"\"\"\r\n    sentence_tokens = ['<s>'] + sentence.lower().split() + ['</s>']\r\n    sentence_bigrams = []\r\n    for i in range(len(sentence_tokens)-1):\r\n        sentence_bigrams.append((sentence_tokens[i], sentence_tokens[i+1]))\r\n    return sentence_tokens, sentence_bigrams",
+                    "name": "utils.py"
+                  },
+                  {
+                    "text": "from collections import Counter\r\nimport utils\r\n\r\ndef bigram_mle(tokens, bigrams):\r\n    \"\"\"\r\n    provide a dictionary of probabilities for all bigrams in a corpus of text\r\n    the calculation is based on maximum likelihood estimation and does not include\r\n    any smoothing.  A tag '<unk>' has been added for unknown probabilities.\r\n    :param tokens: list\r\n        tokens: list of all tokens in the corpus\r\n    :param bigrams: list\r\n        bigrams: list of all two word tuples in the corpus\r\n    :return: dict\r\n        bg_mle_dict: a dictionary of bigrams:\r\n            key: tuple of two bigram words, in order OR <unk> key\r\n            value: float probability\r\n            \r\n    \"\"\"\r\n    bg_mle_dict = {}\r\n    bg_mle_dict['<unk>'] = 0.\r\n\r\n    token_raw_counts = Counter(tokens)\r\n    bigram_raw_counts = Counter(bigrams)\r\n    for bg in bigram_raw_counts:\r\n        bg_mle_dict[bg] = bigram_raw_counts[bg] / token_raw_counts[bg[0]]\r\n    return bg_mle_dict\r\n\r\n",
+                    "name": "solution.py"
+                  },
+                  {
+                    "text": "GO DO YOU HEAR\r\nBUT IN LESS THAN FIVE MINUTES THE STAIRCASE GROANED BENEATH AN EXTRAORDINARY WEIGHT\r\nAT THIS MOMENT THE WHOLE SOUL OF THE OLD MAN SEEMED CENTRED IN HIS EYES WHICH BECAME BLOODSHOT THE VEINS OF THE THROAT SWELLED HIS CHEEKS AND TEMPLES BECAME PURPLE AS THOUGH HE WAS STRUCK WITH EPILEPSY NOTHING WAS WANTING TO COMPLETE THIS BUT THE UTTERANCE OF A CRY\r\nAND THE CRY ISSUED FROM HIS PORES IF WE MAY THUS SPEAK A CRY FRIGHTFUL IN ITS SILENCE\r\nDAVRIGNY RUSHED TOWARDS THE OLD MAN AND MADE HIM INHALE A POWERFUL RESTORATIVE\r\nDAVRIGNY UNABLE TO BEAR THE SIGHT OF THIS TOUCHING EMOTION TURNED AWAY AND VILLEFORT WITHOUT SEEKING ANY FURTHER EXPLANATION AND ATTRACTED TOWARDS HIM BY THE IRRESISTIBLE MAGNETISM WHICH DRAWS US TOWARDS THOSE WHO HAVE LOVED THE PEOPLE FOR WHOM WE MOURN EXTENDED HIS HAND TOWARDS THE YOUNG MAN\r\nFOR SOME TIME NOTHING WAS HEARD IN THAT CHAMBER BUT SOBS EXCLAMATIONS AND PRAYERS\r\nWHAT DO YOU MEAN SIR\r\nOH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE\r\nDO YOU KNOW THE ASSASSIN ASKED MORREL\r\nNOIRTIER LOOKED UPON MORREL WITH ONE OF THOSE MELANCHOLY SMILES WHICH HAD SO OFTEN MADE VALENTINE HAPPY AND THUS FIXED HIS ATTENTION\r\nSAID MORREL SADLY YES REPLIED NOIRTIER\r\nTHE OLD MANS EYES REMAINED FIXED ON THE DOOR\r\nASKED MORREL YES\r\nMUST I LEAVE ALONE NO\r\nBUT CAN HE UNDERSTAND YOU YES\r\nGENTLEMEN HE SAID IN A HOARSE VOICE GIVE ME YOUR WORD OF HONOR THAT THIS HORRIBLE SECRET SHALL FOREVER REMAIN BURIED AMONGST OURSELVES THE TWO MEN DREW BACK\r\nMY FATHER HAS REVEALED THE CULPRITS NAME MY FATHER THIRSTS FOR REVENGE AS MUCH AS YOU DO YET EVEN HE CONJURES YOU AS I DO TO KEEP THIS SECRET DO YOU NOT FATHER\r\nMORREL SUFFERED AN EXCLAMATION OF HORROR AND SURPRISE TO ESCAPE HIM\r\nTHE OLD MAN MADE A SIGN IN THE AFFIRMATIVE\r\nIT WAS SOMETHING TERRIBLE TO WITNESS THE SILENT AGONY THE MUTE DESPAIR OF NOIRTIER WHOSE TEARS SILENTLY ROLLED DOWN HIS CHEEKS\r\nBUT HE STOPPED ON THE LANDING HE HAD NOT THE COURAGE TO AGAIN VISIT THE DEATH CHAMBER\r\nTHE TWO DOCTORS THEREFORE ENTERED THE ROOM ALONE\r\nNOIRTIER WAS NEAR THE BED PALE MOTIONLESS AND SILENT AS THE CORPSE\r\nTHE DISTRICT DOCTOR APPROACHED WITH THE INDIFFERENCE OF A MAN ACCUSTOMED TO SPEND HALF HIS TIME AMONGST THE DEAD HE THEN LIFTED THE SHEET WHICH WAS PLACED OVER THE FACE AND JUST UNCLOSED THE LIPS\r\nTHE NEAREST SAID THE DISTRICT DOCTOR IS A GOOD ITALIAN ABBE WHO LIVES NEXT DOOR TO YOU SHALL I CALL ON HIM AS I PASS\r\nDAVRIGNY SAID VILLEFORT BE SO KIND I BESEECH YOU AS TO ACCOMPANY THIS GENTLEMAN HERE IS THE KEY OF THE DOOR SO THAT YOU CAN GO IN AND OUT AS YOU PLEASE YOU WILL BRING THE PRIEST WITH YOU AND WILL OBLIGE ME BY INTRODUCING HIM INTO MY CHILDS ROOM DO YOU WISH TO SEE HIM\r\nI ONLY WISH TO BE ALONE YOU WILL EXCUSE ME WILL YOU NOT\r\nI AM GOING SIR AND I DO NOT HESITATE TO SAY THAT NO PRAYERS WILL BE MORE FERVENT THAN MINE\r\n",
+                    "name": "transcripts.txt"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 341456,
+              "key": "aa59113a-8574-4aa1-8b04-1847a488453a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Smoothing and logs\n\nThere are still a couple of problems to sort out before we use the bigram probability dictionary to calculate the probabilities of new sentences:\n\n###### 1. Some possible combinations may not exist in our probability dictionary but are still possible.  We don't want to multiply in a probability of 0 just because our original corpus was deficient. This is solved through \"smoothing\".  There are a number of methods for this, but a simple one is the [Laplace smoothing](https://en.wikipedia.org/wiki/Additive_smoothing) with the \"add-one\" estimate where <span class=\"mathquill\">V</span> is the size of the vocabulary for the corpus, i.e. the number of unique tokens:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 341457,
+              "key": "6e91724b-4cda-41ec-b7df-c0f13a489ed4",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5956cc54_eqn-addone-bigram-smoothing/eqn-addone-bigram-smoothing.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6e91724b-4cda-41ec-b7df-c0f13a489ed4",
+              "caption": "",
+              "alt": null,
+              "width": 296,
+              "height": 52,
+              "instructor_notes": null
+            },
+            {
+              "id": 341458,
+              "key": "ccb5d119-3f1d-4685-887b-226a659ab2b3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "###### 2. Repeated multiplications of small probabilities can cause underflow problems in computers when\nthe values become to small.  To solve this, we will calculate all probabilities in log space:\n\n<span class=\"mathquill\">\\qquad \\qquad \\qquad log(p_1\\times p_2\\times p_3\\times p_4) = \\log p_1 + \\log p_2 + \\log p_3 + \\log p_4 </span>\n\n## Quiz 3 Instructions\nIn the following quiz, a utility named `utils.bigram_add1_logs` has been added for you with Laplace smoothing in the log space. Write a function that calculates the log probability for a given sentence, using this log probability dictionary.  If all goes well, you *should* observe that more likely sentences yield higher values for the log probabilities.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 341531,
+              "key": "c8b2e73b-71a6-490a-bb93-5e5fbeb87044",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "c8b2e73b-71a6-490a-bb93-5e5fbeb87044",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5693157344935936",
+                "initial_code_files": [
+                  {
+                    "text": "import utils\r\n\r\ntest_sentences = [\r\n    'the old man spoke to me',\r\n    'me to spoke man old the',\r\n    'old man me old man me',\r\n]\r\n\r\ndef sample_run():\r\n    # sample usage by test code (this definition not actually run for the quiz)\r\n    bigram_log_dict = utils.bigram_add1_logs('transcripts.txt')\r\n    for sentence in test_sentences:\r\n        print('*** \"{}\"'.format(sentence))\r\n        print(log_prob_of_sentence(sentence, bigram_log_dict))\r\n\r\ndef log_prob_of_sentence(sentence, bigram_log_dict):\r\n    total_log_prob = 0.\r\n\r\n    # TODO implement\r\n    # get the sentence bigrams with utils.sentence_to_bigrams\r\n    # look up the bigrams from the sentence in the bigram_log_dict\r\n    # add all the the log probabilities together\r\n    # if a word doesn't exist, be sure to use the value of the '<unk>' lookup instead\r\n\r\n    return total_log_prob",
+                    "name": "function.py"
+                  },
+                  {
+                    "text": "from collections import Counter\r\nimport numpy as np\r\n\r\ndef bigrams_from_transcript(filename):\r\n    \"\"\"\r\n    read a file of sentences, adding start '<s>' and stop '</s>' tags; Tokenize it into a list of lower case words\r\n    and bigrams\r\n    :param filename: string \r\n        filename: path to a text file consisting of lines of non-puncuated text; assume one sentence per line\r\n    :return: list, list\r\n        tokens: ordered list of words found in the file\r\n        bigrams: a list of ordered two-word tuples found in the file\r\n    \"\"\"\r\n    tokens = []\r\n    bigrams = []\r\n    with open(filename, 'r') as f:\r\n        for line in f:\r\n            line_tokens, line_bigrams = sentence_to_bigrams(line)\r\n            tokens = tokens + line_tokens\r\n            bigrams = bigrams + line_bigrams\r\n    return tokens, bigrams\r\n\r\n\r\ndef sentence_to_bigrams(sentence):\r\n    \"\"\"\r\n    Add start '<s>' and stop '</s>' tags to the sentence and tokenize it into a list\r\n    of lower-case words (sentence_tokens) and bigrams (sentence_bigrams)\r\n    :param sentence: string\r\n    :return: list, list\r\n        sentence_tokens: ordered list of words found in the sentence\r\n        sentence_bigrams: a list of ordered two-word tuples found in the sentence\r\n    \"\"\"\r\n    sentence_tokens = ['<s>'] + sentence.lower().split() + ['</s>']\r\n    sentence_bigrams = []\r\n    for i in range(len(sentence_tokens)-1):\r\n        sentence_bigrams.append((sentence_tokens[i], sentence_tokens[i+1]))\r\n    return sentence_tokens, sentence_bigrams\r\n\r\ndef bigram_add1_logs(transcript_file):\r\n    \"\"\"\r\n    provide a smoothed log probability dictionary based on a transcript\r\n    :param transcript_file: string\r\n        transcript_file is the path filename containing unpunctuated text sentences\r\n    :return: dict\r\n        bg_add1_log_dict: dictionary of smoothed bigrams log probabilities including\r\n        tags: <s>: start of sentence, </s>: end of sentence, <unk>: unknown placeholder probability\r\n    \"\"\"\r\n\r\n    tokens, bigrams = bigrams_from_transcript(transcript_file)\r\n    token_counts = Counter(tokens)\r\n    bigram_counts = Counter(bigrams)\r\n    vocab_count = len(token_counts)\r\n\r\n    bg_addone_dict = {}\r\n    for bg in bigram_counts:\r\n        bg_addone_dict[bg] = np.log((bigram_counts[bg] + 1.) / (token_counts[bg[0]] + vocab_count))\r\n    bg_addone_dict['<unk>'] = np.log(1. / vocab_count)\r\n    return bg_addone_dict",
+                    "name": "utils.py"
+                  },
+                  {
+                    "text": "GO DO YOU HEAR\r\nBUT IN LESS THAN FIVE MINUTES THE STAIRCASE GROANED BENEATH AN EXTRAORDINARY WEIGHT\r\nAT THIS MOMENT THE WHOLE SOUL OF THE OLD MAN SEEMED CENTRED IN HIS EYES WHICH BECAME BLOODSHOT THE VEINS OF THE THROAT SWELLED HIS CHEEKS AND TEMPLES BECAME PURPLE AS THOUGH HE WAS STRUCK WITH EPILEPSY NOTHING WAS WANTING TO COMPLETE THIS BUT THE UTTERANCE OF A CRY\r\nAND THE CRY ISSUED FROM HIS PORES IF WE MAY THUS SPEAK A CRY FRIGHTFUL IN ITS SILENCE\r\nDAVRIGNY RUSHED TOWARDS THE OLD MAN AND MADE HIM INHALE A POWERFUL RESTORATIVE\r\nDAVRIGNY UNABLE TO BEAR THE SIGHT OF THIS TOUCHING EMOTION TURNED AWAY AND VILLEFORT WITHOUT SEEKING ANY FURTHER EXPLANATION AND ATTRACTED TOWARDS HIM BY THE IRRESISTIBLE MAGNETISM WHICH DRAWS US TOWARDS THOSE WHO HAVE LOVED THE PEOPLE FOR WHOM WE MOURN EXTENDED HIS HAND TOWARDS THE YOUNG MAN\r\nFOR SOME TIME NOTHING WAS HEARD IN THAT CHAMBER BUT SOBS EXCLAMATIONS AND PRAYERS\r\nWHAT DO YOU MEAN SIR\r\nOH YOU RAVE SIR EXCLAIMED VILLEFORT IN VAIN ENDEAVORING TO ESCAPE THE NET IN WHICH HE WAS TAKEN I RAVE\r\nDO YOU KNOW THE ASSASSIN ASKED MORREL\r\nNOIRTIER LOOKED UPON MORREL WITH ONE OF THOSE MELANCHOLY SMILES WHICH HAD SO OFTEN MADE VALENTINE HAPPY AND THUS FIXED HIS ATTENTION\r\nSAID MORREL SADLY YES REPLIED NOIRTIER\r\nTHE OLD MANS EYES REMAINED FIXED ON THE DOOR\r\nASKED MORREL YES\r\nMUST I LEAVE ALONE NO\r\nBUT CAN HE UNDERSTAND YOU YES\r\nGENTLEMEN HE SAID IN A HOARSE VOICE GIVE ME YOUR WORD OF HONOR THAT THIS HORRIBLE SECRET SHALL FOREVER REMAIN BURIED AMONGST OURSELVES THE TWO MEN DREW BACK\r\nMY FATHER HAS REVEALED THE CULPRITS NAME MY FATHER THIRSTS FOR REVENGE AS MUCH AS YOU DO YET EVEN HE CONJURES YOU AS I DO TO KEEP THIS SECRET DO YOU NOT FATHER\r\nMORREL SUFFERED AN EXCLAMATION OF HORROR AND SURPRISE TO ESCAPE HIM\r\nTHE OLD MAN MADE A SIGN IN THE AFFIRMATIVE\r\nIT WAS SOMETHING TERRIBLE TO WITNESS THE SILENT AGONY THE MUTE DESPAIR OF NOIRTIER WHOSE TEARS SILENTLY ROLLED DOWN HIS CHEEKS\r\nBUT HE STOPPED ON THE LANDING HE HAD NOT THE COURAGE TO AGAIN VISIT THE DEATH CHAMBER\r\nTHE TWO DOCTORS THEREFORE ENTERED THE ROOM ALONE\r\nNOIRTIER WAS NEAR THE BED PALE MOTIONLESS AND SILENT AS THE CORPSE\r\nTHE DISTRICT DOCTOR APPROACHED WITH THE INDIFFERENCE OF A MAN ACCUSTOMED TO SPEND HALF HIS TIME AMONGST THE DEAD HE THEN LIFTED THE SHEET WHICH WAS PLACED OVER THE FACE AND JUST UNCLOSED THE LIPS\r\nTHE NEAREST SAID THE DISTRICT DOCTOR IS A GOOD ITALIAN ABBE WHO LIVES NEXT DOOR TO YOU SHALL I CALL ON HIM AS I PASS\r\nDAVRIGNY SAID VILLEFORT BE SO KIND I BESEECH YOU AS TO ACCOMPANY THIS GENTLEMAN HERE IS THE KEY OF THE DOOR SO THAT YOU CAN GO IN AND OUT AS YOU PLEASE YOU WILL BRING THE PRIEST WITH YOU AND WILL OBLIGE ME BY INTRODUCING HIM INTO MY CHILDS ROOM DO YOU WISH TO SEE HIM\r\nI ONLY WISH TO BE ALONE YOU WILL EXCUSE ME WILL YOU NOT\r\nI AM GOING SIR AND I DO NOT HESITATE TO SAY THAT NO PRAYERS WILL BE MORE FERVENT THAN MINE\r\n",
+                    "name": "transcripts.txt"
+                  },
+                  {
+                    "text": "import ngram_quiz_3.utils as utils\r\n\r\ntest_sentences = [\r\n    'the old man spoke to me',\r\n    'me to spoke man old the',\r\n    'old man me old man me',\r\n]\r\n\r\n\r\ndef log_prob_of_sentence(sentence, bigram_log_dict):\r\n    # get the sentence bigrams\r\n    s_tokens, s_bigrams = utils.sentence_to_bigrams(sentence)\r\n\r\n    # add the log probabilites of the bigrams in the sentence\r\n    total_log_prob = 0.\r\n    for bg in s_bigrams:\r\n        if bg in bigram_log_dict:\r\n            total_log_prob = total_log_prob + bigram_log_dict[bg]\r\n        else:\r\n            total_log_prob = total_log_prob + bigram_log_dict['<unk>']\r\n    return total_log_prob\r\n",
+                    "name": "solution.py"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 330525,
+          "key": "2c8efa62-75bc-4d03-a934-6fbdbe4bb301",
+          "title": "References: Traditional ASR",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2c8efa62-75bc-4d03-a934-6fbdbe4bb301",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339882,
+              "key": "5363ecc3-d25d-4b6a-86e1-afe56204e0c2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# References: Traditional ASR\n\n### Traditional ASR\nA bit of Computer History Museum nostalgia on Speech Recognition presents what we think of now as \"Traditional\" ASR:\n\n[Kai-Fu Lee (Apple) in 1993. Computer History Museum video.](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjMtPu2vtfUAhWF6IMKHQIHDW0QtwIIJjAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DPJ_KCTsOCrs&usg=AFQjCNFVClgb-77HLUdZBhZjSDax7AYtAg)\n\n\n### Acoustic Models with HMMs",
+              "instructor_notes": ""
+            },
+            {
+              "id": 339883,
+              "key": "4883ca82-7750-4ab8-adea-d6ac077bbce6",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59503e62_hmm/hmm.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4883ca82-7750-4ab8-adea-d6ac077bbce6",
+              "caption": "",
+              "alt": null,
+              "width": 771,
+              "height": 201,
+              "instructor_notes": null
+            },
+            {
+              "id": 339884,
+              "key": "d93a1f13-3968-41fb-ba18-00dd32c16ec8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "HMMs are the primary probabalistic model in traditional ASR systems.  The following slide decks from Carnegie Mellon include very helpful and detailed visualizations of  HMM's, the Viterbi Trellis, State Tying, and more from the Carnegie Mellon:\n\n**Raj, Bhiksha, and Rita Singh. \"Design and implementation of speech recognition systems.\" Carnegie Mellon School of Computer Science (2011).**\n   * [slides - HMMs](http://www.cs.cmu.edu/~bhiksha/courses/11-756.asr/spring2014/lectures/class7-8.hmm.pdf)\n   * [slides - Continuous Speech](http://www.cs.cmu.edu/~bhiksha/courses/11-756.asr/spring2014/lectures/class9.continuousspeech.pdf)\n   * [slides - HMM tying](http://asr.cs.cmu.edu/spring2011/class21.6apr/class21.subwordunits.pdf)\n\n### N-Grams",
+              "instructor_notes": ""
+            },
+            {
+              "id": 339885,
+              "key": "72928e64-baab-45eb-bbca-f3cd8a1b040d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59503e9d_ngrams/ngrams.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/72928e64-baab-45eb-bbca-f3cd8a1b040d",
+              "caption": "",
+              "alt": null,
+              "width": 793,
+              "height": 284,
+              "instructor_notes": null
+            },
+            {
+              "id": 339886,
+              "key": "7a373c94-c6a0-4110-bd73-16aad65280e3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "N-Grams provide a way to constrain a series of words by chaining the probabilities of the words that came before.  For more on creating and using N-Grams, see the references below:\n\n[Martin, James H., and Daniel Jurafsky. \"Speech and language processing.\" International Edition 710 (2014). Chapter 4 Draft.](https://lagunita.stanford.edu/c4x/Engineering/CS-224N/asset/slp4.pdf)\n\n[Jurafsky, Daniel. \"CS124 - From Languages to Information\". Stanford University.Language Modeling. Slides]( http://web.stanford.edu/class/cs124/lec/languagemodeling2016.pdf)",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 330527,
+          "key": "6db658db-1a43-4547-89f2-e27d319d176e",
+          "title": "A New Paradigm",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6db658db-1a43-4547-89f2-e27d319d176e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339687,
+              "key": "6bbe7869-e10c-4ce3-a129-961adea7a999",
+              "title": "A New Paradigm",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ojI5SVJ7Pas",
+                "china_cdn_id": "ojI5SVJ7Pas.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 297402,
+          "key": "a198e171-9f44-46cd-8cd5-ac11e20ea503",
+          "title": "Deep Neural Networks as Speech Models",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a198e171-9f44-46cd-8cd5-ac11e20ea503",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339688,
+              "key": "9044d093-98f3-4ecb-84d9-36fbf24aa46d",
+              "title": "Deep Neural Networks as Speech Models",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Rv8LGuiyzB8",
+                "china_cdn_id": "Rv8LGuiyzB8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 330528,
+          "key": "6a4b1e65-7aee-4016-be36-5a8397c33883",
+          "title": "Connectionist Tempora Classification (CTC)",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6a4b1e65-7aee-4016-be36-5a8397c33883",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339870,
+              "key": "29a65373-27ef-4120-aad2-12dacfabf274",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": " # Connectionist Temporal Classification (CTC)\n\n## The Sequencing Problem\n\nThe input data in speech recognition is a sequence of observations in the form of frame vectors from regular time intervals.  The desired output is a series of symbols: phonemes, graphemes, or words.  The basic problem is that the number of frames does not have a predictible correspondence to the number of the output symbols.  For example, if we assume 20ms per frame, the following audio signals of the word \"speech\" spoken at two different speeds have about 300 frames in the first example and something like 850 frames in the second example, yet they should both be decoded as the six-letter word, \"speech\".",
+              "instructor_notes": ""
+            },
+            {
+              "id": 339872,
+              "key": "e92bb0fc-3026-4d9a-91d4-1c32a1153f61",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59502b5f_two-speechsignals-aligned/two-speechsignals-aligned.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e92bb0fc-3026-4d9a-91d4-1c32a1153f61",
+              "caption": "",
+              "alt": null,
+              "width": 1024,
+              "height": 586,
+              "instructor_notes": null
+            },
+            {
+              "id": 339873,
+              "key": "9502e546-ee40-46be-8cfb-8891685154c1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### Sequencing with HMMs\n\nHidden Markov models (HMMs) are well suited to sequencing because each hidden state can be mapped to any number of frames. During training, distributions are clustered in each hidden state to define the model. During decoding, the overall likelihood that a particular HMM model could have emitted a given series of frame vectors is calculated and compared to the likelihood that they were emitted by other HMMs.  The following diagram illustrates frame mappings for a single HMM. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 339890,
+              "key": "566bae80-0c34-4846-b1c1-149fa33a2bd4",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5950695f_hmmstates/hmmstates.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/566bae80-0c34-4846-b1c1-149fa33a2bd4",
+              "caption": "",
+              "alt": null,
+              "width": 599,
+              "height": 657,
+              "instructor_notes": null
+            },
+            {
+              "id": 339875,
+              "key": "63d05a5a-712a-4a73-85d8-6c6c0ff5dcfc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### Why RNNs can't sequence\n\nBy contrast, a Recurrent Neural Network (RNN) produces a probability distribution of output symbols for each frame.  Suppose we want to train an RNN network to recognize 26 different letters plus an apostrophe, space, and blank (29 graphemes). There will be a softmax layer output that produces a probability distribution for these possibilities.  Each frame will produce one of these probability distribution vectors.  If the utterance has 300 observations, there will be 300 RNN softmax vectors.  If the utterance consists of 850 observations, there will be 850 vectors. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 339876,
+              "key": "c613e013-6971-44d6-af23-c2c12e6f8954",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/59502c15_rnndist/rnndist.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c613e013-6971-44d6-af23-c2c12e6f8954",
+              "caption": "",
+              "alt": null,
+              "width": 854,
+              "height": 613,
+              "instructor_notes": null
+            },
+            {
+              "id": 339877,
+              "key": "32f44634-2960-4a4e-bddb-63efb354bb36",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The RNN could learn what those graphemes should be if there was a label associated with each frame.  This would require some sort of manual pre-segmentation. \n\nA more ideal solution would be to provide the network with a loss function across the entire label sequence that it could minimize when training. We would like the probability distribution of the softmax output to \"spike\" for each grapheme and provide blanks or some other consistently ignored result between the graphemes so that the transcription could be easily decoded. This would solve the sequencing problem as audio signals of arbitrary length are converted to text.\n\n\n## CTC to the rescue\n\nA Connectionist Temporal Classification (CTC) loss function can be calculated to train the network.  When combined with the CTC decoding algorithm over the softmax output layer, the sequence-to-sequence transformation is achieved.  The details of how this works are in the seminal paper on CTC by Alex Graves:\n\n[Graves, Alex, et al. \"Connectionist temporal classification: labelling unsegmented sequence data with recurrent neural networks.\" Proceedings of the 23rd international conference on Machine learning. ACM, 2006.](http://machinelearning.wustl.edu/mlpapers/paper_files/icml2006_GravesFGS06.pdf)\n\nHere are a few take-aways from the paper:\n\n#### Training with the CTC Loss Function\nGraves derives an objective function to calculate the error between the labels expected and the softmax result.  The function calculates all the possible paths and likelihoods for the softmax output layer and calculates the maximum log likelihood for the correct labeling.  For example, a correct labeling of a \"hello\" utterance might have several valid paths with varying probabilities: \n```\n  _ _ H _ _ E L _ _ L _ O _  probability = p1\n  _ H _ E L _ L _ _ _ O _ _  probability = p2\n  _ _ _ _ H E L _ L _ O _ _  probability = p3\n  ...\n  _ H E _ _ L _ L _ O _ _ _  probability = pn\n```\nThe maximum log likelihood is the sum of likelihoods for all correct paths.  From Graves: \"The aim of maximum likelihood training is to simultaneously\nmaximise the log probabilities of all the correct\nclassifications in the training set. In our case, this\nmeans minimising the following objective function:\"",
+              "instructor_notes": ""
+            },
+            {
+              "id": 339902,
+              "key": "e9f865cd-2bad-41a2-a36c-b43d28f3a33e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/June/5951223d_ctcfunction/ctcfunction.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e9f865cd-2bad-41a2-a36c-b43d28f3a33e",
+              "caption": "",
+              "alt": null,
+              "width": 310,
+              "height": 53,
+              "instructor_notes": null
+            },
+            {
+              "id": 339879,
+              "key": "430e8376-c70a-4dc1-a396-00db98e3edaa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "######  <span class=\"mathquill\">S</span> = the set of all possible tuples (<span class=\"mathquill\">\\mathbf{x}</span> ,<span class=\"mathquill\">\\mathbf{z}</span>)\n######  <span class=\"mathquill\">\\mathbf{x}</span> = the input sequence\n######  <span class=\"mathquill\">\\mathbf{z}</span> = the target sequence\n######  <span class=\"mathquill\">\\mathcal{N}_{w}</span> = the network weight variables\n</br>\nThe loss is then differentiated and used in standard gradient descent training of the network to correct the softmax output such that it matches the labels when decoded.  \n\n#### The output includes \"blanks\"\nThe softmax output for the CTC network includes \"blank\" symbols that can be ignored during decoding.\n\n#### CTC Decoding\nExtracting the most likely symbol from each softmax distribution will result in a string of symbols the length of the original input sequence (the frames).  However, with the CTC training, the probable symbols have become consolidated.  The CTC decoding algorithm can then compress the transcription to its correct length by ignoring adjacent duplicates and blanks. \n\nA more complex CTC decoding can provide not only the most likely transcription, but also some number of top choices using a beam search of arbitrary size.  This is useful if the result will then be processed with a language model for additional accuracy.\n\n## CTC Implementation options\n* [TensorFlow](https://www.tensorflow.org/versions/r0.12/api_docs/python/nn/connectionist_temporal_classification__ctc_)\n* [Keras](https://www.tensorflow.org/api_docs/python/tf/contrib/keras/backend/ctc_batch_cost)\n* [CTC-Warp](https://github.com/baidu-research/warp-ctc)\n\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 339911,
+          "key": "ae0f3b43-5800-42d5-8518-9b924c1bc89c",
+          "title": "References: Deep Neural Network ASR",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ae0f3b43-5800-42d5-8518-9b924c1bc89c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339912,
+              "key": "daaf236b-5bb7-4f3b-9819-cdf17bac001e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# References: Deep Neural Network ASR\n\n### Deep Speech 2\n\nThe following presentation, slides, and paper from Baidu on *DeepSpeech 2* were important resources for the development of this course and its capstone project:\n\n* [Amodei, Dario, et al. \"Deep speech 2: End-to-end speech recognition in english and mandarin.\" International Conference on Machine Learning. 2016.](https://arxiv.org/pdf/1512.02595v1.pdf)\n* [Presentation](https://www.youtube.com/watch?v=g-sndkf7mCs)\n* [Slides](https://cs.stanford.edu/~acoates/ba_dls_speech2016.pdf)\n\n### Language modeling with CTC\n\nGram-CTC from Baidu on integrating a language model into CTC for better performance:\n\n* [Liu, Hairong, et al. \"Gram-CTC: Automatic Unit Selection and Target Decomposition for Sequence Labelling.\" arXiv preprint arXiv:1703.00096 (2017).\n](https://arxiv.org/pdf/1703.00096.pdf)\n\n\nLanguage modeling with CTC based on weighted finite-state transducers (WFSTs):\n\n* [Miao, Yajie, Mohammad Gowayyed, and Florian Metze. \"EESEN: End-to-end speech recognition using deep RNN models and WFST-based decoding.\" Automatic Speech Recognition and Understanding (ASRU), 2015 IEEE Workshop on. IEEE, 2015.](https://arxiv.org/pdf/1507.08240.pdf)\n* [Slides](http://people.csail.mit.edu/jrg/meetings/CTC-Dec07.pdf)",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 330529,
+          "key": "c1d84915-2c34-4d84-85ca-13a7a8cfce6b",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c1d84915-2c34-4d84-85ca-13a7a8cfce6b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 339689,
+              "key": "aa8d0bdc-4b46-4a5e-9e74-3ecaa92772c8",
+              "title": "Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "xMXF5PQxHnk",
+                "china_cdn_id": "xMXF5PQxHnk.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

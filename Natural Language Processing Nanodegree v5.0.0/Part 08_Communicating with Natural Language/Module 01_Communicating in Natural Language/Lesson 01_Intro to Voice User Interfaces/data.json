@@ -1,0 +1,121 @@
+{
+  "data": {
+    "lesson": {
+      "id": 568238,
+      "key": "798df1e9-f6c4-4b36-a50d-fb7ee7295a8e",
+      "title": "Intro to Voice User Interfaces",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Get acquainted with the principles and applications of VUI, and get introduced to Alexa skills.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/798df1e9-f6c4-4b36-a50d-fb7ee7295a8e/568238/1544465416333/Intro+to+Voice+User+Interfaces+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/798df1e9-f6c4-4b36-a50d-fb7ee7295a8e/568238/1544465413525/Intro+to+Voice+User+Interfaces+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 287972,
+          "key": "cfbae6e2-d825-463d-995a-bd4cb4ad8102",
+          "title": "Welcome to Voice User Interfaces!",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cfbae6e2-d825-463d-995a-bd4cb4ad8102",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 325449,
+              "key": "221802ed-da9e-4b94-a8fb-bcd0ef4342e8",
+              "title": "Welcome",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "zYDIgmGo4Xc",
+                "china_cdn_id": "zYDIgmGo4Xc.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 287976,
+          "key": "f87be48f-7caf-40e4-8085-d6736004e90c",
+          "title": "VUI Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f87be48f-7caf-40e4-8085-d6736004e90c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 324591,
+              "key": "b15a6646-5e63-4554-a6c5-3377358c07c7",
+              "title": "VUI Overview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "w5QGti1LHzc",
+                "china_cdn_id": "w5QGti1LHzc.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 287977,
+          "key": "f5518ea4-dd51-4fe0-a1e4-87535ee57f37",
+          "title": "VUI Applications",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f5518ea4-dd51-4fe0-a1e4-87535ee57f37",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 325698,
+              "key": "5f011b69-e4fd-4f27-a56b-08b478587011",
+              "title": "VUI Applications",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "wZLP8cdiA2Y",
+                "china_cdn_id": "wZLP8cdiA2Y.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
