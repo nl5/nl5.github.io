@@ -1,0 +1,463 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.500 --> 00:00:02.070
+(instructor) Hello
+again, everyone.
+
+00:00:02.069 --> 00:00:04.029
+So this week we are
+going to be talking
+
+00:00:04.030 --> 00:00:07.880
+about Sentiment Analysis with
+Recurrent Neural Network.
+
+00:00:07.879 --> 00:00:10.990
+So hopefully this will give
+you some more insight, and some
+
+00:00:10.990 --> 00:00:14.890
+more understanding about how
+recurrent neural networks work.
+
+00:00:14.890 --> 00:00:17.769
+So you've seen a
+lot of this before.
+
+00:00:17.769 --> 00:00:22.119
+We're going to be using the same
+data that Andrew Trask used.
+
+00:00:22.120 --> 00:00:25.000
+But in his case, he wasn't using
+a recurrent neural network,
+
+00:00:25.000 --> 00:00:27.219
+he was just a normal
+feed forward network.
+
+00:00:27.219 --> 00:00:30.009
+Sarraj also
+implemented a network
+
+00:00:30.010 --> 00:00:33.100
+very similar to this
+in one of his videos.
+
+00:00:33.100 --> 00:00:35.929
+This is what the
+network looks like.
+
+00:00:35.929 --> 00:00:39.200
+So the idea is that we're going
+to pass in a bunch of words
+
+00:00:39.200 --> 00:00:42.640
+from some movie
+review, and then we
+
+00:00:42.640 --> 00:00:43.990
+have labels for these reviews.
+
+00:00:43.990 --> 00:00:45.530
+They're either
+positive or negative.
+
+00:00:45.530 --> 00:00:47.410
+So what we want to
+do with this network
+
+00:00:47.409 --> 00:00:51.009
+is that we want to take
+other movie reviews that we
+
+00:00:51.009 --> 00:00:53.699
+haven't seen and predict if
+they're positive or negative.
+
+00:00:53.700 --> 00:00:55.450
+So the way we're going
+to do this is we're
+
+00:00:55.450 --> 00:00:58.780
+going to pass in a bunch of
+movie reviews with labels
+
+00:00:58.780 --> 00:01:00.670
+and train the network.
+
+00:01:00.670 --> 00:01:03.679
+So the idea is here
+is our network,
+
+00:01:03.679 --> 00:01:06.385
+and we have kind
+of a typical setup.
+
+00:01:06.385 --> 00:01:08.259
+So we have our words
+and then these are going
+
+00:01:08.260 --> 00:01:10.359
+to go into an embedding layer.
+
+00:01:10.359 --> 00:01:12.400
+So we learned about
+embeddings before when
+
+00:01:12.400 --> 00:01:14.800
+you were implementing Word2Vec.
+
+00:01:14.799 --> 00:01:18.039
+So the problem we have is
+that when you have words,
+
+00:01:18.040 --> 00:01:21.160
+you end up with tens of
+thousands of different classes.
+
+00:01:21.159 --> 00:01:23.200
+And so if you try to
+one hot encode that,
+
+00:01:23.200 --> 00:01:25.120
+it's going to be
+really inefficient.
+
+00:01:25.120 --> 00:01:29.502
+So instead, we're going to
+encode our words as integers,
+
+00:01:29.501 --> 00:01:31.209
+and then pass those
+to an embedding layer
+
+00:01:31.209 --> 00:01:33.849
+so that we can get out
+these embedded vectors,
+
+00:01:33.849 --> 00:01:37.089
+these representations
+for our words.
+
+00:01:37.090 --> 00:01:40.070
+Then those are
+passed to LSTM cells.
+
+00:01:40.069 --> 00:01:42.879
+So these are our long and
+short term memory cells.
+
+00:01:42.879 --> 00:01:46.269
+And they act basically
+exactly like a hidden layer.
+
+00:01:46.269 --> 00:01:48.979
+And the idea here is that
+since it's recurrent,
+
+00:01:48.980 --> 00:01:52.960
+then we pass the state
+of the hidden layers
+
+00:01:52.959 --> 00:01:55.359
+to the next step in
+our recurrent network.
+
+00:01:55.359 --> 00:01:58.780
+And that goes to the next
+step, and eventually goes out.
+
+00:01:58.780 --> 00:02:00.489
+And for an output
+layer we're going
+
+00:02:00.489 --> 00:02:03.475
+to use just one unit with
+a Sigmoid activation.
+
+00:02:03.475 --> 00:02:05.349
+So again we're just
+trying to classify things
+
+00:02:05.349 --> 00:02:07.039
+are positive or negative.
+
+00:02:07.040 --> 00:02:11.740
+And so in that case we just need
+to have a zero or a one output.
+
+00:02:11.740 --> 00:02:13.713
+And what the Sigmoid
+does is it squishes
+
+00:02:13.713 --> 00:02:15.129
+things between
+zero and one so you
+
+00:02:15.129 --> 00:02:18.430
+get this probability
+of being positive,
+
+00:02:18.430 --> 00:02:19.950
+or probability of
+being negative.
+
+00:02:19.949 --> 00:02:20.560
+Right?
+
+00:02:20.560 --> 00:02:23.969
+So we're just going use
+the Sigmoid as our output.
+
+00:02:23.969 --> 00:02:26.020
+And the deal here
+is that, and you
+
+00:02:26.020 --> 00:02:28.450
+can see I don't have
+anything labeled above these,
+
+00:02:28.449 --> 00:02:32.079
+so we're really only interested
+in the very last output.
+
+00:02:32.080 --> 00:02:34.690
+So we're just going to pass in
+a sequence of words, and then
+
+00:02:34.689 --> 00:02:38.810
+the last output we're going to
+use as our labels or target.
+
+00:02:38.810 --> 00:02:43.360
+So in this case best movie ever
+is probably a positive review.
+
+00:02:43.360 --> 00:02:45.610
+So we're going to
+have it as positive.
+
+00:02:45.610 --> 00:02:47.555
+And this is the general
+idea of our network.
+
+00:02:47.555 --> 00:02:48.930
+We're just going
+to pass this in.
+
+00:02:48.930 --> 00:02:50.763
+It's going to go through
+our embedding layer
+
+00:02:50.763 --> 00:02:55.180
+to the LSTM hidden layers,
+and then to our Sigmoid output
+
+00:02:55.180 --> 00:02:57.400
+layer, and then we're
+going to calculate the cost
+
+00:02:57.400 --> 00:02:59.210
+from the very last output.
+
+00:02:59.210 --> 00:02:59.710
+OK.
+
+00:02:59.710 --> 00:03:02.379
+Let's get started
+building this thing.
+
+00:03:02.379 --> 00:03:05.409
+So here I'm just importing
+libraries I need, NumPy
+
+00:03:05.409 --> 00:03:11.525
+and TensorFlow, and then loading
+the data, reviews, and labels.
+
+00:03:11.525 --> 00:03:14.451
+And here you can see an
+example of some of the reviews.
+
+00:03:14.451 --> 00:03:15.909
+One thing I didn't
+notice from this
+
+00:03:15.909 --> 00:03:18.699
+is that you see
+these backslash n.
+
+00:03:18.699 --> 00:03:20.393
+So these are new
+line characters.
+
+00:03:20.394 --> 00:03:22.060
+And what they're
+doing, they're actually
+
+00:03:22.060 --> 00:03:26.659
+delimiting the different
+reviews in this data set.
+
+00:03:26.659 --> 00:03:30.311
+So this backlash n
+is the second review.
+
+00:03:30.312 --> 00:03:32.020
+And then we see another
+backslash n here,
+
+00:03:32.020 --> 00:03:33.670
+and this is the third review.
+
+00:03:33.669 --> 00:03:35.500
+So we know how to--
+so from this we
+
+00:03:35.500 --> 00:03:37.870
+can tell how to
+separate our reviews,
+
+00:03:37.870 --> 00:03:41.409
+like just this giant block of
+text in two separate reviews
+
+00:03:41.409 --> 00:03:48.310
+if we split this giant string
+with the newline character.
+
+00:03:48.310 --> 00:03:50.379
+So you might have
+seen before, when
+
+00:03:50.379 --> 00:03:52.180
+we look at all of
+our text, there's
+
+00:03:52.180 --> 00:03:54.730
+a whole bunch of periods
+and other punctuations.
+
+00:03:54.729 --> 00:03:56.756
+So first we want
+to get rid of that.
+
+00:03:56.756 --> 00:03:57.879
+And it's pretty easy to do.
+
+00:03:57.879 --> 00:04:00.669
+So we're just going to
+get, this is basically
+
+00:04:00.669 --> 00:04:02.709
+a string of all
+punctuations, and then
+
+00:04:02.710 --> 00:04:04.480
+we can go through our reviews.
+
+00:04:04.479 --> 00:04:08.488
+And then if some character in
+reviews is not a punctuation,
+
+00:04:08.489 --> 00:04:09.280
+then we keep it in.
+
+00:04:09.280 --> 00:04:11.840
+Otherwise, we get rid of it.
+
+00:04:11.840 --> 00:04:15.400
+And then we can split
+our text into reviews.
+
+00:04:15.400 --> 00:04:19.149
+Just split it on the
+newline character,
+
+00:04:19.149 --> 00:04:23.980
+and then we're just going
+to join back their reviews
+
+00:04:23.980 --> 00:04:26.480
+into its full text thing.
+
+00:04:26.480 --> 00:04:28.930
+So the reason I'm doing
+this is because if we
+
+00:04:28.930 --> 00:04:31.480
+try to split these things into
+words, then this is a word.
+
+00:04:31.480 --> 00:04:35.200
+Right, so this new line
+homelessness is a word.
+
+00:04:35.199 --> 00:04:38.149
+And then this new line
+story is another word.
+
+00:04:38.149 --> 00:04:39.789
+So when we're trying
+to find our vocab,
+
+00:04:39.790 --> 00:04:40.960
+these are going to
+end up as words,
+
+00:04:40.959 --> 00:04:42.375
+but we don't really
+want our words
+
+00:04:42.375 --> 00:04:43.599
+to have new lines in them.
+
+00:04:43.600 --> 00:04:47.980
+So basically what I did is I
+just split it into two reviews,
+
+00:04:47.980 --> 00:04:50.680
+and then I just put it all back
+together without new lines.
+
+00:04:50.680 --> 00:04:52.840
+So now we have, just.
+
+00:04:52.839 --> 00:04:58.079
+This all text now is just
+one long string of words.
+
+00:04:58.079 --> 00:05:00.879
+Then we can get our words
+by, again, just splitting.
+
+00:05:00.879 --> 00:05:03.189
+So now these are
+all of our words,
+
+00:05:03.189 --> 00:05:05.139
+so you can see here
+this is all text.
+
+00:05:05.139 --> 00:05:09.310
+So again, all of our
+text is one long string
+
+00:05:09.310 --> 00:05:12.459
+that has no periods
+and no new lines.
+
+00:05:12.459 --> 00:05:15.098
+So we can get all of our
+words just from this.
+
+00:05:15.098 --> 00:05:16.389
+And you can see the words here.
+
+00:05:16.389 --> 00:05:20.519
+So Brummel High is a
+cartoon comedy, et cetera.
+

@@ -1,0 +1,394 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:01.667
+Olá de novo, pessoal.
+
+00:00:01.700 --> 00:00:06.033
+Nesta lição, falaremos
+sobre análise de sentimentos
+
+00:00:06.067 --> 00:00:07.567
+usando
+redes neurais recorrentes.
+
+00:00:07.600 --> 00:00:11.800
+Espero que você consiga
+compreender melhor
+
+00:00:11.833 --> 00:00:14.733
+como funcionam
+as redes neurais recorrentes.
+
+00:00:14.767 --> 00:00:17.533
+Você já viu isso
+várias vezes.
+
+00:00:17.567 --> 00:00:21.633
+Vamos usar os mesmos dados
+que o Andrew Trask usou,
+
+00:00:21.667 --> 00:00:24.833
+mas, no caso dele,
+não era uma rede neural,
+
+00:00:24.867 --> 00:00:27.033
+era uma rede feedforward
+normal.
+
+00:00:27.067 --> 00:00:31.267
+O Siraj também implementou
+uma rede parecida com esta
+
+00:00:31.300 --> 00:00:32.900
+num dos vídeos dele.
+
+00:00:32.933 --> 00:00:35.567
+Esta é a aparência da rede.
+
+00:00:35.600 --> 00:00:38.933
+Vamos fornecer
+várias palavras
+
+00:00:38.967 --> 00:00:41.700
+de resenhas de filmes.
+
+00:00:41.733 --> 00:00:45.267
+Essas resenhas são classificadas
+como positivas ou negativas.
+
+00:00:45.300 --> 00:00:47.760
+O que vamos fazer
+com esta rede é:
+
+00:00:47.786 --> 00:00:51.667
+pegar outras resenhas
+que não lemos
+
+00:00:51.700 --> 00:00:54.067
+e prever
+se são positivas ou negativas.
+
+00:00:54.100 --> 00:00:58.333
+Para isso, forneceremos
+muitas resenhas classificadas
+
+00:00:58.367 --> 00:01:00.133
+e treinaremos a rede.
+
+00:01:00.167 --> 00:01:03.600
+Esta é a nossa rede.
+
+00:01:03.633 --> 00:01:06.133
+Temos uma configuração
+comum.
+
+00:01:06.167 --> 00:01:10.167
+Temos as palavras, que irão
+numa camada de embedding.
+
+00:01:10.200 --> 00:01:12.033
+Aprendemos sobre embeddings,
+
+00:01:12.067 --> 00:01:14.567
+quando implementamos
+o word2vec.
+
+00:01:14.600 --> 00:01:17.733
+O problema é que,
+quando temos palavras,
+
+00:01:17.767 --> 00:01:21.033
+temos centenas de milhares
+de classes diferentes.
+
+00:01:21.067 --> 00:01:24.867
+Se tentar usar o código one-hot,
+não será eficaz.
+
+00:01:24.900 --> 00:01:29.367
+Em vez disso, vamos codificar
+as palavras como números inteiros
+
+00:01:29.400 --> 00:01:31.667
+e então passá-las
+para a camada de embedding,
+
+00:01:31.700 --> 00:01:33.700
+para obtermos
+os vetores de embedding,
+
+00:01:33.733 --> 00:01:36.933
+as representações
+das palavras.
+
+00:01:36.967 --> 00:01:39.767
+Passamos os vetores
+para as células LSTM,
+
+00:01:39.800 --> 00:01:42.633
+que são as células de memória
+de longo e curto prazo
+
+00:01:42.667 --> 00:01:45.867
+que atuam exatamente igual
+a uma camada oculta.
+
+00:01:45.900 --> 00:01:48.667
+Como a rede é recorrente,
+
+00:01:48.700 --> 00:01:52.800
+passamos o estado
+da camada oculta
+
+00:01:52.833 --> 00:01:55.233
+para a próxima etapa
+da rede recorrente,
+
+00:01:55.267 --> 00:01:58.700
+e depois para a próxima etapa,
+até que ele, por fim, sai.
+
+00:01:58.733 --> 00:02:03.367
+Na camada do output, usaremos só
+uma unidade com ativação sigmoide.
+
+00:02:03.400 --> 00:02:06.733
+Estamos tentando classificar
+se algo é positivo ou negativo,
+
+00:02:06.767 --> 00:02:11.533
+de forma que só precisamos
+de um output de 0 ou 1.
+
+00:02:11.567 --> 00:02:14.733
+O sigmoide compacta tudo
+entre 0 e 1,
+
+00:02:14.767 --> 00:02:20.400
+resultando na probabilidade
+de ser positivo ou negativo,
+
+00:02:20.433 --> 00:02:23.800
+então vamos usar o sigmoide
+como output.
+
+00:02:23.833 --> 00:02:28.300
+Como você pode ver,
+não há classificações aqui em cima.
+
+00:02:28.333 --> 00:02:31.933
+Realmente só estamos interessados
+no último output.
+
+00:02:31.967 --> 00:02:34.167
+Vamos passar
+uma sequência de palavras
+
+00:02:34.200 --> 00:02:38.500
+e vamos usar o último output
+como o alvo para a etiqueta.
+
+00:02:38.533 --> 00:02:41.100
+Então o "melhor filme
+de todos os tempos"
+
+00:02:41.133 --> 00:02:43.233
+provavelmente
+é uma resenha positiva,
+
+00:02:43.267 --> 00:02:45.200
+então vamos marcá-la
+como positiva.
+
+00:02:45.233 --> 00:02:47.767
+Essa é a ideia geral
+da nossa rede.
+
+00:02:47.800 --> 00:02:50.500
+Vamos passar os dados,
+
+00:02:50.533 --> 00:02:53.300
+que passarão pela camada
+de embedding para as camadas LSTM
+
+00:02:53.333 --> 00:02:55.733
+e depois para a camada
+de output sigmoide.
+
+00:02:55.767 --> 00:02:59.300
+Por fim, calcularemos o custo
+a partir do último output.
+
+00:02:59.333 --> 00:03:02.267
+Certo, vamos começar
+a construir isso.
+
+00:03:02.300 --> 00:03:05.000
+Aqui, importei as bibliotecas
+das quais preciso,
+
+00:03:05.033 --> 00:03:09.267
+NumPy e TensorFlow,
+e depois carreguei os dados,
+
+00:03:09.300 --> 00:03:11.633
+que são as resenhas
+e as etiquetas.
+
+00:03:11.667 --> 00:03:14.300
+Aqui você pode ver
+um exemplo de resenha.
+
+00:03:14.333 --> 00:03:18.500
+Uma coisa digna de nota
+são estes "\n".
+
+00:03:18.533 --> 00:03:20.833
+Eles representam
+o início de uma nova linha.
+
+00:03:20.867 --> 00:03:25.067
+Neste caso, marcam o início
+de uma nova resenha
+
+00:03:25.100 --> 00:03:26.367
+deste banco de dados.
+
+00:03:26.400 --> 00:03:30.233
+Este "\n" marca o começo
+da segunda resenha
+
+00:03:30.267 --> 00:03:33.533
+e este outro aqui
+marca a terceira.
+
+00:03:33.567 --> 00:03:37.697
+A partir disso, sabemos
+como separar as resenhas,
+
+00:03:37.719 --> 00:03:40.067
+como quebrar
+este bloco gigante de texto
+
+00:03:40.100 --> 00:03:42.067
+em resenhas separadas,
+
+00:03:42.100 --> 00:03:47.333
+se quebrarmos esta string enorme
+com o "\n".
+
+00:03:48.000 --> 00:03:50.067
+Talvez você
+já tenha percebido,
+
+00:03:50.100 --> 00:03:52.967
+mas no texto
+há muitos pontos finais
+
+00:03:53.000 --> 00:03:54.567
+e outros tipos de pontuação.
+
+00:03:54.600 --> 00:03:56.967
+Primeiro, precisamos
+nos livrar disso.
+
+00:03:57.000 --> 00:03:58.233
+É bem fácil.
+
+00:03:58.267 --> 00:04:02.400
+Esta string abrange
+todas as pontuações.
+
+00:04:02.433 --> 00:04:04.367
+Ao percorrer as resenhas,
+
+00:04:04.400 --> 00:04:08.967
+se houver caracteres que não sejam
+pontuação, nós os manteremos.
+
+00:04:09.000 --> 00:04:11.767
+Caso contrário,
+nós os eliminamos.
+
+00:04:11.800 --> 00:04:15.267
+Podemos, então,
+quebrar o texto em resenhas,
+
+00:04:15.300 --> 00:04:18.767
+é só quebrar
+no caractere "\n".
+
+00:04:18.800 --> 00:04:23.633
+Em seguida, vamos juntar novamente
+as resenhas
+
+00:04:23.667 --> 00:04:26.167
+num único texto.
+
+00:04:26.200 --> 00:04:30.200
+Vou fazer isso porque,
+se dividirmos o texto em palavras,
+
+00:04:30.233 --> 00:04:31.533
+isto aqui é uma palavra.
+
+00:04:31.567 --> 00:04:35.067
+Este "\nhomelessness"
+é uma palavra.
+
+00:04:35.100 --> 00:04:37.933
+Este "\nstory"
+é outra palavra.
+
+00:04:37.967 --> 00:04:40.767
+No vocabulário,
+elas vão aparecer como palavras,
+
+00:04:40.800 --> 00:04:43.433
+mas não queremos
+que as palavras tenham "\n".
+
+00:04:43.467 --> 00:04:47.800
+Então eu quebrei o texto
+em resenhas
+
+00:04:47.833 --> 00:04:50.567
+e depois juntei tudo de novo,
+mas sem "\n".
+
+00:04:50.600 --> 00:04:53.800
+Agora, este "all_text"
+
+00:04:53.833 --> 00:04:57.967
+é uma string bem comprida
+de palavras.
+
+00:04:58.000 --> 00:05:01.000
+Em seguida, podemos obter
+as palavras apenas dividindo.
+
+00:05:01.033 --> 00:05:02.700
+Estas são todas as palavras,
+
+00:05:02.733 --> 00:05:05.400
+e você pode ver agora
+que é tudo texto.
+
+00:05:05.433 --> 00:05:09.033
+Temos o texto inteiro
+numa string muito comprida,
+
+00:05:09.067 --> 00:05:12.233
+que não tem pontuação
+nem quebras de linha,
+
+00:05:12.267 --> 00:05:15.033
+de forma que podemos obter
+todas as palavras disto aqui.
+
+00:05:15.067 --> 00:05:19.267
+Podemos ver as palavras aqui:
+"bromwell high is a cartoon comedy".
+

@@ -1,0 +1,229 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.709 --> 00:00:03.824
+Bom, aqui temos
+o código da validação,
+
+00:00:03.857 --> 00:00:07.426
+para podermos monitorar
+o desempenho
+
+00:00:07.459 --> 00:00:09.560
+da nossa rede word2vec
+enquanto ela treina.
+
+00:00:09.593 --> 00:00:12.781
+Aqui há alguns códigos
+de treinamento.
+
+00:00:12.814 --> 00:00:16.731
+Esta é a maneira mais comum
+de fazer isso.
+
+00:00:16.764 --> 00:00:18.658
+Então é só criar
+os seus lotes
+
+00:00:18.691 --> 00:00:21.978
+e um dicionário de alimentação,
+passá-lo para a sua rede
+
+00:00:22.011 --> 00:00:23.424
+e executar o otimizador.
+
+00:00:25.125 --> 00:00:27.457
+Aqui,
+enquanto a rede treina,
+
+00:00:27.490 --> 00:00:29.881
+vamos imprimir
+a perda de treinamento,
+
+00:00:29.914 --> 00:00:32.874
+então esses valores vão diminuir
+à medida que forem gerados.
+
+00:00:33.137 --> 00:00:36.741
+Em seguida, imprimiremos também
+algumas palavras para a validação.
+
+00:00:37.070 --> 00:00:42.667
+Aqui eu selecionei
+algumas palavras-alvo aleatórias,
+
+00:00:42.700 --> 00:00:44.780
+ou seja,
+palavras de exemplo,
+
+00:00:44.813 --> 00:00:48.569
+e agora estamos vendo algumas
+palavras do nosso conjunto de dados
+
+00:00:48.602 --> 00:00:52.181
+cujos vetores de representação
+são próximos, certo?
+
+00:00:52.214 --> 00:00:54.903
+Aqui nós vemos
+
+00:00:54.936 --> 00:00:58.693
+se a nossa rede
+está realmente aprendendo
+
+00:00:58.726 --> 00:01:01.566
+relações de semântica
+entre essas palavras.
+
+00:01:01.599 --> 00:01:03.260
+E já que ela está aprendendo,
+
+00:01:03.293 --> 00:01:06.636
+você verá palavras
+que têm relação com "chamado"
+
+00:01:06.669 --> 00:01:07.912
+perto de "chamado".
+
+00:01:07.945 --> 00:01:11.761
+Então aqui vemos
+que as palavras próximas de "para"
+
+00:01:11.794 --> 00:01:14.066
+são "Hoffman",
+"vigarista", "Montinari"...
+
+00:01:14.099 --> 00:01:18.398
+Ou seja, palavras que não têm
+nada a ver com estas aqui.
+
+00:01:18.431 --> 00:01:22.606
+Com "consiste" ou "escala",
+por exemplo, não há nenhuma relação.
+
+00:01:23.300 --> 00:01:27.577
+Mas, no fim,
+quando concluirmos o treinamento,
+
+00:01:27.610 --> 00:01:29.887
+veremos na palavra "escala",
+por exemplo,
+
+00:01:29.920 --> 00:01:32.273
+que a palavra "diatônico"
+é próxima de "escala",
+
+00:01:32.306 --> 00:01:34.221
+e "diatônico" é
+uma frase musical.
+
+00:01:34.254 --> 00:01:36.883
+Veremos também
+"unidades" perto de "unidade",
+
+00:01:36.916 --> 00:01:40.095
+"gelo" perto de "rinque",
+"URSS", "hóquei", "Suécia"...
+
+00:01:40.128 --> 00:01:44.643
+Muitas delas têm a ver com "hóquei",
+"gelo", "rinque", "hóquei"...
+
+00:01:44.676 --> 00:01:48.686
+Então podemos usar esses dados
+para tentar perceber
+
+00:01:48.719 --> 00:01:52.205
+como a nossa rede
+está aprendendo
+
+00:01:52.238 --> 00:01:57.438
+e se essas representações
+estão se aproximando
+
+00:01:57.471 --> 00:01:58.952
+do jeito que nós queremos.
+
+00:01:58.985 --> 00:02:02.902
+Finalmente,
+aqui eu usei T-SNE
+
+00:02:02.935 --> 00:02:06.711
+para agrupar nossos vetores.
+
+00:02:06.744 --> 00:02:09.390
+Assim podemos visualizar
+
+00:02:09.423 --> 00:02:13.097
+como essas representações
+existem
+
+00:02:13.130 --> 00:02:16.135
+nessa espécie
+de espaço dimensional elevado.
+
+00:02:16.168 --> 00:02:20.063
+Então, provavelmente, as palavras
+que têm significados parecidos
+
+00:02:20.096 --> 00:02:22.427
+estarão perto uma da outra.
+
+00:02:22.712 --> 00:02:25.061
+E é exatamente isso
+que vemos aqui.
+
+00:02:25.094 --> 00:02:27.744
+Por exemplo, aqui temos
+"central", "leste",
+
+00:02:27.777 --> 00:02:30.182
+"ocidental", "oeste", "sul",
+"norte", "América".
+
+00:02:30.215 --> 00:02:34.614
+Então todas elas existem
+no mesmo contexto,
+
+00:02:34.647 --> 00:02:37.062
+por isso aparecem agrupadas
+
+00:02:37.095 --> 00:02:41.013
+nas nossas representações
+semânticas.
+
+00:02:41.046 --> 00:02:44.005
+Aqui temos "escola",
+"universidade", "faculdade".
+
+00:02:44.769 --> 00:02:47.808
+Aqui embaixo temos "código aberto",
+"livre", "software"...
+
+00:02:47.841 --> 00:02:49.227
+coisas desse tipo.
+
+00:02:49.260 --> 00:02:53.341
+É um ótimo sinal de que a nossa rede
+de fato aprendeu
+
+00:02:53.374 --> 00:02:57.088
+algumas informações
+sobre o significado dessas palavras.
+
+00:02:57.417 --> 00:03:00.930
+Bom, espero que tenham
+gostado de construir esta rede.
+
+00:03:00.963 --> 00:03:05.524
+Esta é uma arquitetura,
+ou um modelo, muito bacana
+
+00:03:05.557 --> 00:03:11.394
+que demonstrou ser muito útil
+para representar idiomas.
+
+00:03:11.427 --> 00:03:12.799
+Valeu!
+

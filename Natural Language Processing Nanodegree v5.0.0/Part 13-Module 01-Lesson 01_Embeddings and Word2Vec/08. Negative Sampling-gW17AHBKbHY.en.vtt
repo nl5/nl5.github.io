@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.339
+Welcome back. So this is the last part that you'll be implementing yourself.
+
+00:00:06.339 --> 00:00:08.070
+In our architecture, we have
+
+00:00:08.070 --> 00:00:12.660
+this you know softmax layer on the output and you know since we're working with,
+
+00:00:12.660 --> 00:00:15.060
+you know tens of thousands of words the softmax layer is
+
+00:00:15.060 --> 00:00:18.199
+going to have tens of thousands of units.
+
+00:00:18.199 --> 00:00:19.975
+But in any one,
+
+00:00:19.975 --> 00:00:26.129
+with any one input we're all going to have like one true label.
+
+00:00:26.129 --> 00:00:29.699
+So what that means is we're going to be making very small changes to
+
+00:00:29.699 --> 00:00:33.329
+millions of weights even though we actually only have like one true example,
+
+00:00:33.329 --> 00:00:35.340
+and so, so only very few of the weights are
+
+00:00:35.340 --> 00:00:38.225
+actually going to be updated in a meaningful way.
+
+00:00:38.225 --> 00:00:41.280
+So instead what we do is approximate the,
+
+00:00:41.280 --> 00:00:44.579
+the loss from the softmax layer and we can do this
+
+00:00:44.579 --> 00:00:50.829
+by like sampling just a small subset of all the weights.
+
+00:00:50.829 --> 00:00:54.460
+So what we do is we update the weights for the correct label but
+
+00:00:54.460 --> 00:00:59.500
+then we just do a small like sample of incorrect labels.
+
+00:00:59.500 --> 00:01:01.783
+Usually round like 100 or so.
+
+00:01:01.783 --> 00:01:03.969
+This is called negative sampling.
+
+00:01:03.969 --> 00:01:04.993
+So you want to read about it more,
+
+00:01:04.993 --> 00:01:06.890
+you can check out this link.
+
+00:01:06.890 --> 00:01:11.108
+And TensorFlow has provided a function to basically do this.
+
+00:01:11.108 --> 00:01:14.113
+So tf.nn.sampled_softmax_loss.
+
+00:01:14.114 --> 00:01:18.155
+So go ahead and read the documentation here to see how it works.
+
+00:01:18.155 --> 00:01:21.504
+So below here, you're going to create the weights and the biases for
+
+00:01:21.504 --> 00:01:26.200
+the softmax layer and then use these to actually calculate the loss,
+
+00:01:26.200 --> 00:01:30.067
+with again with the targets with samples of softmax loss.
+
+00:01:30.067 --> 00:01:32.078
+And then pass this to cost and
+
+00:01:32.078 --> 00:01:37.559
+the AdamOptimizer is going to minimize the costs like normal.
+
+00:01:37.560 --> 00:01:40.394
+Okay, go ahead and try to implement this.
+
+00:01:40.394 --> 00:01:42.984
+And as usual check out my solution if you need help,
+
+00:01:42.983 --> 00:01:47.000
+or you know, you get stuck or just want to see how I did it. Cheers.
+

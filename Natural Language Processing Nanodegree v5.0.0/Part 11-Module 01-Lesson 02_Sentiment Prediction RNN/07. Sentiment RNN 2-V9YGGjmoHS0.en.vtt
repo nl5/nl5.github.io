@@ -1,0 +1,933 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.660 --> 00:00:01.830
+Welcome back.
+
+00:00:01.830 --> 00:00:04.200
+So now I'm going to go
+through my solutions
+
+00:00:04.200 --> 00:00:07.620
+to the exercises I
+had you do before.
+
+00:00:07.620 --> 00:00:10.560
+So you might have come here
+because you were having
+
+00:00:10.560 --> 00:00:13.800
+difficulties actually
+implementing that stuff
+
+00:00:13.800 --> 00:00:16.170
+or maybe you just want
+to see how I did it.
+
+00:00:16.170 --> 00:00:18.330
+You probably ended up
+doing it differently
+
+00:00:18.329 --> 00:00:20.049
+than me, which is totally fine.
+
+00:00:20.050 --> 00:00:21.900
+I mean, this is
+programming, so there's
+
+00:00:21.899 --> 00:00:24.479
+thousands of different
+ways to do these things.
+
+00:00:24.480 --> 00:00:26.800
+This is just the
+way that I did it.
+
+00:00:26.800 --> 00:00:31.839
+So the first thing I did was
+encode the words with integers.
+
+00:00:31.839 --> 00:00:33.399
+What I like to do
+is I actually like
+
+00:00:33.399 --> 00:00:37.993
+to set the integers
+in order of frequency.
+
+00:00:37.993 --> 00:00:40.159
+So then the highest frequency
+word is going to be 1,
+
+00:00:40.159 --> 00:00:42.729
+the next one's going
+to be 2, and so on.
+
+00:00:42.729 --> 00:00:45.789
+There's not a real good
+reason to do that here,
+
+00:00:45.789 --> 00:00:49.780
+but it helped a lot when I was
+working on the Word2Vec model.
+
+00:00:49.780 --> 00:00:52.579
+So yeah, I just kind
+of like doing that.
+
+00:00:52.579 --> 00:00:55.449
+So if you didn't do
+that, then that's fine.
+
+00:00:55.450 --> 00:00:57.970
+So here I used a
+counter to count up
+
+00:00:57.969 --> 00:01:00.009
+the frequency of all
+the words and then
+
+00:01:00.009 --> 00:01:04.840
+I sorted it to get
+my vocab in order
+
+00:01:04.840 --> 00:01:07.420
+of the frequency of words.
+
+00:01:07.420 --> 00:01:11.409
+Here, I'm just building my
+dictionary, my vocab to integer
+
+00:01:11.409 --> 00:01:14.619
+dictionary, using a
+dictionary comprehension.
+
+00:01:14.620 --> 00:01:17.650
+So I'm just using
+enumerate on the vocabulary
+
+00:01:17.650 --> 00:01:22.120
+and starting it at 1 to
+get my index, my integer,
+
+00:01:22.120 --> 00:01:25.570
+and the word, and just
+setting the word as the key
+
+00:01:25.569 --> 00:01:27.459
+and the integer as the value.
+
+00:01:30.790 --> 00:01:33.370
+So like I said before, we
+want to start at 1 here,
+
+00:01:33.370 --> 00:01:38.420
+not 0, because we're padding our
+input vectors with 0's later.
+
+00:01:38.420 --> 00:01:43.480
+So if you had some word
+count as 0, like "be"
+
+00:01:43.480 --> 00:01:46.150
+encoded as 0, then when
+the network saw it later,
+
+00:01:46.150 --> 00:01:48.407
+it would think everything
+was the word "it"
+
+00:01:48.406 --> 00:01:50.739
+or something, or "the," because
+I think "the" is usually
+
+00:01:50.739 --> 00:01:52.869
+the most frequent word.
+
+00:01:52.870 --> 00:01:57.880
+So here is where I converted my
+reviews from words into ints.
+
+00:01:57.879 --> 00:02:00.009
+Again, I'm using
+a comprehension.
+
+00:02:00.010 --> 00:02:02.140
+This time just a
+list comprehension.
+
+00:02:02.140 --> 00:02:06.670
+So I am taking each
+review from my reviews
+
+00:02:06.670 --> 00:02:09.939
+and I split it into words, and
+then for each of those words,
+
+00:02:09.939 --> 00:02:11.770
+I convert it to an integer.
+
+00:02:11.770 --> 00:02:13.450
+And then I'm using
+a list comprehension
+
+00:02:13.449 --> 00:02:16.489
+to build a new list
+using those integers.
+
+00:02:16.490 --> 00:02:21.050
+And I just append it to
+this new list, reviews_ints.
+
+00:02:21.050 --> 00:02:24.740
+In that way, I can
+build this list of lists
+
+00:02:24.740 --> 00:02:26.960
+where each of those
+inner lists is
+
+00:02:26.960 --> 00:02:30.629
+a review that has been converted
+from words into integers.
+
+00:02:34.270 --> 00:02:37.280
+Here is where I
+encoded the labels.
+
+00:02:37.280 --> 00:02:40.400
+So, again, this is
+where we are changing
+
+00:02:40.400 --> 00:02:43.740
+our labels from positive
+and negative to 1 and 0,
+
+00:02:43.740 --> 00:02:45.300
+respectively.
+
+00:02:45.300 --> 00:02:48.080
+So this was pretty
+straightforward for me.
+
+00:02:48.080 --> 00:02:51.260
+So I basically just used
+another list comprehension.
+
+00:02:51.259 --> 00:02:52.789
+I use a lot of
+list comprehensions
+
+00:02:52.789 --> 00:02:54.409
+because I really like them.
+
+00:02:54.409 --> 00:02:58.181
+So basically I'm just
+grabbing each label and labels
+
+00:02:58.181 --> 00:02:59.389
+and then I'm doing this test.
+
+00:02:59.389 --> 00:03:03.949
+So I'm saying, make it 1 if that
+label is positive, and else,
+
+00:03:03.949 --> 00:03:04.701
+make it 0.
+
+00:03:04.701 --> 00:03:07.159
+So in this way you could just
+loop through the whole thing,
+
+00:03:07.159 --> 00:03:09.139
+build a new list,
+and then change it
+
+00:03:09.139 --> 00:03:11.269
+into an array for labels.
+
+00:03:13.900 --> 00:03:18.760
+I typically like to keep my
+data as NumPy arrays rather than
+
+00:03:18.759 --> 00:03:21.489
+lists because it just makes
+it easier to work with.
+
+00:03:21.490 --> 00:03:23.080
+Basically, anytime
+you're working
+
+00:03:23.080 --> 00:03:25.390
+with numbers in
+any way, it's going
+
+00:03:25.389 --> 00:03:28.449
+to be better to use a NumPy
+array rather than just
+
+00:03:28.449 --> 00:03:31.289
+a normal Python list.
+
+00:03:31.289 --> 00:03:36.219
+So here I am filtering out
+this review with zero length.
+
+00:03:36.219 --> 00:03:38.830
+So, I don't know,
+I was kind of lazy
+
+00:03:38.830 --> 00:03:42.850
+and didn't want to look
+through the entire list
+
+00:03:42.849 --> 00:03:45.069
+to find which one
+has zero length,
+
+00:03:45.069 --> 00:03:47.439
+so all I did is I just looped
+through the entire thing,
+
+00:03:47.439 --> 00:03:48.855
+again, using a
+list comprehension.
+
+00:03:48.855 --> 00:03:50.384
+I love comprehensions.
+
+00:03:50.384 --> 00:03:54.819
+So I used a list comprehension
+and did this test,
+
+00:03:54.819 --> 00:03:58.629
+make sure the length of each of
+the reviews is greater than 0,
+
+00:03:58.629 --> 00:04:00.729
+and then if it is, add it.
+
+00:04:00.729 --> 00:04:05.319
+Otherwise, it won't add
+this to the final list.
+
+00:04:05.319 --> 00:04:07.819
+So in that way, you just
+loop through whole thing
+
+00:04:07.819 --> 00:04:12.729
+and just make sure everything
+has a length greater than 0.
+
+00:04:12.729 --> 00:04:14.949
+So here I built
+my features array.
+
+00:04:14.949 --> 00:04:19.360
+This is actually pretty
+difficult, I think.
+
+00:04:19.360 --> 00:04:21.045
+It's definitely not
+trivial and there's
+
+00:04:21.045 --> 00:04:22.170
+a bunch of ways to do this.
+
+00:04:22.170 --> 00:04:25.720
+So if you had problems with
+this, it's totally fine.
+
+00:04:25.720 --> 00:04:27.449
+Hey, you're learning,
+that's good.
+
+00:04:27.449 --> 00:04:28.990
+If it's difficult
+for you, that means
+
+00:04:28.990 --> 00:04:32.980
+you're learning, which is
+exactly what we want you to do.
+
+00:04:32.980 --> 00:04:36.670
+So basically, the way
+I did this is I first
+
+00:04:36.670 --> 00:04:40.927
+initialized an array
+of all 0's that is
+
+00:04:40.927 --> 00:04:42.010
+the length of our reviews.
+
+00:04:42.009 --> 00:04:43.810
+So basically, like
+I was saying, there
+
+00:04:43.810 --> 00:04:46.030
+is one row for each
+review and then
+
+00:04:46.029 --> 00:04:50.379
+each row is going to be
+200 sequence steps long.
+
+00:04:50.379 --> 00:04:52.889
+So our sequence length is 200.
+
+00:04:52.889 --> 00:04:56.099
+So then our features
+array of 0's is
+
+00:04:56.100 --> 00:04:59.760
+going to be the length of the
+reviews by the sequence length.
+
+00:04:59.759 --> 00:05:01.800
+So this is going to give
+us however many reviews
+
+00:05:01.800 --> 00:05:06.439
+we have by 200, and we want
+to make these integers.
+
+00:05:06.439 --> 00:05:10.709
+So now, once I have the 0's,
+then I'm going to fill it in.
+
+00:05:10.709 --> 00:05:15.364
+And so this is a pretty easy
+way to do this, because instead
+
+00:05:15.365 --> 00:05:17.240
+of like, oh, I had the
+[? left ?] pad things.
+
+00:05:17.240 --> 00:05:18.800
+I already have all my zeros.
+
+00:05:18.800 --> 00:05:22.710
+So I can just fill in the
+elements that I need to.
+
+00:05:22.709 --> 00:05:25.079
+So the way that I'm
+doing that is I'm
+
+00:05:25.079 --> 00:05:30.039
+looping through my reviews, the
+integers, with an enumerate.
+
+00:05:30.040 --> 00:05:32.760
+So I'm using this enumerate
+to actually pick out
+
+00:05:32.759 --> 00:05:34.230
+which row I'm on.
+
+00:05:34.230 --> 00:05:37.890
+So I'm grabbing a row
+from features, like row i,
+
+00:05:37.889 --> 00:05:42.209
+and then I'm looking at--
+so negative length row.
+
+00:05:42.209 --> 00:05:46.769
+So this is basically if
+the length of your row
+
+00:05:46.769 --> 00:05:49.889
+is less than 200,
+so say it's 100,
+
+00:05:49.889 --> 00:05:55.479
+then I'm only going to grab the
+last 100 elements in this row.
+
+00:05:55.480 --> 00:05:59.340
+So that kind of takes care
+of the situation where
+
+00:05:59.339 --> 00:06:03.509
+you have less than 200
+words in your review.
+
+00:06:03.509 --> 00:06:06.629
+So then what I'm doing is I am
+converting each of the rows,
+
+00:06:06.629 --> 00:06:09.509
+in my reviews into
+an array and then
+
+00:06:09.509 --> 00:06:14.269
+I just take the first
+200 words in that array.
+
+00:06:14.269 --> 00:06:18.240
+So basically this takes care
+of both problems that we have.
+
+00:06:18.240 --> 00:06:20.800
+So one problem's
+like, OK, if we have
+
+00:06:20.800 --> 00:06:22.300
+a review that's
+more than 200 words,
+
+00:06:22.300 --> 00:06:23.879
+how do we get the
+first 200 words?
+
+00:06:23.879 --> 00:06:26.029
+Well, that's what this is doing.
+
+00:06:26.029 --> 00:06:27.979
+And then if we have
+an array that's
+
+00:06:27.980 --> 00:06:31.640
+less than 200 words,
+how do we add that
+
+00:06:31.639 --> 00:06:33.000
+to the end of our array?
+
+00:06:33.000 --> 00:06:35.689
+And that's what this is doing.
+
+00:06:35.689 --> 00:06:39.759
+So this is just a really
+simple way to do this.
+
+00:06:39.759 --> 00:06:42.310
+And I'm sure you probably
+found a different way
+
+00:06:42.310 --> 00:06:45.759
+to do that, which is,
+of course, totally fine.
+
+00:06:45.759 --> 00:06:47.230
+This is how I did it.
+
+00:06:47.230 --> 00:06:50.259
+I've been using NumPy
+for a really long time,
+
+00:06:50.259 --> 00:06:53.230
+so I know how to do a
+lot of things like this
+
+00:06:53.230 --> 00:06:54.840
+just from experience.
+
+00:06:54.839 --> 00:06:58.239
+And that's sort of the thing
+with programming in general,
+
+00:06:58.240 --> 00:07:00.639
+is that just as you do this
+more and more and more,
+
+00:07:00.639 --> 00:07:04.539
+you learn all these tricks
+that make doing things
+
+00:07:04.540 --> 00:07:08.680
+like this a lot faster and a
+lot more intuitive for you.
+
+00:07:08.680 --> 00:07:11.900
+Now this is my solution for
+the training, validation,
+
+00:07:11.899 --> 00:07:14.039
+and test sets.
+
+00:07:14.040 --> 00:07:16.220
+So this is pretty much
+my general approach
+
+00:07:16.220 --> 00:07:20.490
+for every time I make training
+sets and that sort of stuff.
+
+00:07:20.490 --> 00:07:22.340
+So I just define
+my split fraction,
+
+00:07:22.339 --> 00:07:27.439
+then I find some integer,
+so basically the index
+
+00:07:27.439 --> 00:07:30.439
+where I'm going
+to split my data.
+
+00:07:30.439 --> 00:07:33.230
+And you need this as an
+integer because the index
+
+00:07:33.230 --> 00:07:35.660
+that you're going to
+pass into your array
+
+00:07:35.660 --> 00:07:38.890
+has to be an integer.
+
+00:07:38.889 --> 00:07:42.029
+So here, for my training
+x and my validation x,
+
+00:07:42.029 --> 00:07:45.149
+I'm just going to take my
+features up to the split index.
+
+00:07:45.149 --> 00:07:46.620
+And then for
+validation, it's going
+
+00:07:46.620 --> 00:07:49.470
+to be from the split
+index and to the end.
+
+00:07:49.470 --> 00:07:53.320
+And then I do the same thing for
+my training y and my validation
+
+00:07:53.319 --> 00:07:53.819
+y.
+
+00:07:53.819 --> 00:07:56.550
+So I just use labels
+and set it features.
+
+00:07:56.550 --> 00:08:00.569
+And I basically do the same
+exact thing for my test sets,
+
+00:08:00.569 --> 00:08:02.610
+except I am taking half.
+
+00:08:02.610 --> 00:08:05.100
+So I'm just looking at the
+length of the validation set
+
+00:08:05.100 --> 00:08:09.000
+and I take half of it, so
+now that's my index to split.
+
+00:08:09.000 --> 00:08:10.889
+And then I'm just taking
+my validation data
+
+00:08:10.889 --> 00:08:14.219
+and I'm keeping the first
+half for my validation
+
+00:08:14.220 --> 00:08:18.391
+and then the second
+half for the testing.
+
+00:08:18.391 --> 00:08:18.890
+right.
+
+00:08:18.889 --> 00:08:22.329
+So here is how I
+created my placeholders
+
+00:08:22.329 --> 00:08:26.139
+for the inputs and the labels
+and the key probability.
+
+00:08:26.139 --> 00:08:27.279
+This is pretty typical.
+
+00:08:27.279 --> 00:08:31.059
+So I just did tf.placeholder,
+these are going to be integers.
+
+00:08:31.060 --> 00:08:33.480
+And then I just left the
+batch size and the sequence
+
+00:08:33.480 --> 00:08:38.230
+size just kind of
+variable, like arbitrary,
+
+00:08:38.230 --> 00:08:40.460
+which is usually fine.
+
+00:08:40.460 --> 00:08:42.870
+And again, for the
+labels, even though we're
+
+00:08:42.870 --> 00:08:46.200
+really only passing in
+one label at a time,
+
+00:08:46.200 --> 00:08:50.410
+so it's either like 1 or
+0, later in the network
+
+00:08:50.409 --> 00:08:53.279
+there's some functions that
+require the labels to be
+
+00:08:53.279 --> 00:08:54.329
+two dimensional.
+
+00:08:54.330 --> 00:08:58.480
+So that's why I just add a
+two dimensional thing here.
+
+00:08:58.480 --> 00:09:00.359
+So this is one of those
+things where first I
+
+00:09:00.359 --> 00:09:02.650
+did it as one dimensional,
+because in my head I'm like,
+
+00:09:02.649 --> 00:09:04.179
+oh, this only needs to be 1D.
+
+00:09:04.179 --> 00:09:06.370
+And then later, as I was
+building the network,
+
+00:09:06.370 --> 00:09:09.460
+I found that the spot where
+it's calling a function and it
+
+00:09:09.460 --> 00:09:11.500
+wanted it to be two dimensional.
+
+00:09:11.500 --> 00:09:15.909
+So then I had to come back
+up to here and then recreate
+
+00:09:15.909 --> 00:09:19.240
+this labels placeholder
+with two dimensions.
+
+00:09:19.240 --> 00:09:22.659
+I find there's a lot of stuff
+like that and in TensorFlow,
+
+00:09:22.659 --> 00:09:26.230
+you just kind of run through
+it and then at some points
+
+00:09:26.230 --> 00:09:28.480
+you find that the thing
+you defined earlier
+
+00:09:28.480 --> 00:09:30.820
+is not going to work because
+of shapes or something.
+
+00:09:30.820 --> 00:09:34.030
+So this is one of those
+things that you find out
+
+00:09:34.029 --> 00:09:37.240
+by building TensorFlow graphs.
+
+00:09:37.240 --> 00:09:37.810
+All right.
+
+00:09:37.809 --> 00:09:42.699
+So this is how I created
+the embedding layers.
+
+00:09:42.700 --> 00:09:46.960
+So as before, like
+the Word2Vec network,
+
+00:09:46.960 --> 00:09:50.590
+just create your embedding
+matrix just as variable.
+
+00:09:50.590 --> 00:09:53.530
+Here I'm just using a
+random uniform distribution.
+
+00:09:53.529 --> 00:09:56.709
+And then the size is like
+the number of words you have,
+
+00:09:56.710 --> 00:10:00.192
+and then you're embedding
+size, so here I used 300.
+
+00:10:00.192 --> 00:10:01.899
+So what this is going
+to do is the output
+
+00:10:01.899 --> 00:10:03.274
+from the embedding
+layer is going
+
+00:10:03.274 --> 00:10:05.649
+to be 300 units
+long, so it's going
+
+00:10:05.649 --> 00:10:08.699
+to be a 300 length vector.
+
+00:10:08.700 --> 00:10:13.070
+Well, 300 length vector for
+every input you have coming in,
+
+00:10:13.070 --> 00:10:16.490
+since in this case we are
+actually having like multiple,
+
+00:10:16.490 --> 00:10:21.560
+up to 200 words
+actually coming in.
+
+00:10:21.559 --> 00:10:25.399
+Here to actually do
+the look up, we have
+
+00:10:25.399 --> 00:10:29.240
+the tf.nn.embedding_lookup.
+
+00:10:29.240 --> 00:10:32.870
+So we're just pass in our
+embedding matrix and our inputs
+
+00:10:32.870 --> 00:10:37.139
+and then we get our
+embedded vectors.
+
+00:10:37.139 --> 00:10:41.370
+And this is how I
+created our LSTM cells.
+
+00:10:41.370 --> 00:10:47.389
+So basically I just create a
+basic LSTM cell, set the size,
+
+00:10:47.389 --> 00:10:51.789
+then I can apply drop out to
+it, so pass in the LSTM cell
+
+00:10:51.789 --> 00:10:55.029
+and set the key
+probability, and pass this
+
+00:10:55.029 --> 00:11:02.480
+to our [? multi rnncell, ?]
+and then get the initial state.
+
+00:11:02.480 --> 00:11:04.460
+And then this is
+the forward pass.
+
+00:11:04.460 --> 00:11:06.970
+So here I'm just
+using a dynamic_rnn
+
+00:11:06.970 --> 00:11:08.389
+and then we pass
+in our cell which
+
+00:11:08.389 --> 00:11:12.199
+we created, and then the
+output from the embedding layer
+
+00:11:12.200 --> 00:11:14.100
+and the initial state.
+
+00:11:14.100 --> 00:11:17.610
+And then that just gives us
+our outputs from the LSTM
+
+00:11:17.610 --> 00:11:19.100
+cells and our final state.
+
+00:11:21.801 --> 00:11:22.300
+OK.
+
+00:11:22.299 --> 00:11:24.549
+So this is what
+it looks like when
+
+00:11:24.549 --> 00:11:26.049
+it's all built and is trained.
+
+00:11:29.200 --> 00:11:31.900
+After-- pretty quickly,
+after only like 25 batches
+
+00:11:31.899 --> 00:11:36.459
+going through, we have
+almost like 71% accuracy
+
+00:11:36.460 --> 00:11:37.650
+on our validation set.
+
+00:11:37.649 --> 00:11:39.069
+And then a bit more.
+
+00:11:39.070 --> 00:11:43.810
+Eventually we get up
+to I think like 83%.
+
+00:11:43.809 --> 00:11:47.079
+Oh, yeah, we've 84 here
+and then ends at 83.
+
+00:11:47.080 --> 00:11:52.370
+So it does this pretty well,
+it trained really quickly.
+
+00:11:52.370 --> 00:11:55.279
+Well, really quickly on a GPU.
+
+00:11:55.279 --> 00:11:59.689
+And then if we look at the test
+accuracy, we get about 83%.
+
+00:11:59.690 --> 00:12:03.410
+So I imagine if I added
+more layers or more units
+
+00:12:03.409 --> 00:12:08.120
+to the LSTM cells, then I could
+get better accuracy on this.
+
+00:12:08.120 --> 00:12:11.330
+Or it might just be that
+this is the extent to what we
+
+00:12:11.330 --> 00:12:14.270
+can do with our data set.
+
+00:12:14.269 --> 00:12:17.000
+I hope you enjoyed
+this lesson, and I
+
+00:12:17.000 --> 00:12:20.730
+hope you enjoyed implementing
+this sentiment analysis
+
+00:12:20.730 --> 00:12:23.360
+or sentiment prediction
+[? recurrent ?] neural network,
+
+00:12:23.360 --> 00:12:25.519
+and I'll see you
+in the next lesson.
+
+00:12:25.519 --> 00:12:27.069
+Cheers!
+

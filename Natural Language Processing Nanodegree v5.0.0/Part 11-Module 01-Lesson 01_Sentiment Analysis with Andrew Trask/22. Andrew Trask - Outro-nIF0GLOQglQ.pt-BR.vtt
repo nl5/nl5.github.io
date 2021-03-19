@@ -1,0 +1,121 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:03.467
+Neste curso, atacamos
+6 projetos diferentes.
+
+00:00:03.501 --> 00:00:05.501
+Começamos com
+a curadoria dos dados,
+
+00:00:05.534 --> 00:00:07.968
+e desenvolvemos
+uma teoria de previsão:
+
+00:00:08.000 --> 00:00:10.634
+achamos que a rede
+encontraria correlação
+
+00:00:10.667 --> 00:00:12.901
+entre os dados
+de entrada e saída.
+
+00:00:12.934 --> 00:00:16.534
+Validamos esta teoria
+com heurísticas de contagem
+
+00:00:16.567 --> 00:00:20.534
+e conseguimos identificar palavras
+com correlação positiva e negativa
+
+00:00:20.567 --> 00:00:21.868
+com os dados de saída.
+
+00:00:21.901 --> 00:00:24.868
+Mas quando treinamos
+nossa primeira rede neural,
+
+00:00:24.901 --> 00:00:27.434
+quase não conseguia
+encontrar correlação.
+
+00:00:27.467 --> 00:00:29.901
+Teve dificuldade
+de evitar o ruído.
+
+00:00:29.934 --> 00:00:34.167
+Depois aumentamos o sinal
+e diminuímos o ruído,
+
+00:00:34.200 --> 00:00:37.934
+e cada vez que fizemos isso
+a rede convergia mais rápido.
+
+00:00:37.968 --> 00:00:41.234
+A nossa primeira rede
+tinha dificuldade em convergir,
+
+00:00:41.267 --> 00:00:43.234
+mal conseguia
+precisão de 60%,
+
+00:00:43.267 --> 00:00:46.167
+e só lia 100
+resenhas por segundo,
+
+00:00:46.200 --> 00:00:47.634
+mas a nossa rede final
+
+00:00:47.667 --> 00:00:51.667
+conseguiu classificar
+com precisão de 86%
+
+00:00:51.701 --> 00:00:53.701
+e, quando
+devidamente ajustada,
+
+00:00:53.734 --> 00:00:56.968
+classificamos 7 mil
+resenhas por segundo.
+
+00:00:57.000 --> 00:01:00.467
+Essas ferramentas e técnicas
+para enquadrar o problema
+
+00:01:00.501 --> 00:01:01.567
+são incrivelmente gerais.
+
+00:01:01.601 --> 00:01:03.834
+Quando você tem
+um novo conjunto de dados,
+
+00:01:03.868 --> 00:01:06.167
+vai precisar de uma nova
+teoria de previsão,
+
+00:01:06.200 --> 00:01:08.267
+e ajustar
+o modelo e os dados
+
+00:01:08.300 --> 00:01:11.601
+para que a correlação fique
+mais óbvia para a rede
+
+00:01:11.634 --> 00:01:14.033
+para ela prever rápido
+e com precisão.
+
+00:01:14.067 --> 00:01:15.901
+Espero que tenham
+gostado do tutorial
+
+00:01:15.934 --> 00:01:18.234
+e que continuem a gostar
+do curso do Udacity.
+
+00:01:18.267 --> 00:01:19.801
+Vamos voltar
+para a sala de aula.
+

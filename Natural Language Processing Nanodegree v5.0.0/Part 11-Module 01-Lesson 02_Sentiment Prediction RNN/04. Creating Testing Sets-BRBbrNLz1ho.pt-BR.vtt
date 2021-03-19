@@ -1,0 +1,88 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.033 --> 00:00:01.733
+O próximo passo
+
+00:00:01.767 --> 00:00:05.267
+é criar a validação do treino
+e os conjuntos de teste.
+
+00:00:05.300 --> 00:00:07.400
+Você provavelmente
+terá que fazer isso
+
+00:00:07.433 --> 00:00:09.000
+toda vez que criar uma rede.
+
+00:00:09.033 --> 00:00:11.931
+Então é bom praticar
+fazendo isso
+
+00:00:11.957 --> 00:00:14.867
+para todo banco de dados
+que for usar.
+
+00:00:14.900 --> 00:00:19.300
+Eu reparei que praticamente
+cada banco de dados
+
+00:00:19.333 --> 00:00:23.700
+tem formas variadas de fazer isso,
+porque os formatos são distintos
+
+00:00:23.733 --> 00:00:27.300
+e a forma como se insere os dados
+na rede é diferente,
+
+00:00:27.333 --> 00:00:31.933
+então você precisa fazer isso
+de várias formas e muitas vezes.
+
+00:00:31.967 --> 00:00:35.967
+Normalmente,
+temos frações parciais,
+
+00:00:36.000 --> 00:00:40.867
+em que definimos a fração dos dados
+que manteremos no conjunto de teste.
+
+00:00:40.900 --> 00:00:44.533
+Geralmente, é 0,8 ou 0,9.
+
+00:00:44.567 --> 00:00:48.767
+Aqui, dividimos os dados
+num conjunto de treino
+
+00:00:48.800 --> 00:00:51.000
+e num conjunto de validação
+para os atributos,
+
+00:00:51.033 --> 00:00:53.933
+e num treino e numa validação
+para as classificações.
+
+00:00:53.967 --> 00:00:56.767
+A partir daí, dividimos
+o conjunto de validação
+
+00:00:56.800 --> 00:00:59.833
+num menor ainda
+e num conjunto de teste,
+
+00:00:59.867 --> 00:01:03.567
+outra validação para a classificação
+e teste para a classificação.
+
+00:01:04.033 --> 00:01:07.567
+Se fizer tudo certo, está é a forma
+dos atributos que você verá.
+
+00:01:07.600 --> 00:01:11.100
+O treino X, a validação X
+
+00:01:11.133 --> 00:01:13.200
+e o teste X
+devem ser destes tamanhos.
+

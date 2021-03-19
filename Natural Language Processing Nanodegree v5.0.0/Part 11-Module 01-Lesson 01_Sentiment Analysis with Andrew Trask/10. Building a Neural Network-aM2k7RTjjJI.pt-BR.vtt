@@ -1,0 +1,156 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:02.267
+Vamos pegar
+tudo o que já aprendemos
+
+00:00:02.300 --> 00:00:06.033
+e construir uma rede neural
+para os dados que criamos.
+
+00:00:06.067 --> 00:00:10.634
+Neste projeto, quero que comecem
+com a rede do capítulo anterior.
+
+00:00:10.667 --> 00:00:13.968
+No último módulo, construímos
+uma rede neural básica
+
+00:00:14.000 --> 00:00:16.734
+para prever
+com um conjunto estruturado.
+
+00:00:16.767 --> 00:00:19.000
+Quero pegar
+esta rede de 3 camadas
+
+00:00:19.033 --> 00:00:21.300
+e remover a não-linearidade
+da camada oculta.
+
+00:00:21.334 --> 00:00:22.801
+Depois eu mostro por quê.
+
+00:00:22.834 --> 00:00:26.067
+Depois, quero que usem
+as funções que criamos acima
+
+00:00:26.100 --> 00:00:29.067
+para gerar na hora
+os dados de treinamento.
+
+00:00:29.100 --> 00:00:31.734
+Entra uma resenha
+e um rótulo,
+
+00:00:31.767 --> 00:00:36.601
+são convertidos nos dois vetores
+de que precisamos na entrada,
+
+00:00:36.634 --> 00:00:39.968
+e depois propaga para a frente
+e para trás.
+
+00:00:40.000 --> 00:00:42.267
+Os dados são tratados
+na mesma hora.
+
+00:00:42.300 --> 00:00:45.868
+Depois, criem uma função
+para pré-processar os dados,
+
+00:00:45.901 --> 00:00:48.734
+para que as variáveis
+de vocabulário,
+
+00:00:48.767 --> 00:00:51.000
+as variáveis
+de índice de palavras,
+
+00:00:51.033 --> 00:00:52.834
+sejam variáveis
+desta classe,
+
+00:00:52.868 --> 00:00:55.567
+para que tudo esteja
+autocontido na classe.
+
+00:00:55.601 --> 00:00:57.434
+Modifiquem
+a variável de treinamento
+
+00:00:57.467 --> 00:00:59.467
+para treinar
+com todos os dados,
+
+00:00:59.501 --> 00:01:03.067
+em vez de só uma entrada
+de uma lista.
+
+00:01:03.100 --> 00:01:05.934
+Isso é o que eu quero
+que vocês façam.
+
+00:01:05.968 --> 00:01:07.467
+Podem começar por aqui,
+
+00:01:07.501 --> 00:01:10.501
+o que foi apresentado
+no início da semana passada,
+
+00:01:10.534 --> 00:01:13.901
+ou com a rede neural completa
+que usaram da última vez.
+
+00:01:13.934 --> 00:01:15.667
+Se precisarem de ajuda,
+
+00:01:15.701 --> 00:01:19.234
+a primeira coisa é assistir
+os vídeos da semana passada,
+
+00:01:19.267 --> 00:01:22.067
+para ver se entenderam
+a retropropagação,
+
+00:01:22.100 --> 00:01:25.267
+a descida do gradiente,
+a medida de erro que usam,
+
+00:01:25.300 --> 00:01:28.167
+e como modificar
+para remover a não-linearidade,
+
+00:01:28.200 --> 00:01:29.901
+e se precisarem
+de mais ajuda,
+
+00:01:29.934 --> 00:01:33.133
+leiam os capítulos de 3 a 5
+de "Grokking Deep Learning",
+
+00:01:33.167 --> 00:01:36.167
+e estou incluindo o código
+para comprar com desconto.
+
+00:01:36.200 --> 00:01:38.868
+É uma análise completa
+de todo o processo,
+
+00:01:38.901 --> 00:01:41.367
+inclusive
+a descida do gradiente.
+
+00:01:41.400 --> 00:01:44.234
+Daqui a pouco eu mostro
+como construí a rede.
+
+00:01:44.267 --> 00:01:47.767
+Depois vamos falar
+sobre as mudanças que fizemos.
+
+00:01:47.801 --> 00:01:48.934
+Até lá.
+

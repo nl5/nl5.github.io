@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.475
+Hey there, welcome back. So, now,
+
+00:00:02.475 --> 00:00:06.120
+here's my solution for the get_target function.
+
+00:00:06.120 --> 00:00:12.490
+So the first thing I did is generate our random window R so using random.randint.
+
+00:00:12.490 --> 00:00:16.179
+So, we want to go from one to our window size,
+
+00:00:16.178 --> 00:00:18.058
+but when you actually, like,
+
+00:00:18.059 --> 00:00:20.274
+do randint, it's not inclusive,
+
+00:00:20.274 --> 00:00:22.039
+so you wouldn't get,
+
+00:00:22.039 --> 00:00:23.280
+like, if your window size is five,
+
+00:00:23.280 --> 00:00:25.892
+you would actually only get integers from one to four,
+
+00:00:25.891 --> 00:00:28.620
+so you just have to add a plus one here to actually
+
+00:00:28.620 --> 00:00:31.675
+make sure you get Integers from one to five.
+
+00:00:31.675 --> 00:00:34.795
+Then, we want to get like the start index,
+
+00:00:34.795 --> 00:00:39.405
+so that's just whatever index we're at minus R. And then you have to do this kind of
+
+00:00:39.405 --> 00:00:44.579
+edge case thing where if index minus R is less than zero,
+
+00:00:44.579 --> 00:00:45.719
+then you want to set that to zero,
+
+00:00:45.719 --> 00:00:49.179
+because you can get something like if index minus is -2,
+
+00:00:49.179 --> 00:00:51.465
+then you're gonna kind of wrap around from the back
+
+00:00:51.465 --> 00:00:55.225
+of your word list and that's gonna mess things up.
+
+00:00:55.225 --> 00:01:00.329
+So, then, the stop of our window is index plus R. So now,
+
+00:01:00.329 --> 00:01:03.655
+we have our window, we have like the start and we have the stop.
+
+00:01:03.655 --> 00:01:05.655
+So, to get the target words,
+
+00:01:05.655 --> 00:01:11.280
+we just look from words from start to where we are,
+
+00:01:11.280 --> 00:01:14.849
+index, and then we look – so this is like
+
+00:01:14.849 --> 00:01:19.349
+the words in the history of our text and this is the words in the future of our text.
+
+00:01:19.349 --> 00:01:24.069
+So, we're looking at the words from index plus one to stop plus one.
+
+00:01:24.069 --> 00:01:26.969
+And then I'm wrapping this in a set because
+
+00:01:26.968 --> 00:01:29.839
+sets just automatically get rid of duplicates.
+
+00:01:29.840 --> 00:01:33.150
+So if we have duplicate words in this window,
+
+00:01:33.150 --> 00:01:34.739
+then it's just gonna automatically get
+
+00:01:34.739 --> 00:01:36.685
+rid of them and then we're gonna have our target words.
+
+00:01:36.685 --> 00:01:40.030
+Then we just return this as a list because this is a set,
+
+00:01:40.030 --> 00:01:43.108
+and so we just convert this into a list and return that.
+
+00:01:43.108 --> 00:01:45.000
+All right. See you in the next video.
+

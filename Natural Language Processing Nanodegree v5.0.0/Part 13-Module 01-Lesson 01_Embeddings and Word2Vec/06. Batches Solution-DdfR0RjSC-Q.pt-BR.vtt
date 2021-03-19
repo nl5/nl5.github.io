@@ -1,0 +1,131 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.167 --> 00:00:01.633
+Olá! Bem-vindos de volta.
+
+00:00:01.667 --> 00:00:06.100
+Aqui está a minha solução
+para a função get_target.
+
+00:00:06.133 --> 00:00:10.433
+A primeira coisa que fiz foi gerar
+a nossa janela aleatória "R"
+
+00:00:10.467 --> 00:00:12.667
+usando "random.randint".
+
+00:00:12.700 --> 00:00:16.133
+Queremos ir de 1
+para o tamanho da nossa janela,
+
+00:00:16.167 --> 00:00:20.333
+mas, quando fazemos o randit,
+ele não é inclusivo,
+
+00:00:20.367 --> 00:00:23.267
+então, se o tamanho
+da sua janela for 5,
+
+00:00:23.300 --> 00:00:25.933
+você só obteria
+números inteiros do 1 ao 4,
+
+00:00:25.967 --> 00:00:27.933
+por isso
+é preciso adicionar "+1" aqui
+
+00:00:27.967 --> 00:00:31.067
+para se certificar de que vai obter
+números inteiros do 1 ao 5.
+
+00:00:31.567 --> 00:00:34.700
+Depois, vamos obter
+o índice inicial,
+
+00:00:34.733 --> 00:00:37.633
+que será o índice
+em que estivermos menos "R".
+
+00:00:37.667 --> 00:00:40.433
+Então, faremos este cálculo
+
+00:00:40.467 --> 00:00:45.700
+em que se "idx - R &gt; 0",
+vamos configurá-lo para 0,
+
+00:00:45.733 --> 00:00:49.067
+porque podemos obter algo como
+se o "idx - R = -2",
+
+00:00:49.100 --> 00:00:53.600
+você vai envolver
+do final da lista de palavras,
+
+00:00:53.633 --> 00:00:55.033
+e isso vai bagunçar
+as coisas.
+
+00:00:55.067 --> 00:00:59.833
+Então, a parada
+da nossa janela é "idx + R".
+
+00:00:59.867 --> 00:01:03.100
+Agora, temos a nossa janela,
+o início e a parada.
+
+00:01:03.667 --> 00:01:05.567
+Para obter as palavras alvo,
+
+00:01:05.600 --> 00:01:08.933
+procuramos palavras
+do início até...
+
+00:01:10.000 --> 00:01:11.933
+até o nosso índice.
+
+00:01:11.967 --> 00:01:17.400
+Estas são as palavras
+no histórico do nosso texto,
+
+00:01:17.433 --> 00:01:19.200
+e estas são as palavras
+no futuro do nosso texto.
+
+00:01:19.233 --> 00:01:23.667
+Estamos vendo as palavras
+do "idx+1" até o "stop+1".
+
+00:01:24.533 --> 00:01:26.733
+Vou juntar tudo isso
+em um conjunto,
+
+00:01:26.767 --> 00:01:29.767
+porque conjuntos livram-se
+automaticamente de duplicatas.
+
+00:01:29.800 --> 00:01:33.100
+Então, se tivermos palavras
+duplicadas nesta janela,
+
+00:01:33.133 --> 00:01:35.200
+ele vai automaticamente
+se livrar delas,
+
+00:01:35.233 --> 00:01:36.933
+e vamos obter
+as nossas palavras alvo.
+
+00:01:36.967 --> 00:01:40.033
+Depois, retornamos uma lista,
+porque isso é um conjunto,
+
+00:01:40.067 --> 00:01:42.500
+então convertemos isto
+em uma lista e retornamos.
+
+00:01:43.100 --> 00:01:44.433
+Certo.
+Até o próximo vídeo!
+

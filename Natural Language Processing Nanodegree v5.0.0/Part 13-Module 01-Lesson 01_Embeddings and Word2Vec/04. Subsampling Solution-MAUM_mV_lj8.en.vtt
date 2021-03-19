@@ -1,0 +1,208 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.600
+Hi everyone welcome back.
+
+00:00:01.600 --> 00:00:06.589
+So here are my solutions for the subsampling part.
+
+00:00:06.589 --> 00:00:09.039
+So here I am basically just going to,
+
+00:00:09.038 --> 00:00:12.959
+you know just calculate this probability and then scroll through the entire,
+
+00:00:12.960 --> 00:00:17.370
+like into words our data set and drop words that are frequent.
+
+00:00:17.370 --> 00:00:19.824
+So the first thing I did here was
+
+00:00:19.824 --> 00:00:23.160
+calculate the frequencies of all the words in the dataset.
+
+00:00:23.160 --> 00:00:26.359
+So to do that, I used a counter and passed it into words
+
+00:00:26.359 --> 00:00:30.164
+so this counts up all the words in our dataset.
+
+00:00:30.164 --> 00:00:33.789
+And then we can use this count to actually get the frequencies.
+
+00:00:33.789 --> 00:00:35.306
+So the frequencies are you know,
+
+00:00:35.305 --> 00:00:39.899
+like how often these words show up in the total data set.
+
+00:00:39.899 --> 00:00:43.408
+And so we can just take our word counts and then
+
+00:00:43.408 --> 00:00:47.884
+divide it by a total count which is like the total number of words in our dataset,
+
+00:00:47.884 --> 00:00:52.829
+which is not like the number of individual words but they are not
+
+00:00:52.829 --> 00:00:58.219
+the number of unique words but number of individual words in our dataset.
+
+00:00:58.219 --> 00:01:01.590
+So here I'm using a dictionary comprehension to create
+
+00:01:01.590 --> 00:01:05.640
+a dictionary where we can pass in a word and get out the frequency.
+
+00:01:05.640 --> 00:01:10.400
+So I'm just taking the count for each word and dividing it by the total word count.
+
+00:01:10.400 --> 00:01:15.045
+And we get our our words and our counts from word counts which is our counter,
+
+00:01:15.045 --> 00:01:21.394
+and the items so this just iterates over all the the keys and values in word counts.
+
+00:01:21.394 --> 00:01:23.579
+So the keys are the words and the values are the count of
+
+00:01:23.578 --> 00:01:25.949
+those words and then so we just take count
+
+00:01:25.950 --> 00:01:31.075
+and divide it by total count and that gives us the frequency of the words in our dataset.
+
+00:01:31.075 --> 00:01:34.930
+The next, I find the probability to drop, so basically,
+
+00:01:34.930 --> 00:01:41.025
+we just scan through like all the words in our frequencies and then just 1 - √t,
+
+00:01:41.025 --> 00:01:42.659
+the threshold that we define,
+
+00:01:42.659 --> 00:01:44.730
+divided by the frequencies.
+
+00:01:44.730 --> 00:01:46.230
+So here's what I'm doing, so I'm using
+
+00:01:46.230 --> 00:01:48.885
+another dictionary comprehension to create a dictionary
+
+00:01:48.885 --> 00:01:53.400
+where the keys are the words and then the values are our probability.
+
+00:01:53.400 --> 00:01:57.344
+So one minus the square root of the threshold divided by the frequency of that word.
+
+00:01:57.343 --> 00:01:58.798
+Okay. So now that we have
+
+00:01:58.799 --> 00:02:01.784
+the frequencies and the probabilities that we're going to drop it,
+
+00:02:01.784 --> 00:02:05.579
+we can go through all the words in int_words in
+
+00:02:05.578 --> 00:02:09.394
+our data and drop the ones that are frequent.
+
+00:02:09.395 --> 00:02:13.020
+So what I'm doing here is I am scrolling through each of
+
+00:02:13.020 --> 00:02:17.384
+the words in int_words and I'm looking at the probabilities to drop it,
+
+00:02:17.383 --> 00:02:21.038
+and comparing that with some randomly generated number.
+
+00:02:21.038 --> 00:02:28.818
+So what random.random does is it samples from a uniform distribution between 0 and 1.
+
+00:02:28.818 --> 00:02:32.579
+So, the way you think about this is like if the probability
+
+00:02:32.580 --> 00:02:38.780
+to drop a word is say 70%, so 0.7.
+
+00:02:38.780 --> 00:02:44.930
+Then we basically just generate a random number from random.random and so there is
+
+00:02:44.930 --> 00:02:52.520
+a 70% chance it'll be less than 0.7 and there's a 30% chance it'll be greater than 0.7.
+
+00:02:52.520 --> 00:02:57.590
+So then if our probability is less than this randomly
+
+00:02:57.590 --> 00:03:03.620
+generated numbers so if our probability like 0.7 and if it's less than random.random,
+
+00:03:03.620 --> 00:03:08.009
+so say it's like we actually get you know 0.8 out of here.
+
+00:03:08.008 --> 00:03:10.298
+So then 0.8 &gt; 0.7,
+
+00:03:10.299 --> 00:03:12.425
+and so then we're going to actually keep the word.
+
+00:03:12.425 --> 00:03:17.000
+But this only happens 30% of the time because this is 0.7 and we're only
+
+00:03:17.000 --> 00:03:22.063
+going to get a number larger than our drop probability 30% of the time.
+
+00:03:22.063 --> 00:03:25.848
+So then we're going to keep 30% of the words.
+
+00:03:25.848 --> 00:03:29.438
+It might also be clear if I write it like this.
+
+00:03:29.438 --> 00:03:32.348
+So since this is our probability to drop a word then
+
+00:03:32.348 --> 00:03:35.769
+one minus this is the probability to keep a word.
+
+00:03:35.770 --> 00:03:39.580
+So again, if we're generating random number and this is
+
+00:03:39.580 --> 00:03:44.650
+a probability to keep a word so then say like the probability to keep a word is like 60%,
+
+00:03:44.650 --> 00:03:46.658
+so then 60% of the time we're actually going to
+
+00:03:46.658 --> 00:03:49.299
+generate a random number, and that's less than that.
+
+00:03:49.300 --> 00:03:52.030
+So, again this is just like
+
+00:03:52.030 --> 00:03:58.663
+some probabilistic way to use this probability to decide if we keep or drop a word.
+
+00:03:58.663 --> 00:04:04.030
+And we want this to be probabilistic because we want this to be like uniform,
+
+00:04:04.030 --> 00:04:08.378
+unless it's dropping, the sampling to be uniform across the entire dataset.
+
+00:04:08.378 --> 00:04:11.054
+So in any batch that you give in you want it to be,
+
+00:04:11.055 --> 00:04:13.135
+like you want it to have the same probability that,
+
+00:04:13.134 --> 00:04:15.188
+you know that 'the' was dropped from like
+
+00:04:15.188 --> 00:04:18.514
+the first batch to like some batch in the middle and the batch at the end.
+
+00:04:18.514 --> 00:04:20.189
+Hey see in the next video.
+

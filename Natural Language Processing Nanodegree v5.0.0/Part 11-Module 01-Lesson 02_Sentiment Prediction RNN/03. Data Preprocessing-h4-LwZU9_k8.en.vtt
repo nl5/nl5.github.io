@@ -1,0 +1,291 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.549
+So now that we have all the
+words, what we need to do
+
+00:00:02.549 --> 00:00:06.160
+is we need to encode all
+of our views as integers.
+
+00:00:06.160 --> 00:00:09.141
+So we're going to
+pass in the reviews
+
+00:00:09.141 --> 00:00:11.099
+where every word is an
+integer and that's going
+
+00:00:11.099 --> 00:00:13.144
+to go into our embedding layer.
+
+00:00:13.144 --> 00:00:15.269
+So the first step, which
+I'm going to leave to you,
+
+00:00:15.269 --> 00:00:19.050
+is to create a dictionary that
+is mapping these vocabulary
+
+00:00:19.050 --> 00:00:21.539
+words into integers.
+
+00:00:21.539 --> 00:00:23.789
+And one thing to know
+is that later we're
+
+00:00:23.789 --> 00:00:27.299
+going to be padding our
+input vectors with zeros.
+
+00:00:27.300 --> 00:00:31.266
+So that means that when we
+convert our words to integers,
+
+00:00:31.265 --> 00:00:33.390
+they have to start at one,
+they can't start at zero
+
+00:00:33.390 --> 00:00:35.579
+or the network's
+going to get confused.
+
+00:00:35.579 --> 00:00:38.159
+So then once you
+have this mapping,
+
+00:00:38.159 --> 00:00:41.519
+then you should
+convert our reviews,
+
+00:00:41.520 --> 00:00:44.280
+from like that list of
+reviews, convert all the words
+
+00:00:44.280 --> 00:00:44.880
+into integers.
+
+00:00:44.880 --> 00:00:47.429
+So now we have all our reviews,
+but instead of words we
+
+00:00:47.429 --> 00:00:48.469
+have integers.
+
+00:00:48.469 --> 00:00:49.170
+OK.
+
+00:00:49.170 --> 00:00:52.530
+And then next, we need
+to change our labels
+
+00:00:52.530 --> 00:00:56.939
+from positive and negative
+into ones and zeros.
+
+00:00:56.939 --> 00:01:00.359
+So our labels, if
+you open it up,
+
+00:01:00.359 --> 00:01:02.789
+each review is
+labeled with a string.
+
+00:01:02.789 --> 00:01:04.239
+Either positive or negative.
+
+00:01:04.239 --> 00:01:05.939
+But we need those to
+be ones and zeros,
+
+00:01:05.939 --> 00:01:08.819
+so that we can actually
+use it in our network
+
+00:01:08.819 --> 00:01:10.469
+and calculate the cost.
+
+00:01:10.469 --> 00:01:11.750
+So you can do that here, also.
+
+00:01:11.750 --> 00:01:14.609
+And so if you built
+labels correctly,
+
+00:01:14.609 --> 00:01:17.370
+then what you should see
+if you run this cell,
+
+00:01:17.370 --> 00:01:20.666
+is that there's actually one
+review that has no length.
+
+00:01:20.665 --> 00:01:23.039
+I'm not really sure why, I
+didn't look into it very much,
+
+00:01:23.040 --> 00:01:24.870
+but it's the
+problem because it's
+
+00:01:24.870 --> 00:01:27.073
+going to end up kind of
+breaking things later.
+
+00:01:27.073 --> 00:01:28.239
+So we need to get rid of it.
+
+00:01:28.239 --> 00:01:31.539
+Secondly, there's some
+really long reviews in here.
+
+00:01:31.540 --> 00:01:35.969
+So one of them is, the longest
+one is 2,514 words long.
+
+00:01:35.969 --> 00:01:39.269
+So that is pretty,
+that is really long
+
+00:01:39.269 --> 00:01:42.899
+and it's much too long
+to put into our RNN
+
+00:01:42.900 --> 00:01:47.010
+because it is going to take
+a really long time to train
+
+00:01:47.010 --> 00:01:50.375
+that many steps in
+our current network.
+
+00:01:50.375 --> 00:01:51.750
+So what we're
+going to do instead
+
+00:01:51.750 --> 00:01:54.329
+is just truncate
+every review down
+
+00:01:54.329 --> 00:01:57.359
+to 200 steps, or 200 words.
+
+00:01:57.359 --> 00:02:00.510
+So for reviews shorter
+than 200 words,
+
+00:02:00.510 --> 00:02:03.810
+we can just pad to
+the left with zeros.
+
+00:02:03.810 --> 00:02:08.919
+So for instance if, you
+can kind of see down here,
+
+00:02:08.919 --> 00:02:10.979
+so if the review is
+like best movie ever,
+
+00:02:10.979 --> 00:02:15.820
+then in numbers that would
+the 117, 18, and 128.
+
+00:02:15.819 --> 00:02:20.051
+Then this row would
+look like zero zero
+
+00:02:20.051 --> 00:02:25.109
+zero zero for 197 zeros, and
+then the last three numbers
+
+00:02:25.110 --> 00:02:27.750
+are the integers
+corresponding to the words.
+
+00:02:27.750 --> 00:02:28.479
+Like that.
+
+00:02:28.479 --> 00:02:30.000
+But the first thing
+I want you to do
+
+00:02:30.000 --> 00:02:33.020
+is remove the review
+that has zero length.
+
+00:02:33.020 --> 00:02:34.020
+So you can do that here.
+
+00:02:34.020 --> 00:02:37.290
+And then next create
+this array features
+
+00:02:37.289 --> 00:02:39.909
+that contains the data
+we'll pass to the network.
+
+00:02:39.909 --> 00:02:42.960
+So there's going to be
+one row for each review,
+
+00:02:42.960 --> 00:02:47.320
+and then there's going to
+be 200 steps, or 200 words,
+
+00:02:47.319 --> 00:02:48.539
+in each row.
+
+00:02:48.539 --> 00:02:51.989
+And then, like I was
+saying before, if you
+
+00:02:51.990 --> 00:02:55.879
+have a review that's less than
+200 words, pad it to the left
+
+00:02:55.879 --> 00:02:56.699
+with zeros.
+
+00:02:56.699 --> 00:02:58.439
+And then if it's
+more than 200 words,
+
+00:02:58.439 --> 00:03:01.710
+just use the first 200 words
+as this feature vector.
+
+00:03:01.710 --> 00:03:03.610
+So if you built
+features correctly,
+
+00:03:03.610 --> 00:03:05.110
+it should look
+something like this.
+
+00:03:05.110 --> 00:03:08.640
+So for the first review, we
+just get a bunch of zeros,
+
+00:03:08.639 --> 00:03:11.699
+and then here is our review.
+
+00:03:11.699 --> 00:03:14.969
+Then this is what it looks
+like for a review that
+
+00:03:14.969 --> 00:03:16.663
+had more than 200 characters.
+
+00:03:16.663 --> 00:03:17.579
+So it looks like this.
+
+00:03:17.580 --> 00:03:21.090
+Where like this
+200 element vector
+
+00:03:21.090 --> 00:03:23.900
+is completely filled
+out with no padding.
+

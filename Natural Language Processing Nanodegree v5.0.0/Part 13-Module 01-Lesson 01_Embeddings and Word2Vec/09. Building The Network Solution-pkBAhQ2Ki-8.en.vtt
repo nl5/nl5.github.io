@@ -1,0 +1,145 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.644
+Hello again. So, here I'm going to be showing you how to actually build this network,
+
+00:00:04.644 --> 00:00:09.868
+so go through the inputs and the embedding layer and the soft max.
+
+00:00:09.868 --> 00:00:13.435
+So, as usual, we have our tensor flow placeholders,
+
+00:00:13.435 --> 00:00:17.963
+so we're using integers in both of these and so just tf.n32 and then
+
+00:00:17.963 --> 00:00:23.928
+the labels have arbitrary batch size and arbitrary second dimension.
+
+00:00:23.928 --> 00:00:26.838
+So the deal is like with inputs and labels,
+
+00:00:26.838 --> 00:00:31.195
+for both of them we're actually just passing in like just integers and so,
+
+00:00:31.195 --> 00:00:33.829
+you know, when I first started doing this,
+
+00:00:33.829 --> 00:00:35.234
+when I first built this, like,
+
+00:00:35.234 --> 00:00:37.195
+I thought I could just have them both like this.
+
+00:00:37.195 --> 00:00:40.384
+But then later when I was trying to implement part of the network,
+
+00:00:40.384 --> 00:00:46.640
+I kept having issues with the labels needing to have a second dimension.
+
+00:00:46.640 --> 00:00:48.840
+So it's just sort of one of those things when
+
+00:00:48.840 --> 00:00:51.059
+you build it and you think you can just do one thing,
+
+00:00:51.058 --> 00:00:55.483
+then as you go through it you start hitting bugs and then you have to kind of go back
+
+00:00:55.484 --> 00:00:58.200
+and change the earlier part
+
+00:00:58.200 --> 00:01:01.215
+of your network to get it to work with the later part of your network.
+
+00:01:01.215 --> 00:01:03.539
+Okay. So now the embedding.
+
+00:01:03.539 --> 00:01:09.525
+So I set the embedding dimensions to 200 and then for our embedding weights
+
+00:01:09.525 --> 00:01:16.308
+I create a variable and use a random uniform distribution and the size of this,
+
+00:01:16.308 --> 00:01:19.109
+this weight tensor is going to
+
+00:01:19.108 --> 00:01:22.798
+be the size of our vocabulary by the size of the embedding.
+
+00:01:22.799 --> 00:01:26.114
+And then I just initialized it from -1 to 1.
+
+00:01:26.114 --> 00:01:28.915
+And then to do the embedding look up,
+
+00:01:28.915 --> 00:01:33.459
+so just tf.nnembedding_lookup and then embedding and inputs.
+
+00:01:33.459 --> 00:01:38.745
+So this will give you your embed tensor and this is basically just,
+
+00:01:38.745 --> 00:01:41.754
+you know, the values of the hidden layer.
+
+00:01:41.754 --> 00:01:46.144
+So, in general, you are going to be doing the same process,
+
+00:01:46.144 --> 00:01:48.215
+like anytime you're using embeddings.
+
+00:01:48.215 --> 00:01:53.754
+So you create your embedding matrix and then you pass in your inputs into
+
+00:01:53.754 --> 00:01:55.409
+the embedding matrix and you get
+
+00:01:55.409 --> 00:02:01.219
+this embed layer and then you can pass this to the rest of your network.
+
+00:02:01.218 --> 00:02:04.870
+Okay. And finally for the negative sampling,
+
+00:02:04.870 --> 00:02:11.098
+so again create weights and biases for the soft max layer.
+
+00:02:11.098 --> 00:02:15.848
+So we're initializing the weights with the truncated normal distribution.
+
+00:02:15.848 --> 00:02:17.638
+And so this is going to be,
+
+00:02:17.639 --> 00:02:23.110
+we need the weights to be the size of vocabulary and the size of the embedding.
+
+00:02:23.110 --> 00:02:26.310
+And then we have a standard deviation of 0.1.
+
+00:02:26.310 --> 00:02:31.335
+And the biases are going to be initialized as all zeros with the size of our vocabulary.
+
+00:02:31.335 --> 00:02:34.080
+So now to actually calculate the loss with
+
+00:02:34.080 --> 00:02:36.930
+negative sampling we used sampled Softmax loss,
+
+00:02:36.930 --> 00:02:38.645
+passing our weights or biases,
+
+00:02:38.645 --> 00:02:44.604
+the labels are an embedding layer and then the, in the sampled.
+
+00:02:44.604 --> 00:02:50.039
+So this is like the number of negative values that we're going to
+
+00:02:50.038 --> 00:02:53.179
+sample and then the size of
+
+00:02:53.180 --> 00:02:57.911
+our vocabulary and that will run in this negative sampling and calculator loss.
+
+00:02:57.911 --> 00:03:01.340
+And then we get the cost and minimize it with Adam optimizer.
+

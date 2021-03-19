@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.305 --> 00:00:01.431
+Bem-vindo de volta!
+
+00:00:01.464 --> 00:00:05.221
+Esta é a última parte
+que você vai implementar sozinho.
+
+00:00:06.170 --> 00:00:10.813
+Na nossa arquitetura, temos
+uma camada softmax no output.
+
+00:00:10.846 --> 00:00:14.010
+E como trabalhamos
+com dezenas de milhares de palavras,
+
+00:00:14.043 --> 00:00:17.837
+a camada softmax terá
+dezenas de milhares de unidades.
+
+00:00:18.229 --> 00:00:21.528
+Porém, para cada input,
+
+00:00:21.561 --> 00:00:25.960
+só teremos
+um rótulo verdadeiro.
+
+00:00:25.993 --> 00:00:30.337
+Isso significa que faremos mudanças
+muito pequenas em milhares de pesos,
+
+00:00:30.370 --> 00:00:33.420
+apesar de termos
+um único exemplo verdadeiro.
+
+00:00:33.453 --> 00:00:37.931
+Então pouquíssimos pesos serão
+atualizados numa camada relevante.
+
+00:00:38.486 --> 00:00:43.045
+Então fazemos um cálculo aproximado
+da perda da camada softmax.
+
+00:00:43.078 --> 00:00:46.512
+Podemos fazer isso
+selecionando
+
+00:00:46.545 --> 00:00:49.378
+um pequeno subconjunto
+de todos os pesos.
+
+00:00:51.289 --> 00:00:54.222
+Assim atualizamos os pesos
+do rótulo correto
+
+00:00:54.255 --> 00:00:59.350
+e de poucos rótulos
+incorretos,
+
+00:00:59.383 --> 00:01:01.681
+o que, em geral,
+gira em torno de 100.
+
+00:01:01.714 --> 00:01:03.825
+Isso se chama
+"amostragem negativa".
+
+00:01:03.858 --> 00:01:06.785
+Se quiser ler mais sobre isso,
+dê uma olhada neste link.
+
+00:01:06.818 --> 00:01:10.953
+O TensorFlow oferece uma função
+para fazer exatamente isso.
+
+00:01:10.986 --> 00:01:14.106
+É a função
+tf.nn.sampled_softmax_loss.
+
+00:01:14.139 --> 00:01:17.609
+Então veja aqui a documentação
+para ver como ela funciona.
+
+00:01:18.065 --> 00:01:20.731
+Aqui embaixo você vai criar
+os pesos e os vieses
+
+00:01:20.764 --> 00:01:22.903
+para a camada softmax,
+
+00:01:22.936 --> 00:01:28.056
+depois vai usá-los
+para calcular a perda dos alvos,
+
+00:01:28.089 --> 00:01:30.006
+com a função
+sampled_softmax_loss.
+
+00:01:30.039 --> 00:01:31.571
+Depois você calculará
+o custo,
+
+00:01:31.604 --> 00:01:35.577
+e o otimizador Adam vai minimizar
+o custo. Normal.
+
+00:01:37.492 --> 00:01:40.274
+Bom, vá em frente
+e tente implementar isto.
+
+00:01:40.307 --> 00:01:42.911
+Como sempre, veja minha solução
+se precisar de ajuda,
+
+00:01:42.944 --> 00:01:45.731
+ficar empacado
+ou só quiser ver como eu fiz.
+
+00:01:45.764 --> 00:01:46.878
+Valeu!
+

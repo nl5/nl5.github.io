@@ -1,0 +1,307 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.333 --> 00:00:04.267
+Certo. Estou calculando
+o output.
+
+00:00:04.300 --> 00:00:08.767
+Como eu disse antes, só estamos
+interessados no output final,
+
+00:00:08.800 --> 00:00:11.967
+que é o que usaremos
+para prever o sentimento.
+
+00:00:12.000 --> 00:00:13.767
+Só precisamos
+pegar o último,
+
+00:00:13.800 --> 00:00:16.100
+e podemos fazer isso
+escrevendo "outputs".
+
+00:00:16.367 --> 00:00:20.000
+Isto aqui pede todas as linhas,
+todos os batches,
+
+00:00:20.033 --> 00:00:22.429
+e isto pede a última coluna.
+
+00:00:22.463 --> 00:00:26.467
+Lembre-se que estamos passando
+várias resenhas ao mesmo tempo,
+
+00:00:26.500 --> 00:00:28.367
+porque esse é o nosso batch,
+
+00:00:28.400 --> 00:00:31.967
+e a última coluna
+é apenas o último output
+
+00:00:32.000 --> 00:00:34.967
+das células LSTM.
+
+00:00:35.000 --> 00:00:37.767
+Então o último output
+é esta seta aqui.
+
+00:00:37.800 --> 00:00:39.867
+É o último output
+das células LSTM.
+
+00:00:39.900 --> 00:00:41.967
+Vamos ignorar
+todos os outros outputs.
+
+00:00:42.800 --> 00:00:48.500
+Estes outputs da LSTM
+
+00:00:48.533 --> 00:00:51.433
+vão para uma camada
+totalmente conectada
+
+00:00:51.467 --> 00:00:53.133
+de apenas uma unidade,
+
+00:00:53.167 --> 00:00:56.800
+porque estamos usando apenas
+uma unidade preditiva sigmoide.
+
+00:00:57.167 --> 00:01:00.634
+A função de ativação está aqui,
+"tf.sigmoid",
+
+00:01:01.133 --> 00:01:02.933
+e ela nos fornece
+as previsões.
+
+00:01:02.967 --> 00:01:05.667
+Lembre-se que sigmoide
+é sempre entre 0 e 1.
+
+00:01:05.700 --> 00:01:09.500
+Você pode tratar
+como uma probabilidade verdadeira,
+
+00:01:09.533 --> 00:01:12.000
+uma probabilidade
+que é positiva.
+
+00:01:12.033 --> 00:01:15.900
+Aqui usamos as classificações
+e as previsões para calcular o custo
+
+00:01:15.933 --> 00:01:17.567
+com "mean_squared_error".
+
+00:01:17.600 --> 00:01:19.967
+Por fim, temos
+o otimizador Adam,
+
+00:01:20.000 --> 00:01:22.767
+que vai minimizar o custo
+e treinar os pesos.
+
+00:01:23.400 --> 00:01:28.926
+Aqui, adicionei isto para validar
+a acurácia da rede.
+
+00:01:28.960 --> 00:01:31.533
+Estou apenas
+arredondando as previsões,
+
+00:01:31.567 --> 00:01:35.600
+porque previsões
+precisam ser entre 0 e 1,
+
+00:01:35.633 --> 00:01:37.807
+mas queremos que as nossas
+sejam 0 ou 1,
+
+00:01:37.841 --> 00:01:41.367
+para que possamos dizer
+se é igual à classificação.
+
+00:01:41.400 --> 00:01:44.900
+Então estou arredondando
+as previsões para que sejam 0 ou 1,
+
+00:01:44.933 --> 00:01:47.200
+dependendo do valor.
+
+00:01:47.233 --> 00:01:50.000
+Vou mudar o tipo de dado,
+
+00:01:50.033 --> 00:01:53.367
+lançando-o como inteiro, já que
+as classificações são inteiros.
+
+00:01:53.400 --> 00:01:56.033
+Queremos que ambos
+tenham o mesmo tipo de dado,
+
+00:01:56.067 --> 00:02:00.000
+para que possamos fazer
+a conferência de igualdade.
+
+00:02:00.033 --> 00:02:04.567
+Lembra que passamos
+um monte de batches?
+
+00:02:04.600 --> 00:02:08.233
+Temos um batch e estamos passando
+várias resenhas em cada batch.
+
+00:02:08.267 --> 00:02:10.767
+Agora queremos
+encontrar a média
+
+00:02:10.800 --> 00:02:13.000
+para todas essas acurácias.
+
+00:02:13.500 --> 00:02:16.133
+Para fazer isso,
+vamos usar "tf.reduce_mean",
+
+00:02:16.167 --> 00:02:19.400
+que encontra a média
+de todas as previsões
+
+00:02:19.433 --> 00:02:21.633
+e nos dá a acurácia.
+
+00:02:21.667 --> 00:02:25.664
+Este "correct_pred"
+é um booleano,
+
+00:02:25.697 --> 00:02:28.600
+por isso o tipo de dado
+sai como "tf.equal".
+
+00:02:28.633 --> 00:02:32.233
+Precisamos lançá-lo como flutuante
+para funcionar em "tf.reduce_mean".
+
+00:02:32.267 --> 00:02:34.000
+É isso
+que está acontecendo aqui.
+
+00:02:34.967 --> 00:02:39.030
+Isto aqui é apenas uma função
+para obter batches.
+
+00:02:39.064 --> 00:02:41.533
+Você pode ler este texto
+e ler o código,
+
+00:02:41.567 --> 00:02:43.933
+mas é bem comum.
+
+00:02:43.967 --> 00:02:47.633
+Basicamente tenho
+dois arrays, X e Y.
+
+00:02:48.400 --> 00:02:51.900
+Aqui estou me certificando
+que cada batch está completo,
+
+00:02:51.933 --> 00:02:54.200
+estou me livrando
+de dados em excesso.
+
+00:02:54.233 --> 00:02:56.833
+Depois estou fazendo um loop
+pelos arrays,
+
+00:02:56.867 --> 00:03:00.733
+neste caso,
+fazendo yield dos batches.
+
+00:03:00.767 --> 00:03:04.100
+Finalmente,
+este é o código do treino.
+
+00:03:04.133 --> 00:03:08.067
+É um código longo
+e é bem padrão,
+
+00:03:08.100 --> 00:03:12.100
+é muito parecido com os códigos
+que escrevo nestas apostilas.
+
+00:03:12.133 --> 00:03:15.667
+Se você quiser encarar
+como um desafio extra,
+
+00:03:15.700 --> 00:03:17.933
+apague esta célula inteira
+
+00:03:17.967 --> 00:03:21.300
+e tente implementar
+você mesmo.
+
+00:03:21.333 --> 00:03:25.582
+A melhor forma
+de aprender isso
+
+00:03:25.616 --> 00:03:27.633
+é digitando tudo você mesmo.
+
+00:03:27.667 --> 00:03:30.867
+O problema dos tutoriais
+é que você lê as instruções
+
+00:03:30.900 --> 00:03:32.000
+e acha que aprendeu,
+
+00:03:32.034 --> 00:03:34.567
+mas você tenta fazer
+e descobre que não aprendeu,
+
+00:03:34.600 --> 00:03:36.333
+porque não digitou
+nada sozinho.
+
+00:03:36.367 --> 00:03:39.467
+Acho que seria uma boa ideia
+
+00:03:39.500 --> 00:03:42.300
+apagar todo
+este código de treino
+
+00:03:42.333 --> 00:03:44.000
+e tentar implementar
+você mesmo.
+
+00:03:44.033 --> 00:03:48.867
+Copie num arquivo e verifique
+para ver como está se saindo.
+
+00:03:49.400 --> 00:03:51.633
+Por fim, o código de teste
+aqui embaixo.
+
+00:03:51.667 --> 00:03:54.533
+Certo. Vou deixar você
+construir tudo isso,
+
+00:03:54.567 --> 00:03:57.133
+fazer os exercícios
+e rodar o código.
+
+00:03:58.133 --> 00:04:00.467
+Se tiver problemas,
+
+00:04:00.500 --> 00:04:03.367
+tenho um vídeo
+e uma apostila com as soluções
+
+00:04:03.400 --> 00:04:05.033
+para que possa ver
+o que eu fiz.
+
+00:04:05.067 --> 00:04:06.167
+Valeu!
+

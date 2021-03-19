@@ -1,0 +1,157 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.820
+Welcome back everyone. So now you are going to
+
+00:00:04.820 --> 00:00:09.140
+actually start changing the data into batches.
+
+00:00:09.140 --> 00:00:12.964
+You are going to be creating batches for this to pass into the network.
+
+00:00:12.964 --> 00:00:15.720
+So remember, with skip-gram architecture,
+
+00:00:15.720 --> 00:00:19.620
+we're going to take one word and then we're going to use the words
+
+00:00:19.620 --> 00:00:23.504
+that are around that word in the text as targets right,
+
+00:00:23.504 --> 00:00:28.410
+so to use as the context around whatever input word we have.
+
+00:00:28.410 --> 00:00:30.120
+So basically for every word,
+
+00:00:30.120 --> 00:00:33.435
+we're going to grab a window of words around it and that
+
+00:00:33.435 --> 00:00:37.295
+window's going to have some size C. So then what
+
+00:00:37.295 --> 00:00:45.390
+Mikalov did is they actually chose like some random range within this window.
+
+00:00:45.390 --> 00:00:47.789
+So the reason they did this is because distant words
+
+00:00:47.789 --> 00:00:52.429
+are usually less related to whatever input word you have,
+
+00:00:52.429 --> 00:00:54.618
+than the ones that are close to it.
+
+00:00:54.618 --> 00:00:57.769
+So basically you just want to kind of de-emphasize words that
+
+00:00:57.770 --> 00:01:01.609
+are further away as compared to words that are closer.
+
+00:01:01.609 --> 00:01:05.254
+So then if you have some windows C say it's like five,
+
+00:01:05.254 --> 00:01:07.879
+then what you're going to do is select
+
+00:01:07.879 --> 00:01:12.739
+some random number R that's in a range of like one to C. So
+
+00:01:12.739 --> 00:01:16.280
+basically you're just choosing like randomly a smaller window from
+
+00:01:16.280 --> 00:01:21.269
+your large window and then we are- smaller window which is defined by R,
+
+00:01:21.269 --> 00:01:26.189
+you just grab the words from the past and R words from the future.
+
+00:01:26.188 --> 00:01:29.298
+And then you're going to use these as correct labels.
+
+00:01:29.299 --> 00:01:32.329
+So what this does is you're basically always likely
+
+00:01:32.328 --> 00:01:35.750
+to get words that are right next to your current word,
+
+00:01:35.750 --> 00:01:39.584
+but you're less likely to get words that are further away from your current word.
+
+00:01:39.584 --> 00:01:42.305
+And so what you're really doing is going to be training on
+
+00:01:42.305 --> 00:01:46.420
+words that are closer to your current word, more often.
+
+00:01:46.420 --> 00:01:51.295
+So what you'll be doing here is actually implementing this.
+
+00:01:51.295 --> 00:01:53.674
+Like, so, you're going to get the target words.
+
+00:01:53.674 --> 00:01:56.469
+So you get a pass in a string of words and then an
+
+00:01:56.468 --> 00:02:00.009
+index which is your current word and then you're going to grab
+
+00:02:00.010 --> 00:02:06.965
+a window from around the index and basically return all the target words in that window.
+
+00:02:06.965 --> 00:02:10.375
+But you're also going to be using- like
+
+00:02:10.375 --> 00:02:13.810
+you're going to find like some this random range R and then only
+
+00:02:13.810 --> 00:02:20.870
+return words that are in that smaller window R. And then once you have that written,
+
+00:02:20.870 --> 00:02:23.574
+this is a function that's going to return
+
+00:02:23.574 --> 00:02:28.430
+our batches so the data that we're going to pass into the network.
+
+00:02:28.430 --> 00:02:33.375
+So what this is going to do is going to grab some words from our, you know,
+
+00:02:33.375 --> 00:02:36.145
+big text list or list of integers
+
+00:02:36.145 --> 00:02:40.370
+and for each of those words it's going to get the targets.
+
+00:02:40.370 --> 00:02:44.615
+So like the target words that show up in the window which you implement here.
+
+00:02:44.615 --> 00:02:47.750
+So I haven't found a good way to like make
+
+00:02:47.750 --> 00:02:52.848
+this random number of target words actually work with the TensorFlow graph.
+
+00:02:52.848 --> 00:02:56.943
+So basically what I did here is just make
+
+00:02:56.943 --> 00:03:02.089
+each of those like input target pairs one row in the batch.
+
+00:03:02.090 --> 00:03:06.093
+So then if you have some current word and then there's
+
+00:03:06.093 --> 00:03:11.159
+four target words then I'm going to make those into four different rows in the batch.
+
+00:03:11.159 --> 00:03:12.878
+So four input target pairs.
+
+00:03:12.878 --> 00:03:17.473
+Okay, so here just go ahead and try to implement this get_target function.
+
+00:03:17.473 --> 00:03:24.000
+And as always you can check out my solution in the notebook or my video. Cheers.
+

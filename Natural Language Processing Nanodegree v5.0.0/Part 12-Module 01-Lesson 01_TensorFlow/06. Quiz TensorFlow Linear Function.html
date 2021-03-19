@@ -1,0 +1,875 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Quiz: TensorFlow Linear Function
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      TensorFlow
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Intro.html">
+       01. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Installing TensorFlow.html">
+       02. Installing TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Hello, Tensor World!.html">
+       03. Hello, Tensor World!
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Quiz TensorFlow Input.html">
+       04. Quiz: TensorFlow Input
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Quiz TensorFlow Math.html">
+       05. Quiz: TensorFlow Math
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Quiz TensorFlow Linear Function.html">
+       06. Quiz: TensorFlow Linear Function
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Quiz TensorFlow Softmax.html">
+       07. Quiz: TensorFlow Softmax
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Quiz TensorFlow Cross Entropy.html">
+       08. Quiz: TensorFlow Cross Entropy
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Quiz Mini-batch.html">
+       09. Quiz: Mini-batch
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Epochs.html">
+       10. Epochs
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Pre-Lab NotMNIST in TensorFlow.html">
+       11. Pre-Lab: NotMNIST in TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Lab NotMNIST in TensorFlow.html">
+       12. Lab: NotMNIST in TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Two-layer Neural Network.html">
+       13. Two-layer Neural Network
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Quiz TensorFlow ReLUs.html">
+       14. Quiz: TensorFlow ReLUs
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Deep Neural Network in TensorFlow.html">
+       15. Deep Neural Network in TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Save and Restore TensorFlow Models.html">
+       16. Save and Restore TensorFlow Models
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Finetuning.html">
+       17. Finetuning
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Quiz TensorFlow Dropout.html">
+       18. Quiz: TensorFlow Dropout
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Outro.html">
+       19. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. Quiz: TensorFlow Linear Function
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="linear-functions-in-tensorflow">
+          Linear functions in TensorFlow
+         </h1>
+         <p>
+          The most common operation in neural networks is calculating the linear combination of inputs, weights, and biases. As a reminder, we can write the output of the linear operation as
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/linear-equation.gif"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Here,
+          <span class="mathquill ud-math">
+           \mathbf{W}
+          </span>
+          is a matrix of the weights connecting two layers. The output
+          <span class="mathquill ud-math">
+           \mathbf{y}
+          </span>
+          , the input
+          <span class="mathquill ud-math">
+           \mathbf{x}
+          </span>
+          , and the biases
+          <span class="mathquill ud-math">
+           \mathbf{b}
+          </span>
+          are all vectors.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="weights-and-bias-in-tensorflow">
+          Weights and Bias in TensorFlow
+         </h2>
+         <p>
+          The goal of training a neural network is to modify weights and biases to best predict the labels.  In order to use weights and bias, you'll need a Tensor that can be modified.  This leaves out
+          <a href="https://www.tensorflow.org/api_docs/python/tf/placeholder" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.placeholder()
+           </code>
+          </a>
+          and
+          <a href="https://www.tensorflow.org/api_docs/python/tf/constant" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.constant()
+           </code>
+          </a>
+          , since those Tensors can't be modified.  This is where
+          <a href="https://www.tensorflow.org/api_docs/python/tf/Variable" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.Variable
+           </code>
+          </a>
+          class comes in.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="tfvariable">
+          tf.Variable()
+         </h3>
+         <pre><code class="python language-python">x = tf.Variable(5)</code></pre>
+         <p>
+          The
+          <a href="https://www.tensorflow.org/api_docs/python/tf/Variable" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.Variable
+           </code>
+          </a>
+          class creates a tensor with an initial value that can be modified, much like a normal Python variable.  This tensor stores its state in the session, so you must initialize the state of the tensor manually.  You'll use the
+          <a href="https://www.tensorflow.org/api_docs/python/tf/global_variables_initializer" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.global_variables_initializer()
+           </code>
+          </a>
+          function to initialize the state of all the Variable tensors.
+         </p>
+         <h5 id="initialization">
+          Initialization
+         </h5>
+         <pre><code>init = tf.global_variables_initializer()
+with tf.Session() as sess:
+    sess.run(init)</code></pre>
+         <p>
+          The
+          <a href="https://www.tensorflow.org/api_docs/python/tf/global_variables_initializer" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.global_variables_initializer()
+           </code>
+          </a>
+          call returns an operation that will initialize all TensorFlow variables from the graph.  You call the operation using a session to initialize all the variables as shown above.  Using the
+          <a href="https://www.tensorflow.org/api_docs/python/tf/Variable" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.Variable
+           </code>
+          </a>
+          class allows us to change the weights and bias, but an initial value needs to be chosen.
+         </p>
+         <p>
+          Initializing the weights with random numbers from a normal distribution is good practice.  Randomizing the weights helps the model from becoming stuck in the same place every time you train it. You'll learn more about this in the next lesson, when you study gradient descent.
+         </p>
+         <p>
+          Similarly, choosing weights from a normal distribution prevents any one weight from overwhelming other weights.  You'll use the
+          <a href="https://www.tensorflow.org/api_docs/python/tf/truncated_normal" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.truncated_normal()
+           </code>
+          </a>
+          function to generate random numbers from a normal distribution.
+         </p>
+         <h3 id="tftruncated_normal">
+          tf.truncated_normal()
+         </h3>
+         <pre><code class="python language-python">n_features = 120
+n_labels = 5
+weights = tf.Variable(tf.truncated_normal((n_features, n_labels)))</code></pre>
+         <p>
+          The
+          <a href="https://www.tensorflow.org/api_docs/python/tf/truncated_normal" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.truncated_normal()
+           </code>
+          </a>
+          function returns a tensor with random values from a normal distribution whose magnitude is no more than 2 standard deviations from the mean.
+         </p>
+         <p>
+          Since the weights are already helping prevent the model from getting stuck, you don't need to randomize the bias.  Let's use the simplest solution, setting the bias to 0.
+         </p>
+         <h3 id="tfzeros">
+          tf.zeros()
+         </h3>
+         <pre><code class="python language-python">n_labels = 5
+bias = tf.Variable(tf.zeros(n_labels))</code></pre>
+         <p>
+          The
+          <a href="https://www.tensorflow.org/api_docs/python/tf/zeros" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.zeros()
+           </code>
+          </a>
+          function returns a tensor with all zeros.
+         </p>
+         <h2 id="linear-classifier-quiz">
+          Linear Classifier Quiz
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="A subset of the MNIST dataset" class="img img-fluid" src="img/mnist-012.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            A subset of the MNIST dataset
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          You'll be classifying the handwritten numbers
+          <code>
+           0
+          </code>
+          ,
+          <code>
+           1
+          </code>
+          , and
+          <code>
+           2
+          </code>
+          from the MNIST dataset using TensorFlow.  The above is a small sample of the data you'll be training on.  Notice how some of the
+          <code>
+           1
+          </code>
+          s are written with a
+          <a href="https://en.wikipedia.org/wiki/Serif" rel="noopener noreferrer" target="_blank">
+           serif
+          </a>
+          at the top and at different angles.  The similarities and differences will play a part in shaping the weights of the model.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Left: Weights for labeling 0. Middle: Weights for labeling 1. Right: Weights for labeling 2." class="img img-fluid" src="img/weights-0-1-2.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Left: Weights for labeling 0. Middle: Weights for labeling 1. Right: Weights for labeling 2.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The images above are trained weights for each label (
+          <code>
+           0
+          </code>
+          ,
+          <code>
+           1
+          </code>
+          , and
+          <code>
+           2
+          </code>
+          ).  The weights display the unique properties of each digit they have found.  Complete this quiz to train your own weights using the MNIST dataset.
+         </p>
+         <h3 id="instructions">
+          Instructions
+         </h3>
+         <ol>
+          <li>
+           Open quiz.py.
+           <ol>
+            <li>
+             Implement
+             <code>
+              get_weights
+             </code>
+             to return a
+             <a href="https://www.tensorflow.org/api_docs/python/tf/Variable" rel="noopener noreferrer" target="_blank">
+              <code>
+               tf.Variable
+              </code>
+             </a>
+             of weights
+            </li>
+            <li>
+             Implement
+             <code>
+              get_biases
+             </code>
+             to return a
+             <a href="https://www.tensorflow.org/api_docs/python/tf/Variable" rel="noopener noreferrer" target="_blank">
+              <code>
+               tf.Variable
+              </code>
+             </a>
+             of biases
+            </li>
+            <li>
+             Implement
+             <code>
+              xW + b
+             </code>
+             in the
+             <code>
+              linear
+             </code>
+             function
+            </li>
+           </ol>
+          </li>
+          <li>
+           Open sandbox.py
+           <ol>
+            <li>
+             Initialize all weights
+            </li>
+           </ol>
+          </li>
+         </ol>
+         <p>
+          Since
+          <code>
+           xW
+          </code>
+          in
+          <code>
+           xW + b
+          </code>
+          is matrix multiplication, you have to use the
+          <a href="https://www.tensorflow.org/api_docs/python/tf/matmul" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.matmul()
+           </code>
+          </a>
+          function instead of
+          <a href="https://www.tensorflow.org/api_docs/python/tf/multiply" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.multiply()
+           </code>
+          </a>
+          .  Don't forget that order matters in matrix multiplication, so
+          <code>
+           tf.matmul(a,b)
+          </code>
+          is not the same as
+          <code>
+           tf.matmul(b,a)
+          </code>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4>
+          Start Quiz:
+         </h4>
+         <div>
+          <div class="nav nav-tabs nav-fill" id="question-tabs" role="tablist">
+           <a aria-controls="266693-sandbox-py" aria-selected="true" class="nav-item nav-link active show" data-toggle="tab" href="#266693-sandbox-py" id="tab-266693-sandbox-py" role="tab">
+            sandbox.py
+           </a>
+           <a aria-controls="266693-quiz-py" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#266693-quiz-py" id="tab-266693-quiz-py" role="tab">
+            quiz.py
+           </a>
+           <a aria-controls="266693-quiz_solution-py" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#266693-quiz_solution-py" id="tab-266693-quiz_solution-py" role="tab">
+            quiz_solution.py
+           </a>
+           <a aria-controls="266693-sandbox_solution-py" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#266693-sandbox_solution-py" id="tab-266693-sandbox_solution-py" role="tab">
+            sandbox_solution.py
+           </a>
+          </div>
+          <div class="tab-content" id="question-tab-contents" style="padding: 20px 0;">
+           <div aria-labelledby="tab-266693-sandbox-py" class="tab-pane active show" id="266693-sandbox-py" role="tabpanel">
+            <pre><code></code># Solution is available in the other "sandbox_solution.py" tab
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
+from quiz import get_weights, get_biases, linear
+
+
+def mnist_features_labels(n_labels):
+    """
+    Gets the first &lt;n&gt; labels from the MNIST dataset
+    :param n_labels: Number of labels to use
+    :return: Tuple of feature list and label list
+    """
+    mnist_features = []
+    mnist_labels = []
+
+    mnist = input_data.read_data_sets('/datasets/ud730/mnist', one_hot=True)
+
+    # In order to make quizzes run faster, we're only looking at 10000 images
+    for mnist_feature, mnist_label in zip(*mnist.train.next_batch(10000)):
+
+        # Add features and labels if it's for the first &lt;n&gt;th labels
+        if mnist_label[:n_labels].any():
+            mnist_features.append(mnist_feature)
+            mnist_labels.append(mnist_label[:n_labels])
+
+    return mnist_features, mnist_labels
+
+
+# Number of features (28*28 image is 784 features)
+n_features = 784
+# Number of labels
+n_labels = 3
+
+# Features and Labels
+features = tf.placeholder(tf.float32)
+labels = tf.placeholder(tf.float32)
+
+# Weights and Biases
+w = get_weights(n_features, n_labels)
+b = get_biases(n_labels)
+
+# Linear Function xW + b
+logits = linear(features, w, b)
+
+# Training data
+train_features, train_labels = mnist_features_labels(n_labels)
+
+with tf.Session() as session:
+    # TODO: Initialize session variables
+    
+    # Softmax
+    prediction = tf.nn.softmax(logits)
+
+    # Cross entropy
+    # This quantifies how far off the predictions were.
+    # You'll learn more about this in future lessons.
+    cross_entropy = -tf.reduce_sum(labels * tf.log(prediction), reduction_indices=1)
+
+    # Training loss
+    # You'll learn more about this in future lessons.
+    loss = tf.reduce_mean(cross_entropy)
+
+    # Rate at which the weights are changed
+    # You'll learn more about this in future lessons.
+    learning_rate = 0.08
+
+    # Gradient Descent
+    # This is the method used to train the model
+    # You'll learn more about this in future lessons.
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
+
+    # Run optimizer and get loss
+    _, l = session.run(
+        [optimizer, loss],
+        feed_dict={features: train_features, labels: train_labels})
+
+# Print loss
+print('Loss: {}'.format(l))
+</pre>
+           </div>
+           <div aria-labelledby="tab-266693-quiz-py" class="tab-pane" id="266693-quiz-py" role="tabpanel">
+            <pre><code></code># Solution is available in the other "quiz_solution.py" tab
+import tensorflow as tf
+
+def get_weights(n_features, n_labels):
+    """
+    Return TensorFlow weights
+    :param n_features: Number of features
+    :param n_labels: Number of labels
+    :return: TensorFlow weights
+    """
+    # TODO: Return weights
+    pass
+
+
+def get_biases(n_labels):
+    """
+    Return TensorFlow bias
+    :param n_labels: Number of labels
+    :return: TensorFlow bias
+    """
+    # TODO: Return biases
+    pass
+
+
+def linear(input, w, b):
+    """
+    Return linear function in TensorFlow
+    :param input: TensorFlow input
+    :param w: TensorFlow weights
+    :param b: TensorFlow biases
+    :return: TensorFlow linear function
+    """
+    # TODO: Linear Function (xW + b)
+    pass</pre>
+           </div>
+           <div aria-labelledby="tab-266693-quiz_solution-py" class="tab-pane" id="266693-quiz_solution-py" role="tabpanel">
+            <pre><code></code># Quiz Solution
+# Note: You can't run code in this tab
+import tensorflow as tf
+
+def get_weights(n_features, n_labels):
+    """
+    Return TensorFlow weights
+    :param n_features: Number of features
+    :param n_labels: Number of labels
+    :return: TensorFlow weights
+    """
+    # TODO: Return weights
+    return tf.Variable(tf.truncated_normal((n_features, n_labels)))
+
+
+def get_biases(n_labels):
+    """
+    Return TensorFlow bias
+    :param n_labels: Number of labels
+    :return: TensorFlow bias
+    """
+    # TODO: Return biases
+    return tf.Variable(tf.zeros(n_labels))
+
+
+def linear(input, w, b):
+    """
+    Return linear function in TensorFlow
+    :param input: TensorFlow input
+    :param w: TensorFlow weights
+    :param b: TensorFlow biases
+    :return: TensorFlow linear function
+    """
+    # TODO: Linear Function (xW + b)
+    return tf.add(tf.matmul(input, w), b)</pre>
+           </div>
+           <div aria-labelledby="tab-266693-sandbox_solution-py" class="tab-pane" id="266693-sandbox_solution-py" role="tabpanel">
+            <pre><code></code>import tensorflow as tf
+# Sandbox Solution
+# Note: You can't run code in this tab
+from tensorflow.examples.tutorials.mnist import input_data
+from quiz import get_weights, get_biases, linear
+
+
+def mnist_features_labels(n_labels):
+    """
+    Gets the first &lt;n&gt; labels from the MNIST dataset
+    :param n_labels: Number of labels to use
+    :return: Tuple of feature list and label list
+    """
+    mnist_features = []
+    mnist_labels = []
+
+    mnist = input_data.read_data_sets('/datasets/ud730/mnist', one_hot=True)
+
+    # In order to make quizzes run faster, we're only looking at 10000 images
+    for mnist_feature, mnist_label in zip(*mnist.train.next_batch(10000)):
+
+        # Add features and labels if it's for the first &lt;n&gt;th labels
+        if mnist_label[:n_labels].any():
+            mnist_features.append(mnist_feature)
+            mnist_labels.append(mnist_label[:n_labels])
+
+    return mnist_features, mnist_labels
+
+
+# Number of features (28*28 image is 784 features)
+n_features = 784
+# Number of labels
+n_labels = 3
+
+# Features and Labels
+features = tf.placeholder(tf.float32)
+labels = tf.placeholder(tf.float32)
+
+# Weights and Biases
+w = get_weights(n_features, n_labels)
+b = get_biases(n_labels)
+
+# Linear Function xW + b
+logits = linear(features, w, b)
+
+# Training data
+train_features, train_labels = mnist_features_labels(n_labels)
+
+with tf.Session() as session:
+    session.run(tf.global_variables_initializer())
+
+    # Softmax
+    prediction = tf.nn.softmax(logits)
+
+    # Cross entropy
+    # This quantifies how far off the predictions were.
+    # You'll learn more about this in future lessons.
+    cross_entropy = -tf.reduce_sum(labels * tf.log(prediction), reduction_indices=1)
+
+    # Training loss
+    # You'll learn more about this in future lessons.
+    loss = tf.reduce_mean(cross_entropy)
+
+    # Rate at which the weights are changed
+    # You'll learn more about this in future lessons.
+    learning_rate = 0.08
+
+    # Gradient Descent
+    # This is the method used to train the model
+    # You'll learn more about this in future lessons.
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
+
+    # Run optimizer and get loss
+    _, l = session.run(
+        [optimizer, loss],
+        feed_dict={features: train_features, labels: train_labels})
+
+# Print loss
+print('Loss: {}'.format(l))
+</pre>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Quiz TensorFlow Softmax.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Quiz: TensorFlow Linear Function')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

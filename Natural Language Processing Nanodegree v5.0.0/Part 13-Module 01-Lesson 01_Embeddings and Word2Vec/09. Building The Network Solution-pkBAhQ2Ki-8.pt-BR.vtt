@@ -1,0 +1,211 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.755 --> 00:00:04.599
+Olá de novo! Aqui vou mostrar
+como construir esta rede.
+
+00:00:04.632 --> 00:00:08.115
+Falarei dos inputs,
+da camada de embedding e do softmax.
+
+00:00:09.839 --> 00:00:13.112
+Como sempre, aqui temos nossos
+espaços reservados do TensorFlow.
+
+00:00:13.145 --> 00:00:17.103
+Vamos usar números inteiros,
+nos dois valores, ou seja, tf.n32.
+
+00:00:17.407 --> 00:00:20.738
+O tamanho do lote dos rótulos
+será arbitrário,
+
+00:00:20.771 --> 00:00:23.073
+assim como a segunda dimensão
+dos rótulos.
+
+00:00:23.852 --> 00:00:27.574
+Para os valores dos inputs
+e dos rótulos,
+
+00:00:27.607 --> 00:00:31.603
+vamos fornecer
+apenas números inteiros.
+
+00:00:31.636 --> 00:00:34.968
+Na primeira vez que eu comecei
+a construir esta rede,
+
+00:00:35.001 --> 00:00:37.173
+defini
+estes dois valores assim.
+
+00:00:37.206 --> 00:00:40.325
+Mas quando eu estava tentando
+implementar uma parte da rede,
+
+00:00:40.358 --> 00:00:43.219
+os rótulos começaram
+a dar problema
+
+00:00:43.252 --> 00:00:45.616
+porque precisavam ter
+uma segunda dimensão.
+
+00:00:46.674 --> 00:00:48.668
+Então foi
+uma daquelas situações
+
+00:00:48.701 --> 00:00:51.017
+em que você acha
+que pode fazer uma coisa,
+
+00:00:51.050 --> 00:00:53.319
+mas depois se depara
+com um monte de erros
+
+00:00:53.352 --> 00:00:58.624
+e acaba tendo que voltar
+e mudar a parte anterior da sua rede
+
+00:00:58.657 --> 00:01:00.854
+para ela funcionar
+com a parte mais recente.
+
+00:01:01.595 --> 00:01:03.411
+Agora vamos ao embedding.
+
+00:01:03.444 --> 00:01:06.752
+Defini as dimensões de embedding
+para 200
+
+00:01:06.785 --> 00:01:10.924
+e, para os pesos de embedding,
+criei uma variável
+
+00:01:10.957 --> 00:01:13.735
+e usei
+uma distribuição uniforme aleatória.
+
+00:01:13.768 --> 00:01:19.621
+O tamanho deste tensor de peso
+será igual
+
+00:01:19.654 --> 00:01:22.561
+ao tamanho do nosso vocabulário
+pelo tamanho de embedding.
+
+00:01:22.959 --> 00:01:25.997
+Depois inicializei o embedding
+a partir de -1 e 1.
+
+00:01:26.427 --> 00:01:28.786
+Para consultar
+a tabela de embedding,
+
+00:01:28.819 --> 00:01:33.018
+use tf.nnembedding_lookup,
+fornecendo o embedding e os inputs.
+
+00:01:33.564 --> 00:01:37.068
+Assim você vai obter
+o tensor de embedding,
+
+00:01:37.101 --> 00:01:41.110
+que consiste basicamente
+nos valores da sua camada oculta.
+
+00:01:41.751 --> 00:01:46.078
+De modo geral, você vai realizar
+o mesmo procedimento
+
+00:01:46.111 --> 00:01:48.103
+toda vez
+que for usar embeddings.
+
+00:01:48.136 --> 00:01:50.789
+Você vai criar
+a sua matriz de embedding,
+
+00:01:50.822 --> 00:01:54.841
+passar seus inputs
+para a matriz de embedding
+
+00:01:54.874 --> 00:01:57.486
+e obter
+sua camada de embedding.
+
+00:01:57.519 --> 00:01:59.993
+Depois você pode passá-la
+para o resto da rede.
+
+00:02:00.972 --> 00:02:04.350
+Finalmente, vamos
+à amostragem negativa.
+
+00:02:04.383 --> 00:02:07.729
+Novamente,
+você vai criar pesos e vieses
+
+00:02:07.762 --> 00:02:11.040
+para a camada softmax.
+
+00:02:11.073 --> 00:02:15.695
+Aqui eu inicializei os pesos
+com a distribuição normal truncada.
+
+00:02:15.728 --> 00:02:20.075
+Os pesos precisam ser
+do mesmo tamanho do vocabulário
+
+00:02:20.108 --> 00:02:23.073
+e do tamanho de embedding.
+
+00:02:23.106 --> 00:02:26.432
+E o nosso desvio padrão
+será 0,1.
+
+00:02:26.465 --> 00:02:29.187
+Os vieses serão inicializados
+só com zeros
+
+00:02:29.220 --> 00:02:31.246
+no tamanho do vocabulário.
+
+00:02:31.279 --> 00:02:34.841
+Agora vamos calcular a perda
+através da amostragem negativa.
+
+00:02:34.874 --> 00:02:36.905
+Vamos usar
+sample_softmax_loss,
+
+00:02:36.938 --> 00:02:39.558
+fornecendo os pesos,
+os vieses, os rótulos,
+
+00:02:39.591 --> 00:02:44.581
+a camada de embedding
+e n_sampled,
+
+00:02:44.614 --> 00:02:49.594
+que é o número
+de valores negativos
+
+00:02:49.627 --> 00:02:50.831
+que usaremos de amostra.
+
+00:02:51.737 --> 00:02:54.091
+Por fim, o tamanho
+do nosso vocabulário.
+
+00:02:54.124 --> 00:02:57.834
+A função fará a amostragem negativa
+e calcular nossa perda.
+
+00:02:57.867 --> 00:03:01.487
+Depois é só calcular o custo
+e minimizá-lo com o otimizador Adam.
+

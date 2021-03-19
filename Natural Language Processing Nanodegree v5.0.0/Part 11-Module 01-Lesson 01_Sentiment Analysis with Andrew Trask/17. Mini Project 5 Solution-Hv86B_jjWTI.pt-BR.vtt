@@ -1,0 +1,457 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:03.033
+Nesta seção, tornamos
+nossa rede mais eficiente.
+
+00:00:03.067 --> 00:00:06.167
+Fizemos isso nos livrando
+da multiplicação por 1,
+
+00:00:06.200 --> 00:00:08.334
+porque não precisa,
+não muda nada;
+
+00:00:08.367 --> 00:00:13.601
+e nos livramos do processamento
+das palavras que têm zero aqui.
+
+00:00:13.634 --> 00:00:16.534
+Isso aumenta muito
+a velocidade do treinamento
+
+00:00:16.567 --> 00:00:18.200
+e do teste da nossa rede.
+
+00:00:18.234 --> 00:00:19.601
+De como ela roda.
+
+00:00:19.634 --> 00:00:22.534
+Significativamente,
+como veremos em breve.
+
+00:00:22.567 --> 00:00:24.200
+Para fazer esta mudança,
+
+00:00:24.234 --> 00:00:26.501
+essa parte da classe
+não mudou nada.
+
+00:00:26.534 --> 00:00:29.701
+Ainda iniciamos a rede,
+criamos a matriz de pesos,
+
+00:00:29.734 --> 00:00:31.634
+o índice das palvras...
+
+00:00:31.667 --> 00:00:35.567
+Deixei esses métodos aqui,
+mas não vamos usar.
+
+00:00:35.601 --> 00:00:39.267
+Quando chegamos ao treinamento,
+as coisas começam a mudar.
+
+00:00:39.300 --> 00:00:42.601
+Adicionei um passo
+de pré-processamento
+
+00:00:42.634 --> 00:00:44.734
+que é o seguinte:
+
+00:00:44.767 --> 00:00:49.133
+Ele pega cada uma das resenhas,
+o texto dela,
+
+00:00:49.167 --> 00:00:53.067
+e cria
+um conjunto de índices.
+
+00:00:53.100 --> 00:00:55.267
+Converte as palavras
+para números.
+
+00:00:55.300 --> 00:00:57.767
+As linhas às quais
+eles correspondem.
+
+00:00:57.801 --> 00:01:00.801
+É como o que fizemos aqui,
+com este 4 e 9.
+
+00:01:00.834 --> 00:01:05.467
+Fizemos a lista de índices
+e os colocamos neste vetor
+
+00:01:05.501 --> 00:01:08.601
+Isso é muito rápido,
+o que é ótimo.
+
+00:01:08.634 --> 00:01:12.667
+O que fizemos aqui é
+uma versão grande daquilo.
+
+00:01:12.701 --> 00:01:17.601
+Para cada resenha, convertemos
+as palavras para as linhas
+
+00:01:17.634 --> 00:01:20.701
+da matriz de pesos
+às quais correspondem.
+
+00:01:20.734 --> 00:01:23.501
+As entradas correspondem
+a linhas na matriz.
+
+00:01:23.534 --> 00:01:25.801
+As saídas são colunas.
+
+00:01:25.834 --> 00:01:29.100
+Multiplicação de matrizes,
+é assim que funciona.
+
+00:01:29.133 --> 00:01:31.267
+Isso nos permitiu
+chegar até aqui,
+
+00:01:31.300 --> 00:01:34.334
+para pular completamente
+a geração das entradas,
+
+00:01:34.367 --> 00:01:35.667
+do vetor de entrada.
+
+00:01:35.701 --> 00:01:38.934
+Não precisamos disso
+para a propagação progressiva.
+
+00:01:38.968 --> 00:01:41.234
+Passamos à geração
+da camada oculta.
+
+00:01:41.267 --> 00:01:45.868
+Tudo o que fazemos é
+passar pelos índices da resenha,
+
+00:01:45.901 --> 00:01:47.234
+para cada índice,
+
+00:01:47.267 --> 00:01:50.567
+e somar esta linha
+na camada 1.
+
+00:01:50.601 --> 00:01:53.100
+Pegamos a camada 1,
+que está vazia aqui,
+
+00:01:53.133 --> 00:01:56.467
+e para cada linha,
+a adicionamos à camada.
+
+00:01:56.501 --> 00:02:00.100
+Estamos dizendo que,
+para cada linha,
+
+00:02:00.133 --> 00:02:02.234
+adicionamos
+à camada oculta.
+
+00:02:02.267 --> 00:02:04.634
+A linha de "horrível",
+essa aqui,
+
+00:02:04.667 --> 00:02:07.701
+e a linha de "terrível",
+que é essa aqui.
+
+00:02:07.734 --> 00:02:09.267
+Estamos pulando esta.
+
+00:02:09.300 --> 00:02:12.801
+E as outras 70 mil palavras
+que não foram mencionadas.
+
+00:02:12.834 --> 00:02:14.934
+Vai poupar muito tempo.
+
+00:02:14.968 --> 00:02:18.267
+Estou empolgado para ver
+a velocidade que vai ficar.
+
+00:02:18.300 --> 00:02:20.267
+Essa parte é igual,
+
+00:02:20.300 --> 00:02:24.300
+o erro da camada 2 é igual,
+o delta da camada 2 é igual,
+
+00:02:24.334 --> 00:02:27.133
+o erro e o delta da camada 1
+são iguais,
+
+00:02:27.167 --> 00:02:28.801
+porque não mudou nada,
+
+00:02:28.834 --> 00:02:30.968
+a única coisa
+que ficou diferente
+
+00:02:31.000 --> 00:02:33.467
+é o modo
+de atualizar os pesos,
+
+00:02:33.501 --> 00:02:38.200
+que é o inverso
+de quando o preenchemos.
+
+00:02:38.234 --> 00:02:40.634
+Passamos
+pelos mesmos índices
+
+00:02:40.667 --> 00:02:44.801
+e atualizamos apenas
+os que usamos.
+
+00:02:45.334 --> 00:02:47.067
+Deixando o resto
+como está.
+
+00:02:47.100 --> 00:02:51.267
+Isso faz ainda mais sentido,
+dado como a retropropagação funciona.
+
+00:02:51.300 --> 00:02:54.300
+Como é o algoritmo
+da descida do gradiente.
+
+00:02:54.334 --> 00:02:59.067
+Quando calculamos
+este delta dos pesos,
+
+00:02:59.100 --> 00:03:01.801
+você multiplica
+o valor da entrada
+
+00:03:01.834 --> 00:03:03.467
+pelo delta que está aqui.
+
+00:03:03.501 --> 00:03:06.334
+Retropropagamos o delta
+para a camada oculta,
+
+00:03:06.367 --> 00:03:08.601
+e para atualizar
+estes 4 índices,
+
+00:03:08.634 --> 00:03:14.267
+é 1 vezes o delta daqui,
+subtraindo destes pesos.
+
+00:03:14.300 --> 00:03:17.100
+Mas se for um zero,
+
+00:03:17.133 --> 00:03:19.334
+a subtração
+sempre vai ser de zero,
+
+00:03:19.367 --> 00:03:21.934
+então podemos pular isso
+na volta também.
+
+00:03:21.968 --> 00:03:22.968
+Ótimo.
+
+00:03:23.000 --> 00:03:25.300
+É assim
+que atualizamos os pesos.
+
+00:03:25.334 --> 00:03:27.467
+A lógica de avaliação
+ficou igual,
+
+00:03:27.501 --> 00:03:30.400
+a lógica de teste também,
+e a de rodar também.
+
+00:03:30.434 --> 00:03:31.868
+Agora eu quero testar.
+
+00:03:31.901 --> 00:03:33.334
+Vou pegar...
+
+00:03:33.367 --> 00:03:36.200
+Vou iniciar a rede aqui...
+
+00:03:36.234 --> 00:03:38.100
+Vamos pegar...
+
+00:03:38.133 --> 00:03:39.501
+O treinamento...
+
+00:03:39.534 --> 00:03:40.767
+São só referências.
+
+00:03:40.801 --> 00:03:44.701
+Treinava 100 resenhas
+por segundo.
+
+00:03:46.367 --> 00:03:48.434
+Vou rodar isto...
+Colocar aqui...
+
+00:03:48.467 --> 00:03:50.167
+Pegar o teste...
+
+00:03:53.567 --> 00:03:56.501
+Pegar o teste...
+Quero ver isso.
+
+00:04:01.033 --> 00:04:02.734
+Mil resenhas por segundo!
+
+00:04:02.767 --> 00:04:05.968
+Está 10 vezes mais rápido.
+Mais de 10 vezes! Veja!
+
+00:04:06.000 --> 00:04:07.234
+1300.
+
+00:04:07.267 --> 00:04:11.067
+Ainda está treinando com a mesma
+velocidade de convergência.
+
+00:04:11.100 --> 00:04:14.033
+Veja isso.
+1300 resenhas por segundo.
+
+00:04:14.067 --> 00:04:17.167
+É mais do que
+uma ordem de grandeza
+
+00:04:17.200 --> 00:04:21.067
+mais rápido, porque
+nos livramos daquelas coisas.
+
+00:04:21.100 --> 00:04:24.200
+No teste não dá nem pra ver
+o que aconteceu.
+
+00:04:24.234 --> 00:04:27.734
+Legal. Ótimo.
+E temos uma ótima nota.
+
+00:04:27.767 --> 00:04:33.133
+Devia ser idêntico,
+porque não mudamos nada.
+
+00:04:33.901 --> 00:04:36.634
+Cara, que legal.
+Ficou tão mais rápido!
+
+00:04:36.667 --> 00:04:38.267
+Legal. Isso é ótimo.
+
+00:04:38.300 --> 00:04:40.567
+Poderíamos treinar
+várias iterações.
+
+00:04:40.601 --> 00:04:42.901
+Se eu disser vezes dois,
+
+00:04:46.801 --> 00:04:52.000
+Vamos treinar. Já vai começar.
+Ele está convertendo.
+
+00:04:52.033 --> 00:04:53.601
+Vai começar a treinar...
+
+00:04:53.634 --> 00:04:55.367
+Acho que perdi
+alguma coisa.
+
+00:04:55.400 --> 00:04:57.200
+Mas se fizer mais iterações,
+
+00:04:57.234 --> 00:04:59.734
+com os mesmos
+índices de convergência...
+
+00:04:59.767 --> 00:05:02.734
+Agora são 1500 por segundo.
+Está muito rápido.
+
+00:05:02.767 --> 00:05:06.467
+Podemos continuar treinando.
+Os acertos estão aumentando.
+
+00:05:06.501 --> 00:05:09.234
+Quanto mais rápida
+for a rede,
+
+00:05:09.267 --> 00:05:12.400
+mais iterações pode fazer,
+em um dado tempo.
+
+00:05:12.434 --> 00:05:14.501
+E o modo de fazer isso
+
+00:05:14.534 --> 00:05:18.234
+é tirando as coisas
+que a rede neural faz
+
+00:05:18.267 --> 00:05:22.100
+que não nos ajudam
+a prever ou a aprender.
+
+00:05:22.133 --> 00:05:24.901
+Foi a estratégia
+que usamos.
+
+00:05:25.934 --> 00:05:29.701
+Na próxima seção,
+vamos voltar para os dados
+
+00:05:29.734 --> 00:05:33.501
+e ver se podemos
+melhorar a modelagem.
+
+00:05:33.534 --> 00:05:36.701
+Já melhoramos
+o enquadramento do problema,
+
+00:05:36.734 --> 00:05:43.634
+melhoramos a forma como a rede
+propaga para a frente e para trás.
+
+00:05:43.667 --> 00:05:50.033
+Como propagamos só o vocabulário,
+pudemos cortar as ineficiências
+
+00:05:50.067 --> 00:05:52.033
+que a rede estava calculando.
+
+00:05:52.067 --> 00:05:53.334
+Agora vamos voltar.
+
+00:05:53.367 --> 00:05:55.634
+Podemos enquadrar de novo
+o problema
+
+00:05:55.667 --> 00:05:57.767
+para reduzir
+ainda mais ruído,
+
+00:05:57.801 --> 00:06:01.000
+e talvez reduzir mais
+as propagações que fazemos,
+
+00:06:01.033 --> 00:06:04.367
+para aprender mais rápido
+e calcular mais rápido.
+
+00:06:04.400 --> 00:06:07.934
+Vamos fazer mais uma iteração
+no projeto 6. Até lá.
+

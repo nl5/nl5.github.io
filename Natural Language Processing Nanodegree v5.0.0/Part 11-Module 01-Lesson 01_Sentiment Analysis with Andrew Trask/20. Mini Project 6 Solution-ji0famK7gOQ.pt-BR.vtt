@@ -1,0 +1,674 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:02.634
+Bem-vindos de volta!
+Estamos no projeto 6.
+
+00:00:02.667 --> 00:00:05.567
+Vamos reduzir o ruído
+reduzindo o vocabulário.
+
+00:00:05.601 --> 00:00:09.634
+Pegamos estas métricas
+que usamos antes
+
+00:00:09.667 --> 00:00:12.667
+como heurística para ver
+se era uma boa ideia,
+
+00:00:12.701 --> 00:00:17.601
+e vamos usá-las para cortar
+um pouco do ruído,
+
+00:00:17.634 --> 00:00:20.567
+para a rede poder
+ver melhor o sinal.
+
+00:00:20.601 --> 00:00:24.534
+Neste caso, muita coisa
+acontece no pré-processamento.
+
+00:00:24.567 --> 00:00:29.100
+Em vez de atualizar
+o treinamento aqui,
+
+00:00:29.133 --> 00:00:31.334
+vamos tentar
+reduzir o vocabulário,
+
+00:00:31.367 --> 00:00:34.567
+que é este objeto
+que vira o índice de palavras,
+
+00:00:34.601 --> 00:00:36.334
+usado para
+criar os índices.
+
+00:00:36.367 --> 00:00:39.133
+Queremos reduzir isto
+de formas específicas.
+
+00:00:39.167 --> 00:00:41.868
+De acordo
+com certos limiares.
+
+00:00:41.901 --> 00:00:45.167
+Neste caso, criei
+um corte de polaridade
+
+00:00:45.200 --> 00:00:47.067
+e um corte
+de contagem mínima.
+
+00:00:47.100 --> 00:00:50.767
+O corte de contagem mínima
+diz que,
+
+00:00:50.801 --> 00:00:56.567
+para uma palavra
+ser incluída no vocabulário,
+
+00:00:56.601 --> 00:01:00.334
+ela deve passar
+de uma contagem mínima.
+
+00:01:00.367 --> 00:01:05.467
+Se não entrar no vocabulário,
+não vai ser treinada.
+
+00:01:05.501 --> 00:01:09.100
+De acordo com o passo
+de pré-processamento.
+
+00:01:09.133 --> 00:01:11.467
+Se a palavra
+não está no vocabulário,
+
+00:01:11.501 --> 00:01:14.934
+não tem um índice,
+não entra na lista,
+
+00:01:14.968 --> 00:01:17.133
+e não é treinada.
+É só ignorada.
+
+00:01:17.167 --> 00:01:20.334
+Essa é a primeira coisa.
+A segunda é a polaridade.
+
+00:01:20.367 --> 00:01:22.634
+Esta razão entre
+positivo e negativo
+
+00:01:22.667 --> 00:01:26.167
+tem que ser maior do que
+o limiar de polaridade,
+
+00:01:26.200 --> 00:01:28.801
+ou menor do que menos ele,
+
+00:01:28.834 --> 00:01:31.968
+porque nos lembramos
+que isso é centrado no 1,
+
+00:01:32.000 --> 00:01:36.467
+então a palavra tem que ser
+menor do que a razão negativa
+
+00:01:36.501 --> 00:01:39.200
+ou maior do que
+a razão positiva.
+
+00:01:39.234 --> 00:01:45.868
+Está excluindo esta seção
+alta e irrelevante no meio.
+
+00:01:45.901 --> 00:01:47.567
+A ideia é essa.
+
+00:01:47.601 --> 00:01:52.334
+Outra coisa que eu fiz
+foi pedir uma contagem mínima
+
+00:01:52.367 --> 00:01:55.400
+para esta razão ter efeito.
+
+00:01:55.434 --> 00:01:59.400
+Fiz isso porque,
+de vez em quando,
+
+00:01:59.434 --> 00:02:02.067
+aparecem termos
+pouco frequentes
+
+00:02:02.100 --> 00:02:06.667
+que têm pouco poder
+de correlação,
+
+00:02:06.701 --> 00:02:10.701
+ou muito poder de correlação,
+mas só acontecem algumas vezes,
+
+00:02:10.734 --> 00:02:13.834
+então a métrica,
+é uma regra simples,
+
+00:02:13.868 --> 00:02:18.501
+não pode ter correlação perfeita
+mas só acontecer uma vez.
+
+00:02:18.534 --> 00:02:22.767
+Neste caso, achei que era
+um bom número.
+
+00:02:22.801 --> 00:02:24.734
+Estes são os limiares.
+
+00:02:24.767 --> 00:02:28.634
+Não tem jeito certo ou errado,
+estamos tentando cortar o ruído,
+
+00:02:28.667 --> 00:02:31.234
+e isso é diferente
+a cada conjunto de dados.
+
+00:02:31.267 --> 00:02:33.934
+Temos nossos dados,
+queremos treinar uma rede,
+
+00:02:33.968 --> 00:02:37.100
+para que ela tenha sucesso
+com os dados do problema,
+
+00:02:37.133 --> 00:02:39.934
+é só o método que usamos
+enquadrando o problema
+
+00:02:39.968 --> 00:02:41.501
+em um novo domínio.
+
+00:02:41.534 --> 00:02:45.834
+Não tem regras rígidas,
+são técnicas que usamos
+
+00:02:45.868 --> 00:02:49.167
+para que a rede neural
+tenha mais chance de capturar
+
+00:02:49.200 --> 00:02:51.267
+padrões novos
+e interessantes.
+
+00:02:51.300 --> 00:02:54.634
+Tudo isso é igual.
+Não mudou nada.
+
+00:02:54.667 --> 00:02:57.334
+Testar e rodar
+não ficaram diferentes,
+
+00:02:57.367 --> 00:03:00.133
+exceto pelo vocabulário
+menor.
+
+00:03:00.167 --> 00:03:01.567
+Vamos tentar.
+
+00:03:01.601 --> 00:03:05.701
+A contagem mínima está em 20
+e o corte de polaridade em 0,05.
+
+00:03:05.734 --> 00:03:10.100
+É um corte bem pequeno.
+Não corta vocabulário demais.
+
+00:03:10.133 --> 00:03:12.734
+Podemos ser mais agressivos
+mais tarde.
+
+00:03:12.767 --> 00:03:16.767
+Vamos ver como fica.
+
+00:03:16.801 --> 00:03:18.133
+Daqui a pouquinho.
+
+00:03:18.167 --> 00:03:21.968
+Agora ela está calculando
+todas as estatísticas
+
+00:03:22.000 --> 00:03:23.400
+para começar.
+
+00:03:23.434 --> 00:03:25.501
+Quando você a cria,
+ela faz isso.
+
+00:03:25.534 --> 00:03:26.968
+Vai começar a treinar.
+
+00:03:27.000 --> 00:03:32.267
+Quando chamamos o construtor,
+ele faz o pré-processamento,
+
+00:03:32.300 --> 00:03:37.868
+que faz todas essas coisas,
+para ajudar a identificar o sinal.
+
+00:03:37.901 --> 00:03:40.601
+Vamos treinar!
+Muito bem!
+
+00:03:42.868 --> 00:03:46.501
+Aumentou um pouco
+a velocidade.
+
+00:03:46.534 --> 00:03:48.200
+Não muito,
+só um pouquinho.
+
+00:03:48.234 --> 00:03:50.534
+Porque reduzimos
+o vocabulário.
+
+00:03:50.567 --> 00:03:52.934
+Vamos ver os dados de teste.
+
+00:03:52.968 --> 00:03:54.701
+85,9%.
+
+00:03:54.734 --> 00:03:59.400
+Não aumentou muito,
+mas um pouco.
+
+00:03:59.434 --> 00:04:03.133
+Pode escolher o que fazer,
+não mexi muito nisso,
+
+00:04:03.167 --> 00:04:06.133
+pode continuar mudando
+os valores dos limiares,
+
+00:04:06.167 --> 00:04:09.167
+e encontrar
+quais funcionam melhor.
+
+00:04:09.200 --> 00:04:10.334
+Agora,
+
+00:04:10.367 --> 00:04:12.501
+a outra coisa
+que eu quero mostrar
+
+00:04:12.534 --> 00:04:16.400
+é que se pegarmos isso
+e aumentarmos bastante,
+
+00:04:16.434 --> 00:04:19.167
+se colocarmos...
+
+00:04:19.968 --> 00:04:23.133
+Vamos manter a contagem mínima
+e colocar 0,8 aqui.
+
+00:04:23.167 --> 00:04:29.767
+Cortamos realmente
+todo o meio disso aqui.
+
+00:04:29.801 --> 00:04:35.000
+Vamos tirar um grande pedaço.
+0,8 fica por aqui.
+
+00:04:35.033 --> 00:04:36.767
+Até aqui.
+
+00:04:36.801 --> 00:04:39.734
+Sabe? Isso tem
+um pouco de correlação,
+
+00:04:39.767 --> 00:04:41.467
+mas eu acho ambíguo,
+
+00:04:41.501 --> 00:04:44.100
+então tire tudo.
+
+00:04:45.200 --> 00:04:47.334
+Vamos treinar assim.
+
+00:04:49.834 --> 00:04:53.200
+Isso aumenta bastante
+a velocidade.
+
+00:04:53.234 --> 00:04:55.834
+A velocidade de treinamento.
+
+00:04:55.868 --> 00:04:58.634
+E tem um efeito
+relativamente baixo
+
+00:04:58.667 --> 00:05:00.400
+no índice de acerto.
+
+00:05:00.434 --> 00:05:01.467
+Às vezes,
+
+00:05:01.501 --> 00:05:05.133
+isso pode ser benéfico
+por dois motivos.
+
+00:05:05.167 --> 00:05:06.734
+Para alguns problemas,
+
+00:05:06.767 --> 00:05:09.334
+você quer poder treinar
+com tantos dados,
+
+00:05:09.367 --> 00:05:11.100
+que precisa ir mais rápido.
+
+00:05:11.133 --> 00:05:12.801
+Vamos ver a velocidade.
+
+00:05:12.834 --> 00:05:14.734
+Está treinando...
+
+00:05:14.767 --> 00:05:19.300
+Veja isso!
+7 mil resenhas por segundo.
+
+00:05:19.334 --> 00:05:22.734
+Treinou tudo
+em alguns segundos.
+
+00:05:22.767 --> 00:05:26.868
+Vamos ver como fica
+com os testes.
+
+00:05:26.901 --> 00:05:29.767
+82,2%. Perdemos 3%.
+
+00:05:29.801 --> 00:05:30.834
+Nada mau.
+
+00:05:30.868 --> 00:05:35.033
+Aumentamos a velocidade
+em 7 vezes...
+
+00:05:35.067 --> 00:05:36.767
+Bem, quase 7.
+
+00:05:36.801 --> 00:05:41.100
+Por uma perda de 3%
+de qualidade.
+
+00:05:41.133 --> 00:05:44.300
+Existe um equilíbrio
+entre velocidade e qualidade.
+
+00:05:44.334 --> 00:05:46.734
+O único caso
+onde realmente não existe
+
+00:05:46.767 --> 00:05:48.267
+é quando reduz o ruído.
+
+00:05:48.300 --> 00:05:51.767
+Reduzir o ruído reduz
+os dados que deve processar,
+
+00:05:51.801 --> 00:05:55.601
+o que aumenta a velocidade
+e também a qualidade.
+
+00:05:55.634 --> 00:05:57.868
+Mas isso pode
+ser muito benéfico.
+
+00:05:57.901 --> 00:06:00.234
+Primeiro, para
+sistemas de produção.
+
+00:06:00.267 --> 00:06:03.434
+Quando você precisa
+de algo bem rápido,
+
+00:06:03.467 --> 00:06:06.200
+para resolver um problema
+do mundo real,
+
+00:06:06.234 --> 00:06:10.334
+como em um laboratório...
+
+00:06:12.467 --> 00:06:16.200
+O melhor resultado possível
+nem sempre é a melhor resposta.
+
+00:06:16.234 --> 00:06:17.968
+Às vezes, a melhor resposta
+
+00:06:18.000 --> 00:06:20.834
+é ler um milhão de
+relatórios médicos por dia
+
+00:06:20.868 --> 00:06:22.567
+para salvar mais vidas.
+
+00:06:22.601 --> 00:06:24.701
+Precisa de algo mais rápido.
+
+00:06:24.734 --> 00:06:29.267
+Isso é algo
+que você pode fazer.
+
+00:06:29.300 --> 00:06:30.868
+Aumentou quase 10 vezes.
+
+00:06:30.901 --> 00:06:34.100
+Aumentando ainda mais,
+provavelmente.
+
+00:06:34.133 --> 00:06:37.834
+O que é mais legal é que,
+quanto mais você corta,
+
+00:06:37.868 --> 00:06:39.601
+você vai mais rápido,
+
+00:06:39.634 --> 00:06:43.434
+e faz o mínimo estrago possível
+para ir mais rápido.
+
+00:06:43.467 --> 00:06:47.868
+Estou me livrando
+dos termos mais ambíguos,
+
+00:06:47.901 --> 00:06:50.133
+e isso poupa muito tempo.
+
+00:06:50.901 --> 00:06:52.701
+Por que isso poupa tempo?
+
+00:06:52.734 --> 00:06:54.434
+Fazemos menos somas.
+
+00:06:54.467 --> 00:06:57.501
+Com menos termos,
+fazemos menos somas na matriz,
+
+00:06:57.534 --> 00:07:00.100
+menos retropropagação,
+
+00:07:00.133 --> 00:07:01.601
+nessa matriz aqui,
+
+00:07:01.634 --> 00:07:05.067
+porque tem menos palavras
+na resenha para propagar,
+
+00:07:05.100 --> 00:07:07.868
+que são palavras
+com as quais treinar.
+
+00:07:07.901 --> 00:07:10.033
+Foi só o que fizemos.
+
+00:07:10.067 --> 00:07:11.400
+Felizmente,
+
+00:07:11.434 --> 00:07:14.501
+aumentou muito
+a velocidade.
+
+00:07:14.534 --> 00:07:16.133
+Agora...
+
+00:07:17.133 --> 00:07:22.000
+Outro motivo para as pessoas
+aumentarem a velocidade assim
+
+00:07:22.033 --> 00:07:26.133
+é que se você tem tantos
+dados de treinamento
+
+00:07:26.167 --> 00:07:28.434
+que nunca poderia
+treinar com todos,
+
+00:07:28.467 --> 00:07:33.133
+só poder ir mais rápido
+e passar por mais dados,
+
+00:07:33.167 --> 00:07:35.734
+mesmo escolhendo
+um algoritmo mais fraco,
+
+00:07:35.767 --> 00:07:37.567
+limitando
+um monte de coisas,
+
+00:07:37.601 --> 00:07:40.000
+aumenta bastante
+a qualidade.
+
+00:07:40.033 --> 00:07:44.567
+O exemplo mais famoso disso,
+talvez vocês não saibam,
+
+00:07:44.601 --> 00:07:46.901
+mas é o Word2Vec.
+
+00:07:46.934 --> 00:07:49.934
+É uma aproximação boa
+
+00:07:49.968 --> 00:07:54.334
+de outros modelos de linguagem que
+as pessoas treinam há muito tempo.
+
+00:07:54.367 --> 00:07:57.067
+Mas esses modelos
+levam meses para treinar.
+
+00:07:57.100 --> 00:07:58.601
+Com um bilhão de dados.
+
+00:07:58.634 --> 00:08:01.667
+Mas não atualizava
+os pesos de forma agressiva.
+
+00:08:01.701 --> 00:08:04.667
+O Word2Vec mostrou
+que se você tirar tudo
+
+00:08:04.701 --> 00:08:07.567
+e pular alguns passos,
+é uma aproximação,
+
+00:08:07.601 --> 00:08:10.968
+mas é tão mais rápido
+que pode treinar...
+
+00:08:11.000 --> 00:08:15.300
+Acho que foram 8 bilhões
+em 6 horas, em 32 processadores.
+
+00:08:15.334 --> 00:08:18.234
+É tão mais rápido,
+e treina tantos dados mais,
+
+00:08:18.267 --> 00:08:20.534
+que pode obter
+muito mais informação
+
+00:08:20.567 --> 00:08:25.133
+que mesmo se a escavadeira
+derramar terra ao dirigir,
+
+00:08:25.167 --> 00:08:30.801
+ela faz isso tão mais rápido,
+tantas vezes, que não importa.
+
+00:08:30.834 --> 00:08:32.501
+Em muitos casos,
+
+00:08:32.534 --> 00:08:35.200
+podemos tornar isso
+muito mais rápido,
+
+00:08:35.234 --> 00:08:38.868
+e treinar com 7 vezes
+mais dados,
+
+00:08:38.901 --> 00:08:41.300
+o que nos leva
+a uma qualidade melhor.
+
+00:08:41.334 --> 00:08:44.601
+Eu garanto que se tivéssemos
+7 vezes mais dados
+
+00:08:44.634 --> 00:08:49.901
+e treinássemos
+7 vezes mais rápido
+
+00:08:49.934 --> 00:08:52.501
+aumentaria bastante a nota.
+
+00:08:52.534 --> 00:08:55.200
+Porque está cobrindo
+mais terreno.
+
+00:08:55.234 --> 00:08:59.234
+Perdemos só um pouquinho
+de qualidade,
+
+00:08:59.267 --> 00:09:02.067
+e se treinar mais dados
+fosse o problema,
+
+00:09:02.100 --> 00:09:05.133
+isso pode ser
+uma boa solução.
+
+00:09:05.167 --> 00:09:07.868
+Espero que tenham gostado.
+
+00:09:07.901 --> 00:09:12.801
+Na próxima seção, vamos falar
+sobre o que acontece por dentro
+
+00:09:12.834 --> 00:09:14.067
+com os pesos,
+
+00:09:14.100 --> 00:09:17.467
+como eles se ajustam,
+o que acontece com os termos,
+
+00:09:17.501 --> 00:09:20.200
+vamos ter
+algumas visualizações
+
+00:09:20.234 --> 00:09:23.434
+que ajuda a obter intuição
+sobre o que a rede faz.
+

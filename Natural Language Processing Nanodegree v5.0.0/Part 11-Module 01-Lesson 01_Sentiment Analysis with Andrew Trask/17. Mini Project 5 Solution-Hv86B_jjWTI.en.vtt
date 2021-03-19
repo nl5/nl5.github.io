@@ -1,0 +1,433 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.240 --> 00:00:02.960
+All right, so in this section,
+we've made our network more efficient.
+
+00:00:02.960 --> 00:00:06.530
+We've done this by getting rid of
+the multiplication by 1 because we don't
+
+00:00:06.530 --> 00:00:07.950
+need to,
+because it doesn't change anything.
+
+00:00:07.950 --> 00:00:12.133
+And we've gotten rid of the processing
+of any of the words that have 0 in
+
+00:00:12.133 --> 00:00:13.780
+them altogether.
+
+00:00:13.780 --> 00:00:16.750
+And this really should increase
+the speed of both the training and
+
+00:00:16.750 --> 00:00:20.040
+the testing of our network, and
+the running of our network,
+
+00:00:20.040 --> 00:00:22.550
+by a significant amount,
+which we'll find out in a second.
+
+00:00:22.550 --> 00:00:24.430
+Now, in order to make this change,
+
+00:00:24.430 --> 00:00:26.530
+notice this top part of this class
+didn't really change, right?
+
+00:00:26.530 --> 00:00:29.130
+So we still initialize the network,
+we still create the wave matrix,
+
+00:00:29.130 --> 00:00:31.680
+still create the same word index lookup.
+
+00:00:32.860 --> 00:00:36.000
+I left these methods around but
+we're not going to use them.
+
+00:00:36.000 --> 00:00:39.000
+And then we get to these train methods
+and things really start to change.
+
+00:00:39.000 --> 00:00:42.975
+So I added kind of a pre processing
+step to the train method,
+
+00:00:42.975 --> 00:00:44.735
+which was the following.
+
+00:00:44.735 --> 00:00:49.115
+It takes each of the kind
+of training_reviews_raw, so
+
+00:00:49.115 --> 00:00:53.150
+that the raw text, and
+it creates a set of indices.
+
+00:00:53.150 --> 00:00:55.289
+So it converts all the words to numbers,
+right?
+
+00:00:55.289 --> 00:00:57.320
+But to the rows that
+they're corresponding to.
+
+00:00:57.320 --> 00:01:00.894
+So in this case it's like what we did
+up here with this 4 and 9, right?
+
+00:01:00.894 --> 00:01:04.860
+So then we had this list of indices and
+we can just sum them into this vector.
+
+00:01:04.860 --> 00:01:07.680
+And this ends up being really,
+really fast, which is great.
+
+00:01:08.740 --> 00:01:12.410
+So what we did here is just a kind
+of a bigger version of that,
+
+00:01:12.410 --> 00:01:17.760
+where for each review we
+convert the words to the row
+
+00:01:17.760 --> 00:01:20.150
+of our weight matrix that
+it corresponds to, right?
+
+00:01:20.150 --> 00:01:23.440
+So our inputs correspond
+to rows in the matrix and
+
+00:01:23.440 --> 00:01:25.690
+our outputs correspond to columns,
+right?
+
+00:01:25.690 --> 00:01:29.540
+So in major matrix multiplication
+is kind of how it works out.
+
+00:01:29.540 --> 00:01:34.511
+And that allows us to make it down here
+to completely skip generating our input
+
+00:01:34.511 --> 00:01:35.661
+vector, right?
+
+00:01:35.661 --> 00:01:38.610
+So we don't have to do that in
+forward propagation at all.
+
+00:01:38.610 --> 00:01:41.310
+We jump straight to
+generating our hidden layer.
+
+00:01:41.310 --> 00:01:46.189
+All we do is we iterate through each
+index in our review, each index,
+
+00:01:46.189 --> 00:01:50.747
+and we sum that row of
+weights_0_1 into layer_1, right?
+
+00:01:50.747 --> 00:01:53.220
+So we take their 1,
+which has been emptied out right here,
+
+00:01:53.220 --> 00:01:56.547
+and we say all right, for each row
+in weights_0_1, add it into layer_1.
+
+00:01:56.547 --> 00:02:02.190
+What we're doing is we're saying for
+each row, add it into thin layer.
+
+00:02:02.190 --> 00:02:05.755
+So add the row for horrible,
+it's this one, add the row for terrible,
+
+00:02:05.755 --> 00:02:07.790
+it's this one, add it in here, right?
+
+00:02:07.790 --> 00:02:09.631
+We're skipping this entirely and
+
+00:02:09.631 --> 00:02:12.880
+the 70,000 other words
+that were mentioned here.
+
+00:02:12.880 --> 00:02:14.868
+That is a huge, huge time saving and
+
+00:02:14.868 --> 00:02:17.069
+I think I'm really excited to see
+how much speed that gives it.
+
+00:02:18.230 --> 00:02:22.492
+Now this part's exactly the same,
+Layer_2 error is exactly the same,
+
+00:02:22.492 --> 00:02:24.410
+Layer_2_delta is exactly the same.
+
+00:02:24.410 --> 00:02:28.668
+Layer_1 error and 1_delta are exactly
+the same, because nothing's changed.
+
+00:02:28.668 --> 00:02:33.207
+The only thing that's different
+now is the way that we update
+
+00:02:33.207 --> 00:02:38.202
+the weights is basically just
+the inverse of when we populated it.
+
+00:02:38.202 --> 00:02:40.789
+So we iterate through the same
+indices and we say all right,
+
+00:02:40.789 --> 00:02:43.636
+we're just going to update the ones
+that we forward propagated,
+
+00:02:43.636 --> 00:02:47.270
+the ones that we used and we're going to
+leave all the rest of them alone.
+
+00:02:47.270 --> 00:02:50.016
+This actually makes even more
+sense when you look at how
+
+00:02:50.016 --> 00:02:53.305
+back propagation happened or
+how this happens, right?
+
+00:02:53.305 --> 00:02:58.302
+So when you're computing this final,
+that's not a weight delta, your weight
+
+00:02:58.302 --> 00:03:03.240
+adjustment, you're multiplying the input
+value by the delta that's here.
+
+00:03:03.240 --> 00:03:05.870
+So we have back propagate delta,
+you have delta on hidden layer.
+
+00:03:05.870 --> 00:03:10.566
+So the way to update these four indices,
+you say 1 times the delta that's
+
+00:03:10.566 --> 00:03:14.141
+right here, and
+you subtract that from these weights.
+
+00:03:14.141 --> 00:03:19.061
+Now the thing is if it's a 0,
+that subtraction's always going to be 0.
+
+00:03:19.061 --> 00:03:23.100
+So we can skip that on the way
+back as well, which is great.
+
+00:03:23.100 --> 00:03:25.760
+So that's how we do our weight update.
+
+00:03:25.760 --> 00:03:28.746
+All the evaluation logic is the same,
+the test logic is the same,
+
+00:03:28.746 --> 00:03:29.951
+the run logic is the same.
+
+00:03:29.951 --> 00:03:30.650
+And now we want to try it out.
+
+00:03:30.650 --> 00:03:36.094
+So we're going to go ahead and grab our
+in the network, put it right there.
+
+00:03:36.094 --> 00:03:40.690
+Then we're going to grab the actual
+training, so just a reference, right?
+
+00:03:40.690 --> 00:03:46.552
+This train did around
+a 100 reviews per second.
+
+00:03:46.552 --> 00:03:51.819
+Go ahead and run that,
+put that right there, grab the test.
+
+00:03:51.819 --> 00:03:56.236
+I guess they're going to train,
+grab the test,
+
+00:03:56.236 --> 00:04:00.976
+I guess we kind of want to see that,
+so I'll see if I can.
+
+00:04:00.976 --> 00:04:05.975
+A 1000 reviews a second,
+it's ten times faster, over ten times,
+
+00:04:05.975 --> 00:04:10.988
+look at that 1300 and still training
+at the same conversion speed.
+
+00:04:10.988 --> 00:04:15.684
+Look at that, 1300 reviews per second,
+that is over and order of magnitude
+
+00:04:15.684 --> 00:04:20.555
+increase in speed, because we got rid of
+all these problems, like COC testing.
+
+00:04:20.555 --> 00:04:24.810
+Okay testing, you almost didn't
+even noticed it happened.
+
+00:04:24.810 --> 00:04:25.690
+Cool, awesome.
+
+00:04:25.690 --> 00:04:28.812
+And we're getting a great score,
+actually, yeah, yeah.
+
+00:04:28.812 --> 00:04:30.144
+I mean it should be exactly identical,
+right?
+
+00:04:30.144 --> 00:04:33.800
+because nothing has changed.
+
+00:04:33.800 --> 00:04:35.310
+Man, this is great, that's so
+much faster, awesome.
+
+00:04:37.130 --> 00:04:38.166
+So this is great.
+
+00:04:38.166 --> 00:04:40.232
+If we wanted to, we could train
+multiple iterations, right?
+
+00:04:40.232 --> 00:04:42.181
+So if I said times 2.
+
+00:04:42.181 --> 00:04:46.354
+[BLANK_AUDIO]
+
+00:04:46.354 --> 00:04:48.493
+So we'll hit train and
+the second it starts, so
+
+00:04:48.493 --> 00:04:50.965
+it's converting everything
+into indices right now.
+
+00:04:50.965 --> 00:04:52.944
+And then it's going to start training,
+so
+
+00:04:52.944 --> 00:04:54.816
+I guess maybe I lost a little bit here.
+
+00:04:54.816 --> 00:04:56.874
+But if you're going to keep
+doing more iterations,
+
+00:04:56.874 --> 00:04:58.300
+it's going to use the same indices.
+
+00:04:58.300 --> 00:04:59.460
+So it converts the indices once,
+keeps going.
+
+00:04:59.460 --> 00:05:02.810
+Wow, reviews per second it's getting
+up to 1500, it's crazy fast.
+
+00:05:02.810 --> 00:05:06.910
+So we can keep training,
+training accuracy keeps going up.
+
+00:05:06.910 --> 00:05:09.310
+It's just the faster your network goes,
+
+00:05:09.310 --> 00:05:12.490
+the more iterations you can do in
+a given period of time, right?
+
+00:05:12.490 --> 00:05:16.395
+And the way that we're able to
+accomplish this is by just stripping out
+
+00:05:16.395 --> 00:05:20.370
+the stuff that the neural net is doing
+that actually isn't helping us predict
+
+00:05:20.370 --> 00:05:22.320
+or really even to learn.
+
+00:05:22.320 --> 00:05:26.190
+That's really what the strategy
+is all about, so yeah.
+
+00:05:26.190 --> 00:05:29.920
+Now, in the next section we're going
+to kind of go back to our data and
+
+00:05:29.920 --> 00:05:33.300
+say okay,
+can we kind of improve the modeling?
+
+00:05:33.300 --> 00:05:36.600
+And so we improved the way
+that we frame the problem.
+
+00:05:36.600 --> 00:05:40.880
+Do we improve the way that
+the neural net is for
+
+00:05:40.880 --> 00:05:43.270
+back propagation because
+of how we train a problem?
+
+00:05:43.270 --> 00:05:47.720
+So because we set up just pushing
+forward the vocabulary, this allowed us
+
+00:05:47.720 --> 00:05:52.190
+to trim out a lot of inefficient waste
+that the neural net was computing.
+
+00:05:52.190 --> 00:05:52.890
+And now we're going to go back.
+
+00:05:52.890 --> 00:05:57.890
+Okay, can we reframe the problem
+again to reduce even more noise and
+
+00:05:57.890 --> 00:06:00.470
+potentially even reduce more
+weight propagations we have to do,
+
+00:06:00.470 --> 00:06:04.160
+to speed how fast it learns and
+actually how fast it computes?
+
+00:06:04.160 --> 00:06:07.250
+So we're going to do one more
+iteration of this in project six.
+
+00:06:07.250 --> 00:06:07.710
+I'll see you there.
+

@@ -1,0 +1,865 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.705 --> 00:00:01.934
+Bem-vindos, pessoal!
+
+00:00:01.967 --> 00:00:05.866
+Esta semana você vai explorar
+os embeddings
+
+00:00:05.899 --> 00:00:10.197
+e implementar o modelo word2vec
+para entendê-los.
+
+00:00:10.230 --> 00:00:12.635
+Neste bloco de anotações,
+você usará o TensorFlow
+
+00:00:12.668 --> 00:00:14.782
+para implementar
+o modelo word2vec.
+
+00:00:16.667 --> 00:00:20.072
+Aqui há alguns materiais
+de referência.
+
+00:00:20.105 --> 00:00:24.082
+Você pode lê-los antes
+ou durante a construção da rede,
+
+00:00:24.115 --> 00:00:27.068
+para entender melhor
+como ela funciona.
+
+00:00:27.101 --> 00:00:30.112
+Esta é uma ótima visão geral
+do conceito do word2vec,
+
+00:00:30.145 --> 00:00:31.392
+de Chris McCormick,
+
+00:00:31.425 --> 00:00:34.052
+e estes são dois artigos
+de Mikolov
+
+00:00:34.085 --> 00:00:37.931
+e das outras pessoas
+que trabalharam nesta arquitetura.
+
+00:00:37.964 --> 00:00:41.661
+Este é o original e este é um artigo
+com algumas melhorias,
+
+00:00:41.694 --> 00:00:45.298
+as quais você também vai implementar
+neste bloco de anotações.
+
+00:00:46.312 --> 00:00:48.346
+Estes são dois
+sobre duas implementações,
+
+00:00:48.379 --> 00:00:52.185
+e este é
+a documentação do TensorFlow.
+
+00:00:53.031 --> 00:00:57.614
+Quando pegamos um texto
+e o dividimos em palavras,
+
+00:00:57.647 --> 00:01:00.884
+em geral, teremos dezenas
+de milhares de palavras diferentes
+
+00:01:00.917 --> 00:01:03.217
+em um grande
+conjunto de dados.
+
+00:01:03.250 --> 00:01:05.658
+Então se você for usar
+essas palavras como input,
+
+00:01:05.691 --> 00:01:08.565
+você provavelmente vai usar
+codificação one-hot.
+
+00:01:08.598 --> 00:01:11.509
+Isso significa que você terá
+vetores gigantescos,
+
+00:01:11.542 --> 00:01:14.580
+com uma extensão
+de 50.000 elementos,
+
+00:01:14.613 --> 00:01:16.317
+dos quais apenas um
+será igual a 1
+
+00:01:16.350 --> 00:01:18.160
+e todos os outros
+serão iguais a zero.
+
+00:01:19.420 --> 00:01:22.411
+Então, quando você fizer
+a multiplicação matricial
+
+00:01:22.444 --> 00:01:24.358
+para obter os valores
+da camada oculta,
+
+00:01:24.391 --> 00:01:27.496
+você fará
+a multiplicação descomunal
+
+00:01:27.529 --> 00:01:32.183
+dos 50.000x300
+parâmetros de peso diferentes
+
+00:01:32.216 --> 00:01:34.015
+desta matriz gigantesca.
+
+00:01:34.305 --> 00:01:37.062
+O problema é que, ao fazer
+essa multiplicação matricial,
+
+00:01:37.095 --> 00:01:39.159
+apenas um destes elementos
+será igual a 1,
+
+00:01:39.192 --> 00:01:44.049
+então você só vai obter zeros
+da maioria das operações.
+
+00:01:46.903 --> 00:01:51.015
+Então isso é totalmente ineficiente
+em termos computacionais.
+
+00:01:52.208 --> 00:01:53.614
+Para resolver esse problema,
+
+00:01:53.647 --> 00:01:56.321
+podemos usar
+os chamados "embeddings".
+
+00:01:58.216 --> 00:02:02.560
+Embeddings são
+apenas um atalho
+
+00:02:02.593 --> 00:02:04.977
+para realizar
+essa multiplicação matricial.
+
+00:02:05.010 --> 00:02:08.609
+Todo o resto é igual:
+você terá uma camada oculta
+
+00:02:08.642 --> 00:02:12.621
+e a matriz de peso dos seus inputs
+vai passar para a camada oculta.
+
+00:02:12.654 --> 00:02:15.708
+Só a forma de obter esses valores
+para a camada oculta
+
+00:02:15.741 --> 00:02:16.875
+que é diferente.
+
+00:02:18.110 --> 00:02:23.506
+Então nós pulamos essa parte
+da multiplicação matricial
+
+00:02:23.539 --> 00:02:29.402
+e consultamos numa tabela quais são
+os valores dessa camada oculta.
+
+00:02:29.935 --> 00:02:31.091
+Isso é possível porque,
+
+00:02:31.124 --> 00:02:35.058
+ao multiplicar um vetor com
+codificação one-hot por uma matriz,
+
+00:02:35.091 --> 00:02:40.202
+só obtemos a linha que corresponde
+ao elemento que estava "ativado".
+
+00:02:40.235 --> 00:02:43.547
+Por exemplo,
+se o 4º elemento aqui for 1
+
+00:02:43.580 --> 00:02:45.341
+e todos os outros forem 0,
+
+00:02:45.374 --> 00:02:48.486
+só vamos obter
+a 4ª linha desta matriz,
+
+00:02:48.519 --> 00:02:52.013
+já que todas as outras
+multiplicações vão dar zero.
+
+00:02:52.707 --> 00:02:55.980
+Isso significa
+
+00:02:56.013 --> 00:02:59.167
+que, para fazer
+essa multiplicação matricial,
+
+00:02:59.200 --> 00:03:01.249
+sabemos
+que este é o 4º elemento,
+
+00:03:01.282 --> 00:03:04.976
+então podemos pegar a 4ª linha,
+e este será o resultado.
+
+00:03:05.009 --> 00:03:08.236
+Então não temos que fazer
+nenhuma multiplicação matricial.
+
+00:03:08.718 --> 00:03:13.085
+O que vamos fazer é transformar
+nossas palavras em tokens,
+
+00:03:13.118 --> 00:03:15.644
+ou seja, vamos convertê-las
+em números inteiros.
+
+00:03:15.677 --> 00:03:19.465
+Ainda teremos
+a nossa matriz de peso de embedding
+
+00:03:19.498 --> 00:03:22.010
+que está passando de um input
+para a camada oculta,
+
+00:03:22.043 --> 00:03:24.782
+mas agora só vamos chamá-la
+de "tabela de consulta",
+
+00:03:24.815 --> 00:03:27.598
+já que a consultamos
+para ver a linha
+
+00:03:27.631 --> 00:03:32.271
+e esta matriz
+que corresponde à nossa palavra.
+
+00:03:32.304 --> 00:03:36.353
+E esses são os valores
+da nossa camada oculta.
+
+00:03:37.162 --> 00:03:39.004
+O número de unidades
+da camada oculta
+
+00:03:39.037 --> 00:03:40.970
+é chamado
+de "dimensão de embedding",
+
+00:03:41.003 --> 00:03:45.926
+e nós obtemos um vetor diferente,
+do tamanho da dimensão de embedding,
+
+00:03:45.959 --> 00:03:47.611
+para cada palavra.
+
+00:03:48.643 --> 00:03:52.999
+Assim podemos pular
+a multiplicação matricial.
+
+00:03:53.032 --> 00:03:54.534
+É como se disséssemos:
+
+00:03:54.567 --> 00:03:58.555
+"A partir de agora a palavra 'heart'
+será o número inteiro 958",
+
+00:03:58.588 --> 00:04:01.344
+e a multiplicação matricial
+vai ter dar esta linha.
+
+00:04:01.377 --> 00:04:03.891
+Então é só procurarmos
+a linha 958
+
+00:04:03.924 --> 00:04:07.461
+e usarmos esse resultado como
+os valores da nossa camada oculta.
+
+00:04:07.494 --> 00:04:11.834
+Então não há nenhuma mágica
+a respeito de embeddings.
+
+00:04:11.867 --> 00:04:14.722
+A tabela de consulta de embedding
+é só uma matriz de peso,
+
+00:04:14.755 --> 00:04:16.807
+a camada de embedding
+é uma camada oculta,
+
+00:04:16.840 --> 00:04:20.861
+e esta tabela é só um atalho
+para a multiplicação matricial.
+
+00:04:22.480 --> 00:04:25.554
+Como esta tabela de consulta
+é só uma matriz de peso,
+
+00:04:25.587 --> 00:04:29.309
+ela é treinada como toda
+matriz de peso que você já usou.
+
+00:04:29.342 --> 00:04:31.652
+A diferença é que você vai usar
+backpropagation
+
+00:04:31.685 --> 00:04:33.914
+para aprender
+parâmetros melhores,
+
+00:04:33.947 --> 00:04:37.733
+que ajudarão você a classificar
+ou prever o que quiser.
+
+00:04:38.719 --> 00:04:41.005
+Embeddings não são usados
+só com palavras.
+
+00:04:41.038 --> 00:04:45.688
+Você pode usá-los sempre que tiver
+um grande número de classes.
+
+00:04:46.059 --> 00:04:48.261
+O que nós faremos
+neste bloco de anotações
+
+00:04:48.294 --> 00:04:52.984
+é nos basear num modelo específico,
+chamado word2vec,
+
+00:04:53.017 --> 00:04:55.580
+que usa camada embedding
+para obter
+
+00:04:55.613 --> 00:04:58.551
+representações destas palavras
+a partir destes vetores.
+
+00:04:58.584 --> 00:05:01.821
+Então cada um destes vetores
+vai representar uma palavra
+
+00:05:01.854 --> 00:05:05.330
+e o sentido semântico
+dessas palavras.
+
+00:05:06.041 --> 00:05:11.404
+word2vec é um algoritmo que encontra
+representações eficientes
+
+00:05:11.437 --> 00:05:14.713
+ao usar os vetores
+da camada de embedding.
+
+00:05:15.568 --> 00:05:17.320
+Depois que ela é treinada,
+
+00:05:17.353 --> 00:05:19.754
+os vetores vão conter
+informações semânticas.
+
+00:05:19.787 --> 00:05:23.366
+Então as palavras que aparecerem
+em contextos semelhantes,
+
+00:05:23.399 --> 00:05:25.886
+como "cores", "preto",
+"branco" e "vermelho",
+
+00:05:25.919 --> 00:05:27.859
+vão aparecer
+em contextos semelhantes
+
+00:05:27.892 --> 00:05:31.561
+e, portanto,
+terão representações semelhantes.
+
+00:05:31.594 --> 00:05:35.868
+E os vetores... O valor dos vetores
+será semelhante nessas cores,
+
+00:05:35.901 --> 00:05:38.000
+porque aparecem
+em contextos semelhantes.
+
+00:05:39.018 --> 00:05:42.823
+Existem duas arquiteturas
+para implementar o word2vec.
+
+00:05:42.856 --> 00:05:47.075
+Este é o CBOW
+ou Continuous Bag Of Words.
+
+00:05:47.108 --> 00:05:48.707
+Há também o Skip-gram.
+
+00:05:49.586 --> 00:05:52.185
+Nós vamos nos basear
+no Skip-gram,
+
+00:05:52.218 --> 00:05:57.389
+porque tem demonstrado
+que funciona melhor que o CBOW.
+
+00:05:58.119 --> 00:06:00.295
+Então a ideia aqui é...
+
+00:06:00.328 --> 00:06:04.851
+Você quer encontrar uma palavra
+no seu conjunto de dados
+
+00:06:04.884 --> 00:06:07.483
+em algum passo "t"
+do seu conjunto de dados.
+
+00:06:07.516 --> 00:06:11.920
+Você também quer palavras que estão
+ao redor da palavra-alvo em t.
+
+00:06:11.953 --> 00:06:14.174
+Então t-2 representa
+2 passos anteriores,
+
+00:06:14.207 --> 00:06:18.380
+e t+1 representa a palavra seguinte
+à sua palavra-alvo.
+
+00:06:19.449 --> 00:06:23.137
+Então este gráfico representa
+o contexto em que a palavra aparece.
+
+00:06:23.170 --> 00:06:27.033
+No CBOW, o seu input é o contexto
+ao redor da sua palavra,
+
+00:06:27.066 --> 00:06:28.827
+e você quer
+prever a palavra.
+
+00:06:28.860 --> 00:06:32.448
+É como se você olhasse
+para uma janela do seu texto
+
+00:06:32.481 --> 00:06:36.022
+e tentasse usar esses dados
+como contexto.
+
+00:06:36.055 --> 00:06:40.313
+Ou seja, você tenta prever a palavra
+que aparece no meio dessa janela.
+
+00:06:40.815 --> 00:06:42.808
+No Skip-gram, é o contrário.
+
+00:06:42.841 --> 00:06:46.521
+Você fornece algumas palavras
+e tenta prever
+
+00:06:46.554 --> 00:06:49.506
+as palavras que vão aparecer
+ao redor dela no texto.
+
+00:06:49.539 --> 00:06:53.528
+Você tenta prever em que contexto
+a palavra vai aparecer.
+
+00:06:53.912 --> 00:06:59.471
+Através deste modelo,
+você vai treinar sua rede
+
+00:06:59.504 --> 00:07:03.661
+para entender o contexto
+e o significado das palavras.
+
+00:07:03.694 --> 00:07:05.984
+Por exemplo,
+"preto", "branco" e "vermelho"
+
+00:07:06.017 --> 00:07:08.168
+vão aparecer
+em um contexto semelhante.
+
+00:07:08.201 --> 00:07:10.719
+Elas têm palavras semelhantes
+ao redor delas.
+
+00:07:10.752 --> 00:07:14.204
+Então, se passarmos
+"preto", "branco" e "vermelho",
+
+00:07:14.237 --> 00:07:17.735
+a rede vai prever as mesmas palavras
+e o mesmo contexto.
+
+00:07:17.768 --> 00:07:20.348
+Ou seja, as palavras terão
+projeções semelhantes
+
+00:07:20.381 --> 00:07:23.635
+e, portanto,
+vetores de embedding semelhantes.
+
+00:07:24.341 --> 00:07:26.787
+Muito bem, vamos começar
+a construir esta rede.
+
+00:07:27.656 --> 00:07:30.369
+Primeiro vamos importar
+o pacote que estamos usando
+
+00:07:30.402 --> 00:07:33.599
+e aqui vamos usar
+o conjunto de dados text8.
+
+00:07:33.632 --> 00:07:37.557
+É um monte de artigos da Wikipédia
+que foram ajustados
+
+00:07:37.590 --> 00:07:41.276
+e são bons de usar
+para este propósito,
+
+00:07:42.478 --> 00:07:44.900
+Em geral,
+ao treinar com o word2vec,
+
+00:07:44.933 --> 00:07:48.875
+é melhor usar um conjunto de dados
+de texto bem grande,
+
+00:07:48.908 --> 00:07:51.353
+então muitas vezes usamos
+artigos da Wikipédia,
+
+00:07:51.386 --> 00:07:54.365
+artigos de jornal, livros...
+coisas desse tipo.
+
+00:07:54.398 --> 00:07:58.671
+E estes artigos existem
+para vários idiomas diferentes,
+
+00:07:58.704 --> 00:08:02.838
+então podemos obter
+ótimas representações de palavras
+
+00:08:02.871 --> 00:08:04.573
+em vários idiomas diferentes.
+
+00:08:04.606 --> 00:08:08.410
+Basta usá-los como a camada
+de embedding no seu modelo.
+
+00:08:08.443 --> 00:08:12.501
+Mas aqui eu vou mostrar como treinar
+uma dessas camadas de embedding,
+
+00:08:12.534 --> 00:08:14.636
+para você usá-las
+nos seus futuros modelos.
+
+00:08:15.067 --> 00:08:18.493
+Aqui eu fiz
+um pré-processamento,
+
+00:08:18.526 --> 00:08:22.068
+que ajustou a pontuação,
+
+00:08:22.101 --> 00:08:24.656
+transformando-a em tokens.
+
+00:08:24.689 --> 00:08:28.342
+Por exemplo, o ponto final virou
+a palavra "ponto final" por extenso,
+
+00:08:28.375 --> 00:08:30.027
+entre colchetes.
+
+00:08:30.673 --> 00:08:32.738
+O motivo disso é
+
+00:08:32.771 --> 00:08:37.328
+que temos que representar
+tudo como palavras.
+
+00:08:37.361 --> 00:08:41.082
+E quando aparecer a palavra "tokens"
+seguida de vírgula,
+
+00:08:41.115 --> 00:08:44.797
+temos que representar
+"tokens" com e sem vírgula
+
+00:08:44.830 --> 00:08:45.985
+como a mesma palavra.
+
+00:08:46.018 --> 00:08:49.687
+Então vamos substituir a vírgula
+pela palavra "vírgula".
+
+00:08:49.720 --> 00:08:54.911
+Isso vai te ajudar
+em outras situações problemáticas,
+
+00:08:54.944 --> 00:08:57.081
+ao gerar um novo texto,
+por exemplo.
+
+00:08:57.717 --> 00:09:02.018
+Aqui eu também removi palavras
+que aparecem cinco ou menos vezes.
+
+00:09:02.051 --> 00:09:07.043
+São palavras raras
+que não passam de ruídos
+
+00:09:07.076 --> 00:09:12.327
+e prejudicam a qualidade
+das representações dos vetores,
+
+00:09:12.360 --> 00:09:17.131
+já que não aparecem muitas vezes
+e atrapalham o treinamento.
+
+00:09:19.035 --> 00:09:22.983
+Tudo isto está neste módulo utils
+que eu escrevi,
+
+00:09:23.016 --> 00:09:24.377
+então dê uma olhada nele.
+
+00:09:25.708 --> 00:09:29.277
+Aqui eu criei dois dicionários:
+
+00:09:29.310 --> 00:09:31.655
+um deles converte palavras
+em números inteiros,
+
+00:09:31.688 --> 00:09:34.108
+e o outro converte números inteiros
+em palavras.
+
+00:09:35.507 --> 00:09:40.343
+Depois converti todas as palavras
+do nosso texto em números inteiros,
+
+00:09:40.376 --> 00:09:42.175
+então agora temos int_words.
+
+00:09:42.208 --> 00:09:45.255
+Então isso é uma lista extensa
+de todas as nossas palavras
+
+00:09:45.288 --> 00:09:48.091
+do conjunto de dados,
+convertidas em números inteiros.
+
+00:09:48.124 --> 00:09:51.713
+Agora podemos passá-las
+para a nossa rede.
+
+00:09:53.402 --> 00:09:56.778
+Lembre que,
+quando criarmos a nossa tabela,
+
+00:09:56.811 --> 00:09:59.344
+vamos passar números inteiros,
+e não palavras,
+
+00:09:59.377 --> 00:10:02.016
+por isso converti todas as palavras
+em tokens.
+
+00:10:02.049 --> 00:10:03.854
+Agora, quando construirmos
+nossa rede
+
+00:10:03.887 --> 00:10:05.996
+e criarmos
+a tabela de embedding,
+
+00:10:06.039 --> 00:10:09.678
+passaremos números inteiros
+e vamos poder consultá-los.
+
+00:10:11.188 --> 00:10:13.828
+Agora direi a primeira coisa
+que você vai fazer.
+
+00:10:14.268 --> 00:10:18.145
+Há muitas palavras
+que aparecem no texto
+
+00:10:18.178 --> 00:10:21.435
+que não fazem muito sentido
+
+00:10:21.468 --> 00:10:25.209
+ou não fornecem muito contexto
+para as palavras ao redor delas,
+
+00:10:25.242 --> 00:10:28.105
+como "o", "de", "para"...
+
+00:10:28.138 --> 00:10:29.719
+Todas elas aparecem muito,
+
+00:10:29.752 --> 00:10:35.181
+mas não fornecem muito contexto
+para as palavras ao redor delas.
+
+00:10:36.557 --> 00:10:40.961
+Então podemos descartar algumas
+dessas palavras muito frequentes,
+
+00:10:40.994 --> 00:10:43.505
+o que vai diminuir
+o ruído dos nossos dados
+
+00:10:43.538 --> 00:10:45.816
+e melhorar
+a taxa do treinamento,
+
+00:10:45.849 --> 00:10:48.937
+e, no fim, vamos obter
+representações melhores.
+
+00:10:49.856 --> 00:10:53.267
+Esse processo
+de descartar palavras frequentes
+
+00:10:53.300 --> 00:10:54.760
+é chamado de "subamostragem".
+
+00:10:55.348 --> 00:10:58.895
+Podemos fazer isso
+calculando a frequência,
+
+00:10:58.928 --> 00:11:02.415
+o que mostrará a probabilidade
+de abrir mão dessas palavras.
+
+00:11:03.888 --> 00:11:06.034
+Este t é
+um parâmetro de threshold
+
+00:11:06.067 --> 00:11:09.419
+que nos permite
+definir um threshold
+
+00:11:09.452 --> 00:11:12.519
+para sabermos com que frequência
+a palavra deve aparecer
+
+00:11:12.552 --> 00:11:15.593
+e podermos descartá-la
+com alguma probabilidade.
+
+00:11:17.255 --> 00:11:21.326
+A ideia é que, para cada palavra,
+você vai calcular a frequência
+
+00:11:21.359 --> 00:11:26.005
+e depois vai calcular
+a probabilidade de descartá-la.
+
+00:11:27.190 --> 00:11:31.051
+É importante saber
+que isso é uma probabilidade.
+
+00:11:31.084 --> 00:11:34.018
+Então, ao ver uma palavra
+durante a varredura,
+
+00:11:34.051 --> 00:11:37.080
+haverá a probabilidade
+de descartá-la ou preservá-la,
+
+00:11:37.113 --> 00:11:41.562
+e o ideal é que esse processo
+seja aleatoriamente uniforme
+
+00:11:41.595 --> 00:11:43.602
+para todo
+o conjunto de dados.
+
+00:11:43.635 --> 00:11:46.209
+Quando passarmos lotes,
+
+00:11:46.242 --> 00:11:49.308
+a probabilidade de descartarmos
+uma palavra no 1º lote será igual
+
+00:11:49.341 --> 00:11:52.099
+à de descartarmos essa palavra
+no último lote.
+
+00:11:53.963 --> 00:11:58.689
+Bom, deixarei que você decida
+se implementará a subamostragem
+
+00:11:58.722 --> 00:12:01.651
+para as palavras
+que estão em int_words.
+
+00:12:02.034 --> 00:12:05.446
+Este é um desafio de programação
+mais difícil
+
+00:12:05.479 --> 00:12:08.896
+do que o deep learning
+propriamente dito,
+
+00:12:08.929 --> 00:12:12.697
+mas é muito importante
+você adquirir experiência
+
+00:12:12.730 --> 00:12:14.135
+em preparar seus dados,
+
+00:12:14.168 --> 00:12:17.077
+pois você terá que fazer isso
+o tempo todo em deep learning
+
+00:12:17.110 --> 00:12:19.517
+e em aprendizado de máquina
+em geral.
+
+00:12:20.674 --> 00:12:23.290
+Então a ideia aqui
+é analisar int_words
+
+00:12:23.323 --> 00:12:27.261
+e descartar cada palavra
+com a probabilidade que aparece aqui
+
+00:12:27.294 --> 00:12:32.590
+e fazer seus novos dados
+de subamostragem treinar palavras.
+
+00:12:32.623 --> 00:12:33.933
+Então, mão na massa!
+
+00:12:33.966 --> 00:12:37.788
+Eu tenho um bloco de soluções,
+se você quiser ver o que eu fiz,
+
+00:12:37.821 --> 00:12:42.390
+e também um vídeo com a solução,
+que você pode ver em seguida.
+
+00:12:42.423 --> 00:12:43.514
+Valeu!
+

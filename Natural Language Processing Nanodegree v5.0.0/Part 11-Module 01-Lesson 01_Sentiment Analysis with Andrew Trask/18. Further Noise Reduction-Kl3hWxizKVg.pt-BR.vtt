@@ -1,0 +1,557 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:01.567
+Na última seção,
+
+00:00:01.601 --> 00:00:05.968
+aumentamos muito a velocidade
+do treinamento da rede.
+
+00:00:06.000 --> 00:00:11.100
+Já estávamos vendo algo como
+1500 resenhas por segundo.
+
+00:00:11.133 --> 00:00:13.467
+Foi uma maravilha.
+
+00:00:13.501 --> 00:00:16.801
+Nesta seção,
+vamos voltar um pouco
+
+00:00:16.834 --> 00:00:20.834
+e voltar a tentar reduzir
+a quantidade de ruído
+
+00:00:20.868 --> 00:00:24.033
+que a rede precisa analisar
+para aumentar o sinal.
+
+00:00:24.067 --> 00:00:27.734
+A razão de sinal para ruído,
+quanto mais você puder fazer,
+
+00:00:27.767 --> 00:00:31.467
+para ajudar a rede neural
+a passar pelas coisas óbvias,
+
+00:00:31.501 --> 00:00:34.133
+para se concentrar
+nas coisas difíceis,
+
+00:00:34.167 --> 00:00:36.667
+o treinamento da sua rede
+ficará melhor.
+
+00:00:36.701 --> 00:00:39.434
+É por isso
+que queremos continuar.
+
+00:00:39.467 --> 00:00:41.267
+Queremos
+enquadrar o problema
+
+00:00:41.300 --> 00:00:44.334
+para a rede neural ter
+o maior sucesso possível.
+
+00:00:44.367 --> 00:00:48.133
+Como já vimos, algumas mudanças
+relativamente pequenas
+
+00:00:48.167 --> 00:00:52.067
+podem ter um impacto drástico
+na velocidade de treinamento
+
+00:00:52.100 --> 00:00:55.334
+e em quanto ela identifica
+o padrão subjacente,
+
+00:00:55.367 --> 00:00:57.534
+e vamos continuar
+a fazer isso.
+
+00:00:57.567 --> 00:01:00.534
+Agora vamos voltar e dizer,
+tudo bem,
+
+00:01:00.567 --> 00:01:02.934
+o que a rede neural
+está fazendo?
+
+00:01:02.968 --> 00:01:04.534
+Sempre perguntamos isso.
+
+00:01:04.567 --> 00:01:06.767
+O que está acontecendo
+aqui dentro?
+
+00:01:06.801 --> 00:01:09.868
+Agora, estamos
+somando esses vetores,
+
+00:01:09.901 --> 00:01:12.968
+e com isso
+fazendo uma previsão.
+
+00:01:13.000 --> 00:01:17.567
+Isso acaba sendo uma soma
+de todas as palavras que existem
+
+00:01:17.601 --> 00:01:20.200
+na resenha.
+
+00:01:20.234 --> 00:01:22.501
+É meio engraçado...
+
+00:01:22.534 --> 00:01:26.133
+Antes, quando fizemos
+uma pequena validação...
+
+00:01:28.501 --> 00:01:30.067
+Validando nossa ideia...
+
+00:01:30.100 --> 00:01:31.267
+O que nós fizemos?
+
+00:01:31.300 --> 00:01:32.767
+Criamos esta razão,
+
+00:01:34.167 --> 00:01:37.067
+identificamos
+quais palavras eram importantes.
+
+00:01:37.100 --> 00:01:40.734
+Quais tinham mais correlação.
+"Perfeito", "soberbo", "perfeição",
+
+00:01:40.767 --> 00:01:44.567
+"inassistível", "sem propósito",
+"atrocidade", "ridículo"...
+
+00:01:44.601 --> 00:01:46.367
+Eu fiquei pensando:
+
+00:01:46.400 --> 00:01:49.767
+E se usássemos isso
+
+00:01:49.801 --> 00:01:53.100
+para ajudar a dar os pesos
+cada vez mais favoráveis?
+
+00:01:53.133 --> 00:01:55.234
+"Ei, rede neural,
+veja isto:
+
+00:01:55.267 --> 00:01:58.434
+acho que você também pode
+olhar em outros lugares,
+
+00:01:58.467 --> 00:02:01.067
+mas comece com isto."
+
+00:02:01.100 --> 00:02:02.434
+No mínimo.
+
+00:02:02.467 --> 00:02:04.934
+É como se disséssemos
+onde o ouro está.
+
+00:02:04.968 --> 00:02:06.467
+"Comece a cavar".
+
+00:02:06.501 --> 00:02:10.601
+Nem todas essas palavras são boas.
+Não conheço essas palavras.
+
+00:02:10.634 --> 00:02:12.801
+"Seagal"...
+Acho que é um nome.
+
+00:02:12.834 --> 00:02:14.133
+Que pena.
+
+00:02:14.167 --> 00:02:15.868
+É uma das palavras.
+
+00:02:15.901 --> 00:02:18.400
+Um termo
+com correlação negativa.
+
+00:02:18.434 --> 00:02:20.100
+Não conte para ele.
+
+00:02:20.133 --> 00:02:23.567
+Aqui temos "Gandhi".
+
+00:02:23.601 --> 00:02:27.667
+Deve ter um filme sobre Gandhi.
+Não diz nada sobre o sentimento.
+
+00:02:27.701 --> 00:02:30.868
+"Perfeito", "soberbo", "perfeição",
+são as que queremos que encontre.
+
+00:02:30.901 --> 00:02:32.934
+Mas é claramente...
+
+00:02:32.968 --> 00:02:34.934
+Se está procurando por ouro,
+
+00:02:34.968 --> 00:02:37.200
+esta é uma seção
+cheia de ouro.
+
+00:02:37.234 --> 00:02:39.167
+Também tem pedras e ferro,
+
+00:02:39.200 --> 00:02:40.667
+outras coisas aqui,
+
+00:02:40.701 --> 00:02:42.601
+mas essas coisas...
+
+00:02:42.634 --> 00:02:45.801
+É o que queremos que a rede
+encontre naturalmente.
+
+00:02:45.834 --> 00:02:49.934
+Como podemos usar essa estatística
+para ajudar com isso?
+
+00:02:49.968 --> 00:02:52.200
+Isso faria sentido?
+
+00:02:52.234 --> 00:02:54.767
+Bem, e se fizéssemos
+um corte?
+
+00:02:54.801 --> 00:02:58.234
+Vamos limitar o vocabulário?
+
+00:02:58.267 --> 00:02:59.868
+Para investigar isso,
+
+00:02:59.901 --> 00:03:04.133
+vamos ver qual é
+a distribuição desta razão.
+
+00:03:04.167 --> 00:03:08.100
+Para isso, bibliotecas
+de visualização são ótimas.
+
+00:03:08.133 --> 00:03:09.334
+Veja isso!
+
+00:03:09.367 --> 00:03:11.334
+Esta é a razão.
+
+00:03:11.367 --> 00:03:15.634
+Zero, totalmente neutro,
+tem uma frequência...
+
+00:03:17.200 --> 00:03:18.667
+Esta distribuição.
+
+00:03:18.701 --> 00:03:19.701
+Temos...
+
+00:03:19.734 --> 00:03:20.934
+Está normalizada.
+
+00:03:20.968 --> 00:03:26.300
+Mas tem um monte de palavras
+que são ambíguas.
+
+00:03:26.334 --> 00:03:28.434
+Não são muito positivas
+e nem muito negativas.
+
+00:03:28.467 --> 00:03:29.467
+Estão no meio.
+
+00:03:29.501 --> 00:03:34.834
+Aqui tem relativamente poucas
+que são muito fortes,
+
+00:03:34.868 --> 00:03:37.300
+aquelas que importam mesmo.
+
+00:03:37.334 --> 00:03:39.234
+Para mim, isso é ótimo.
+
+00:03:39.267 --> 00:03:42.234
+Porque, se essas palavras
+não importam,
+
+00:03:42.267 --> 00:03:46.033
+se são "um", "a", ponto,
+vírgula,
+
+00:03:46.067 --> 00:03:48.200
+e aparecem o tempo todo,
+
+00:03:48.234 --> 00:03:50.334
+posso me livrar disto
+
+00:03:50.367 --> 00:03:53.400
+e vou economizar
+muito tempo de computação
+
+00:03:53.434 --> 00:03:54.767
+porque são muito frequentes,
+
+00:03:54.801 --> 00:03:57.868
+mas não deve ter um impacto
+negativo na qualidade,
+
+00:03:57.901 --> 00:04:00.367
+na verdade, deve ter
+um efeito positivo,
+
+00:04:00.400 --> 00:04:02.667
+porque elas não têm
+poder de previsão.
+
+00:04:02.701 --> 00:04:05.367
+Temos um monte de palavras
+no banco de dados
+
+00:04:05.400 --> 00:04:07.734
+que não têm
+poder de previsão.
+
+00:04:07.767 --> 00:04:10.033
+Vamos nos livrar delas.
+
+00:04:10.067 --> 00:04:13.868
+Vai tornar nossa rede neural
+bem mais forte.
+
+00:04:13.901 --> 00:04:15.100
+Agora...
+
+00:04:15.133 --> 00:04:18.567
+Antes disso, vamos ver
+mais uma distribuição.
+
+00:04:20.434 --> 00:04:25.133
+Esta é a frequência relativa
+dos diferentes termos.
+
+00:04:25.868 --> 00:04:28.701
+Costuma se chamar
+distribuição zipfiana.
+
+00:04:28.734 --> 00:04:33.567
+Nossos dados são tão extremos.
+Alguns termos dominam.
+
+00:04:33.601 --> 00:04:37.868
+Estas palavras são
+muito mais frequentes
+
+00:04:37.901 --> 00:04:40.901
+do que todo o resto.
+Veja isso.
+
+00:04:42.033 --> 00:04:44.167
+Para mim,
+isso é interessante.
+
+00:04:44.200 --> 00:04:46.601
+Em processamento
+de linguagem natural,
+
+00:04:46.634 --> 00:04:49.734
+é comum eliminar
+o que é dito com mais frequência
+
+00:04:49.767 --> 00:04:52.033
+e o que é dito
+com menos frequência.
+
+00:04:52.067 --> 00:04:54.000
+Coisas que
+quase não acontecem.
+
+00:04:54.033 --> 00:04:57.334
+Porque coisas muito frequentes,
+como "o", "um", "e",
+
+00:04:57.367 --> 00:04:59.868
+acontecem tanto
+que não dão muito sinal.
+
+00:04:59.901 --> 00:05:02.801
+Coisas pouco frequentes,
+se acontecer só uma vez,
+
+00:05:02.834 --> 00:05:03.868
+não é um padrão.
+
+00:05:03.901 --> 00:05:05.200
+Só acontece uma vez.
+
+00:05:05.234 --> 00:05:08.434
+Como pode haver correlação
+se só acontece uma vez?
+
+00:05:08.467 --> 00:05:11.334
+As pessoas tendem
+a cortar dos dois lados
+
+00:05:11.367 --> 00:05:15.734
+quando querem um classificador
+que faça algo interessante.
+
+00:05:15.767 --> 00:05:17.234
+Então...
+
+00:05:17.267 --> 00:05:21.033
+Queremos olhar para
+esta visualização ampla
+
+00:05:21.067 --> 00:05:23.701
+e perguntar o que é sinal
+e o que é ruído.
+
+00:05:23.734 --> 00:05:25.934
+Podemos usar
+as diferentes métricas
+
+00:05:25.968 --> 00:05:29.033
+para cortar o ruído
+e adicionar sinal?
+
+00:05:29.067 --> 00:05:32.701
+Aqui, vejo isso e percebo
+que tem um monte de ruído.
+
+00:05:32.734 --> 00:05:35.167
+Muito frequentes
+e não muito úteis.
+
+00:05:35.200 --> 00:05:36.601
+Vou cortar isso.
+
+00:05:36.634 --> 00:05:38.167
+Aqui eu percebo...
+
+00:05:39.334 --> 00:05:41.334
+Tem bastante coisa
+aqui também.
+
+00:05:41.367 --> 00:05:44.334
+Esta parte grande
+vai estar aqui.
+
+00:05:44.367 --> 00:05:48.667
+Este é um filtro melhor para
+ver as coisas muito frequentes.
+
+00:05:48.701 --> 00:05:52.601
+Mas quanto às coisas
+que nem conseguimos ver,
+
+00:05:52.634 --> 00:05:54.634
+porque a frequência
+é tão baixa,
+
+00:05:54.667 --> 00:05:57.100
+vamos cortar isso também.
+
+00:05:57.133 --> 00:05:58.934
+O projeto 6.
+
+00:05:58.968 --> 00:06:01.968
+Estou muito empolgado.
+Esse vai ser ótimo.
+
+00:06:02.968 --> 00:06:06.501
+O projeto 6 é acelerar o treinamento
+reduzindo o ruído,
+
+00:06:06.534 --> 00:06:08.834
+usando estas
+ideias estatísticas.
+
+00:06:08.868 --> 00:06:13.300
+Não tem nenhuma regra geral
+que diga como tem que fazer.
+
+00:06:13.334 --> 00:06:17.567
+Estamos enquadrando o problema
+para que a correlação fique óbvia
+
+00:06:17.601 --> 00:06:18.834
+para a rede neural,
+
+00:06:18.868 --> 00:06:22.367
+para ela ter a melhor chance
+de ignorar o ruído
+
+00:06:22.400 --> 00:06:23.968
+e encontrar o sinal.
+
+00:06:24.000 --> 00:06:26.934
+É para isso
+que enquadramos o problema.
+
+00:06:26.968 --> 00:06:28.934
+No próximo projeto,
+
+00:06:28.968 --> 00:06:32.767
+vamos instalar estas métricas
+na nossa rede neural.
+
+00:06:32.801 --> 00:06:34.234
+Podem tentar.
+
+00:06:34.267 --> 00:06:37.534
+Vejam se conseguem
+construir uma rede neural...
+
+00:06:37.567 --> 00:06:40.801
+Modifiquem esta,
+na função de treinamento,
+
+00:06:40.834 --> 00:06:44.434
+ou na rede de sentimento,
+coloquem um parâmetro
+
+00:06:44.467 --> 00:06:46.968
+que diz quanto disso cortar.
+
+00:06:47.000 --> 00:06:48.634
+Um parâmetro que diz
+
+00:06:48.667 --> 00:06:52.334
+para se livrar das palavras
+muito ou pouco frequentes.
+
+00:06:52.367 --> 00:06:54.434
+Tenha uma contagem média.
+
+00:06:54.467 --> 00:06:58.234
+Cada palavra deve aparecer
+no mínimo 10 ou 5 vezes
+
+00:06:58.267 --> 00:07:00.334
+para ser incluída
+no vocabulário
+
+00:07:00.367 --> 00:07:02.100
+e na minha rede neural.
+
+00:07:02.133 --> 00:07:03.534
+Vejam como fica.
+
+00:07:03.567 --> 00:07:05.000
+Podem tentar.
+
+00:07:05.033 --> 00:07:08.334
+Daqui a pouco vou mostrar
+uma funcionando. Até lá.
+

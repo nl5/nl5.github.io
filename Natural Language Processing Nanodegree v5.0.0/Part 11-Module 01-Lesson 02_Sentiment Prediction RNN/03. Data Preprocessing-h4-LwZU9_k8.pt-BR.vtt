@@ -1,0 +1,249 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:01.833
+Agora que temos
+todas as palavras,
+
+00:00:01.867 --> 00:00:05.833
+precisamos codificar as resenhas
+como números inteiros.
+
+00:00:05.867 --> 00:00:10.600
+Então vamos passar as resenhas
+e cada palavra será um inteiro.
+
+00:00:10.633 --> 00:00:12.967
+Elas irão
+para a camada de embedding.
+
+00:00:13.000 --> 00:00:15.133
+O primeiro passo,
+que é com você,
+
+00:00:15.167 --> 00:00:19.367
+é criar um dicionário mapeando
+as palavras do vocabulário
+
+00:00:19.400 --> 00:00:21.433
+para os números inteiros.
+
+00:00:21.467 --> 00:00:23.333
+Algo que você precisa saber
+
+00:00:23.367 --> 00:00:27.100
+é que depois vamos inserir zeros
+nos vetores de input.
+
+00:00:27.133 --> 00:00:30.733
+Ou seja, quando convertermos
+as palavras para inteiros,
+
+00:00:30.767 --> 00:00:33.567
+precisamos começar
+do número 1, e não do 0,
+
+00:00:33.600 --> 00:00:35.300
+porque isso
+confundiria a rede.
+
+00:00:35.333 --> 00:00:37.967
+Assim que tiver isso
+mapeado,
+
+00:00:38.000 --> 00:00:43.367
+você deve converter
+as resenhas
+
+00:00:43.400 --> 00:00:44.833
+de palavras para números.
+
+00:00:44.867 --> 00:00:46.200
+Agora temos as resenhas,
+
+00:00:46.234 --> 00:00:48.432
+mas, em vez de palavras,
+temos inteiros.
+
+00:00:48.686 --> 00:00:52.367
+Certo. Em seguida,
+precisamos mudar a classificação
+
+00:00:52.400 --> 00:00:56.734
+de positivo e negativo
+para 1 e 0.
+
+00:00:56.767 --> 00:00:58.434
+As classificações,
+
+00:00:58.467 --> 00:01:01.800
+se você abrir as resenhas,
+verá que cada uma foi classificada
+
+00:01:01.833 --> 00:01:03.966
+com uma string
+de positivo ou negativo,
+
+00:01:04.000 --> 00:01:05.667
+mas precisamos
+que seja 1 ou 0
+
+00:01:05.700 --> 00:01:10.300
+para podermos usá-las na rede
+e calcular os custos.
+
+00:01:10.333 --> 00:01:11.867
+Você pode fazer isso aqui.
+
+00:01:11.900 --> 00:01:14.433
+Se você criou
+as classificações corretamente,
+
+00:01:14.467 --> 00:01:17.300
+o que você deveria ver
+ao rodar esta célula
+
+00:01:17.333 --> 00:01:20.333
+é que há uma resenha
+não preenchida.
+
+00:01:20.367 --> 00:01:22.933
+Não sei ao certo o motivo disso,
+não averiguei,
+
+00:01:22.967 --> 00:01:26.833
+mas isso é um problema,
+porque pode criar um erro depois,
+
+00:01:26.867 --> 00:01:28.333
+então precisamos eliminá-la.
+
+00:01:28.367 --> 00:01:31.300
+A outra coisa é que há resenhas
+muito longas.
+
+00:01:31.333 --> 00:01:35.800
+A mais longa
+tem 2.514 palavras.
+
+00:01:35.833 --> 00:01:39.367
+Ou seja, é bem longa,
+
+00:01:39.400 --> 00:01:42.467
+é longa demais
+para usarmos na nossa rede,
+
+00:01:42.500 --> 00:01:48.433
+porque levaria muito tempo
+para treinar tantas etapas
+
+00:01:48.467 --> 00:01:50.367
+na nossa rede recorrente.
+
+00:01:50.400 --> 00:01:55.533
+Então, vamos truncar todas
+as resenhas para 200 etapas,
+
+00:01:55.567 --> 00:01:57.333
+ou 200 palavras.
+
+00:01:57.367 --> 00:02:00.300
+Para resenhas
+com menos de 200 palavras,
+
+00:02:00.333 --> 00:02:03.600
+podemos preencher
+o que falta com zeros.
+
+00:02:03.633 --> 00:02:08.667
+Por exemplo,
+podemos ver aqui
+
+00:02:08.700 --> 00:02:11.667
+a resenha
+"best", "movie", "ever".
+
+00:02:11.700 --> 00:02:15.567
+Em números,
+isso seria 117, 18, 128.
+
+00:02:15.600 --> 00:02:20.297
+Esta linha
+ficaria 0, 0, 0, 0...
+
+00:02:20.329 --> 00:02:23.733
+Seriam 197 zeros
+
+00:02:23.767 --> 00:02:28.198
+e os últimos três números seriam
+os que correspondem às palavras.
+
+00:02:28.232 --> 00:02:30.571
+A primeira coisa
+que eu quero que você faça
+
+00:02:30.605 --> 00:02:33.967
+é eliminar a resenha vazia.
+Você pode fazer isso aqui.
+
+00:02:34.000 --> 00:02:37.133
+Em seguida,
+crie este array "features",
+
+00:02:37.167 --> 00:02:39.567
+com os dados
+que passaremos para a rede.
+
+00:02:39.600 --> 00:02:42.700
+Será uma linha
+para cada resenha
+
+00:02:42.733 --> 00:02:46.933
+e haverá 200 etapas,
+ou 200 palavras,
+
+00:02:46.967 --> 00:02:48.567
+em cada linha.
+
+00:02:48.600 --> 00:02:50.367
+Como eu disse antes,
+
+00:02:50.400 --> 00:02:54.533
+se você tiver uma resenha
+com menos de 200 palavras,
+
+00:02:54.567 --> 00:02:56.533
+preencha o restante
+com zeros.
+
+00:02:56.567 --> 00:02:58.533
+Se tiver mais
+de 200 palavras,
+
+00:02:58.567 --> 00:03:01.167
+use apenas as primeiras 200
+como o vetor.
+
+00:03:01.633 --> 00:03:04.867
+Se você criou os atributos
+corretamente, deve estar assim.
+
+00:03:04.900 --> 00:03:07.333
+Para a primeira resenha,
+
+00:03:07.367 --> 00:03:11.533
+temos um monte de zeros,
+e a resenha está aqui.
+
+00:03:11.567 --> 00:03:16.733
+Esta é a aparência de uma resenha
+com mais de 200 palavras.
+
+00:03:16.767 --> 00:03:17.866
+Fica assim.
+
+00:03:17.900 --> 00:03:22.566
+O vetor inteiro está completo,
+sem preenchimentos.
+

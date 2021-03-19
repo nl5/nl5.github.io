@@ -1,0 +1,222 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.734 --> 00:00:04.767
+Agora que validamos a teoria
+de que palavras individuais
+
+00:00:04.801 --> 00:00:08.267
+servem para prever se a resenha
+é positiva ou negativa,
+
+00:00:08.300 --> 00:00:12.133
+vamos transformar
+nossos dados em números
+
+00:00:12.167 --> 00:00:15.400
+de forma a respeitar
+essa teoria em que acreditamos
+
+00:00:15.434 --> 00:00:18.767
+para a rede neural procurar
+correlação desta forma.
+
+00:00:18.801 --> 00:00:24.400
+Queremos apresentar as palavras
+como entrada para a rede
+
+00:00:24.434 --> 00:00:27.534
+de forma que ela possa
+procurar por correlações
+
+00:00:27.567 --> 00:00:31.200
+e fazer a previsão correta
+positivo ou negativo.
+
+00:00:31.234 --> 00:00:34.667
+A forma mais natural de começar
+é contar cada palavra
+
+00:00:34.701 --> 00:00:37.834
+e passar as contagens
+como entrada para a rede.
+
+00:00:37.868 --> 00:00:39.934
+Muito simples,
+bem definido,
+
+00:00:39.968 --> 00:00:43.000
+e deve ter correlação
+com o que queremos prever.
+
+00:00:43.033 --> 00:00:45.334
+Para prever
+positivo ou negativo,
+
+00:00:45.367 --> 00:00:49.267
+é claro que a rede neural
+não pode prever as palavras...
+
+00:00:49.300 --> 00:00:53.167
+Algumas mais avançadas podem,
+mas não é o que queremos fazer.
+
+00:00:53.200 --> 00:00:57.267
+Em vez disso, vamos representar
+positividade e negatividade
+
+00:00:57.300 --> 00:01:01.467
+como um número.
+Positivo é 1 e negativo é 0.
+
+00:01:01.501 --> 00:01:04.200
+O motivo para fazermos isso
+com um neurônio
+
+00:01:04.234 --> 00:01:07.801
+e dar a ele dois lados
+entre os quais a rede decide
+
+00:01:07.834 --> 00:01:11.434
+é porque sabemos que positivo
+e negativo são excludentes.
+
+00:01:11.467 --> 00:01:14.567
+Não vamos treinar a rede
+para dizer que a resenha
+
+00:01:14.601 --> 00:01:16.934
+é ao mesmo tempo
+positiva e negativa.
+
+00:01:16.968 --> 00:01:20.434
+Modelando assim, os rótulos
+são mutuamente excludentes.
+
+00:01:20.467 --> 00:01:23.801
+Isso reduz o número de formas
+nas quais a rede pode errar.
+
+00:01:23.834 --> 00:01:26.033
+Reduz o quanto
+ela tem que aprender
+
+00:01:26.067 --> 00:01:28.901
+e a ajuda
+a aprender este padrão.
+
+00:01:28.934 --> 00:01:31.267
+De certa forma...
+
+00:01:31.300 --> 00:01:36.200
+Alguns dados de sentimentos
+têm 5 rótulos diferentes,
+
+00:01:36.234 --> 00:01:38.934
+como o IMDB
+que pode ter 5 estrelas.
+
+00:01:38.968 --> 00:01:41.534
+Pode ter de 1 a 5 estrelas.
+
+00:01:41.567 --> 00:01:46.167
+Às vezes isso pode tornar
+mais difícil de prever
+
+00:01:46.200 --> 00:01:49.501
+se tiver que prever
+qual estrela é mais provável,
+
+00:01:49.534 --> 00:01:54.968
+porque permite fazer previsões
+duplamente positivas, 3 e 4,
+
+00:01:55.000 --> 00:01:58.467
+mas o 4 está errado
+e o 3 está certo,
+
+00:01:58.501 --> 00:02:02.434
+mas compartilham muitos sinais,
+a rede fica com ambiguidades.
+
+00:02:02.467 --> 00:02:04.601
+Neste caso,
+tendo só dois rótulos,
+
+00:02:04.634 --> 00:02:07.300
+forçamos a rede
+a escolher entre eles,
+
+00:02:07.334 --> 00:02:10.634
+diminuindo o número de formas
+em que ela pode errar.
+
+00:02:10.667 --> 00:02:12.868
+Um dos temas deste tutorial
+
+00:02:12.901 --> 00:02:16.100
+é tornar a previsão
+tão fácil quanto possível
+
+00:02:16.133 --> 00:02:19.667
+e enquadrar o problema
+para ser mais fácil para a rede
+
+00:02:19.701 --> 00:02:21.033
+fazer a previsão.
+
+00:02:21.067 --> 00:02:23.834
+Do que precisamos?
+Qual é o segundo projeto?
+
+00:02:23.868 --> 00:02:26.400
+No projeto 2 vamos
+criar duas funções
+
+00:02:26.434 --> 00:02:28.934
+que pegam os dados
+de entrada e de saída
+
+00:02:28.968 --> 00:02:33.000
+e transformam nas representações
+adequadas com 1 e 0.
+
+00:02:33.033 --> 00:02:35.701
+1 e 0 na saída,
+as contagens na entrada.
+
+00:02:35.734 --> 00:02:38.501
+A primeira função
+que você deve construir
+
+00:02:38.534 --> 00:02:42.601
+pega uma resenha,
+pega as palavras dela,
+
+00:02:42.634 --> 00:02:45.100
+conta, e coloca os números
+em um vetor.
+
+00:02:45.133 --> 00:02:47.334
+O vetor deve ter
+tamanho constante,
+
+00:02:47.367 --> 00:02:49.267
+o tamanho do vocabulário,
+
+00:02:49.300 --> 00:02:51.567
+e quero que crie
+outra função
+
+00:02:51.601 --> 00:02:55.100
+que mapeia positivo e negativo
+para 1 ou 0.
+
+00:02:55.133 --> 00:02:56.734
+Pode criar as funções.
+
+00:02:56.767 --> 00:03:00.100
+Depois eu mostro as minhas
+e vamos comparar. Até lá.
+

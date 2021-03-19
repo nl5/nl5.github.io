@@ -1,0 +1,632 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.333 --> 00:00:03.567
+Agora, vamos criar
+o gráfico.
+
+00:00:03.600 --> 00:00:07.166
+A primeira coisa que vamos fazer
+será definir os hiperparâmetros.
+
+00:00:07.199 --> 00:00:09.400
+O primeiro é "lstm_size",
+
+00:00:09.433 --> 00:00:12.133
+que é o número de unidades
+das camadas ocultas
+
+00:00:12.167 --> 00:00:13.833
+das células LSTM.
+
+00:00:13.867 --> 00:00:17.367
+As células LSTM têm quatro camadas
+de rede diferentes dentro delas:
+
+00:00:17.401 --> 00:00:20.767
+três camadas sigmoides
+e uma camada tanh.
+
+00:00:20.800 --> 00:00:24.300
+Este é o número de unidades
+em cada uma das camadas.
+
+00:00:24.333 --> 00:00:27.700
+Se você configurou para 256,
+
+00:00:27.733 --> 00:00:32.162
+haverá 256 unidades para cada uma
+das quatro camadas.
+
+00:00:32.196 --> 00:00:36.867
+Pense nisso como definir o número
+de unidades da camada oculta.
+
+00:00:36.900 --> 00:00:38.733
+É praticamente
+a mesma coisa,
+
+00:00:38.767 --> 00:00:41.063
+mas células LSTM
+são bem mais complexas
+
+00:00:41.097 --> 00:00:42.733
+do que uma camada
+oculta normal.
+
+00:00:42.767 --> 00:00:44.833
+Porém, é a mesma ideia:
+
+00:00:44.867 --> 00:00:47.300
+definir a quantidade de unidades
+da camada oculta.
+
+00:00:47.333 --> 00:00:50.000
+Como você já deve saber,
+
+00:00:50.034 --> 00:00:52.567
+quanto mais unidades
+na camada oculta,
+
+00:00:52.600 --> 00:00:56.467
+melhor será o desempenho
+da sua rede,
+
+00:00:56.500 --> 00:00:59.433
+a custo da computação,
+claro.
+
+00:00:59.733 --> 00:01:03.567
+Em seguida, temos
+o hiperparâmetro "lstm_layers",
+
+00:01:03.600 --> 00:01:09.464
+que define o número de camadas
+que você está usando para o LSTM.
+
+00:01:09.700 --> 00:01:11.433
+Isso é deep learning, certo?
+
+00:01:11.467 --> 00:01:14.433
+Isso configura o número
+de camadas que temos.
+
+00:01:14.467 --> 00:01:17.233
+O número de camadas ocultas,
+de células LSTM que temos.
+
+00:01:17.267 --> 00:01:21.800
+Novamente, quanto mais camadas,
+melhor o desempenho.
+
+00:01:21.833 --> 00:01:24.367
+Porém, tem a questão
+do sobreajuste.
+
+00:01:24.400 --> 00:01:27.800
+Pelo que vejo,
+uma boa alternativa
+
+00:01:28.533 --> 00:01:33.733
+é fazer uma rede ampla
+e aceitar que haverá sobreajuste,
+
+00:01:33.767 --> 00:01:36.567
+mas adicionar uma regularização,
+como dropout,
+
+00:01:36.600 --> 00:01:38.567
+para controlá-lo.
+
+00:01:39.667 --> 00:01:43.300
+Dito isso, eu começaria com 1,
+para ver o que acontece.
+
+00:01:43.333 --> 00:01:48.067
+Se você achar
+que precisa adicionar outra camada,
+
+00:01:48.633 --> 00:01:52.867
+pode fazer isso e ver como
+a acurácia de validação responde.
+
+00:01:53.400 --> 00:01:55.233
+Em seguida,
+temos "batch_size",
+
+00:01:55.267 --> 00:01:59.700
+que é o número de resenhas
+que vamos fornecer à rede no treino.
+
+00:01:59.733 --> 00:02:02.367
+Em geral, esse valor deve ser
+o mais alto possível
+
+00:02:02.400 --> 00:02:04.867
+sem que acabe a memória.
+
+00:02:04.900 --> 00:02:09.633
+A razão disso é que a nossa rede
+no TensorFlow é muito boa
+
+00:02:09.667 --> 00:02:13.000
+em fazer
+cálculos com matrizes,
+
+00:02:13.033 --> 00:02:15.667
+então, quanto menos matrizes
+tivermos que fornecer,
+
+00:02:15.700 --> 00:02:19.233
+menos tempo de computação
+vai levar.
+
+00:02:19.267 --> 00:02:24.233
+Porém, se você tiver muitos pesos
+e muitas conexões na rede,
+
+00:02:24.267 --> 00:02:29.600
+rapidamente vai atingir
+o limite de memória
+
+00:02:29.633 --> 00:02:32.367
+na GPU ou no computador.
+
+00:02:32.400 --> 00:02:36.900
+A melhor forma de fazer isso
+é definir o valor mais alto possível
+
+00:02:36.933 --> 00:02:38.433
+sem que acabe a memória.
+
+00:02:38.467 --> 00:02:40.100
+Por fim,
+temos "learning_rate".
+
+00:02:40.133 --> 00:02:44.367
+Este é o primeiro passo
+para criar sua rede:
+
+00:02:44.400 --> 00:02:48.233
+definir os placeholders
+para os "inputs_" e "labels_".
+
+00:02:48.267 --> 00:02:51.033
+Também utilizaremos
+dropouts aqui,
+
+00:02:51.067 --> 00:02:54.700
+então é bom criar um placeholder
+para o "keep_prob"
+
+00:02:54.733 --> 00:02:57.000
+e para a camada dropout.
+
+00:02:57.033 --> 00:02:59.533
+Isso é com você.
+
+00:02:59.567 --> 00:03:02.200
+A próxima etapa
+é a camada de embedding,
+
+00:03:02.233 --> 00:03:06.600
+que é esta camada amarela
+aqui no diagrama.
+
+00:03:06.633 --> 00:03:09.933
+Estamos lidando
+com cerca de 74 mil palavras
+
+00:03:09.967 --> 00:03:11.633
+no nosso vocabulário.
+
+00:03:11.667 --> 00:03:13.467
+Se você tentar usar
+o código one-hot,
+
+00:03:13.500 --> 00:03:15.800
+será extremamente
+ineficiente.
+
+00:03:15.833 --> 00:03:18.867
+Em vez disso,
+vamos passar os números inteiros
+
+00:03:18.900 --> 00:03:23.033
+e usar uma camada de embedding
+como uma tabela de consulta.
+
+00:03:23.067 --> 00:03:26.100
+Você viu como fizemos isso
+na lição sobre word2vec.
+
+00:03:26.133 --> 00:03:30.167
+Você poderia treinar uma camada
+de embedding com o word2vec
+
+00:03:30.200 --> 00:03:32.167
+e importar para cá,
+
+00:03:32.200 --> 00:03:35.800
+mas, na maioria dos casos,
+
+00:03:35.833 --> 00:03:38.200
+a menos que haja
+uma quantidade enorme de dados,
+
+00:03:38.233 --> 00:03:41.933
+geralmente é possível apenas fazer
+uma nova camada de embedding
+
+00:03:41.967 --> 00:03:46.363
+e deixar a rede treinar as conexões
+e achar representações sozinha.
+
+00:03:47.033 --> 00:03:50.867
+Aqui, deixarei você criar
+a matriz de embedding
+
+00:03:50.900 --> 00:03:52.867
+com "tf.Variable".
+
+00:03:52.900 --> 00:03:56.967
+Use "tf.nn.embedding_lookup"
+
+00:03:57.000 --> 00:04:02.500
+para obter os vetores que passaremos
+para as células LSTM.
+
+00:04:02.533 --> 00:04:07.433
+Se precisar de ajuda com isso,
+volte à lição sobre word2vec
+
+00:04:07.467 --> 00:04:08.833
+e veja como fizemos lá.
+
+00:04:08.867 --> 00:04:12.867
+Você também pode ler mais sobre
+embedding_lookup clicando aqui.
+
+00:04:12.900 --> 00:04:16.600
+Depois disso, vamos definir
+as células LSTM.
+
+00:04:16.633 --> 00:04:20.167
+Não vamos construir a rede
+neste momento,
+
+00:04:20.200 --> 00:04:23.167
+criaremos apenas
+o que vai dentro das células LSTM.
+
+00:04:23.867 --> 00:04:26.633
+Você pode consultar
+este material
+
+00:04:26.667 --> 00:04:29.800
+sobre as funções
+de redes recorrentes do TensorFlow.
+
+00:04:30.233 --> 00:04:35.000
+A primeira que usaremos
+será uma célula LSTM básica,
+
+00:04:35.033 --> 00:04:39.233
+que pode ser obtida
+com "tf.contrib.rnn.BasicLSTMCell".
+
+00:04:39.267 --> 00:04:42.633
+Esta é a aparência da documentação
+sobre funções.
+
+00:04:42.667 --> 00:04:47.300
+Você cria a célula e diz o número
+de unidades que ela deve usar.
+
+00:04:47.333 --> 00:04:51.800
+Neste caso, eu chamei isso
+de "lstm_size", lá no alto.
+
+00:04:53.033 --> 00:04:55.200
+Então podemos dizer
+
+00:04:55.233 --> 00:04:59.100
+que "lstm" é igual
+a "tf.contrib.rnn.BasicLSTMCell",
+
+00:04:59.133 --> 00:05:02.033
+que é igual a "lstm_size"
+e isso é tudo que você precisa.
+
+00:05:02.067 --> 00:05:03.433
+Fica mais ou menos assim.
+
+00:05:03.467 --> 00:05:07.800
+Em seguida, vamos adicionar
+dropout às nossas células LSTM.
+
+00:05:07.833 --> 00:05:09.900
+É uma coisa muito útil,
+
+00:05:09.933 --> 00:05:13.733
+porque torna sua rede melhor
+
+00:05:13.767 --> 00:05:16.833
+com pouquíssimo esforço.
+
+00:05:16.867 --> 00:05:20.367
+Lembrando, dropout
+é uma técnica de regularização
+
+00:05:20.400 --> 00:05:22.900
+que ajuda a evitar
+o sobreajuste.
+
+00:05:22.933 --> 00:05:28.200
+Com estas unidades LSTM,
+é muito fácil usar o dropout
+
+00:05:28.233 --> 00:05:31.200
+com essa categoria
+chamada Dropout Wrapper.
+
+00:05:31.233 --> 00:05:33.333
+É só escrever "cell",
+
+00:05:33.367 --> 00:05:37.767
+passar o "keep_prob", que definimos
+como placeholder ali em cima,
+
+00:05:37.800 --> 00:05:41.267
+e obtemos este "drop".
+
+00:05:41.300 --> 00:05:44.233
+Isso funciona exatamente
+como uma célula LSTM.
+
+00:05:44.267 --> 00:05:48.067
+A diferença é que agora sua célula
+LSTM tem dropout no output.
+
+00:05:48.533 --> 00:05:52.433
+Novamente, temos a opção
+de adicionar mais camadas.
+
+00:05:52.467 --> 00:05:57.167
+O TensorFlow torna isso
+muito simples,
+
+00:05:57.201 --> 00:06:01.233
+é só usar
+"tf.contrib.rnn.MultiRNNCell".
+
+00:06:01.267 --> 00:06:06.067
+Aqui, você passa
+uma lista de células.
+
+00:06:06.100 --> 00:06:08.633
+No nosso caso,
+temos este dropout.
+
+00:06:08.667 --> 00:06:11.567
+Como eu disse, é como se fosse
+uma célula LSTM normal
+
+00:06:11.600 --> 00:06:15.433
+acrescida de um dropout.
+É só adicionar o dropout no final.
+
+00:06:15.467 --> 00:06:20.333
+Agora, podemos criar uma lista
+de sei lá quantas camadas
+
+00:06:20.367 --> 00:06:23.067
+e passá-la
+para a célula multi-RNN.
+
+00:06:23.100 --> 00:06:27.700
+Isto aqui vai criar
+uma lista de células
+
+00:06:27.733 --> 00:06:30.333
+e depois vai construir
+camadas.
+
+00:06:30.633 --> 00:06:35.267
+Use isto aqui para criar
+a célula LSTM.
+
+00:06:35.300 --> 00:06:38.233
+Aqui você cria
+a célula LSTM básica,
+
+00:06:38.267 --> 00:06:39.767
+depois adiciona o dropout,
+
+00:06:39.800 --> 00:06:43.000
+depois pode empilhar
+em múltiplas camadas LSTM.
+
+00:06:43.033 --> 00:06:46.600
+Aqui estou usando a célula
+para obter um estado inicial.
+
+00:06:46.633 --> 00:06:48.267
+Se você lembra bem,
+
+00:06:48.300 --> 00:06:50.667
+LSTM possui
+estados de célula
+
+00:06:50.700 --> 00:06:53.833
+que são transmitidos
+entre as células LSTM.
+
+00:06:53.867 --> 00:06:57.400
+Isto aqui cria o estado inicial
+da célula, que é só de zeros
+
+00:06:57.433 --> 00:06:59.733
+e será atualizado
+durante o treino
+
+00:06:59.767 --> 00:07:02.767
+e à medida que passar
+os dados como sequência.
+
+00:07:02.800 --> 00:07:08.133
+Finalmente, criaremos o forward pass
+da rede neural recorrente.
+
+00:07:08.167 --> 00:07:10.467
+Isso significa
+que vamos fornecer os dados,
+
+00:07:10.500 --> 00:07:14.533
+eles passarão por aqui
+e os outputs serão calculados.
+
+00:07:15.067 --> 00:07:19.167
+O motivo de estar usando
+uma rede neural recorrente
+
+00:07:19.201 --> 00:07:22.867
+é que podemos obter informações
+sobre a sequência
+
+00:07:22.900 --> 00:07:27.200
+das palavras das resenhas.
+
+00:07:27.233 --> 00:07:30.995
+Talvez você lembre que,
+na lição do Andrew Trask,
+
+00:07:31.022 --> 00:07:33.033
+ele usou apenas
+uma rede feedforward.
+
+00:07:33.067 --> 00:07:36.781
+Naquele caso, a rede só saberia
+as palavras individuais
+
+00:07:36.815 --> 00:07:38.233
+que estavam nas resenhas.
+
+00:07:38.267 --> 00:07:41.667
+Neste caso,
+temos as palavras individuais,
+
+00:07:41.700 --> 00:07:44.467
+mas também temos
+a sequência em que apareceram.
+
+00:07:44.500 --> 00:07:47.900
+As palavras individuais
+entram por aqui,
+
+00:07:47.933 --> 00:07:49.833
+pela camada de embedding,
+
+00:07:49.867 --> 00:07:53.300
+de forma que fazem
+um caminho vertical pela rede.
+
+00:07:53.333 --> 00:07:56.333
+Como estamos usando
+uma rede neural recorrente,
+
+00:07:56.367 --> 00:08:01.700
+também temos a informação sequencial
+que passa pelas camadas ocultas.
+
+00:08:01.733 --> 00:08:04.900
+Assim, nosso output aqui,
+que é positivo,
+
+00:08:04.934 --> 00:08:08.633
+sabe que "best" e "movie"
+vieram antes de "ever",
+
+00:08:08.667 --> 00:08:11.100
+e agora temos
+essa informação
+
+00:08:11.133 --> 00:08:14.433
+sobre a sequência
+de palavras na resenha.
+
+00:08:14.467 --> 00:08:17.400
+Isso faz com que redes
+neurais recorrentes
+
+00:08:17.433 --> 00:08:20.767
+tenham um desempenho melhor
+do que redes feedforward normais.
+
+00:08:20.801 --> 00:08:25.600
+A forma como vamos implementar isso,
+rodando os dados na rede,
+
+00:08:25.633 --> 00:08:29.567
+é com "tf.nn.dynamic_rnn".
+
+00:08:29.600 --> 00:08:33.200
+O que você precisa fazer aqui
+é passar a célula,
+
+00:08:33.233 --> 00:08:34.833
+que já criamos,
+
+00:08:34.867 --> 00:08:39.900
+e os inputs, que, no nosso caso,
+vêm da camada de embedding
+
+00:08:39.933 --> 00:08:42.100
+e entram na camada oculta.
+
+00:08:42.133 --> 00:08:45.767
+É o que "inputs" aqui significa,
+não são os inputs da rede,
+
+00:08:45.800 --> 00:08:48.167
+e sim das células LSTM.
+
+00:08:48.567 --> 00:08:51.067
+É o input
+desta camada oculta.
+
+00:08:51.100 --> 00:08:53.000
+Você também fornece
+o estado inicial.
+
+00:08:53.033 --> 00:08:58.930
+O que isso faz é percorrer a rede
+e calcular o estado
+
+00:08:58.964 --> 00:09:02.067
+para cada camada oculta
+e passar para a próxima,
+
+00:09:02.100 --> 00:09:05.767
+e também calcular o output
+de cada uma das camadas ocultas.
+
+00:09:06.200 --> 00:09:07.533
+Após fazer isso,
+
+00:09:07.567 --> 00:09:11.033
+ele nos dá uma lista de outputs
+e o estado final.
+
+00:09:11.067 --> 00:09:13.533
+Vou deixar com você
+
+00:09:13.567 --> 00:09:17.233
+a construção dessa rede
+neural recorrente dinâmica
+
+00:09:17.267 --> 00:09:19.833
+e o cálculo dos outputs
+e do estado final.
+

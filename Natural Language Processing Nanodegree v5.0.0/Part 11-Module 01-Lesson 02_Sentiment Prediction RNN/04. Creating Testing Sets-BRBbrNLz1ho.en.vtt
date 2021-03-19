@@ -1,0 +1,110 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.179
+The next thing to do is create
+our training, validation,
+
+00:00:04.179 --> 00:00:05.549
+and test sets.
+
+00:00:05.549 --> 00:00:07.019
+This is something
+you're probably
+
+00:00:07.019 --> 00:00:09.149
+going to have to do for
+every network you build,
+
+00:00:09.150 --> 00:00:14.230
+so it's good practice to
+do this for every data
+
+00:00:14.230 --> 00:00:15.339
+set you're using.
+
+00:00:15.339 --> 00:00:17.550
+And I found that a
+lot of, basically
+
+00:00:17.550 --> 00:00:20.969
+like every different data set
+has a different way to do this.
+
+00:00:20.969 --> 00:00:23.339
+Just because things
+are different
+
+00:00:23.339 --> 00:00:24.870
+shapes, and the
+way that you want
+
+00:00:24.870 --> 00:00:27.510
+to put your data into
+your network is different.
+
+00:00:27.510 --> 00:00:30.090
+So you end up having
+to do this in a lot
+
+00:00:30.089 --> 00:00:32.250
+of different ways, many times.
+
+00:00:32.250 --> 00:00:36.210
+So typically with this, you
+have some split fraction
+
+00:00:36.210 --> 00:00:39.359
+where you define like what's
+the fraction of my data
+
+00:00:39.359 --> 00:00:41.009
+that I want to keep
+in the test set.
+
+00:00:41.009 --> 00:00:44.699
+Most of the time this is
+usually like 0.8 or 0.9.
+
+00:00:44.700 --> 00:00:48.150
+So here I split the
+data into a training set
+
+00:00:48.149 --> 00:00:50.449
+for the features, a validation
+set for the features,
+
+00:00:50.450 --> 00:00:53.250
+and then training for the
+labels, and validation
+
+00:00:53.250 --> 00:00:54.210
+for the labels.
+
+00:00:54.210 --> 00:00:56.490
+And then from there,
+split the validation
+
+00:00:56.490 --> 00:01:00.020
+set into a smaller validation
+set and a test set,
+
+00:01:00.020 --> 00:01:04.230
+and another validation for the
+labels and test for the labels.
+
+00:01:04.230 --> 00:01:06.936
+If you do this right, these
+are the shape of the features
+
+00:01:06.936 --> 00:01:07.769
+that you should see.
+
+00:01:07.769 --> 00:01:11.939
+So like the train x,
+validation x, and test x,
+
+00:01:11.939 --> 00:01:14.269
+should be these sizes.
+

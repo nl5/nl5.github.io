@@ -1,0 +1,824 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:01.634
+Bem-vindo de volta.
+
+00:00:01.667 --> 00:00:04.033
+Vou falar
+sobre as minhas soluções
+
+00:00:04.067 --> 00:00:07.067
+para os exercícios
+que pedi para você fazer.
+
+00:00:07.100 --> 00:00:09.200
+Talvez você tenha vindo aqui
+
+00:00:09.234 --> 00:00:13.234
+porque teve dificuldade
+na implementação,
+
+00:00:13.267 --> 00:00:16.033
+ou talvez só queira ver
+como eu fiz.
+
+00:00:16.067 --> 00:00:18.734
+Você provavelmente
+fez de um jeito diferente do meu,
+
+00:00:18.767 --> 00:00:19.934
+mas não há problema.
+
+00:00:19.968 --> 00:00:23.968
+Em programação, há milhares de
+formas distintas de fazer as coisas.
+
+00:00:24.000 --> 00:00:26.667
+Este foi o jeito que eu fiz.
+
+00:00:26.701 --> 00:00:28.868
+A primeira coisa que fiz
+
+00:00:28.901 --> 00:00:32.033
+foi codificar as palavras
+como números inteiros.
+
+00:00:32.067 --> 00:00:37.767
+Eu gosto de organizar os inteiros
+em ordem de frequência.
+
+00:00:37.801 --> 00:00:39.968
+A palavra de maior
+frequência será 1,
+
+00:00:40.000 --> 00:00:42.234
+a próxima será 2,
+e assim por diante.
+
+00:00:42.267 --> 00:00:45.501
+Não há um bom motivo
+para fazer isso aqui,
+
+00:00:45.534 --> 00:00:49.567
+mas ajudou muito quando eu trabalhei
+no modelo do word2vec,
+
+00:00:49.601 --> 00:00:52.300
+então gosto de fazer isso.
+
+00:00:52.334 --> 00:00:55.367
+Se você não fez isso,
+está tudo bem.
+
+00:00:55.400 --> 00:00:59.367
+Aqui, usei um contador
+para obter a frequência das palavras
+
+00:00:59.400 --> 00:01:03.167
+e as distribuí,
+para obter o vocabulário
+
+00:01:03.200 --> 00:01:07.300
+seguindo a ordem
+de frequência das palavras.
+
+00:01:07.334 --> 00:01:11.767
+Aqui eu construí o dicionário,
+o "vocab_to_int",
+
+00:01:11.801 --> 00:01:14.434
+usando uma estrutura compreensiva
+de dicionário.
+
+00:01:14.467 --> 00:01:18.934
+Usei "enumerate" no vocabulário
+e comecei do 1,
+
+00:01:18.968 --> 00:01:23.467
+para obter o índice,
+o inteiro e a palavra.
+
+00:01:23.501 --> 00:01:28.067
+Determinei a palavra como a chave
+e o inteiro como o valor.
+
+00:01:30.667 --> 00:01:34.234
+Como eu disse antes,
+vamos começar do 1, não do 0,
+
+00:01:34.267 --> 00:01:38.300
+porque vamos preencher
+os vetores de input com zeros.
+
+00:01:38.334 --> 00:01:42.734
+Se você tivesse uma palavra
+representada pelo 0,
+
+00:01:42.767 --> 00:01:44.567
+codificada como 0,
+
+00:01:44.601 --> 00:01:49.765
+quando a rede rodasse, consideraria
+tudo como a palavra "it", ou "the".
+
+00:01:49.799 --> 00:01:52.796
+Acho que seria "the",
+que é a palavra mais frequente.
+
+00:01:52.830 --> 00:01:57.467
+Foi aqui que eu converti as resenhas
+de palavras para números inteiros.
+
+00:01:57.501 --> 00:01:59.300
+Usei uma estrutura
+compreensiva,
+
+00:01:59.334 --> 00:02:01.934
+desta vez de lista.
+
+00:02:01.968 --> 00:02:06.467
+Neste ponto, estou pegando
+cada uma das resenhas,
+
+00:02:06.501 --> 00:02:09.634
+dividindo em palavras
+e converto cada uma
+
+00:02:09.667 --> 00:02:11.567
+para um número inteiro.
+
+00:02:11.601 --> 00:02:14.667
+Usei uma compreensão de lista
+para criar uma nova lista,
+
+00:02:14.701 --> 00:02:16.400
+com esses inteiros.
+
+00:02:16.434 --> 00:02:19.767
+Então ponho como "append"
+desta lista, "reviews_ints".
+
+00:02:20.601 --> 00:02:24.701
+Dessa forma, posso criar
+uma lista de listas,
+
+00:02:24.734 --> 00:02:26.701
+em que cada uma
+das listas de inteiros
+
+00:02:26.734 --> 00:02:31.072
+é uma resenha que foi convertida
+de palavras para inteiros.
+
+00:02:34.133 --> 00:02:37.067
+Aqui foi onde codifiquei
+as classificações.
+
+00:02:37.100 --> 00:02:38.774
+Novamente, é neste ponto
+
+00:02:38.808 --> 00:02:41.801
+em que mudamos as classificações
+de positivas e negativas
+
+00:02:41.835 --> 00:02:45.000
+para 1 e 0,
+respectivamente.
+
+00:02:45.033 --> 00:02:47.868
+Isso foi simples para mim.
+
+00:02:47.901 --> 00:02:51.067
+Eu usei uma estrutura
+compreensiva.
+
+00:02:51.101 --> 00:02:54.167
+Uso muito as estruturas de lista,
+porque gosto muito delas.
+
+00:02:54.200 --> 00:02:58.234
+Basicamente, peguei
+cada classificação em "labels"
+
+00:02:58.267 --> 00:02:59.367
+e fiz um teste.
+
+00:02:59.401 --> 00:03:03.400
+Estou dizendo aqui: transforme em 1
+se a classificação for positiva,
+
+00:03:03.434 --> 00:03:04.901
+se não, transforme em 0.
+
+00:03:04.935 --> 00:03:06.834
+Assim, podemos fazer um loop,
+
+00:03:06.868 --> 00:03:11.267
+criar uma lista nova
+e transformá-la num array.
+
+00:03:13.767 --> 00:03:17.834
+Gosto de armazenar os dados
+em arrays NumPy
+
+00:03:17.868 --> 00:03:21.334
+e não em listas,
+porque é mais fácil trabalhar assim.
+
+00:03:21.367 --> 00:03:24.901
+Sempre que estiver trabalhando
+com números, da forma que seja,
+
+00:03:24.934 --> 00:03:29.968
+será melhor usar um array NumPy
+do que uma lista Python.
+
+00:03:31.033 --> 00:03:36.000
+Aqui, estou excluindo aquela resenha
+não preenchida.
+
+00:03:36.033 --> 00:03:38.667
+Eu fiquei com preguiça
+
+00:03:38.701 --> 00:03:44.634
+e não quis procurar na lista inteira
+qual não estava preenchida,
+
+00:03:44.667 --> 00:03:47.300
+então fiz um loop
+passando por tudo,
+
+00:03:47.334 --> 00:03:50.567
+novamente com uma compreensão
+de lista, que eu adoro.
+
+00:03:50.601 --> 00:03:54.334
+Usei a estrutura de lista
+e fiz este teste:
+
+00:03:54.367 --> 00:03:58.567
+o comprimento de uma resenha
+precisa ser maior que zero.
+
+00:03:58.601 --> 00:04:00.501
+Se for, adicione-a.
+
+00:04:00.534 --> 00:04:05.000
+Se não for, ela não será
+adicionada à lista final.
+
+00:04:05.033 --> 00:04:08.294
+Desse jeito, fizemos um loop
+passando por tudo,
+
+00:04:08.328 --> 00:04:11.667
+certificando-nos de que todos
+têm comprimento maior que zero.
+
+00:04:12.634 --> 00:04:14.834
+Aqui, criei
+o array de atributos.
+
+00:04:14.868 --> 00:04:19.000
+Isto aqui, na verdade,
+é bem difícil. Eu acho.
+
+00:04:19.033 --> 00:04:22.033
+Não é nada trivial
+e há várias formas de fazer isso.
+
+00:04:22.067 --> 00:04:25.267
+Se você teve problemas com isso,
+está tudo bem.
+
+00:04:25.301 --> 00:04:27.234
+Você está aprendendo,
+isso é bom.
+
+00:04:27.267 --> 00:04:29.701
+Se está difícil, significa
+que você está aprendendo,
+
+00:04:29.734 --> 00:04:32.801
+que é exatamente
+o que queremos que você faça.
+
+00:04:32.834 --> 00:04:35.033
+A forma como eu fiz isso
+
+00:04:35.067 --> 00:04:40.133
+foi inicializando
+um array só de zeros,
+
+00:04:40.167 --> 00:04:41.934
+que é o comprimento
+das resenhas.
+
+00:04:41.968 --> 00:04:45.467
+Isto diz que só há
+uma linha para cada resenha,
+
+00:04:45.501 --> 00:04:49.801
+e cada linha terá 200 etapas
+sequenciais,
+
+00:04:49.834 --> 00:04:52.267
+então o comprimento
+da sequência é 200.
+
+00:04:52.801 --> 00:04:57.901
+O nosso array de atributos de zeros
+vai percorrer as resenhas
+
+00:04:57.934 --> 00:04:59.634
+pelo comprimento
+da sequência.
+
+00:04:59.667 --> 00:05:03.434
+Isso vai nos informar
+quantas resenhas temos sobre 200,
+
+00:05:03.467 --> 00:05:06.334
+se quisermos
+fazer números inteiros.
+
+00:05:06.367 --> 00:05:10.501
+Agora que tenho os zeros,
+vou preencher.
+
+00:05:10.534 --> 00:05:14.400
+Esta é uma forma fácil
+de fazer isso.
+
+00:05:14.434 --> 00:05:16.901
+Em vez de preencher
+tudo com zeros,
+
+00:05:16.934 --> 00:05:18.534
+já tenho todos os zeros,
+
+00:05:18.567 --> 00:05:21.766
+então posso só acrescentar
+os elementos dos quais preciso.
+
+00:05:22.601 --> 00:05:27.634
+Estou fazendo isso
+através de um loop pelas resenhas,
+
+00:05:27.667 --> 00:05:29.767
+os números inteiros,
+"row in enumerate".
+
+00:05:29.801 --> 00:05:34.033
+Estou usando o "enumerate"
+para escolher em que linha estou.
+
+00:05:34.067 --> 00:05:37.534
+Pego uma linha de "features",
+no caso, a linha "i",
+
+00:05:37.567 --> 00:05:41.932
+e uso "-len(row)".
+
+00:05:42.267 --> 00:05:48.033
+Isso faz com que, caso o comprimento
+da fileira seja menor que 200,
+
+00:05:48.067 --> 00:05:49.667
+digamos que seja 100,
+
+00:05:49.701 --> 00:05:55.200
+só vou pegar os últimos 100
+elementos da linha.
+
+00:05:55.234 --> 00:05:58.701
+Isso resolve os casos
+
+00:05:58.734 --> 00:06:02.701
+em que temos menos
+de 200 palavras numa resenha.
+
+00:06:03.400 --> 00:06:08.734
+O que fiz aqui foi converter
+cada linha das resenhas num array,
+
+00:06:08.767 --> 00:06:14.027
+e depois peguei as primeiras
+200 palavras desse array.
+
+00:06:14.061 --> 00:06:18.000
+Isso resolve os dois problemas
+que nós temos.
+
+00:06:18.033 --> 00:06:22.067
+O primeiro é: no caso de uma resenha
+com mais de 200 palavras,
+
+00:06:22.100 --> 00:06:25.834
+como obter as primeiras
+200 palavras? Isto aqui resolve.
+
+00:06:25.868 --> 00:06:29.300
+A segunda é: se tivermos um array
+com menos de 200 palavras,
+
+00:06:29.334 --> 00:06:32.801
+como adicionamos isso
+ao final do array?
+
+00:06:32.834 --> 00:06:34.767
+Isto resolve o problema.
+
+00:06:35.234 --> 00:06:39.634
+Esta é uma forma bem simples
+de fazer isso.
+
+00:06:39.667 --> 00:06:42.868
+É possível que você tenha encontrado
+outra forma de fazer isso
+
+00:06:42.901 --> 00:06:45.567
+e não há
+problema algum nisso.
+
+00:06:45.601 --> 00:06:47.167
+Foi assim que eu fiz.
+
+00:06:47.200 --> 00:06:50.100
+Uso o NumPy há muito tempo,
+
+00:06:50.133 --> 00:06:54.300
+então sei fazer coisas desse tipo
+por experiência.
+
+00:06:54.334 --> 00:06:57.968
+Programação funciona assim,
+
+00:06:58.000 --> 00:07:00.467
+quanto mais você faz,
+
+00:07:00.501 --> 00:07:02.963
+mais você aprende
+truques desse tipo,
+
+00:07:02.997 --> 00:07:07.031
+que permitem fazer as coisas
+de forma mais rápida e intuitiva.
+
+00:07:08.534 --> 00:07:11.934
+Agora, esta é minha solução
+para a validação do treino
+
+00:07:11.968 --> 00:07:13.234
+e conjuntos de teste.
+
+00:07:13.834 --> 00:07:16.567
+Essa costuma ser
+minha abordagem
+
+00:07:16.601 --> 00:07:20.267
+sempre que faço conjuntos de treino
+e coisas assim.
+
+00:07:20.300 --> 00:07:24.601
+Primeiro encontro a fração parcial
+e depois um inteiro,
+
+00:07:24.634 --> 00:07:29.601
+basicamente o índice
+que vou usar para dividir os dados.
+
+00:07:29.635 --> 00:07:31.968
+Precisamos
+de um número inteiro
+
+00:07:32.000 --> 00:07:35.464
+porque o índice que você
+vai passar ao array
+
+00:07:35.498 --> 00:07:37.701
+precisa ser
+um número inteiro.
+
+00:07:38.400 --> 00:07:41.868
+Para "train_x" e "val_x",
+
+00:07:41.901 --> 00:07:44.868
+pegarei aqui
+"features[:split_idx]",
+
+00:07:44.902 --> 00:07:49.263
+e, para validação,
+será do "split_idx" ao final.
+
+00:07:49.297 --> 00:07:53.701
+Depois farei o mesmo
+para "train_y" e para "val_y".
+
+00:07:53.734 --> 00:07:55.968
+Só usei "labels"
+no lugar de "features".
+
+00:07:56.467 --> 00:08:00.434
+Então faço a mesma coisa
+para os conjuntos de teste.
+
+00:08:00.468 --> 00:08:02.434
+Estou pegando metade.
+
+00:08:02.467 --> 00:08:05.868
+Olho para o comprimento do teste
+de validação e pego metade dele,
+
+00:08:05.901 --> 00:08:08.400
+e agora esse é o índice
+que preciso dividir.
+
+00:08:08.968 --> 00:08:11.200
+Então pego
+os dados de validação
+
+00:08:11.234 --> 00:08:13.968
+e uso a primeira metade,
+para a validação
+
+00:08:14.000 --> 00:08:16.634
+e a segunda metade
+para o teste.
+
+00:08:18.133 --> 00:08:22.198
+Certo. Nesta parte,
+eu criei os placeholders
+
+00:08:22.229 --> 00:08:25.234
+para "inputs_", "labels_"
+e "keep_prob".
+
+00:08:25.267 --> 00:08:28.801
+Isto é bem comum,
+usei "tf.placeholder".
+
+00:08:28.834 --> 00:08:30.434
+Estes aqui serão inteiros.
+
+00:08:30.467 --> 00:08:32.861
+Deixei o tamanho do batch
+
+00:08:32.895 --> 00:08:36.801
+e da sequência variável
+arbitrário.
+
+00:08:38.200 --> 00:08:39.701
+Não há problema nisso.
+
+00:08:40.434 --> 00:08:42.167
+Para "labels_",
+
+00:08:42.200 --> 00:08:46.033
+estamos passando
+uma de cada vez,
+
+00:08:46.067 --> 00:08:47.934
+então é 1 ou 0.
+
+00:08:48.601 --> 00:08:50.999
+Mais tarde,
+haverá funções na rede
+
+00:08:51.033 --> 00:08:54.230
+que exigirão que elas sejam
+bidimensionais,
+
+00:08:54.264 --> 00:08:57.534
+por isso acrescentei esta referência
+a duas dimensões aqui.
+
+00:08:58.301 --> 00:08:59.634
+Este é um daqueles casos
+
+00:08:59.667 --> 00:09:01.667
+em que primeiro
+eu fiz em uma dimensão,
+
+00:09:01.701 --> 00:09:03.934
+porque pensei que poderia
+ser em 1D,
+
+00:09:03.968 --> 00:09:06.300
+mas depois,
+enquanto construía a rede,
+
+00:09:06.334 --> 00:09:08.934
+descobri uma parte
+que chamava uma função
+
+00:09:08.968 --> 00:09:11.300
+e exigia que fosse em 2D.
+
+00:09:11.334 --> 00:09:14.734
+Então, precisei voltar aqui
+
+00:09:14.767 --> 00:09:18.767
+e recriar este placeholder "labels_"
+usando duas dimensões.
+
+00:09:18.801 --> 00:09:22.400
+Percebi que tem muita coisa assim
+no TensorFlow.
+
+00:09:22.434 --> 00:09:24.167
+Você percorre o código
+
+00:09:24.200 --> 00:09:28.300
+e, em alguns pontos, descobre
+que coisas que definiu antes
+
+00:09:28.334 --> 00:09:30.634
+não funcionarão
+devido ao formato, ou algo assim.
+
+00:09:30.667 --> 00:09:32.968
+Esta é uma das coisas
+
+00:09:33.000 --> 00:09:37.033
+que você descobre
+ao montar gráficos de TensorFlow.
+
+00:09:37.067 --> 00:09:42.534
+Certo. Foi assim que eu criei
+as camadas de embedding.
+
+00:09:42.567 --> 00:09:46.334
+Assim como na rede word2vec,
+
+00:09:46.868 --> 00:09:50.300
+crie a matriz de embedding
+como uma variável.
+
+00:09:50.334 --> 00:09:53.297
+Aqui estou utilizando
+a distribuição uniforme aleatória.
+
+00:09:53.331 --> 00:09:56.467
+O tamanho será o número
+de palavras que você tem,
+
+00:09:56.501 --> 00:09:58.133
+e aqui temos o tamanho
+do embedding.
+
+00:09:58.167 --> 00:10:00.200
+Neste caso, usei 300.
+
+00:10:00.234 --> 00:10:05.234
+O output da camada de embedding
+terá o comprimento de 300 unidades,
+
+00:10:05.267 --> 00:10:07.634
+então será um vetor
+com comprimento de 300.
+
+00:10:08.667 --> 00:10:12.501
+Um vetor com comprimento de 300
+para cada input que entrar.
+
+00:10:12.734 --> 00:10:13.974
+Como neste caso
+
+00:10:14.008 --> 00:10:19.599
+temos múltiplas palavras,
+até 200, entrando.
+
+00:10:21.400 --> 00:10:24.801
+Para fazer o lookup,
+
+00:10:24.834 --> 00:10:29.133
+temos
+"tf.nn.embedding_lookup".
+
+00:10:29.167 --> 00:10:32.732
+Passamos a matriz de embedding
+e os inputs
+
+00:10:32.766 --> 00:10:35.267
+e obtemos
+os vetores de embedding.
+
+00:10:36.801 --> 00:10:41.167
+Foi assim que criei
+as células LSTM.
+
+00:10:41.200 --> 00:10:44.734
+Criei uma célula LSTM
+básica,
+
+00:10:44.767 --> 00:10:46.868
+determinei o tamanho
+
+00:10:47.367 --> 00:10:51.534
+e então apliquei o dropout.
+É só passar a célula LSTM
+
+00:10:51.567 --> 00:10:53.901
+e configurar a "keep_prob".
+
+00:10:53.935 --> 00:10:57.667
+Passamos isso
+para a célula multi-RNN
+
+00:10:57.701 --> 00:11:00.734
+e obtemos o estado inicial.
+
+00:11:02.300 --> 00:11:04.300
+Este é o forwardpass.
+
+00:11:04.334 --> 00:11:06.934
+Usei aqui "dynamic_rnn"
+
+00:11:06.968 --> 00:11:12.033
+e passei a célula que criamos,
+o output da camada de embedding
+
+00:11:12.067 --> 00:11:14.000
+e o estado inicial.
+
+00:11:14.033 --> 00:11:18.167
+Isto vai nos dar os outputs
+das células LSTM
+
+00:11:18.200 --> 00:11:19.868
+e o estado final.
+
+00:11:21.834 --> 00:11:23.665
+Certo. É assim que fica
+
+00:11:23.699 --> 00:11:26.234
+quando está tudo
+construído e treinado.
+
+00:11:26.267 --> 00:11:32.235
+Conseguimos bem rápido,
+após uns 20 batches passarem,
+
+00:11:32.269 --> 00:11:37.033
+uma acurácia de quase 71%
+no conjunto de validação.
+
+00:11:37.601 --> 00:11:40.801
+Depois aumenta.
+
+00:11:40.834 --> 00:11:45.200
+Acho que chega a 83%.
+Temos 84% aqui,
+
+00:11:45.234 --> 00:11:46.868
+mas termina em 83%.
+
+00:11:46.901 --> 00:11:52.167
+O desempenho é bom
+e o treino é rápido.
+
+00:11:52.200 --> 00:11:54.634
+Bom, rápido em uma GPU.
+
+00:11:55.200 --> 00:11:59.501
+Se observarmos
+a acurácia do teste, temos 83%.
+
+00:11:59.534 --> 00:12:02.234
+Imagino que,
+se tivéssemos mais camadas
+
+00:12:02.267 --> 00:12:05.334
+ou mais unidades
+na célula LSTM,
+
+00:12:05.367 --> 00:12:07.901
+poderíamos conseguir
+uma acurácia melhor.
+
+00:12:07.934 --> 00:12:10.757
+Ou talvez este seja o limite
+
+00:12:10.791 --> 00:12:13.261
+do que podemos fazer
+com este banco de dados.
+
+00:12:13.501 --> 00:12:16.167
+Espero que tenha gostado
+desta lição
+
+00:12:16.200 --> 00:12:20.400
+e que tenha gostado de implementar
+essa análise de sentimentos,
+
+00:12:20.434 --> 00:12:23.033
+essa rede neural recorrente
+de predição de sentimentos.
+
+00:12:23.067 --> 00:12:26.467
+Vejo você na próxima lição!
+Valeu!
+

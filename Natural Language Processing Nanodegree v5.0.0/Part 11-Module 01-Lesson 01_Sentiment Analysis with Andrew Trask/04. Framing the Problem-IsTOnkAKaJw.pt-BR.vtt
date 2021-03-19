@@ -1,0 +1,426 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:02.367
+Vamos começar com os dados.
+
+00:00:02.400 --> 00:00:04.534
+As redes neurais,
+por si só,
+
+00:00:04.567 --> 00:00:07.601
+não podem fazer nada.
+Tudo o que a rede neural faz
+
+00:00:07.634 --> 00:00:10.767
+é procurar correlações
+diretas ou indiretas nos dados.
+
+00:00:10.801 --> 00:00:13.767
+Para uma rede neural poder
+treinar qualquer coisa,
+
+00:00:13.801 --> 00:00:16.200
+temos que apresentar
+dados significativos.
+
+00:00:16.234 --> 00:00:19.200
+O primeiro conjunto deve
+representar o que sabemos
+
+00:00:19.234 --> 00:00:21.734
+e o segundo representa
+o que queremos saber.
+
+00:00:21.767 --> 00:00:24.567
+O que queremos que a rede
+seja capaz de nos dizer.
+
+00:00:24.601 --> 00:00:27.334
+Quando a rede treina,
+ela busca por correlações
+
+00:00:27.367 --> 00:00:31.033
+entre os dados, para depois poder
+prever um a partir do outro.
+
+00:00:31.067 --> 00:00:34.534
+Vou mostrar o que quero dizer
+com dados de sentimentos.
+
+00:00:34.567 --> 00:00:39.667
+Aqui vamos carregar uma lista,
+resenhas de filmes do IMDB.
+
+00:00:39.701 --> 00:00:43.167
+São resenhas que as pessoas
+escreveram no site.
+
+00:00:43.200 --> 00:00:45.868
+Esses rótulos
+vêm com as resenhas,
+
+00:00:45.901 --> 00:00:49.434
+as pessoas as rotularam
+com de 1 a 5 estrelas.
+
+00:00:49.467 --> 00:00:52.501
+Neste caso, agrupamos
+em resenhas positivas,
+
+00:00:52.534 --> 00:00:54.467
+com mais de 3 estrelas,
+
+00:00:54.501 --> 00:00:56.501
+e resenhas negativas
+com menos.
+
+00:00:56.534 --> 00:00:58.767
+Temos 25 mil resenhas.
+
+00:00:58.801 --> 00:01:01.200
+Aqui está um exemplo.
+
+00:01:01.234 --> 00:01:04.501
+É uma resenha negativa,
+eu acho.
+
+00:01:04.534 --> 00:01:05.968
+Agora...
+
+00:01:06.000 --> 00:01:09.501
+Vamos ver uma positiva...
+
+00:01:09.534 --> 00:01:11.734
+Está com um rótulo positivo.
+
+00:01:11.767 --> 00:01:13.367
+Esses são os dados.
+
+00:01:13.400 --> 00:01:15.434
+São dois conjuntos de dados.
+
+00:01:15.467 --> 00:01:17.167
+Temos este, o que sabemos,
+
+00:01:17.200 --> 00:01:18.868
+o que saberemos no futuro,
+
+00:01:18.901 --> 00:01:20.734
+e este é
+o que queremos saber.
+
+00:01:20.767 --> 00:01:23.534
+Neste caso, temos
+dois conjuntos de exemplo.
+
+00:01:23.567 --> 00:01:25.234
+Vamos treinar
+uma rede neural
+
+00:01:25.267 --> 00:01:28.634
+para pegar essa entrada
+e prever isto corretamente.
+
+00:01:28.667 --> 00:01:33.234
+Quando virmos no futuro
+mais texto gerado por humanos
+
+00:01:33.267 --> 00:01:36.167
+teoricamente
+poderemos classificar.
+
+00:01:36.834 --> 00:01:40.767
+A primeira coisa a fazer é
+desenvolver uma teoria de previsão.
+
+00:01:40.801 --> 00:01:45.300
+Uma teoria de previsão é dizer,
+se eu fosse a rede neural,
+
+00:01:45.334 --> 00:01:49.901
+e fosse tentar procurar
+correlação nos dados,
+
+00:01:49.934 --> 00:01:51.167
+onde eu procuraria?
+
+00:01:51.200 --> 00:01:54.467
+O que eu gosto de fazer para
+criar teorias de previsão
+
+00:01:54.501 --> 00:01:56.234
+é dar uma olhada nos dados.
+
+00:01:56.267 --> 00:01:58.634
+Tentar resolver o problema
+sozinho
+
+00:01:58.667 --> 00:02:02.467
+e olhar para dentro e perguntar
+o que eu estou usando
+
+00:02:02.501 --> 00:02:08.367
+para entender se o sentimento
+é positivo ou negativo.
+
+00:02:08.400 --> 00:02:09.734
+Vamos ler algumas.
+
+00:02:09.767 --> 00:02:13.100
+"O filme foi horrível,
+mas tem alguns bons efeitos."
+
+00:02:13.133 --> 00:02:14.534
+Resenha negativa.
+
+00:02:14.567 --> 00:02:17.234
+"Adrian Pasdar
+está ótimo neste filme.
+
+00:02:17.267 --> 00:02:19.167
+Ele é fascinante
+como mulher."
+
+00:02:19.200 --> 00:02:20.934
+Resenha negativa.
+
+00:02:20.968 --> 00:02:23.167
+"Esse filme é impossível.
+Terrível.
+
+00:02:23.200 --> 00:02:25.601
+Muito improvável,
+interpretação ruim."
+
+00:02:25.634 --> 00:02:28.934
+Positiva. "Excelente episódio,
+parece Pulp Fiction."
+
+00:02:28.968 --> 00:02:31.701
+"Dias, suicídio..."
+E ele continua.
+
+00:02:31.734 --> 00:02:36.300
+Já estou tendo uma ideia
+que parece bastante óbvio,
+
+00:02:36.334 --> 00:02:39.067
+estes são exemplos
+muito polarizados.
+
+00:02:39.100 --> 00:02:43.300
+Mas o que eu vou procurar
+é o que produz correlação
+
+00:02:43.334 --> 00:02:47.300
+entre os dados das resenhas
+e os dados dos rótulos.
+
+00:02:47.334 --> 00:02:48.534
+Bem...
+
+00:02:48.567 --> 00:02:49.901
+O que tem aqui?
+
+00:02:49.934 --> 00:02:51.234
+Uma lista de letras.
+
+00:02:51.267 --> 00:02:55.133
+Se olhar o formato nativo,
+é uma lista de...
+
+00:02:55.167 --> 00:02:59.300
+Umas 20 e poucas letras.
+
+00:02:59.334 --> 00:03:02.400
+Tem correlação assim?
+
+00:03:03.701 --> 00:03:07.501
+Acho que a letra M e a letra T
+não têm poder de previsão.
+
+00:03:07.534 --> 00:03:11.901
+Tem M nos exemplos positivos
+e também nos negativos.
+
+00:03:11.934 --> 00:03:13.534
+Isso não ajuda.
+
+00:03:13.567 --> 00:03:15.334
+Acho que não seria bom.
+
+00:03:15.367 --> 00:03:18.667
+O estado nativo em que está agora
+não é muito bom.
+
+00:03:18.701 --> 00:03:22.167
+Agora vamos considerar
+o oposto.
+
+00:03:22.200 --> 00:03:26.367
+Vamos pegar a resenha inteira
+como o que é o dado.
+
+00:03:26.400 --> 00:03:27.601
+Bem...
+
+00:03:27.634 --> 00:03:29.734
+Tem poder de previsão.
+
+00:03:29.767 --> 00:03:33.567
+Esta resenha, todas as vezes,
+será um exemplo negativo.
+
+00:03:33.601 --> 00:03:35.667
+Infelizmente,
+só a vimos uma vez.
+
+00:03:35.701 --> 00:03:39.868
+Acho que a maior parte das resenhas
+serão relativamente originais.
+
+00:03:39.901 --> 00:03:42.868
+Algumas pessoas dizem
+que o filme foi horrível,
+
+00:03:42.901 --> 00:03:45.667
+o filme foi ótimo,
+coisas bem diretas assim.
+
+00:03:45.701 --> 00:03:48.501
+Mas a maior parte das resenhas
+têm nuances,
+
+00:03:48.534 --> 00:03:50.734
+uma escolha particular
+de palavras,
+
+00:03:50.767 --> 00:03:54.067
+uma sequência que não vai
+se repetir com frequência.
+
+00:03:54.100 --> 00:03:56.300
+Treinar uma rede
+na resenha inteira
+
+00:03:56.334 --> 00:03:58.601
+não vai funcionar bem
+no mundo real,
+
+00:03:58.634 --> 00:04:01.000
+porque não a vemos
+com frequência.
+
+00:04:01.033 --> 00:04:04.167
+Ótima correlação,
+mas generalização pobre.
+
+00:04:04.200 --> 00:04:07.901
+E as características
+intermediárias?
+
+00:04:07.934 --> 00:04:10.467
+Note que,
+nos exemplos negativos,
+
+00:04:10.501 --> 00:04:14.701
+vemos palavras como "horrível",
+"improvável", "terrível",
+
+00:04:14.734 --> 00:04:16.767
+"terrível", "lixo"...
+
+00:04:16.801 --> 00:04:22.367
+Palavras individuais
+que podem ter correlação
+
+00:04:22.400 --> 00:04:24.868
+com os rótulos.
+
+00:04:24.901 --> 00:04:29.934
+Ao contrário de "excelente",
+"fascinante", "qualidade"...
+
+00:04:29.968 --> 00:04:35.400
+Pode ser que sejam as contagens
+das palavras diferentes
+
+00:04:35.434 --> 00:04:38.400
+que ocorrem nas resenhas.
+
+00:04:38.434 --> 00:04:41.334
+Acho uma teoria melhor.
+
+00:04:41.367 --> 00:04:45.234
+Melhor do que letras
+e do que a resenha inteira.
+
+00:04:45.267 --> 00:04:47.901
+Mas antes de sair criando
+uma rede neural,
+
+00:04:47.934 --> 00:04:51.267
+acho melhor fazer
+uma rápida validação.
+
+00:04:51.300 --> 00:04:54.367
+Algo que achamos
+que é verdade,
+
+00:04:54.400 --> 00:04:56.200
+uma teoria que temos,
+
+00:04:56.234 --> 00:04:58.901
+mas antes de fazer tudo,
+
+00:04:58.934 --> 00:05:03.534
+vamos ver se o que temos
+gera previsões inocentes.
+
+00:05:03.567 --> 00:05:07.000
+O que eu costumo fazer
+é contar.
+
+00:05:07.033 --> 00:05:09.501
+Faço uma heurística
+baseada em contagem
+
+00:05:09.534 --> 00:05:15.200
+para ver se este fenômeno
+acontece mais para este rótulo
+
+00:05:15.234 --> 00:05:16.934
+do que para este.
+
+00:05:16.968 --> 00:05:18.701
+É bom para diferenciar?
+
+00:05:18.734 --> 00:05:21.200
+O primeiro projeto
+que você deve fazer,
+
+00:05:21.234 --> 00:05:23.167
+e depois eu mostro
+como eu fiz,
+
+00:05:23.200 --> 00:05:28.100
+é usar este conjunto de dados
+para validar nossa teoria
+
+00:05:28.133 --> 00:05:31.300
+de que as palavras
+preveem os rótulos.
+
+00:05:31.334 --> 00:05:33.901
+Usem alguns minutos.
+
+00:05:33.934 --> 00:05:37.601
+Tentem.
+Vejam se conseguem mostrar
+
+00:05:37.634 --> 00:05:39.734
+se elas geram ou não
+uma previsão.
+

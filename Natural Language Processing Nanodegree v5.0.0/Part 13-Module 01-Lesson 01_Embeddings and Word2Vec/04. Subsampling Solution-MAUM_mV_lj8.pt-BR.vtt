@@ -1,0 +1,321 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.233 --> 00:00:01.667
+Olá, pessoal! Bem-vindos!
+
+00:00:01.700 --> 00:00:06.167
+Estas são as minhas soluções
+para a parte de subsampling.
+
+00:00:06.567 --> 00:00:10.433
+Aqui, eu vou basicamente
+calcular esta probabilidade
+
+00:00:10.467 --> 00:00:14.833
+e passar por todas as "int_words",
+que são o nosso conjunto de dados,
+
+00:00:14.867 --> 00:00:17.200
+e descartar
+as palavras frequentes.
+
+00:00:17.233 --> 00:00:21.067
+A primeira coisa que fiz
+foi calcular as frequências
+
+00:00:21.100 --> 00:00:23.133
+de todas as palavras
+do conjunto de dados.
+
+00:00:23.167 --> 00:00:26.333
+Para isso, usei um contador
+e passei "int_words",
+
+00:00:26.367 --> 00:00:30.233
+e ele contabilizou todas as palavras
+do nosso conjunto de dados.
+
+00:00:30.267 --> 00:00:33.800
+Depois, podemos usar essa contagem
+para obter as frequências.
+
+00:00:33.833 --> 00:00:37.533
+As frequências mostram quantas vezes
+estas palavras aparecem
+
+00:00:37.567 --> 00:00:39.833
+no conjunto total de dados.
+
+00:00:39.867 --> 00:00:43.100
+Então, pegamos a contagem
+de palavras
+
+00:00:43.133 --> 00:00:45.067
+e a dividimos
+pelo "total_count",
+
+00:00:45.100 --> 00:00:47.800
+que é o número total de palavras
+do conjunto de dados,
+
+00:00:47.833 --> 00:00:51.433
+o que não significa o número
+de palavras específicas,
+
+00:00:51.467 --> 00:00:54.133
+o número
+de palavras únicas,
+
+00:00:54.167 --> 00:00:58.100
+e sim o número de palavras
+individuais no conjunto de dados.
+
+00:00:58.133 --> 00:01:00.933
+Aqui, estou usando
+uma compreensão de dicionário
+
+00:01:00.967 --> 00:01:03.333
+para criar um dicionário
+em que passamos uma palavra
+
+00:01:03.367 --> 00:01:05.500
+e obtemos a frequência dela.
+
+00:01:05.533 --> 00:01:08.300
+Eu vou pegar a "count"
+de cada palavra
+
+00:01:08.333 --> 00:01:10.400
+e dividi-las pelo
+"total_cout" de palavras.
+
+00:01:10.433 --> 00:01:15.133
+Vamos pegar as "words" e as "counts"
+de "word_counts", que é o contador,
+
+00:01:15.167 --> 00:01:19.667
+".items", para que itere
+por todas as chaves,
+
+00:01:19.700 --> 00:01:21.300
+valores e "word_counts".
+
+00:01:21.333 --> 00:01:24.300
+As chaves são as palavras
+e os valores são a contagem delas.
+
+00:01:24.333 --> 00:01:27.133
+Pegamos a "count"
+e dividimos por "total"count",
+
+00:01:27.167 --> 00:01:30.833
+o que nos dá a frequência
+das palavras no conjunto de dados.
+
+00:01:30.867 --> 00:01:33.933
+Depois, vou calcular
+a probabilidade de descarte,
+
+00:01:33.967 --> 00:01:38.133
+então escaneamos por todas
+as palavras nas frequências,
+
+00:01:38.167 --> 00:01:42.533
+e calculamos 1 menos a raiz de "t",
+que é o limite que definimos,
+
+00:01:42.567 --> 00:01:44.300
+dividido pelas frequências.
+
+00:01:44.633 --> 00:01:47.667
+Agora vou usar outra
+compreensão de dicionário
+
+00:01:47.700 --> 00:01:50.633
+para criar um dicionário
+em que as chaves são as palavras
+
+00:01:50.667 --> 00:01:53.433
+e os valores
+são as nossas probabilidades.
+
+00:01:53.467 --> 00:01:55.400
+Então temos 1 menos
+a raiz do limite
+
+00:01:55.433 --> 00:01:57.267
+dividida pela frequência
+dessa palavra.
+
+00:01:57.300 --> 00:02:01.767
+Agora que temos as frequências
+e as probabilidades de descarte,
+
+00:02:01.800 --> 00:02:04.233
+podemos passar
+por todas as palavras,
+
+00:02:04.267 --> 00:02:06.267
+em "int_words"
+nos nossos dados,
+
+00:02:06.300 --> 00:02:09.233
+e descartar
+as que forem frequentes.
+
+00:02:09.267 --> 00:02:10.833
+Então, o que eu
+estou fazendo aqui
+
+00:02:10.867 --> 00:02:14.367
+é passar por cada uma
+das palavras em "int_words"
+
+00:02:14.400 --> 00:02:17.500
+descobrindo
+a probabilidade de descartá-las,
+
+00:02:17.533 --> 00:02:20.600
+comparando-as com um número
+gerado aleatoriamente.
+
+00:02:21.100 --> 00:02:24.567
+O que o "random.random"
+faz é colher uma amostra
+
+00:02:24.600 --> 00:02:28.633
+em uma distribuição uniforme
+entre 0 e 1.
+
+00:02:29.200 --> 00:02:33.633
+Isto é, se a probabilidade
+de descartar uma palavra
+
+00:02:33.667 --> 00:02:37.067
+é, digamos, de 70%,
+ou seja, 0,7,
+
+00:02:38.800 --> 00:02:43.667
+então nós geramos um número
+aleatório do "random.random".
+
+00:02:44.033 --> 00:02:48.133
+Há uma chance de 70%
+de ele ser menor que 0,7
+
+00:02:48.167 --> 00:02:51.967
+e uma chance de 30%
+de ele ser maior que 0,7.
+
+00:02:52.500 --> 00:02:56.400
+Assim, se a nossa probabilidade
+for menor
+
+00:02:56.433 --> 00:03:00.700
+do que o número gerado,
+como, por exemplo, 0,7,
+
+00:03:00.733 --> 00:03:03.667
+e se esse valor for menor
+que o "random.random",
+
+00:03:03.700 --> 00:03:07.833
+que pode ser, digamos, 0,8,
+
+00:03:07.867 --> 00:03:12.433
+como 0,8 é maior que 0,7,
+nós mantemos a palavra.
+
+00:03:12.467 --> 00:03:14.833
+Mas isso só acontece
+em 30% das vezes,
+
+00:03:14.867 --> 00:03:18.167
+porque temos 0,7,
+e só vamos obter um número
+
+00:03:18.200 --> 00:03:21.967
+maior do que a nossa probabilidade
+de descarte em 30% das vezes.
+
+00:03:22.000 --> 00:03:24.867
+Então, nós vamos manter
+30% das palavras.
+
+00:03:25.567 --> 00:03:29.100
+Deve ficar claro
+se eu descrever assim:
+
+00:03:29.133 --> 00:03:32.200
+já que esta é a nossa probabilidade
+de descartar uma palavra,
+
+00:03:32.233 --> 00:03:35.633
+1 menos isso é a nossa probabilidade
+de manter uma palavra.
+
+00:03:35.667 --> 00:03:36.900
+Então, repetindo:
+
+00:03:36.933 --> 00:03:39.933
+se gerarmos um número aleatório
+e esta for a probabilidade
+
+00:03:39.967 --> 00:03:43.033
+de mantermos uma palavra,
+digamos que ela seja
+
+00:03:43.067 --> 00:03:44.633
+de, por exemplo, 60%,
+
+00:03:44.667 --> 00:03:48.000
+então em 60% das vezes
+vamos gerar um número aleatório
+
+00:03:48.033 --> 00:03:49.300
+que será menor do que isso.
+
+00:03:49.333 --> 00:03:54.533
+Então, esta é
+uma maneira probabilística
+
+00:03:54.567 --> 00:03:56.800
+de utilizar esta probabilidade
+para decidir
+
+00:03:56.833 --> 00:03:58.833
+se mantemos
+ou descartamos uma palavra.
+
+00:03:58.867 --> 00:04:01.033
+Nós queremos
+uma maneira probabilística,
+
+00:04:01.067 --> 00:04:04.867
+porque queremos
+que este descarte,
+
+00:04:04.900 --> 00:04:08.300
+que esta amostra seja uniforme
+ao longo do conjunto de dados.
+
+00:04:08.333 --> 00:04:10.233
+Em qualquer lote
+que você passar,
+
+00:04:10.267 --> 00:04:12.700
+você vai querer que ele
+tenha a mesma probabilidade
+
+00:04:12.733 --> 00:04:14.533
+do que foi descartado
+
+00:04:14.567 --> 00:04:18.333
+do primeiro lote para algum lote
+do meio até o último.
+
+00:04:18.733 --> 00:04:20.300
+Até o próximo vídeo!
+

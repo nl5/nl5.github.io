@@ -1,0 +1,509 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.520 --> 00:00:05.490
+So in the last section we significantly
+increased the speed by which our neural
+
+00:00:05.490 --> 00:00:06.150
+network.
+
+00:00:06.150 --> 00:00:07.360
+Even in the last section,
+
+00:00:07.360 --> 00:00:11.670
+seeing something in the realm of 1,500
+reviews per second in our test data.
+
+00:00:11.670 --> 00:00:13.790
+I mean, just absolutely screaming.
+
+00:00:13.790 --> 00:00:17.140
+Now, in this section we're
+going to go back one chapter and
+
+00:00:17.140 --> 00:00:20.530
+continue to try to reduce the amount of
+
+00:00:20.530 --> 00:00:23.920
+noise that our network has to go through
+and increase the amount of signal.
+
+00:00:23.920 --> 00:00:27.620
+This signal to noise ratio,
+the more that you can do
+
+00:00:27.620 --> 00:00:31.820
+to help the neural network cut
+though the really obvious steps but
+
+00:00:31.820 --> 00:00:34.480
+it can then focus on
+the really difficult stuff,
+
+00:00:34.480 --> 00:00:36.790
+the better your neural network
+will be able to train.
+
+00:00:36.790 --> 00:00:39.350
+And that's really what we
+want to continue to iterate.
+
+00:00:39.350 --> 00:00:41.650
+So once again it's about
+framing of the problem so
+
+00:00:41.650 --> 00:00:44.200
+the neural net can be as
+successful as possible.
+
+00:00:44.200 --> 00:00:49.110
+As we've already seen a few
+relatively small changes can have
+
+00:00:49.110 --> 00:00:52.230
+a drastic impact on how
+fast the network trains,
+
+00:00:52.230 --> 00:00:55.120
+how much it's able to identify the
+underlying pattern that you care about.
+
+00:00:55.120 --> 00:00:57.810
+And we're just going to
+continue to iterate.
+
+00:00:57.810 --> 00:00:59.290
+So in this section we're
+going to go back to it and
+
+00:00:59.290 --> 00:01:02.760
+say, okay what is our
+neural network doing.
+
+00:01:02.760 --> 00:01:04.849
+This is the question
+that we're always asking.
+
+00:01:04.849 --> 00:01:06.930
+What is really happening under the hood.
+
+00:01:06.930 --> 00:01:11.460
+So this is, right now we're adding these
+vectors together that's repeated in
+
+00:01:11.460 --> 00:01:13.230
+this vector, and
+that's making a prediction.
+
+00:01:13.230 --> 00:01:20.648
+So this ends up being a sum of all of
+the words that exist in the in review.
+
+00:01:20.648 --> 00:01:22.710
+Now it's funny.
+
+00:01:22.710 --> 00:01:27.642
+Earlier when we were doing
+a small little validation of our
+
+00:01:27.642 --> 00:01:29.400
+[LAUGH] of our idea.
+
+00:01:29.400 --> 00:01:30.780
+What did we do.
+
+00:01:30.780 --> 00:01:33.370
+We created this ratio where
+
+00:01:34.730 --> 00:01:36.910
+we identified what words
+were really important.
+
+00:01:36.910 --> 00:01:39.940
+What words had the highest correlation,
+flawless, superbly,
+
+00:01:39.940 --> 00:01:44.002
+perfection, or unwatchable, pointless,
+atrocious, redeeming, laughable.
+
+00:01:44.002 --> 00:01:45.950
+And it got me wondering.
+
+00:01:45.950 --> 00:01:50.080
+Well what if we use these
+
+00:01:50.080 --> 00:01:53.788
+to help continue to weight it more in
+favor where it's like, hey, neural net.
+
+00:01:53.788 --> 00:01:55.482
+Look here.
+
+00:01:55.482 --> 00:01:58.640
+It's okay if you look at
+other places too, I suppose.
+
+00:01:58.640 --> 00:02:02.320
+But start with this at
+least at a very minimum.
+
+00:02:02.320 --> 00:02:06.150
+Or if we just actually said,
+hey, this is where the gold is.
+
+00:02:06.150 --> 00:02:07.150
+Start digging.
+
+00:02:07.150 --> 00:02:11.952
+Not everyone of these words bowl and
+you and seagull or
+
+00:02:11.952 --> 00:02:15.476
+Segal, I guess it's, that's not too bad.
+
+00:02:15.476 --> 00:02:18.656
+Seagull is one of the worst.
+
+00:02:18.656 --> 00:02:21.685
+[INAUDIBLE] corded terms and
+don't tell them.
+
+00:02:21.685 --> 00:02:22.480
+So here like Gandhi.
+
+00:02:23.960 --> 00:02:25.170
+That's probably just
+a movie about Gandhi.
+
+00:02:25.170 --> 00:02:27.360
+I know that it really tells
+you much about the sentiment.
+
+00:02:27.360 --> 00:02:29.060
+So flawless, superbly, perfection,
+
+00:02:29.060 --> 00:02:31.480
+these are the ones we want
+the neural net to find.
+
+00:02:31.480 --> 00:02:35.010
+But if you're thinking this
+is you're digging for gold.
+
+00:02:35.010 --> 00:02:37.080
+This is a really gold rich section.
+
+00:02:37.080 --> 00:02:40.470
+There's still some rock and
+some iron and stuff in here.
+
+00:02:40.470 --> 00:02:42.380
+But I mean, this stuff right here.
+
+00:02:42.380 --> 00:02:46.080
+This is what we want our
+neuronet to be naturally finding.
+
+00:02:46.080 --> 00:02:49.740
+So how can we actually use
+this statistic to help adia.
+
+00:02:49.740 --> 00:02:52.760
+I mean would that even make sense to do.
+
+00:02:52.760 --> 00:02:54.610
+Well, what if we did a cut off.
+
+00:02:54.610 --> 00:02:58.540
+Would that, we're going to
+actually limit the vocabulary.
+
+00:02:58.540 --> 00:03:00.070
+Well, to investigate that,
+
+00:03:00.070 --> 00:03:04.150
+we actually want to see what
+the distribution is on this ratio.
+
+00:03:04.150 --> 00:03:07.210
+Now for that,
+visualization libraries are great.
+
+00:03:08.350 --> 00:03:09.345
+Check this out.
+
+00:03:09.345 --> 00:03:10.540
+This is our ratio.
+
+00:03:10.540 --> 00:03:13.816
+Zero was totally neutral, and
+
+00:03:13.816 --> 00:03:18.357
+the frequency kind of this distribution.
+
+00:03:18.357 --> 00:03:20.479
+So it's normalized.
+
+00:03:20.479 --> 00:03:26.510
+But there's a ton of words
+that are kind of ambiguous.
+
+00:03:26.510 --> 00:03:28.110
+Not really positive and
+not really negative.
+
+00:03:28.110 --> 00:03:29.570
+They're kind of in the middle.
+
+00:03:29.570 --> 00:03:33.717
+And then over here is actually
+a relatively small number that are just
+
+00:03:33.717 --> 00:03:37.088
+real punchers, the ones that really,
+really matter.
+
+00:03:37.088 --> 00:03:42.351
+And to me, this is great because
+If these ones don't really matter,
+
+00:03:42.351 --> 00:03:46.431
+if this is the a, b, periods,
+commas of the world and
+
+00:03:46.431 --> 00:03:50.366
+they happen all the time
+then I can get rid of these.
+
+00:03:50.366 --> 00:03:53.630
+And it's going to save me tons of
+computational time, because because
+
+00:03:53.630 --> 00:03:57.565
+these are really frequent, but
+it shouldn't effect quality negatively.
+
+00:03:57.565 --> 00:04:00.915
+In fact, if anything it should effect
+quality positively because they
+
+00:04:00.915 --> 00:04:02.495
+don't have that much predictive power.
+
+00:04:02.495 --> 00:04:07.035
+So we have a ton on words in our corpus
+that don't have predictive power.
+
+00:04:07.035 --> 00:04:09.795
+So let's get rid of them.
+
+00:04:10.995 --> 00:04:14.230
+That's just going to make our
+neural net that much stronger.
+
+00:04:14.230 --> 00:04:17.700
+Now before we quite jump there let's
+look at one more distribution.
+
+00:04:20.720 --> 00:04:24.000
+This is the relative
+frequency of different terms.
+
+00:04:26.100 --> 00:04:28.720
+It's called a Zitvian
+distribution normally.
+
+00:04:28.720 --> 00:04:33.260
+Our corpus is so extreme that there
+are a few terms that dominate.
+
+00:04:33.260 --> 00:04:39.620
+I mean like these few words are just
+way more frequent than all the rest.
+
+00:04:39.620 --> 00:04:40.820
+Now look at that.
+
+00:04:42.020 --> 00:04:44.660
+And to me this is interesting.
+
+00:04:44.660 --> 00:04:48.505
+And actually in natural processing it
+comes common trend is to eliminate
+
+00:04:48.505 --> 00:04:51.875
+the stuff that's both most frequent and
+the stuff that's most infrequent.
+
+00:04:51.875 --> 00:04:54.485
+The stuff that almost never happens.
+
+00:04:54.485 --> 00:04:54.575
+Why.
+
+00:04:54.575 --> 00:04:56.890
+Stuff that's really frequent,
+like the, a, and.
+
+00:04:56.890 --> 00:05:00.190
+It happens so much that it doesn't
+really give you much signal.
+
+00:05:00.190 --> 00:05:03.760
+So if it's really infrequent, if it
+only happens once, that's not a pattern.
+
+00:05:03.760 --> 00:05:05.080
+That's just it happening once.
+
+00:05:05.080 --> 00:05:07.980
+How can you say that's correlation
+when if you only see it one time.
+
+00:05:07.980 --> 00:05:12.200
+So people tend to kind of trim from both
+sides in actually approximating when
+
+00:05:12.200 --> 00:05:14.680
+they're trying to make a class fire
+that does something really interesting.
+
+00:05:16.100 --> 00:05:20.320
+So what we're really doing is we're
+looking at these kind of broad
+
+00:05:20.320 --> 00:05:23.670
+visualizations and say hey,
+what is signal and what is noise.
+
+00:05:23.670 --> 00:05:29.100
+And can we use these different metrics
+to cut out noise and add in signal.
+
+00:05:29.100 --> 00:05:32.800
+So in here, I'm looking at this and
+I'm going big chunk of noise right here.
+
+00:05:32.800 --> 00:05:35.340
+Extremely frequent and not very useful.
+
+00:05:35.340 --> 00:05:36.690
+I'm going to cut this out.
+
+00:05:36.690 --> 00:05:39.530
+And I'm looking here, and
+I'm going, hmm, yeah.
+
+00:05:39.530 --> 00:05:40.880
+There's a lot of stuff in here too.
+
+00:05:40.880 --> 00:05:44.810
+Now, I think these are actually,
+this big part is going to be in here.
+
+00:05:44.810 --> 00:05:48.270
+This is actually a better filter for
+getting out the really frequent stuff.
+
+00:05:48.270 --> 00:05:54.370
+But as far as this stuff, you can't
+even see it because it's so infrequent.
+
+00:05:54.370 --> 00:05:56.760
+I think we're going to try
+to carve that out too.
+
+00:05:56.760 --> 00:05:57.796
+So Project six.
+
+00:05:57.796 --> 00:06:00.350
+Project six I'm really excited about.
+
+00:06:00.350 --> 00:06:00.930
+This one's great.
+
+00:06:03.090 --> 00:06:06.770
+Project six is going to be about making
+learning faster by reducing noise
+
+00:06:06.770 --> 00:06:09.110
+using these statistics, these ideas.
+
+00:06:09.110 --> 00:06:12.860
+There's no general neural net rule
+that says that this is how you do it.
+
+00:06:12.860 --> 00:06:15.630
+What we're doing is we're
+framing the problem to
+
+00:06:15.630 --> 00:06:19.020
+make the correlation as obvious
+as possible to the neural net so
+
+00:06:19.020 --> 00:06:24.150
+that it has the best chance to
+ignore noise and to find signal.
+
+00:06:24.150 --> 00:06:27.170
+That's what framing
+the problem is all about.
+
+00:06:27.170 --> 00:06:30.780
+So in the next project,
+what we're going to do is we're going to
+
+00:06:30.780 --> 00:06:32.810
+install these metrics
+into our neural net.
+
+00:06:32.810 --> 00:06:34.230
+I want you to go ahead and
+give it a shot.
+
+00:06:34.230 --> 00:06:38.161
+See if you can build the neural
+net where or modify this,
+
+00:06:38.161 --> 00:06:42.344
+so that in the train method or
+the sediment network method,
+
+00:06:42.344 --> 00:06:46.797
+you put in a parameter that says,
+how much of this to carve out.
+
+00:06:46.797 --> 00:06:48.928
+You put in a parameter that says, hey,
+
+00:06:48.928 --> 00:06:52.231
+get rid of all the words that
+are too frequent or infrequent.
+
+00:06:52.231 --> 00:06:55.478
+And you'll have a min count.
+
+00:06:55.478 --> 00:06:58.985
+Each word has to show up at least
+ten times, at least five times to be
+
+00:06:58.985 --> 00:07:02.255
+included in my vocabulary and
+to be included in my neural net.
+
+00:07:02.255 --> 00:07:03.720
+And see how that goes.
+
+00:07:03.720 --> 00:07:05.060
+So take a crack at that.
+
+00:07:05.060 --> 00:07:07.450
+In a minute we'll pull up one
+that works and talk about it.
+
+00:07:07.450 --> 00:07:08.530
+I'll see you there.
+

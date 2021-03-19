@@ -1,0 +1,241 @@
+WEBVTT
+Kind: captions
+Language: en-US
+
+00:00:00.000 --> 00:00:02.730
+Hi, my name is Andrew Trask, and I'm a PhD
+
+00:00:02.730 --> 00:00:04.049
+student at the University of Oxford,
+
+00:00:04.049 --> 00:00:05.910
+studying deep learning for natural
+
+00:00:05.910 --> 00:00:08.010
+language processing. Deep learning, as I'm
+
+00:00:08.010 --> 00:00:10.019
+sure you are coming to understand, is a suite of
+
+00:00:10.019 --> 00:00:11.580
+tools that allows you to take what you
+
+00:00:11.580 --> 00:00:13.469
+know, and predict what you want to know
+
+00:00:13.469 --> 00:00:15.809
+using neural networks. Natural language
+
+00:00:15.809 --> 00:00:17.430
+processing is the study of human
+
+00:00:17.430 --> 00:00:19.320
+language using tools such as machine
+
+00:00:19.320 --> 00:00:20.789
+learning, and in this case, deep learning.
+
+00:00:20.789 --> 00:00:22.800
+In this tutorial, we're going to be
+
+00:00:22.800 --> 00:00:24.359
+talking about sentiment classification,
+
+00:00:24.359 --> 00:00:26.099
+or the classification of whether or not
+
+00:00:26.099 --> 00:00:28.019
+a section of human generated text is
+
+00:00:28.019 --> 00:00:30.179
+positive or negative. So in this case,
+
+00:00:30.179 --> 00:00:32.098
+what we know is a section of human
+
+00:00:32.098 --> 00:00:34.559
+generated text, and we want to know is
+
+00:00:34.559 --> 00:00:36.149
+one of these positive or negative labels.
+
+00:00:36.149 --> 00:00:39.690
+Now, what this tutorial is really going
+
+00:00:39.690 --> 00:00:41.790
+to be about, is about framing a problem,
+
+00:00:41.790 --> 00:00:43.620
+so the network can be successful in
+
+00:00:43.620 --> 00:00:45.059
+discovering correlation between your
+
+00:00:45.059 --> 00:00:48.000
+input and your output data. Sentiment
+
+00:00:48.000 --> 00:00:49.649
+classification is really good for this,
+
+00:00:49.649 --> 00:00:52.829
+because neural nets don't naturally accept
+
+00:00:52.829 --> 00:00:55.530
+texts input, they accept numbers. So what we're
+
+00:00:55.530 --> 00:00:58.410
+going to have to do, is transform our
+
+00:00:58.410 --> 00:01:01.230
+textual input data into numerical form
+
+00:01:01.230 --> 00:01:02.789
+in such a way that the neural network can
+
+00:01:02.789 --> 00:01:05.099
+easily discover the correlation. Our
+
+00:01:05.099 --> 00:01:06.930
+goal is going to be to be able to see
+
+00:01:06.930 --> 00:01:08.880
+how can we change the way that we do
+
+00:01:08.880 --> 00:01:10.439
+this that we set our problem in such a
+
+00:01:10.439 --> 00:01:11.580
+way that the neural net discovers
+
+00:01:11.580 --> 00:01:13.380
+correlation as quickly and easily as
+
+00:01:13.380 --> 00:01:14.430
+possible.
+
+00:01:14.430 --> 00:01:16.320
+Now, what I'm going to assume you already
+
+00:01:16.320 --> 00:01:18.360
+know is basically what you learned so
+
+00:01:18.360 --> 00:01:20.939
+far in Udacity course. So neural networks, forward and
+
+00:01:20.939 --> 00:01:23.220
+back propagation, stochastic gradient descent,
+
+00:01:23.220 --> 00:01:24.780
+mean square error, and train/test split
+
+00:01:24.780 --> 00:01:26.130
+that all shall be quite familiar to you at
+
+00:01:26.130 --> 00:01:27.840
+this point. If you become
+
+00:01:27.840 --> 00:01:30.090
+unfamiliar, feel unprepared for any
+
+00:01:30.090 --> 00:01:31.380
+of these prerequisites, I  encourage
+
+00:01:31.380 --> 00:01:32.670
+you first to go back and check out the
+
+00:01:32.670 --> 00:01:34.650
+Udacity lectures from previous
+
+00:01:34.650 --> 00:01:37.409
+weeks, and if you would prefer to hear it
+
+00:01:37.409 --> 00:01:39.509
+in another way, or perhaps the textual away,
+
+00:01:39.509 --> 00:01:40.920
+you can also check out your companion
+
+00:01:40.920 --> 00:01:42.720
+guide, Grokking Deep Learning, which is a
+
+00:01:42.720 --> 00:01:45.180
+book that I write. My publisher - Manning
+
+00:01:45.180 --> 00:01:46.740
+publications is generous enough to
+
+00:01:46.740 --> 00:01:48.570
+offer forty percent discount code to all
+
+00:01:48.570 --> 00:01:50.610
+Udacity students. I'm also been
+
+00:01:50.610 --> 00:01:52.380
+hanging out on the slack channel for you
+
+00:01:52.380 --> 00:01:55.110
+to ask questions along the way.
+
+00:01:55.110 --> 00:01:57.630
+So, this tutorial is going to be broken
+
+00:01:57.630 --> 00:01:59.550
+into six different projects,
+
+00:01:59.550 --> 00:02:00.900
+the first one is going to start with
+
+00:02:00.900 --> 00:02:03.690
+curating your dataset, and kind of
+
+00:02:03.690 --> 00:02:05.160
+coming up with a predictive theory for
+
+00:02:05.160 --> 00:02:06.840
+where we think the correlation exists in
+
+00:02:06.840 --> 00:02:08.669
+our dataset. And then we're going to
+
+00:02:08.669 --> 00:02:10.649
+validate this theory,
+
+00:02:10.649 --> 00:02:13.080
+we're going to... Once we validate the theory,
+
+00:02:13.080 --> 00:02:14.700
+we're going to transform it into your
+
+00:02:14.700 --> 00:02:16.110
+input output data and then we're going
+
+00:02:16.110 --> 00:02:18.090
+to iterate several times, and try to
+
+00:02:18.090 --> 00:02:19.530
+increase the amount of correlation that
+
+00:02:19.530 --> 00:02:21.480
+our neural networks are able to find in a
+
+00:02:21.480 --> 00:02:24.090
+smaller period of time. At the end,
+
+00:02:24.090 --> 00:02:25.230
+we're actually going to tear apart our
+
+00:02:25.230 --> 00:02:26.700
+neural networks and check out the weights
+
+00:02:26.700 --> 00:02:29.160
+to really understand what's going on when
+
+00:02:29.160 --> 00:02:31.530
+we're back-propagating, to try to solve assignment
+
+00:02:31.530 --> 00:02:34.530
+inside the weights of our neural network. So, without
+
+00:02:34.530 --> 00:02:40.880
+further ado, let's get started.
+

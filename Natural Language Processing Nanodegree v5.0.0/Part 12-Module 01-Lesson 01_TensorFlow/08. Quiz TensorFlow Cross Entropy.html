@@ -1,0 +1,413 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Quiz: TensorFlow Cross Entropy
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      TensorFlow
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Intro.html">
+       01. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Installing TensorFlow.html">
+       02. Installing TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Hello, Tensor World!.html">
+       03. Hello, Tensor World!
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Quiz TensorFlow Input.html">
+       04. Quiz: TensorFlow Input
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Quiz TensorFlow Math.html">
+       05. Quiz: TensorFlow Math
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Quiz TensorFlow Linear Function.html">
+       06. Quiz: TensorFlow Linear Function
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Quiz TensorFlow Softmax.html">
+       07. Quiz: TensorFlow Softmax
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Quiz TensorFlow Cross Entropy.html">
+       08. Quiz: TensorFlow Cross Entropy
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Quiz Mini-batch.html">
+       09. Quiz: Mini-batch
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Epochs.html">
+       10. Epochs
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Pre-Lab NotMNIST in TensorFlow.html">
+       11. Pre-Lab: NotMNIST in TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Lab NotMNIST in TensorFlow.html">
+       12. Lab: NotMNIST in TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Two-layer Neural Network.html">
+       13. Two-layer Neural Network
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Quiz TensorFlow ReLUs.html">
+       14. Quiz: TensorFlow ReLUs
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Deep Neural Network in TensorFlow.html">
+       15. Deep Neural Network in TensorFlow
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Save and Restore TensorFlow Models.html">
+       16. Save and Restore TensorFlow Models
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Finetuning.html">
+       17. Finetuning
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Quiz TensorFlow Dropout.html">
+       18. Quiz: TensorFlow Dropout
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Outro.html">
+       19. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          08. Quiz: TensorFlow Cross Entropy
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="cross-entropy-in-tensorflow">
+          Cross Entropy in TensorFlow
+         </h1>
+         <p>
+          As with the softmax function, TensorFlow has a function to do the cross entropy calculations for us.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Cross entropy loss function" class="img img-fluid" src="img/cross-entropy-diagram.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Cross entropy loss function
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Let's take what you learned from the video and create a cross entropy function in TensorFlow.  To create a cross entropy function in TensorFlow, you'll need to use two new functions:
+         </p>
+         <ul>
+          <li>
+           <a href="https://www.tensorflow.org/api_docs/python/tf/reduce_sum" rel="noopener noreferrer" target="_blank">
+            <code>
+             tf.reduce_sum()
+            </code>
+           </a>
+          </li>
+          <li>
+           <a href="https://www.tensorflow.org/api_docs/python/tf/log" rel="noopener noreferrer" target="_blank">
+            <code>
+             tf.log()
+            </code>
+           </a>
+          </li>
+         </ul>
+         <h2 id="reduce-sum">
+          Reduce Sum
+         </h2>
+         <pre><code class="python language-python">x = tf.reduce_sum([1, 2, 3, 4, 5])  # 15</code></pre>
+         <p>
+          The
+          <a href="https://www.tensorflow.org/api_docs/python/tf/reduce_sum" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.reduce_sum()
+           </code>
+          </a>
+          function takes an array of numbers and sums them together.
+         </p>
+         <h2 id="natural-log">
+          Natural Log
+         </h2>
+         <pre><code class="python language-python">x = tf.log(100.0)  # 4.60517</code></pre>
+         <p>
+          This function does exactly what you would expect it to do.
+          <a href="https://www.tensorflow.org/api_docs/python/tf/log" rel="noopener noreferrer" target="_blank">
+           <code>
+            tf.log()
+           </code>
+          </a>
+          takes the natural log of a number.
+         </p>
+         <h2 id="quiz">
+          Quiz
+         </h2>
+         <p>
+          Print the cross entropy using
+          <code>
+           softmax_data
+          </code>
+          and
+          <code>
+           one_hot_encod_label
+          </code>
+          .
+         </p>
+         <p>
+          <a href="http://www.tensorfly.cn" rel="noopener noreferrer" target="_blank">
+           (Alternative link for users in China.)
+          </a>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4>
+          Start Quiz:
+         </h4>
+         <div>
+          <div class="nav nav-tabs nav-fill" id="question-tabs" role="tablist">
+           <a aria-controls="266716-quiz-py" aria-selected="true" class="nav-item nav-link active show" data-toggle="tab" href="#266716-quiz-py" id="tab-266716-quiz-py" role="tab">
+            quiz.py
+           </a>
+           <a aria-controls="266716-solution-py" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#266716-solution-py" id="tab-266716-solution-py" role="tab">
+            solution.py
+           </a>
+          </div>
+          <div class="tab-content" id="question-tab-contents" style="padding: 20px 0;">
+           <div aria-labelledby="tab-266716-quiz-py" class="tab-pane active show" id="266716-quiz-py" role="tabpanel">
+            <pre><code></code># Solution is available in the other "solution.py" tab
+import tensorflow as tf
+
+softmax_data = [0.7, 0.2, 0.1]
+one_hot_data = [1.0, 0.0, 0.0]
+
+softmax = tf.placeholder(tf.float32)
+one_hot = tf.placeholder(tf.float32)
+
+# TODO: Print cross entropy from session
+</pre>
+           </div>
+           <div aria-labelledby="tab-266716-solution-py" class="tab-pane" id="266716-solution-py" role="tabpanel">
+            <pre><code></code># Quiz Solution
+# Note: You can't run code in this tab
+import tensorflow as tf
+
+softmax_data = [0.7, 0.2, 0.1]
+one_hot_data = [1.0, 0.0, 0.0]
+
+softmax = tf.placeholder(tf.float32)
+one_hot = tf.placeholder(tf.float32)
+
+# ToDo: Print cross entropy from session
+cross_entropy = -tf.reduce_sum(tf.multiply(one_hot, tf.log(softmax)))
+
+with tf.Session() as sess:
+    print(sess.run(cross_entropy, feed_dict={softmax: softmax_data, one_hot: one_hot_data}))
+</pre>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="09. Quiz Mini-batch.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('08. Quiz: TensorFlow Cross Entropy')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>
